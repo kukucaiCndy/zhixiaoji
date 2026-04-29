@@ -1,7 +1,9 @@
-<!--index.wxml-->
-<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y>
-  <view class="container">
-    Weixin
+<view class="container">
+  <text class="title">{{message}}</text>
+  <view class="weixin-box">
+    <text class="weixin-text">微信</text> 
+      <image src="/icon/111.png"></image>
   </view>
-</scroll-view>
+  <button bind:tap="testButton">点击</button>
+</view>
+

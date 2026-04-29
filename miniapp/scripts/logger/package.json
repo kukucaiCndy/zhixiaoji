@@ -1,6 +1,0 @@
-{
-  "name": "mini-program-logger",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Capture mini-program console logs via Chrome DevTools Protocol"
-}
