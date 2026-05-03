@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知晓记 - L2页面集（一）</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:#F5F7FA;padding:10px;}
+.preview-grid{display:flex;flex-direction:column;gap:20px;max-width:800px;margin:0 auto;}
+.page-wrap{background:#F5F7FA;border-radius:16px;overflow:hidden;border:1px solid #E5E7EB;}
+.page-label{background:#4F6EF7;color:#fff;padding:6px 14px;font-size:12px;font-weight:600;}
+.screen{max-width:375px;margin:0 auto;background:#F5F7FA;min-height:700px;position:relative;}
+
+/* ========== 5. 知识卡片详情 ========== */
+.card-detail-screen{background:#F5F7FA;padding:0 0 80px;}
+.card-detail-screen .card-front{background:#fff;border-radius:20px;margin:16px;padding:24px 20px;box-shadow:0 4px 20px rgba(79,110,247,0.12);text-align:center;min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.card-detail-screen .card-front .chapter-tag{font-size:10px;color:#4F6EF7;background:#EEF2FF;padding:4px 12px;border-radius:8px;font-weight:500;margin-bottom:16px;}
+.card-detail-screen .card-front h3{font-size:20px;font-weight:700;color:#1A1A2E;margin-bottom:8px;}
+.card-detail-screen .card-front .difficulty{font-size:12px;color:#F59E0B;margin-bottom:20px;}
+.card-detail-screen .card-front .flip-hint{font-size:12px;color:#9CA3AF;}
+.card-detail-screen .card-front .flip-icon{width:40px;height:40px;background:#EEF2FF;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:12px auto 0;color:#4F6EF7;font-size:18px;}
+.card-detail-screen .card-back{background:#fff;border-radius:20px;margin:16px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.card-detail-screen .card-back .section-label{font-size:13px;font-weight:600;color:#4F6EF7;margin-bottom:6px;}
+.card-detail-screen .card-back p{font-size:14px;color:#1A1A2E;line-height:1.7;margin-bottom:12px;}
+.card-detail-screen .action-row{display:flex;gap:10px;margin:16px;justify-content:center;}
+.action-btn{flex:1;padding:12px;border-radius:12px;text-align:center;font-size:13px;font-weight:600;cursor:pointer;}
+.action-btn.primary{background:#4F6EF7;color:#fff;}
+.action-btn.secondary{background:#EEF2FF;color:#4F6EF7;}
+.action-btn.tertiary{background:#fff;color:#6B7280;border:1px solid #E5E7EB;}
+
+/* ========== 6. 刷题练习页 ========== */
+.practice-screen{padding:0 0 60px;}
+.practice-screen .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px;}
+.practice-screen .mode-card{background:#fff;border-radius:16px;padding:20px 14px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+.practice-screen .mode-card .micon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;color:#fff;font-size:18px;font-weight:700;}
+.practice-screen .mode-card h4{font-size:14px;font-weight:600;color:#1A1A2E;margin-bottom:2px;}
+.practice-screen .mode-card p{font-size:11px;color:#6B7280;}
+.practice-screen .mode-card:last-child{grid-column:1/3;}
+
+/* ========== 7. 答题页面 ========== */
+.quiz-screen{padding:0 0 80px;}
+.quiz-screen .question-header{background:#4F6EF7;padding:20px 16px 30px;}
+.quiz-screen .question-header .q-meta{display:flex;justify-content:space-between;color:rgba(255,255,255,0.8);font-size:12px;margin-bottom:12px;}
+.quiz-screen .question-header .progress-dots{display:flex;gap:4px;margin-bottom:12px;}
+.quiz-screen .question-header .dot{width:24px;height:4px;border-radius:2px;background:rgba(255,255,255,0.3);}
+.quiz-screen .question-header .dot.active{background:#fff;}
+.quiz-screen .question-header .dot.correct{background:#10B981;}
+.quiz-screen .question-header h3{color:#fff;font-size:18px;font-weight:600;line-height:1.5;}
+.quiz-screen .options{padding:20px 16px;display:flex;flex-direction:column;gap:12px;}
+.quiz-screen .option{background:#fff;border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 3px rgba(0,0,0,0.06);border:2px solid transparent;}
+.quiz-screen .option .letter{width:28px;height:28px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#6B7280;flex-shrink:0;}
+.quiz-screen .option .text{font-size:14px;color:#1A1A2E;}
+.quiz-screen .submit-btn{margin:16px;padding:14px;border-radius:14px;background:#4F6EF7;color:#fff;text-align:center;font-size:16px;font-weight:600;}
+
+/* ========== 8. 笔记详情页 ========== */
+.note-detail-screen{padding:0 0 60px;}
+.note-detail-screen .nd-header{background:#fff;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+.note-detail-screen .nd-header .nd-tags{display:flex;gap:6px;margin-bottom:8px;}
+.note-detail-screen .nd-header h3{font-size:20px;font-weight:700;color:#1A1A2E;margin-bottom:4px;}
+.note-detail-screen .nd-header .nd-meta{font-size:12px;color:#6B7280;}
+.note-detail-screen .nd-content{padding:20px 16px;font-size:15px;color:#1A1A2E;line-height:1.8;}
+.note-detail-screen .nd-content .highlight{background:#EEF2FF;padding:12px;border-radius:10px;border-left:3px solid #4F6EF7;margin:12px 0;}
+.note-detail-screen .nd-actions{display:flex;gap:12px;padding:0 16px;}
+.nd-action-btn{flex:1;padding:10px;border-radius:10px;text-align:center;font-size:13px;font-weight:500;}
+.nd-action-btn.edit{background:#4F6EF7;color:#fff;}
+.nd-action-btn.delete{background:#FEE2E2;color:#EF4444;}
+
+/* ========== 9. 笔记编辑页 ========== */
+.note-edit-screen{padding:0 0 60px;}
+.note-edit-screen .ne-title{margin:12px 16px;background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+.note-edit-screen .ne-title input{width:100%;border:none;outline:none;font-size:18px;font-weight:600;color:#1A1A2E;}
+.note-edit-screen .ne-toolbar{display:flex;gap:4px;padding:8px 16px;background:#fff;border-bottom:1px solid #F3F4F6;}
+.note-edit-screen .ne-toolbar .tool{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#6B7280;background:#F9FAFB;}
+.note-edit-screen .ne-toolbar .tool.active{background:#4F6EF7;color:#fff;}
+.note-edit-screen .ne-body{margin:12px 16px;background:#fff;border-radius:12px;padding:14px 16px;min-height:200px;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+.note-edit-screen .ne-body .placeholder{color:#9CA3AF;font-size:15px;}
+.note-edit-screen .ne-link{margin:12px 16px;background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:space-between;}
+.note-edit-screen .ne-link .ll{font-size:13px;color:#6B7280;}
+.note-edit-screen .ne-link .lr{color:#4F6EF7;font-size:13px;font-weight:500;}
+.note-edit-screen .ne-save{margin:16px;padding:14px;border-radius:14px;background:#4F6EF7;color:#fff;text-align:center;font-size:16px;font-weight:600;}
+
+/* Common */
+.common-bar{height:44px;background:#4F6EF7;display:flex;align-items:center;justify-content:space-between;padding:0 16px;}
+.common-bar .time{color:#fff;font-size:14px;font-weight:600;}
+.common-bar .back{color:#fff;font-size:16px;}
+.common-bar .title{color:#fff;font-size:16px;font-weight:600;}
+</style>
+</head>
+<body>
+<div class="preview-grid">
+
+<!-- 5. 知识卡片详情 -->
+<div class="page-wrap">
+  <div class="page-label">5. 知识卡片详情</div>
+  <div class="card-detail-screen screen">
+    <div class="common-bar"><span class="time">9:41</span><span class="title">知识卡片</span><span style="color:rgba(255,255,255,0.7);font-size:14px;">收藏</span></div>
+    <div class="card-front">
+      <span class="chapter-tag">编程基础 · 第3章</span>
+      <h3>什么是变量？<br>变量在内存中如何存储？</h3>
+      <span class="difficulty">入门 · 掌握度 65%</span>
+      <div class="flip-hint">点击卡片翻转查看答案</div>
+      <div class="flip-icon">↻</div>
+    </div>
+    <div class="action-row">
+      <div class="action-btn tertiary">有点难</div>
+      <div class="action-btn secondary">理解了</div>
+      <div class="action-btn primary">记笔记</div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. 刷题练习页 -->
+<div class="page-wrap">
+  <div class="page-label">6. 刷题练习页</div>
+  <div class="practice-screen screen">
+    <div class="common-bar"><span class="time">9:41</span><span class="title">刷题练习</span><span style="color:rgba(255,255,255,0.7);font-size:14px;">历史</span></div>
+    <div style="padding:16px 16px 4px;"><h3 style="font-size:22px;font-weight:700;color:#1A1A2E;">选择练习模式</h3><p style="font-size:13px;color:#6B7280;margin-top:2px;">共 128 道题目可供练习</p></div>
+    <div class="mode-grid">
+      <div class="mode-card"><div class="micon" style="background:#4F6EF7;">章</div><h4>章节练习</h4><p>按知识点章节</p></div>
+      <div class="mode-card"><div class="micon" style="background:#10B981;">随</div><h4>随机练习</h4><p>随机抽取题目</p></div>
+      <div class="mode-card"><div class="micon" style="background:#FF6B6B;">错</div><h4>错题重练</h4><p>12道错题待复习</p></div>
+      <div class="mode-card"><div class="micon" style="background:#F59E0B;">挑</div><h4>每日挑战</h4><p>今日已983人参与</p></div>
+      <div class="mode-card"><div class="micon" style="background:#8B5CF6;">模</div><h4>模拟测验</h4><p>20题综合测试</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. 答题页面 -->
+<div class="page-wrap">
+  <div class="page-label">7. 答题页面</div>
+  <div class="quiz-screen screen">
+    <div class="question-header">
+      <div class="q-meta"><span>第 3/5 题</span><span>编程基础 · 变量</span></div>
+      <div class="progress-dots"><div class="dot active"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <h3>在JavaScript中，以下哪个关键字用于声明一个常量？</h3>
+    </div>
+    <div class="options">
+      <div class="option" style="border-color:#EEF2FF;background:#F5F7FF;"><div class="letter" style="background:#4F6EF7;color:#fff;">A</div><span class="text">var</span></div>
+      <div class="option"><div class="letter">B</div><span class="text">let</span></div>
+      <div class="option" style="border-color:#D1FAE5;background:#F0FFF4;"><div class="letter" style="background:#10B981;color:#fff;">C</div><span class="text">const</span></div>
+      <div class="option"><div class="letter">D</div><span class="text">function</span></div>
+    </div>
+    <div class="submit-btn">提交答案</div>
+  </div>
+</div>
+
+<!-- 8. 笔记详情页 -->
+<div class="page-wrap">
+  <div class="page-label">8. 笔记详情页</div>
+  <div class="note-detail-screen screen">
+    <div class="common-bar"><span class="time">9:41</span><span class="title">笔记详情</span><span style="color:rgba(255,255,255,0.7);font-size:14px;">...</span></div>
+    <div class="nd-header">
+      <div class="nd-tags"><span style="font-size:10px;padding:2px 8px;border-radius:8px;background:#EEF2FF;color:#4F6EF7;">编程基础</span><span style="font-size:10px;padding:2px 8px;border-radius:8px;background:#FEF3C7;color:#F59E0B;">待复习</span></div>
+      <h3>变量与数据类型的深入理解</h3>
+      <div class="nd-meta">2026-05-03 · 已学习2次 · 掌握度 85%</div>
+    </div>
+    <div class="nd-content">
+      <p>在编程中，变量是用于存储数据的容器。每个变量都有一个名称和一个值，通过变量名可以访问存储在其中的数据。</p>
+      <div class="highlight"><strong>核心概念：</strong>变量是内存中的一块区域，用于存储程序运行时可以改变的数据。</div>
+      <p>不同的数据类型决定了变量可以存储的数据种类：<br>• 基本类型：数字、字符串、布尔值<br>• 引用类型：对象、数组、函数</p>
+    </div>
+    <div class="nd-actions">
+      <div class="nd-action-btn edit">编辑笔记</div>
+      <div class="nd-action-btn delete">删除笔记</div>
+    </div>
+  </div>
+</div>
+
+<!-- 9. 笔记编辑页 -->
+<div class="page-wrap">
+  <div class="page-label">9. 笔记编辑页</div>
+  <div class="note-edit-screen screen">
+    <div class="common-bar"><span class="time">9:41</span><span class="title">编辑笔记</span><span style="color:rgba(255,255,255,0.7);font-size:14px;">取消</span></div>
+    <div class="ne-title"><input placeholder="输入笔记标题..." value="变量与数据类型的深入理解"></div>
+    <div class="ne-toolbar">
+      <div class="tool active">B</div>
+      <div class="tool">I</div>
+      <div class="tool">U</div>
+      <div class="tool">≡</div>
+      <div class="tool">•</div>
+      <div class="tool">1.</div>
+      <div class="tool">🔗</div>
+      <div class="tool">◻</div>
+      <div class="tool">+</div>
+    </div>
+    <div class="ne-body"><div class="placeholder">在此输入笔记内容...</div></div>
+    <div class="ne-link"><span class="ll">关联知识点</span><span class="lr">编程基础 · 变量 ></span></div>
+    <div class="ne-save">保存笔记</div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

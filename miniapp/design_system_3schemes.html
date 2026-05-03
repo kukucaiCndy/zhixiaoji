@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知晓记 - 设计系统：三套配色方案</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #F5F7FA; padding: 20px; }
+  
+  .page { max-width: 420px; margin: 0 auto; background: #F5F7FA; border-radius: 24px; padding: 20px; }
+  
+  /* Header */
+  .header { text-align: center; padding: 20px 0 24px; }
+  .header h1 { font-size: 24px; font-weight: 700; color: #1A1A2E; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .header p { font-size: 13px; color: #6B7280; }
+  
+  /* Section */
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 16px; font-weight: 600; color: #1A1A2E; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title .badge { font-size: 11px; font-weight: 500; color: #fff; background: #4F6EF7; padding: 2px 10px; border-radius: 10px; }
+  
+  /* Scheme Switcher Visualization */
+  .scheme-row { display: flex; gap: 8px; margin-bottom: 20px; }
+  .scheme-pill { flex: 1; padding: 10px 8px; border-radius: 12px; text-align: center; font-size: 11px; font-weight: 600; cursor: pointer; border: 2px solid transparent; }
+  .scheme-pill.active { border-color: #4F6EF7; box-shadow: 0 2px 8px rgba(79,110,247,0.2); }
+  .scheme-pill.s1 { background: linear-gradient(135deg, #4F6EF7, #7C8FF7); color: #fff; }
+  .scheme-pill.s2 { background: linear-gradient(135deg, #2ECC71, #58D68D); color: #fff; }
+  .scheme-pill.s3 { background: linear-gradient(135deg, #E67E22, #F0A04B); color: #fff; }
+  
+  /* Color Palette */
+  .color-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; }
+  .color-item { text-align: center; }
+  .color-swatch { width: 100%; aspect-ratio: 1; border-radius: 12px; margin-bottom: 4px; border: 1px solid rgba(0,0,0,0.05); }
+  .color-label { font-size: 9px; color: #6B7280; line-height: 1.3; }
+  .color-hex { font-size: 8px; color: #9CA3AF; font-family: monospace; }
+  
+  /* Schemes Container */
+  .scheme-block { background: #fff; border-radius: 16px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .scheme-block.s1 { border-left: 3px solid #4F6EF7; }
+  .scheme-block.s2 { border-left: 3px solid #2ECC71; }
+  .scheme-block.s3 { border-left: 3px solid #E67E22; }
+  .scheme-name { font-size: 14px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .scheme-name .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  
+  /* Typography */
+  .typo-list { display: flex; flex-direction: column; gap: 8px; }
+  .typo-item { display: flex; align-items: baseline; gap: 12px; padding: 8px 12px; background: #F9FAFB; border-radius: 8px; }
+  .typo-label { font-size: 10px; color: #9CA3AF; width: 40px; flex-shrink: 0; font-weight: 500; }
+  .typo-sample { flex: 1; }
+  .typo-desc { font-size: 10px; color: #9CA3AF; }
+  
+  /* Spacing */
+  .spacing-demo { display: flex; align-items: center; gap: 4px; margin-bottom: 8px; }
+  .spacing-bar { background: #4F6EF7; border-radius: 2px; opacity: 0.6; height: 12px; }
+  .spacing-label { font-size: 10px; color: #6B7280; min-width: 32px; }
+  
+  /* Border Radius */
+  .radius-demo { display: flex; gap: 8px; flex-wrap: wrap; }
+  .radius-item { width: 48px; height: 48px; background: linear-gradient(135deg, #4F6EF7, #7C8FF7); display: flex; align-items: center; justify-content: center; font-size: 9px; color: #fff; font-weight: 600; }
+  
+  /* Divider */
+  .divider { height: 1px; background: #E5E7EB; margin: 20px 0; }
+  
+  /* Tabs */
+  .tab-bar { display: flex; gap: 4px; background: #fff; border-radius: 12px; padding: 4px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .tab-btn { flex: 1; padding: 8px; text-align: center; font-size: 12px; font-weight: 500; color: #6B7280; border-radius: 10px; cursor: pointer; border: none; background: transparent; }
+  .tab-btn.active { background: #4F6EF7; color: #fff; }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>知晓记</h1>
+    <p>设计系统 · Design System V1.0</p>
+  </div>
+
+  <!-- Scheme Tabs -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchScheme('s1')">方案一 · 知性蓝紫</button>
+    <button class="tab-btn" onclick="switchScheme('s2')">方案二 · 清新绿意</button>
+    <button class="tab-btn" onclick="switchScheme('s3')">方案三 · 温暖橙棕</button>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SCHEME 1: 知性蓝紫 -->
+  <!-- ============================================ -->
+  <div class="scheme-block s1" data-scheme="s1">
+    <div class="scheme-name">
+      <span class="dot" style="background:#4F6EF7"></span>
+      方案一：知性蓝紫
+      <span style="font-size:11px;color:#6B7280;font-weight:400">基准方案</span>
+    </div>
+
+    <!-- Color Palette -->
+    <div class="section">
+      <div class="section-title">色板 Color Palette</div>
+      <div class="color-grid">
+        <div class="color-item">
+          <div class="color-swatch" style="background:#4F6EF7"></div>
+          <div class="color-label">品牌主色</div>
+          <div class="color-hex">#4F6EF7</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#FF6B6B"></div>
+          <div class="color-label">辅助色</div>
+          <div class="color-hex">#FF6B6B</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#F5F7FA"></div>
+          <div class="color-label">背景色</div>
+          <div class="color-hex">#F5F7FA</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#FFFFFF;border:1px solid #E5E7EB"></div>
+          <div class="color-label">卡片背景</div>
+          <div class="color-hex">#FFFFFF</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#1A1A2E"></div>
+          <div class="color-label">文字主色</div>
+          <div class="color-hex">#1A1A2E</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#6B7280"></div>
+          <div class="color-label">文字次要</div>
+          <div class="color-hex">#6B7280</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#E5E7EB"></div>
+          <div class="color-label">边框色</div>
+          <div class="color-hex">#E5E7EB</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#EEF2FF"></div>
+          <div class="color-label">主色淡</div>
+          <div class="color-hex">#EEF2FF</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#A5B4FC"></div>
+          <div class="color-label">主色中</div>
+          <div class="color-hex">#A5B4FC</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#10B981"></div>
+          <div class="color-label">成功色</div>
+          <div class="color-hex">#10B981</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typography -->
+    <div class="section">
+      <div class="section-title">字体层级 Typography</div>
+      <div class="typo-list">
+        <div class="typo-item">
+          <span class="typo-label">H1</span>
+          <span class="typo-sample" style="font-size:28px;font-weight:700;color:#1A1A2E">页面大标题</span>
+          <span class="typo-desc">28px Bold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">H2</span>
+          <span class="typo-sample" style="font-size:22px;font-weight:600;color:#1A1A2E">模块标题</span>
+          <span class="typo-desc">22px Semibold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">H3</span>
+          <span class="typo-sample" style="font-size:18px;font-weight:600;color:#1A1A2E">卡片标题</span>
+          <span class="typo-desc">18px Semibold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">H4</span>
+          <span class="typo-sample" style="font-size:16px;font-weight:600;color:#1A1A2E">小标题</span>
+          <span class="typo-desc">16px Semibold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">正文</span>
+          <span class="typo-sample" style="font-size:14px;font-weight:400;color:#1A1A2E">页面正文内容，用于展示主要信息文字</span>
+          <span class="typo-desc">14px Regular</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">小字</span>
+          <span class="typo-sample" style="font-size:12px;font-weight:400;color:#6B7280">辅助说明文字，标签时间信息等</span>
+          <span class="typo-desc">12px Regular</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">超小</span>
+          <span class="typo-sample" style="font-size:10px;font-weight:400;color:#9CA3AF">徽章数字极小文字</span>
+          <span class="typo-desc">10px Regular</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spacing -->
+    <div class="section">
+      <div class="section-title">间距规范 Spacing</div>
+      <div class="spacing-demo"><span class="spacing-label">4px</span><div class="spacing-bar" style="width:4px"></div><span style="font-size:10px;color:#9CA3AF">— 图标间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">8px</span><div class="spacing-bar" style="width:8px"></div><span style="font-size:10px;color:#9CA3AF">— 内部紧凑间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">12px</span><div class="spacing-bar" style="width:12px"></div><span style="font-size:10px;color:#9CA3AF">— 元素间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">16px</span><div class="spacing-bar" style="width:16px"></div><span style="font-size:10px;color:#9CA3AF">— 卡片内边距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">20px</span><div class="spacing-bar" style="width:20px"></div><span style="font-size:10px;color:#9CA3AF">— 组件间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">24px</span><div class="spacing-bar" style="width:24px"></div><span style="font-size:10px;color:#9CA3AF">— 区块间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">32px</span><div class="spacing-bar" style="width:32px"></div><span style="font-size:10px;color:#9CA3AF">— 页面边距</span></div>
+    </div>
+
+    <!-- Border Radius -->
+    <div class="section">
+      <div class="section-title">圆角规范 Border Radius</div>
+      <div class="radius-demo">
+        <div class="radius-item" style="border-radius:4px">4</div>
+        <div class="radius-item" style="border-radius:8px">8</div>
+        <div class="radius-item" style="border-radius:12px">12</div>
+        <div class="radius-item" style="border-radius:16px">16</div>
+        <div class="radius-item" style="border-radius:20px">20</div>
+        <div class="radius-item" style="border-radius:24px">24</div>
+      </div>
+    </div>
+
+    <!-- Shadow -->
+    <div class="section">
+      <div class="section-title">阴影规范 Shadows</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div style="width:80px;height:60px;background:#fff;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:center;font-size:8px;color:#9CA3AF">xs</div>
+        <div style="width:80px;height:60px;background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center;font-size:8px;color:#9CA3AF">sm</div>
+        <div style="width:80px;height:60px;background:#fff;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.07);display:flex;align-items:center;justify-content:center;font-size:8px;color:#9CA3AF">md</div>
+        <div style="width:80px;height:60px;background:#fff;border-radius:8px;box-shadow:0 10px 15px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center;font-size:8px;color:#9CA3AF">lg</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SCHEME 2: 清新绿意 -->
+  <!-- ============================================ -->
+  <div class="scheme-block s2" data-scheme="s2" style="display:none">
+    <div class="scheme-name">
+      <span class="dot" style="background:#2ECC71"></span>
+      方案二：清新绿意
+    </div>
+
+    <div class="section">
+      <div class="section-title">色板 Color Palette</div>
+      <div class="color-grid">
+        <div class="color-item">
+          <div class="color-swatch" style="background:#2ECC71"></div>
+          <div class="color-label">品牌主色</div>
+          <div class="color-hex">#2ECC71</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#F39C12"></div>
+          <div class="color-label">辅助色</div>
+          <div class="color-hex">#F39C12</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#F0FFF4"></div>
+          <div class="color-label">背景色</div>
+          <div class="color-hex">#F0FFF4</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#FFFFFF;border:1px solid #D1FAE5"></div>
+          <div class="color-label">卡片背景</div>
+          <div class="color-hex">#FFFFFF</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#1C2E1C"></div>
+          <div class="color-label">文字主色</div>
+          <div class="color-hex">#1C2E1C</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#5A7A5A"></div>
+          <div class="color-label">文字次要</div>
+          <div class="color-hex">#5A7A5A</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#D1FAE5"></div>
+          <div class="color-label">边框色</div>
+          <div class="color-hex">#D1FAE5</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#ECFDF5"></div>
+          <div class="color-label">主色淡</div>
+          <div class="color-hex">#ECFDF5</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#6EE7B7"></div>
+          <div class="color-label">主色中</div>
+          <div class="color-hex">#6EE7B7</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#10B981"></div>
+          <div class="color-label">成功色</div>
+          <div class="color-hex">#10B981</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">字体层级 Typography</div>
+      <div class="typo-list">
+        <div class="typo-item">
+          <span class="typo-label">H1</span>
+          <span class="typo-sample" style="font-size:28px;font-weight:700;color:#1C2E1C">页面大标题</span>
+          <span class="typo-desc">28px Bold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">H2</span>
+          <span class="typo-sample" style="font-size:22px;font-weight:600;color:#1C2E1C">模块标题</span>
+          <span class="typo-desc">22px Semibold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">H3</span>
+          <span class="typo-sample" style="font-size:18px;font-weight:600;color:#1C2E1C">卡片标题</span>
+          <span class="typo-desc">18px Semibold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">H4</span>
+          <span class="typo-sample" style="font-size:16px;font-weight:600;color:#1C2E1C">小标题</span>
+          <span class="typo-desc">16px Semibold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">正文</span>
+          <span class="typo-sample" style="font-size:14px;font-weight:400;color:#1C2E1C">页面正文内容，用于展示主要信息文字</span>
+          <span class="typo-desc">14px Regular</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">小字</span>
+          <span class="typo-sample" style="font-size:12px;font-weight:400;color:#5A7A5A">辅助说明文字，标签时间信息等</span>
+          <span class="typo-desc">12px Regular</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">超小</span>
+          <span class="typo-sample" style="font-size:10px;font-weight:400;color:#9CA3AF">徽章数字极小文字</span>
+          <span class="typo-desc">10px Regular</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">间距规范 Spacing</div>
+      <div class="spacing-demo"><span class="spacing-label">4px</span><div class="spacing-bar" style="background:#2ECC71;width:4px"></div><span style="font-size:10px;color:#9CA3AF">— 图标间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">8px</span><div class="spacing-bar" style="background:#2ECC71;width:8px"></div><span style="font-size:10px;color:#9CA3AF">— 内部紧凑间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">12px</span><div class="spacing-bar" style="background:#2ECC71;width:12px"></div><span style="font-size:10px;color:#9CA3AF">— 元素间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">16px</span><div class="spacing-bar" style="background:#2ECC71;width:16px"></div><span style="font-size:10px;color:#9CA3AF">— 卡片内边距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">20px</span><div class="spacing-bar" style="background:#2ECC71;width:20px"></div><span style="font-size:10px;color:#9CA3AF">— 组件间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">24px</span><div class="spacing-bar" style="background:#2ECC71;width:24px"></div><span style="font-size:10px;color:#9CA3AF">— 区块间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">32px</span><div class="spacing-bar" style="background:#2ECC71;width:32px"></div><span style="font-size:10px;color:#9CA3AF">— 页面边距</span></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">圆角规范 Border Radius</div>
+      <div class="radius-demo">
+        <div class="radius-item" style="background:linear-gradient(135deg,#2ECC71,#58D68D);border-radius:4px">4</div>
+        <div class="radius-item" style="background:linear-gradient(135deg,#2ECC71,#58D68D);border-radius:8px">8</div>
+        <div class="radius-item" style="background:linear-gradient(135deg,#2ECC71,#58D68D);border-radius:12px">12</div>
+        <div class="radius-item" style="background:linear-gradient(135deg,#2ECC71,#58D68D);border-radius:16px">16</div>
+        <div class="radius-item" style="background:linear-gradient(135deg,#2ECC71,#58D68D);border-radius:20px">20</div>
+        <div class="radius-item" style="background:linear-gradient(135deg,#2ECC71,#58D68D);border-radius:24px">24</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SCHEME 3: 温暖橙棕 -->
+  <!-- ============================================ -->
+  <div class="scheme-block s3" data-scheme="s3" style="display:none">
+    <div class="scheme-name">
+      <span class="dot" style="background:#E67E22"></span>
+      方案三：温暖橙棕
+    </div>
+
+    <div class="section">
+      <div class="section-title">色板 Color Palette</div>
+      <div class="color-grid">
+        <div class="color-item">
+          <div class="color-swatch" style="background:#E67E22"></div>
+          <div class="color-label">品牌主色</div>
+          <div class="color-hex">#E67E22</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#8E44AD"></div>
+          <div class="color-label">辅助色</div>
+          <div class="color-hex">#8E44AD</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#FFF8F0"></div>
+          <div class="color-label">背景色</div>
+          <div class="color-hex">#FFF8F0</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#FFFFFF;border:1px solid #FDEBD0"></div>
+          <div class="color-label">卡片背景</div>
+          <div class="color-hex">#FFFFFF</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#2C1810"></div>
+          <div class="color-label">文字主色</div>
+          <div class="color-hex">#2C1810</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#7A6A5A"></div>
+          <div class="color-label">文字次要</div>
+          <div class="color-hex">#7A6A5A</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#FDEBD0"></div>
+          <div class="color-label">边框色</div>
+          <div class="color-hex">#FDEBD0</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#FFF3E0"></div>
+          <div class="color-label">主色淡</div>
+          <div class="color-hex">#FFF3E0</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#F0A04B"></div>
+          <div class="color-label">主色中</div>
+          <div class="color-hex">#F0A04B</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#10B981"></div>
+          <div class="color-label">成功色</div>
+          <div class="color-hex">#10B981</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">字体层级 Typography</div>
+      <div class="typo-list">
+        <div class="typo-item">
+          <span class="typo-label">H1</span>
+          <span class="typo-sample" style="font-size:28px;font-weight:700;color:#2C1810">页面大标题</span>
+          <span class="typo-desc">28px Bold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">H2</span>
+          <span class="typo-sample" style="font-size:22px;font-weight:600;color:#2C1810">模块标题</span>
+          <span class="typo-desc">22px Semibold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">H3</span>
+          <span class="typo-sample" style="font-size:18px;font-weight:600;color:#2C1810">卡片标题</span>
+          <span class="typo-desc">18px Semibold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">H4</span>
+          <span class="typo-sample" style="font-size:16px;font-weight:600;color:#2C1810">小标题</span>
+          <span class="typo-desc">16px Semibold</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">正文</span>
+          <span class="typo-sample" style="font-size:14px;font-weight:400;color:#2C1810">页面正文内容，用于展示主要信息文字</span>
+          <span class="typo-desc">14px Regular</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">小字</span>
+          <span class="typo-sample" style="font-size:12px;font-weight:400;color:#7A6A5A">辅助说明文字，标签时间信息等</span>
+          <span class="typo-desc">12px Regular</span>
+        </div>
+        <div class="typo-item">
+          <span class="typo-label">超小</span>
+          <span class="typo-sample" style="font-size:10px;font-weight:400;color:#9CA3AF">徽章数字极小文字</span>
+          <span class="typo-desc">10px Regular</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">间距规范 Spacing</div>
+      <div class="spacing-demo"><span class="spacing-label">4px</span><div class="spacing-bar" style="background:#E67E22;width:4px"></div><span style="font-size:10px;color:#9CA3AF">— 图标间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">8px</span><div class="spacing-bar" style="background:#E67E22;width:8px"></div><span style="font-size:10px;color:#9CA3AF">— 内部紧凑间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">12px</span><div class="spacing-bar" style="background:#E67E22;width:12px"></div><span style="font-size:10px;color:#9CA3AF">— 元素间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">16px</span><div class="spacing-bar" style="background:#E67E22;width:16px"></div><span style="font-size:10px;color:#9CA3AF">— 卡片内边距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">20px</span><div class="spacing-bar" style="background:#E67E22;width:20px"></div><span style="font-size:10px;color:#9CA3AF">— 组件间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">24px</span><div class="spacing-bar" style="background:#E67E22;width:24px"></div><span style="font-size:10px;color:#9CA3AF">— 区块间距</span></div>
+      <div class="spacing-demo"><span class="spacing-label">32px</span><div class="spacing-bar" style="background:#E67E22;width:32px"></div><span style="font-size:10px;color:#9CA3AF">— 页面边距</span></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">圆角规范 Border Radius</div>
+      <div class="radius-demo">
+        <div class="radius-item" style="background:linear-gradient(135deg,#E67E22,#F0A04B);border-radius:4px">4</div>
+        <div class="radius-item" style="background:linear-gradient(135deg,#E67E22,#F0A04B);border-radius:8px">8</div>
+        <div class="radius-item" style="background:linear-gradient(135deg,#E67E22,#F0A04B);border-radius:12px">12</div>
+        <div class="radius-item" style="background:linear-gradient(135deg,#E67E22,#F0A04B);border-radius:16px">16</div>
+        <div class="radius-item" style="background:linear-gradient(135deg,#E67E22,#F0A04B);border-radius:20px">20</div>
+        <div class="radius-item" style="background:linear-gradient(135deg,#E67E22,#F0A04B);border-radius:24px">24</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function switchScheme(scheme) {
+  document.querySelectorAll('[data-scheme]').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.querySelector(`[data-scheme="${scheme}"]`).style.display = 'block';
+  document.querySelectorAll('.tab-btn').forEach(el => {
+    const idx = {s1:0,s2:1,s3:2}[scheme];
+    document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+  });
+}
+</script>
+
+</body>
+</html>
