@@ -1,1 +1,3 @@
-nul
+project.private.config.json
+*.local
+node_modules/
