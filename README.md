@@ -74,7 +74,7 @@ zhixiaoji/
 
 ---
 ## 微信交流群：
-	<img src="wechat_group.jpg" alt="示例图片" width="300" height="200" align="center">
+	![小程序二维码](wechat_group.png)
 
 	
 ## License
