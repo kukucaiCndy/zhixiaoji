@@ -73,7 +73,9 @@ zhixiaoji/
 > 每节课均包含 AI 编程实操演示 + 计算机基础知识点科普。
 
 ---
-
+## 微信交流群：
+	![扫码入群](wechat_group.png)
+	
 ## License
 
 MIT
