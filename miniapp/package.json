@@ -1,0 +1,19 @@
+{
+  "name": "miniapp",
+  "version": "1.0.0",
+  "description": "本项目是一个基于微信原生框架开发的微信小程序，目前处于项目初始化阶段，尚未开始正式的功能开发。",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@zhixiaoji/api-sdk": "^0.3.0"
+  }
+}

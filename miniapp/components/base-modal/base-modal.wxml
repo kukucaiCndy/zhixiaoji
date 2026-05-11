@@ -1,0 +1,11 @@
+<view class="modal-overlay" wx:if="{{visible}}" bind:tap="onClose">
+  <view class="modal-container" catch:tap="noop">
+    <view class="modal-icon" wx:if="{{icon}}">{{icon}}</view>
+    <view class="modal-title" wx:if="{{title}}">{{title}}</view>
+    <slot></slot>
+    <view class="modal-actions {{showCancel ? '' : 'single'}}" wx:if="{{showConfirm || showCancel}}">
+      <view class="btn btn-secondary" wx:if="{{showCancel}}" bind:tap="onCancel">{{cancelText}}</view>
+      <view class="btn btn-{{confirmType}}" wx:if="{{showConfirm}}" bind:tap="onConfirm">{{confirmText}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,156 @@
+{
+  "note": "DSL数据来自get_node_dsl。由于MCP响应长度限制，完整JSON无法一次性返回。以下是关键数据摘要：",
+  "extracted_data": {
+    "page": {
+      "name": "主页",
+      "guid": "2:10384",
+      "width": 375,
+      "height": 1281,
+      "background": "#F8FAFC"
+    },
+    "sections": [
+      {
+        "name": "Status Bar",
+        "guid": "2:10385",
+        "width": 375, "height": 44,
+        "top": 0, "left": 0,
+        "bg": "#4F46E5",
+        "contains": ["时间 9:41 (fontSize:14px, bold, white)", "3个信号条 (16x10px, opacity:0.8)"]
+      },
+      {
+        "name": "Nav Bar",
+        "guid": "2:10392",
+        "width": 375, "height": 53,
+        "top": 44, "left": 0,
+        "bg": "#4F46E5",
+        "padding": "8px 16px 16px",
+        "contains": ["标题 知小记 (fontSize:18px, bold, white)", "搜索按钮 (borderRadius:20px, bg:rgba(255,255,255,0.15), 🔍 搜索知识点)"]
+      },
+      {
+        "name": "User Section",
+        "guid": "2:10397",
+        "width": 375, "height": 92,
+        "top": 97, "left": 0,
+        "contains": [
+          "头像圆形 48x48px bg:渐变 purple→cyan, 'J' 20px bold white",
+          "用户名 Jesse 16px bold #1E293B",
+          "连续学习 7天 (🔥 + 连续学习 + 7天, 7天为bold #F59E0B)",
+          "积分卡片 97x32px bg:渐变 #FEF3C7→#FDE68A, borderRadius:20px, 1,280(15px bold #92400E) + 积分(11px #A16107)"
+        ]
+      },
+      {
+        "name": "Challenge Card",
+        "guid": "2:10413",
+        "width": 375, "height": 156,
+        "top": 189, "left": 0,
+        "padding": "0 16px 16px",
+        "content": {
+          "card": "343x140px borderRadius:16px, bg:linear-gradient #4F46E5→#06B6D4",
+          "title": "每日挑战 20px bold white",
+          "desc": "每天10题，巩固知识不忘记 13px regular white opacity:0.8",
+          "button": "108x33px borderRadius:20px bg:rgba(255,255,255,0.2) text:立即挑战 → 13px white",
+          "decorations": ["圆形装饰 100x100px opacity:0.06", "圆形装饰 160x160px opacity:0.08"]
+        }
+      },
+      {
+        "name": "今日学习 - Section Header",
+        "guid": "2:10425",
+        "width": 375, "height": 42,
+        "top": 345, "left": 0,
+        "padding": "12px 16px 8px",
+        "title": "今日学习 17px bold #1E293B",
+        "more": "查看全部 13px #4F46E5"
+      },
+      {
+        "name": "今日学习 - Stats Grid",
+        "guid": "2:10430",
+        "width": 375, "height": 308,
+        "top": 387, "left": 0,
+        "items": [
+          "item1: 165.5x140px, borderRadius:16px, shadow:0 1px 3px rgba(0,0,0,0.06), bg:white",
+          "  图标📖 40x40px bg:#4F46E5 borderRadius:12px",
+          "  数字6 22px bold #1E293B",
+          "  标签:待学习卡片 13px #64748B",
+          "  进度条 133.5x4px borderRadius:2px, bg:#EEF2FF, fill:#4F46E5 85%",
+          "item2: 165.5x140px bg:white (🔄 图标 bg:#10B981, 数字3, 待复习, 进度60% #10B981)",
+          "item3: 165.5x140px bg:white (⭐ 图标 bg:#F59E0B, 数字12, 已掌握, 进度40% #F59E0B)",
+          "item4: 165.5x140px bg:white (📊 图标 bg:#EF4444, 67%, 正确率, 进度67% #4F46E5)"
+        ]
+      },
+      {
+        "name": "挑战入口行",
+        "guid": "2:10479",
+        "width": 375, "height": 92,
+        "top": 695, "left": 0,
+        "padding": "0 16px 16px",
+        "content": {
+          "card": "343x76px borderRadius:16px bg:linear-gradient #EEF2FF→#E0E7FF",
+          "icon": "🏆 44x44px bg:#4F46E5 borderRadius:12px",
+          "title": "每日挑战 15px bold #1E293B",
+          "desc": "今日剩余 3 次机会 12px #64748B",
+          "arrow": "› 28x28px bg:white borderRadius:14px shadow, color:#4F46E5"
+        }
+      },
+      {
+        "name": "学习进度 - Section Header",
+        "guid": "2:10492",
+        "width": 375, "height": 42,
+        "top": 787,
+        "title": "学习进度 17px bold #1E293B",
+        "more": "详情 13px #4F46E5"
+      },
+      {
+        "name": "学习进度 - List",
+        "guid": "2:10497",
+        "width": 375, "height": 188,
+        "top": 829,
+        "padding": "0 16px 16px",
+        "items": [
+          "HTML 85% (进度条高度6px, fill:#4F46E5, 85%)",
+          "CSS 60% (fill:#06B6D4, 60%)",
+          "JavaScript 35% (fill:#F59E0B, 35%)",
+          "框架 20% (fill:#EF4444, 20%)"
+        ]
+      },
+      {
+        "name": "推荐内容 - Section Header",
+        "guid": "2:10527",
+        "width": 375, "height": 42,
+        "top": 1017,
+        "title": "推荐内容 17px bold #1E293B",
+        "more": "更多 13px #4F46E5"
+      },
+      {
+        "name": "推荐内容 - Scroll",
+        "guid": "2:10532",
+        "width": 375, "height": 172,
+        "top": 1059,
+        "padding": "0 16px 24px",
+        "gap": "12px",
+        "cards": [
+          "卡片1 140x148px borderRadius:12px bg:white shadow",
+          "  缩略图 116x80px borderRadius:8px bg:gradient #4F46E5→#818CF8",
+          "  标题 'CSS Flexbox' 13px bold #1E293B",
+          "  描述 '彻底理解弹性布局' 11px #94A3B8",
+          "卡片2 140x148px (缩略图渐变 #06B6D4→#22D3EE, 闭包详解, JavaScript 核心概念)",
+          "卡片3 140x148px (缩略图渐变 #F59E0B→#FBBF24, 原型链, 面向对象编程基础)"
+        ]
+      },
+      {
+        "name": "Tab Bar",
+        "guid": "2:10557",
+        "width": 375, "height": 63,
+        "top": 1231,
+        "border-top": "1px solid #E2E8F0",
+        "bg": "white",
+        "padding-bottom": 20,
+        "items": [
+          "首页 active (🏠20px, 首页10px bold #4F46E5)",
+          "学习 (📚20px, 学习10px #94A3B8)",
+          "笔记 (📝20px, 笔记10px #94A3B8)",
+          "我的 (👤20px, 我的10px #94A3B8)"
+        ]
+      }
+    ]
+  }
+}

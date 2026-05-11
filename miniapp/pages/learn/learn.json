@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "学习",
+  "usingComponents": {
+    "tab-bar": "/components/tab-bar/tab-bar"
+  }
+}

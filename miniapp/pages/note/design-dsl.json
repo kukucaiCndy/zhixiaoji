@@ -1,0 +1,35 @@
+{
+  "note": "笔记页面设计稿关键数据摘要",
+  "text_checklist": {
+    "method": "grep -n 'class=\"paragraph-' design-code.html",
+    "items": [
+      "9:41", "笔记", "✏️ 写笔记", "🔍",
+      "搜索笔记、标签或知识点...", "筛选",
+      "全部", "系统分类", "自定义标签", "时间归档", "审核状态",
+      "CSS Flexbox 布局核心概念笔记",
+      "Flexbox 是一种一维布局模型...",
+      "CSS基础", "✓ 已通过", "2小时前", "来自: CSS 布局篇",
+      "JavaScript 闭包的应用场景",
+      "闭包是指能够访问自由变量的函数...",
+      "JavaScript", "⏳ 审核中", "昨天", "来自: JS 进阶篇",
+      "关于 Promise 的一些理解",
+      "Promise 是异步编程的一种解决方案...",
+      "JavaScript", "✗ 未通过", "3天前", "查看原因",
+      "HTML5 语义化标签总结",
+      "HTML5 引入了一系列语义化标签...",
+      "HTML", "✓ 已通过", "5天前", "来自: HTML 基础篇",
+      "React Hooks 使用心得",
+      "useState 用于管理组件内部状态...",
+      "框架", "React", "✓ 已通过", "1周前", "来自: 框架篇",
+      "+", "🏠 首页", "📚 学习", "📝 笔记", "👤 我的"
+    ]
+  },
+  "design_vs_old": {
+    "header_bg": "紫色渐变(同首页) vs 白色",
+    "nav_right": "✏️写笔记按钮 vs 搜索图标",
+    "search": "圆角搜索框+placeholder vs 无",
+    "filter_items": "系统分类/自定义标签/时间归档/审核状态 vs 审核中/已通过/未通过",
+    "failed_notes": "「查看原因」链接 vs 无",
+    "card_fab": "每张卡片右上角+按钮(28px) vs 整体FAB"
+  }
+}

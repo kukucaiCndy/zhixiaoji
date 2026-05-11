@@ -1,0 +1,21 @@
+@import "../base-modal.wxss";
+
+.unified-rarity {
+  display: inline-block;
+  padding: 2rpx 12rpx;
+  border-radius: 8rpx;
+  font-size: 20rpx;
+  font-weight: 500;
+  margin-bottom: 16rpx;
+}
+.rarity-common { background: #E5E7EB; color: #6B7280; }
+.rarity-advanced { background: #DBEAFE; color: #2563EB; }
+.rarity-high { background: #FEF3C7; color: #D97706; }
+.rarity-legend { background: #FCE7F3; color: #EC4899; }
+.unified-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #4F46E5;
+  margin-bottom: 16rpx;
+  text-align: center;
+}

@@ -1,6 +1,14 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/splash/splash",
+    "pages/auth/login-guide/login-guide",
+    "pages/home/home",
+    "pages/learn/learn",
+    "pages/note/note",
+    "pages/profile/profile",
+    "pages/profile/settings/settings",
+    "pages/profile/edit-profile/edit-profile",
+    "pages/wrong-questions/wrong-questions"
   ],
   "window": {
     "navigationBarTitleText": "智小记",

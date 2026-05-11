@@ -1,0 +1,28 @@
+<view class="modal-overlay" wx:if="{{show}}" bind:tap="{{maskClosable ? 'onSecondary' : 'noop'}}">
+  <view class="modal-container" catch:tap="noop">
+    <view class="modal-icon" wx:if="{{icon && !iconBg}}">{{icon}}</view>
+    <view class="modal-icon-bg icon-bg-gold" wx:elif="{{icon && iconBg}}">{{icon}}</view>
+    <view class="modal-title" wx:if="{{title}}">{{title}}</view>
+
+    <block wx:if="{{rarity}}">
+      <view class="unified-rarity rarity-{{rarity}}">{{rarityMap[rarity]}}</view>
+    </block>
+    <view class="unified-name" wx:if="{{contentName}}">{{contentName}}</view>
+
+    <view class="modal-score" wx:if="{{score}}" style="color:{{scoreColor}}">{{score}}</view>
+    <view class="modal-count-label" wx:if="{{scoreLabel}}">{{scoreLabel}}</view>
+
+    <view class="modal-desc" wx:if="{{desc}}">{{desc}}</view>
+
+    <block wx:if="{{richText.length > 0}}">
+      <view class="modal-desc">
+        <text wx:for="{{richText}}" wx:for-item="seg" style="color:{{seg.color || '#3A3A3C'}};font-weight:{{seg.bold ? 700 : 400}}">{{seg.text}}</text>
+      </view>
+    </block>
+
+    <view class="modal-actions {{singleBtn ? 'single' : ''}}">
+      <view class="btn btn-secondary" wx:if="{{secondaryText && !singleBtn}}" bind:tap="onSecondary">{{secondaryText}}</view>
+      <view class="btn btn-{{primaryType || 'primary'}}" wx:if="{{primaryText}}" bind:tap="onPrimary">{{primaryText}}</view>
+    </view>
+  </view>
+</view>

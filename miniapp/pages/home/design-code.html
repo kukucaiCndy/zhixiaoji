@@ -1,0 +1,3131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixso HTML</title>
+  <style>
+@font-face {
+	font-family: 'Microsoft YaHei';
+	font-style: normal;
+	font-weight: 400;
+	src: url(http://localhost:3667/assets/1778497680683/MSYH_1.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Microsoft YaHei';
+	font-style: normal;
+	font-weight: 700;
+	src: url(http://localhost:3667/assets/1778497680683/MSYHBD_1.ttf) format('truetype');
+}
+
+
+</style>
+  <script src="js/animation.js"></script>
+  <style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ol,ul,menu {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+ol li::marker, ul li::before {
+  letter-spacing: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body { 
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: white;
+}
+    
+span {
+  word-break: break-word;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.frame-2_10384 {
+  width: 375px;
+  height: 1281px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-2_10385 {
+  width: 375px;
+  height: 44px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-content-2_10385 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10386 {
+  width: 29.90999984741211px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10387 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: 32px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10388 {
+  width: 60px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-2_10388 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-2_10389 {
+  width: 16px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(255, 255, 255, 0.800000011920929);
+}
+
+.rectangle-2_10390 {
+  width: 16px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(255, 255, 255, 0.800000011920929);
+}
+
+.rectangle-2_10391 {
+  width: 16px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(255, 255, 255, 0.800000011920929);
+}
+
+.frame-2_10392 {
+  width: 375px;
+  height: 53px;
+  position: absolute;
+  left: 0px;
+  top: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-content-2_10392 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10393 {
+  width: 54px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10394 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: 56px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10395 {
+  width: 93px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-color: rgba(255, 255, 255, 0.15000000596046448);
+}
+
+.frame-content-2_10395 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-2_10396 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.699999988079071);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-2_10397 {
+  width: 375px;
+  height: 92px;
+  position: absolute;
+  left: 0px;
+  top: 97px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10397 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 12px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10398 {
+  width: 375px;
+  height: 80px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-2_10398 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10399 {
+  width: 149.4499969482422px;
+  height: 48px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-2_10399 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10400 {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px 24px 24px 24px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2048%2048'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%201.0000%2C%20-0.2946%2C%200.2946%2C%200.1473%2C%20-0.1473)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(79%2C70%2C229%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(6%2C182%2C212%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-2_10400 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-2_10401 {
+  font-size: 20px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-2_10402 {
+  width: 89.44999694824219px;
+  height: 41px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_10403 {
+  width: 89.44999694824219px;
+  height: 21px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-2_10404 {
+  font-size: 16px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 44px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10405 {
+  width: 89.44999694824219px;
+  height: 20px;
+  position: absolute;
+  left: 0px;
+  top: 21px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10405 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10406 {
+  width: 89.44999694824219px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.text-2_10407 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: Regular;
+  color: rgba(0, 0, 0, 1);
+  width: 91px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-2_10407_0 {
+  line-height: 15.837890625px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-2_10407_0_1 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-2_10407_0_2 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(245, 158, 11, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_10408 {
+  width: 97.30000305175781px;
+  height: 32px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2097.30000305175781%2032'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(0.6644%2C%202.0203%2C%20-0.1453%2C%200.4419%2C%200.2405%2C%20-0.7311)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(254%2C243%2C199%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(253%2C230%2C138%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-2_10408 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 14px 6px 14px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10409 {
+  width: 41.29999923706055px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10410 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(146, 64, 14, 1);
+  width: 43px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10411 {
+  width: 22px;
+  height: 15px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10412 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(161, 98, 7, 1);
+  width: 24px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10413 {
+  width: 375px;
+  height: 156px;
+  position: absolute;
+  left: 0px;
+  top: 189px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10413 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10414 {
+  width: 343px;
+  height: 140px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%20343%20140'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(0.7041%2C%201.7250%2C%20-0.0412%2C%200.1010%2C%200.1686%2C%20-0.4130)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(79%2C70%2C229%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(6%2C182%2C212%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-2_10415 {
+  width: 295px;
+  height: 34px;
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10415 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10416 {
+  width: 295px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10417 {
+  font-size: 20px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: 82px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10418 {
+  width: 295px;
+  height: 33px;
+  position: absolute;
+  left: 24px;
+  top: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10418 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 16px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10419 {
+  width: 295px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10420 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.800000011920929);
+  width: 160px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.rectangle-2_10421 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 223px;
+  top: 70px;
+  border-radius: 50px 50px 50px 50px;
+  background-color: rgba(255, 255, 255, 0.05999999865889549);
+}
+
+.rectangle-2_10422 {
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  left: 223px;
+  top: -40px;
+  border-radius: 80px 80px 80px 80px;
+  background-color: rgba(255, 255, 255, 0.07999999821186066);
+}
+
+.frame-2_10423 {
+  width: 108.86000061035156px;
+  height: 33px;
+  position: absolute;
+  left: 24px;
+  top: 91px;
+  border-radius: 20px 20px 20px 20px;
+  background-color: rgba(255, 255, 255, 0.20000000298023224);
+}
+
+.paragraph-2_10424 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: 71px;
+  height: auto;
+  position: absolute;
+  left: 20px;
+  top: 8px;
+}
+
+.frame-2_10425 {
+  width: 375px;
+  height: 42px;
+  position: absolute;
+  left: 0px;
+  top: 345px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-content-2_10425 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px 8px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10426 {
+  width: 68px;
+  height: 22px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10427 {
+  font-size: 17px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 70px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10428 {
+  width: 52px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10429 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 54px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10430 {
+  width: 375px;
+  height: 308px;
+  position: absolute;
+  left: 0px;
+  top: 387px;
+}
+
+.frame-2_10431 {
+  width: 165.5px;
+  height: 140px;
+  position: absolute;
+  left: 16px;
+  top: 0px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_10432 {
+  width: 40px;
+  height: 48px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10432 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10433 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-content-2_10433 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-2_10434 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-2_10435 {
+  width: 133.5px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 64px;
+}
+
+.paragraph-2_10436 {
+  font-size: 22px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 16px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10437 {
+  width: 133.5px;
+  height: 19px;
+  position: absolute;
+  left: 16px;
+  top: 93px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10437 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10438 {
+  width: 133.5px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10439 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 67px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10440 {
+  width: 133.5px;
+  height: 12px;
+  position: absolute;
+  left: 16px;
+  top: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10440 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10441 {
+  width: 133.5px;
+  height: 4px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.rectangle-2_10442 {
+  width: 113.47000122070312px;
+  height: 4px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-2_10443 {
+  width: 165.5px;
+  height: 140px;
+  position: absolute;
+  left: 193px;
+  top: 0px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_10444 {
+  width: 40px;
+  height: 48px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10444 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10445 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(16, 185, 129, 1);
+}
+
+.frame-content-2_10445 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-2_10446 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-2_10447 {
+  width: 133.5px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 64px;
+}
+
+.paragraph-2_10448 {
+  font-size: 22px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 16px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10449 {
+  width: 133.5px;
+  height: 19px;
+  position: absolute;
+  left: 16px;
+  top: 93px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10449 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10450 {
+  width: 133.5px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10451 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 41px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10452 {
+  width: 133.5px;
+  height: 12px;
+  position: absolute;
+  left: 16px;
+  top: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10452 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10453 {
+  width: 133.5px;
+  height: 4px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.rectangle-2_10454 {
+  width: 80.08999633789062px;
+  height: 4px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(16, 185, 129, 1);
+}
+
+.frame-2_10455 {
+  width: 165.5px;
+  height: 140px;
+  position: absolute;
+  left: 16px;
+  top: 152px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_10456 {
+  width: 40px;
+  height: 48px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10456 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10457 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(245, 158, 11, 1);
+}
+
+.frame-content-2_10457 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-2_10458 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-2_10459 {
+  width: 133.5px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 64px;
+}
+
+.paragraph-2_10460 {
+  font-size: 22px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 29px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10461 {
+  width: 133.5px;
+  height: 19px;
+  position: absolute;
+  left: 16px;
+  top: 93px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10461 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10462 {
+  width: 133.5px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10463 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 41px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10464 {
+  width: 133.5px;
+  height: 12px;
+  position: absolute;
+  left: 16px;
+  top: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10464 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10465 {
+  width: 133.5px;
+  height: 4px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.rectangle-2_10466 {
+  width: 53.38999938964844px;
+  height: 4px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(245, 158, 11, 1);
+}
+
+.frame-2_10467 {
+  width: 165.5px;
+  height: 140px;
+  position: absolute;
+  left: 193px;
+  top: 152px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_10468 {
+  width: 40px;
+  height: 48px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10468 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10469 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(239, 68, 68, 1);
+}
+
+.frame-content-2_10469 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-2_10470 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-2_10471 {
+  width: 133.5px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 64px;
+}
+
+.paragraph-2_10472 {
+  font-size: 22px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 50px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10473 {
+  width: 133.5px;
+  height: 19px;
+  position: absolute;
+  left: 16px;
+  top: 93px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10473 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10474 {
+  width: 133.5px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10475 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 41px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10476 {
+  width: 133.5px;
+  height: 12px;
+  position: absolute;
+  left: 16px;
+  top: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10476 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10477 {
+  width: 133.5px;
+  height: 4px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.rectangle-2_10478 {
+  width: 89.44000244140625px;
+  height: 4px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-2_10479 {
+  width: 375px;
+  height: 92px;
+  position: absolute;
+  left: 0px;
+  top: 695px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10479 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10480 {
+  width: 343px;
+  height: 76px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%20343%2076'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(0.6108%2C%202.7566%2C%20-0.0412%2C%200.1861%2C%200.2152%2C%20-0.9713)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(238%2C242%2C255%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(224%2C231%2C255%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-2_10480 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10481 {
+  width: 154.13999938964844px;
+  height: 44px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-2_10481 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10482 {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-content-2_10482 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-2_10483 {
+  font-size: 22px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-2_10484 {
+  width: 98.13999938964844px;
+  height: 38px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_10485 {
+  width: 98.13999938964844px;
+  height: 20px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-2_10486 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 62px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10487 {
+  width: 98.13999938964844px;
+  height: 18px;
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10487 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10488 {
+  width: 98.13999938964844px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10489 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 100px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10490 {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-2_10490 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-2_10491 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-2_10492 {
+  width: 375px;
+  height: 42px;
+  position: absolute;
+  left: 0px;
+  top: 787px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-content-2_10492 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px 8px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10493 {
+  width: 68px;
+  height: 22px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10494 {
+  font-size: 17px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 70px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10495 {
+  width: 26px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10496 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 28px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10497 {
+  width: 375px;
+  height: 188px;
+  position: absolute;
+  left: 0px;
+  top: 829px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10497 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10498 {
+  width: 343px;
+  height: 172px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_10499 {
+  width: 311px;
+  height: 35px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-2_10499 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10500 {
+  width: 56px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10501 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: 42px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10502 {
+  width: 195px;
+  height: 6px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.rectangle-2_10503 {
+  width: 165.75px;
+  height: 6px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-2_10504 {
+  width: 36px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10505 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: right;
+  color: rgba(100, 116, 139, 1);
+  width: 27px;
+  height: auto;
+  position: absolute;
+  left: 11px;
+  top: 0px;
+}
+
+.frame-2_10506 {
+  width: 311px;
+  height: 35px;
+  position: absolute;
+  left: 16px;
+  top: 51px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-2_10506 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10507 {
+  width: 56px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10508 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: 28px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10509 {
+  width: 195px;
+  height: 6px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.rectangle-2_10510 {
+  width: 117px;
+  height: 6px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(6, 182, 212, 1);
+}
+
+.frame-2_10511 {
+  width: 36px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10512 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: right;
+  color: rgba(100, 116, 139, 1);
+  width: 27px;
+  height: auto;
+  position: absolute;
+  left: 11px;
+  top: 0px;
+}
+
+.frame-2_10513 {
+  width: 311px;
+  height: 35px;
+  position: absolute;
+  left: 16px;
+  top: 86px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-2_10513 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10514 {
+  width: 66.2300033569336px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10515 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: 68px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10516 {
+  width: 184.77000427246094px;
+  height: 6px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.rectangle-2_10517 {
+  width: 64.66000366210938px;
+  height: 6px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(245, 158, 11, 1);
+}
+
+.frame-2_10518 {
+  width: 36px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10519 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: right;
+  color: rgba(100, 116, 139, 1);
+  width: 27px;
+  height: auto;
+  position: absolute;
+  left: 11px;
+  top: 0px;
+}
+
+.frame-2_10520 {
+  width: 311px;
+  height: 35px;
+  position: absolute;
+  left: 16px;
+  top: 121px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-2_10520 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10521 {
+  width: 56px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10522 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: 30px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10523 {
+  width: 195px;
+  height: 6px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.rectangle-2_10524 {
+  width: 39px;
+  height: 6px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(239, 68, 68, 1);
+}
+
+.frame-2_10525 {
+  width: 36px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10526 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: right;
+  color: rgba(100, 116, 139, 1);
+  width: 27px;
+  height: auto;
+  position: absolute;
+  left: 11px;
+  top: 0px;
+}
+
+.frame-2_10527 {
+  width: 375px;
+  height: 42px;
+  position: absolute;
+  left: 0px;
+  top: 1017px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-content-2_10527 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px 8px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10528 {
+  width: 68px;
+  height: 22px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10529 {
+  font-size: 17px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 70px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10530 {
+  width: 26px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10531 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 28px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10532 {
+  width: 375px;
+  height: 172px;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 1059px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-2_10532 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 0px 16px 24px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10533 {
+  width: 140px;
+  height: 148px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 12px 12px 12px 12px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_10534 {
+  width: 116px;
+  height: 88px;
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10534 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-2_10535 {
+  width: 116px;
+  height: 80px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%20116%2080'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(0.8448%2C%201.2250%2C%20-0.1219%2C%200.1768%2C%200.1385%2C%20-0.2009)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(79%2C70%2C229%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(129%2C140%2C248%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-2_10536 {
+  width: 116px;
+  height: 21px;
+  position: absolute;
+  left: 12px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10536 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10537 {
+  width: 116px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10538 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 81px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10539 {
+  width: 116px;
+  height: 15px;
+  position: absolute;
+  left: 12px;
+  top: 121px;
+}
+
+.paragraph-2_10540 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: 90px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10541 {
+  width: 140px;
+  height: 148px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 12px 12px 12px 12px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_10542 {
+  width: 116px;
+  height: 88px;
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10542 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-2_10543 {
+  width: 116px;
+  height: 80px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%20116%2080'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(0.8448%2C%201.2250%2C%20-0.1219%2C%200.1768%2C%200.1385%2C%20-0.2009)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(6%2C182%2C212%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(34%2C211%2C238%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-2_10544 {
+  width: 116px;
+  height: 21px;
+  position: absolute;
+  left: 12px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10544 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10545 {
+  width: 116px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10546 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 54px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10547 {
+  width: 116px;
+  height: 15px;
+  position: absolute;
+  left: 12px;
+  top: 121px;
+}
+
+.paragraph-2_10548 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: 101px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10549 {
+  width: 140px;
+  height: 148px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 12px 12px 12px 12px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_10550 {
+  width: 116px;
+  height: 88px;
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10550 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-2_10551 {
+  width: 116px;
+  height: 80px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%20116%2080'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(0.8448%2C%201.2250%2C%20-0.1219%2C%200.1768%2C%200.1385%2C%20-0.2009)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(245%2C158%2C11%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(251%2C191%2C36%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-2_10552 {
+  width: 116px;
+  height: 21px;
+  position: absolute;
+  left: 12px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_10552 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10553 {
+  width: 116px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10554 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 41px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10555 {
+  width: 116px;
+  height: 15px;
+  position: absolute;
+  left: 12px;
+  top: 121px;
+}
+
+.paragraph-2_10556 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: 90px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10557 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-2_10557 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 20px 0px;
+  width: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-2_10557 {
+  position: absolute;
+  left: 0px;
+  top: 1231px;
+  width: 375px;
+  height: auto;
+  display: flex;
+  padding: 1px 0px 0px 0px;
+}
+
+.stroke-2_10557 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.frame-2_10558 {
+  width: 93.75px;
+  height: 42px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frame-content-2_10558 {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10559 {
+  width: 27px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10560 {
+  font-size: 20px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  width: 27px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10561 {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10562 {
+  font-size: 10px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(79, 70, 229, 1);
+  width: 22px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10563 {
+  width: 93.75px;
+  height: 42px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frame-content-2_10563 {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10564 {
+  width: 27px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10565 {
+  font-size: 20px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  width: 27px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10566 {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10567 {
+  font-size: 10px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: 22px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10568 {
+  width: 93.75px;
+  height: 42px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frame-content-2_10568 {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10569 {
+  width: 27px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10570 {
+  font-size: 20px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  width: 27px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10571 {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10572 {
+  font-size: 10px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: 22px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10573 {
+  width: 93.75px;
+  height: 42px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frame-content-2_10573 {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_10574 {
+  width: 27px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10575 {
+  font-size: 20px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  width: 27px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_10576 {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_10577 {
+  font-size: 10px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: 22px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="2_10384" class="frame-2_10384">
+    <div id="2_10385" class="frame-2_10385">
+      <div class="frame-content-2_10385">
+        <div id="2_10386" class="frame-2_10386">
+          <p id="2_10387" class="paragraph-2_10387">9:41</p>
+        </div>
+        <div id="2_10388" class="frame-2_10388">
+          <div class="frame-content-2_10388">
+            <div id="2_10389" class="rectangle-2_10389"></div>
+            <div id="2_10390" class="rectangle-2_10390"></div>
+            <div id="2_10391" class="rectangle-2_10391"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="2_10392" class="frame-2_10392">
+      <div class="frame-content-2_10392">
+        <div id="2_10393" class="frame-2_10393">
+          <p id="2_10394" class="paragraph-2_10394">知小记</p>
+        </div>
+        <div id="2_10395" class="frame-2_10395">
+          <div class="frame-content-2_10395">
+            <p id="2_10396" class="paragraph-2_10396">🔍 搜索知识点</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="2_10397" class="frame-2_10397">
+      <div class="frame-content-2_10397">
+        <div id="2_10398" class="frame-2_10398">
+          <div class="frame-content-2_10398">
+            <div id="2_10399" class="frame-2_10399" style="cursor: pointer;">
+              <div class="frame-content-2_10399">
+                <div id="2_10400" class="frame-2_10400">
+                  <div class="frame-content-2_10400">
+                    <p id="2_10401" class="paragraph-2_10401">J</p>
+                  </div>
+                </div>
+                <div id="2_10402" class="frame-2_10402">
+                  <div id="2_10403" class="frame-2_10403">
+                    <p id="2_10404" class="paragraph-2_10404">Jesse</p>
+                  </div>
+                  <div id="2_10405" class="frame-2_10405">
+                    <div class="frame-content-2_10405">
+                      <div id="2_10406" class="frame-2_10406">
+                        <div id="2_10407" class="text-2_10407">
+                          <p id="2_10407_0" class="paragraph-2_10407_0">
+<span id="2_10407_0_1" class="span-2_10407_0_1">� 连续学习</span><span id="2_10407_0_2" class="span-2_10407_0_2">7天</span></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="2_10408" class="frame-2_10408">
+              <div class="frame-content-2_10408">
+                <div id="2_10409" class="frame-2_10409">
+                  <p id="2_10410" class="paragraph-2_10410">1,280</p>
+                </div>
+                <div id="2_10411" class="frame-2_10411">
+                  <p id="2_10412" class="paragraph-2_10412">积分</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="2_10413" class="frame-2_10413">
+      <div class="frame-content-2_10413">
+        <div id="2_10414" class="frame-2_10414">
+          <div id="2_10415" class="frame-2_10415">
+            <div class="frame-content-2_10415">
+              <div id="2_10416" class="frame-2_10416">
+                <p id="2_10417" class="paragraph-2_10417">每日挑战</p>
+              </div>
+            </div>
+          </div>
+          <div id="2_10418" class="frame-2_10418">
+            <div class="frame-content-2_10418">
+              <div id="2_10419" class="frame-2_10419">
+                <p id="2_10420" class="paragraph-2_10420">每天10题，巩固知识不忘记</p>
+              </div>
+            </div>
+          </div>
+          <div id="2_10421" class="rectangle-2_10421"></div>
+          <div id="2_10422" class="rectangle-2_10422"></div>
+          <div id="2_10423" class="frame-2_10423">
+            <p id="2_10424" class="paragraph-2_10424">立即挑战 →</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="2_10425" class="frame-2_10425">
+      <div class="frame-content-2_10425">
+        <div id="2_10426" class="frame-2_10426">
+          <p id="2_10427" class="paragraph-2_10427">今日学习</p>
+        </div>
+        <div id="2_10428" class="frame-2_10428">
+          <p id="2_10429" class="paragraph-2_10429">查看全部</p>
+        </div>
+      </div>
+    </div>
+    <div id="2_10430" class="frame-2_10430">
+      <div id="2_10431" class="frame-2_10431">
+        <div id="2_10432" class="frame-2_10432">
+          <div class="frame-content-2_10432">
+            <div id="2_10433" class="frame-2_10433">
+              <div class="frame-content-2_10433">
+                <p id="2_10434" class="paragraph-2_10434">📖</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="2_10435" class="frame-2_10435">
+          <p id="2_10436" class="paragraph-2_10436">6</p>
+        </div>
+        <div id="2_10437" class="frame-2_10437">
+          <div class="frame-content-2_10437">
+            <div id="2_10438" class="frame-2_10438">
+              <p id="2_10439" class="paragraph-2_10439">待学习卡片</p>
+            </div>
+          </div>
+        </div>
+        <div id="2_10440" class="frame-2_10440">
+          <div class="frame-content-2_10440">
+            <div id="2_10441" class="frame-2_10441">
+              <div id="2_10442" class="rectangle-2_10442"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="2_10443" class="frame-2_10443">
+        <div id="2_10444" class="frame-2_10444">
+          <div class="frame-content-2_10444">
+            <div id="2_10445" class="frame-2_10445">
+              <div class="frame-content-2_10445">
+                <p id="2_10446" class="paragraph-2_10446">🔄</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="2_10447" class="frame-2_10447">
+          <p id="2_10448" class="paragraph-2_10448">3</p>
+        </div>
+        <div id="2_10449" class="frame-2_10449">
+          <div class="frame-content-2_10449">
+            <div id="2_10450" class="frame-2_10450">
+              <p id="2_10451" class="paragraph-2_10451">待复习</p>
+            </div>
+          </div>
+        </div>
+        <div id="2_10452" class="frame-2_10452">
+          <div class="frame-content-2_10452">
+            <div id="2_10453" class="frame-2_10453">
+              <div id="2_10454" class="rectangle-2_10454"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="2_10455" class="frame-2_10455">
+        <div id="2_10456" class="frame-2_10456">
+          <div class="frame-content-2_10456">
+            <div id="2_10457" class="frame-2_10457">
+              <div class="frame-content-2_10457">
+                <p id="2_10458" class="paragraph-2_10458">⭐</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="2_10459" class="frame-2_10459">
+          <p id="2_10460" class="paragraph-2_10460">12</p>
+        </div>
+        <div id="2_10461" class="frame-2_10461">
+          <div class="frame-content-2_10461">
+            <div id="2_10462" class="frame-2_10462">
+              <p id="2_10463" class="paragraph-2_10463">已掌握</p>
+            </div>
+          </div>
+        </div>
+        <div id="2_10464" class="frame-2_10464">
+          <div class="frame-content-2_10464">
+            <div id="2_10465" class="frame-2_10465">
+              <div id="2_10466" class="rectangle-2_10466"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="2_10467" class="frame-2_10467">
+        <div id="2_10468" class="frame-2_10468">
+          <div class="frame-content-2_10468">
+            <div id="2_10469" class="frame-2_10469">
+              <div class="frame-content-2_10469">
+                <p id="2_10470" class="paragraph-2_10470">📊</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="2_10471" class="frame-2_10471">
+          <p id="2_10472" class="paragraph-2_10472">67%</p>
+        </div>
+        <div id="2_10473" class="frame-2_10473">
+          <div class="frame-content-2_10473">
+            <div id="2_10474" class="frame-2_10474">
+              <p id="2_10475" class="paragraph-2_10475">正确率</p>
+            </div>
+          </div>
+        </div>
+        <div id="2_10476" class="frame-2_10476">
+          <div class="frame-content-2_10476">
+            <div id="2_10477" class="frame-2_10477">
+              <div id="2_10478" class="rectangle-2_10478"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="2_10479" class="frame-2_10479">
+      <div class="frame-content-2_10479">
+        <div id="2_10480" class="frame-2_10480">
+          <div class="frame-content-2_10480">
+            <div id="2_10481" class="frame-2_10481">
+              <div class="frame-content-2_10481">
+                <div id="2_10482" class="frame-2_10482">
+                  <div class="frame-content-2_10482">
+                    <p id="2_10483" class="paragraph-2_10483">🏆</p>
+                  </div>
+                </div>
+                <div id="2_10484" class="frame-2_10484">
+                  <div id="2_10485" class="frame-2_10485">
+                    <p id="2_10486" class="paragraph-2_10486">每日挑战</p>
+                  </div>
+                  <div id="2_10487" class="frame-2_10487">
+                    <div class="frame-content-2_10487">
+                      <div id="2_10488" class="frame-2_10488">
+                        <p id="2_10489" class="paragraph-2_10489">今日剩余 3 次机会</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="2_10490" class="frame-2_10490">
+              <div class="frame-content-2_10490">
+                <p id="2_10491" class="paragraph-2_10491">›</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="2_10492" class="frame-2_10492">
+      <div class="frame-content-2_10492">
+        <div id="2_10493" class="frame-2_10493">
+          <p id="2_10494" class="paragraph-2_10494">学习进度</p>
+        </div>
+        <div id="2_10495" class="frame-2_10495">
+          <p id="2_10496" class="paragraph-2_10496">详情</p>
+        </div>
+      </div>
+    </div>
+    <div id="2_10497" class="frame-2_10497">
+      <div class="frame-content-2_10497">
+        <div id="2_10498" class="frame-2_10498">
+          <div id="2_10499" class="frame-2_10499">
+            <div class="frame-content-2_10499">
+              <div id="2_10500" class="frame-2_10500">
+                <p id="2_10501" class="paragraph-2_10501">HTML</p>
+              </div>
+              <div id="2_10502" class="frame-2_10502">
+                <div id="2_10503" class="rectangle-2_10503"></div>
+              </div>
+              <div id="2_10504" class="frame-2_10504">
+                <p id="2_10505" class="paragraph-2_10505">85%</p>
+              </div>
+            </div>
+          </div>
+          <div id="2_10506" class="frame-2_10506">
+            <div class="frame-content-2_10506">
+              <div id="2_10507" class="frame-2_10507">
+                <p id="2_10508" class="paragraph-2_10508">CSS</p>
+              </div>
+              <div id="2_10509" class="frame-2_10509">
+                <div id="2_10510" class="rectangle-2_10510"></div>
+              </div>
+              <div id="2_10511" class="frame-2_10511">
+                <p id="2_10512" class="paragraph-2_10512">60%</p>
+              </div>
+            </div>
+          </div>
+          <div id="2_10513" class="frame-2_10513">
+            <div class="frame-content-2_10513">
+              <div id="2_10514" class="frame-2_10514">
+                <p id="2_10515" class="paragraph-2_10515">JavaScript</p>
+              </div>
+              <div id="2_10516" class="frame-2_10516">
+                <div id="2_10517" class="rectangle-2_10517"></div>
+              </div>
+              <div id="2_10518" class="frame-2_10518">
+                <p id="2_10519" class="paragraph-2_10519">35%</p>
+              </div>
+            </div>
+          </div>
+          <div id="2_10520" class="frame-2_10520">
+            <div class="frame-content-2_10520">
+              <div id="2_10521" class="frame-2_10521">
+                <p id="2_10522" class="paragraph-2_10522">框架</p>
+              </div>
+              <div id="2_10523" class="frame-2_10523">
+                <div id="2_10524" class="rectangle-2_10524"></div>
+              </div>
+              <div id="2_10525" class="frame-2_10525">
+                <p id="2_10526" class="paragraph-2_10526">20%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="2_10527" class="frame-2_10527">
+      <div class="frame-content-2_10527">
+        <div id="2_10528" class="frame-2_10528">
+          <p id="2_10529" class="paragraph-2_10529">推荐内容</p>
+        </div>
+        <div id="2_10530" class="frame-2_10530">
+          <p id="2_10531" class="paragraph-2_10531">更多</p>
+        </div>
+      </div>
+    </div>
+    <div id="2_10532" class="frame-2_10532">
+      <div class="frame-content-2_10532">
+        <div id="2_10533" class="frame-2_10533">
+          <div id="2_10534" class="frame-2_10534">
+            <div class="frame-content-2_10534">
+              <div id="2_10535" class="rectangle-2_10535"></div>
+            </div>
+          </div>
+          <div id="2_10536" class="frame-2_10536">
+            <div class="frame-content-2_10536">
+              <div id="2_10537" class="frame-2_10537">
+                <p id="2_10538" class="paragraph-2_10538">CSS Flexbox</p>
+              </div>
+            </div>
+          </div>
+          <div id="2_10539" class="frame-2_10539">
+            <p id="2_10540" class="paragraph-2_10540">彻底理解弹性布局</p>
+          </div>
+        </div>
+        <div id="2_10541" class="frame-2_10541">
+          <div id="2_10542" class="frame-2_10542">
+            <div class="frame-content-2_10542">
+              <div id="2_10543" class="rectangle-2_10543"></div>
+            </div>
+          </div>
+          <div id="2_10544" class="frame-2_10544">
+            <div class="frame-content-2_10544">
+              <div id="2_10545" class="frame-2_10545">
+                <p id="2_10546" class="paragraph-2_10546">闭包详解</p>
+              </div>
+            </div>
+          </div>
+          <div id="2_10547" class="frame-2_10547">
+            <p id="2_10548" class="paragraph-2_10548">JavaScript 核心概念</p>
+          </div>
+        </div>
+        <div id="2_10549" class="frame-2_10549">
+          <div id="2_10550" class="frame-2_10550">
+            <div class="frame-content-2_10550">
+              <div id="2_10551" class="rectangle-2_10551"></div>
+            </div>
+          </div>
+          <div id="2_10552" class="frame-2_10552">
+            <div class="frame-content-2_10552">
+              <div id="2_10553" class="frame-2_10553">
+                <p id="2_10554" class="paragraph-2_10554">原型链</p>
+              </div>
+            </div>
+          </div>
+          <div id="2_10555" class="frame-2_10555">
+            <p id="2_10556" class="paragraph-2_10556">面向对象编程基础</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="2_10557" class="stroke-wrapper-2_10557">
+      <div class="frame-2_10557">
+        <div class="frame-content-2_10557">
+          <div id="2_10558" class="frame-2_10558">
+            <div class="frame-content-2_10558">
+              <div id="2_10559" class="frame-2_10559">
+                <p id="2_10560" class="paragraph-2_10560">🏠</p>
+              </div>
+              <div id="2_10561" class="frame-2_10561">
+                <p id="2_10562" class="paragraph-2_10562">首页</p>
+              </div>
+            </div>
+          </div>
+          <div id="2_10563" class="frame-2_10563" style="cursor: pointer;">
+            <div class="frame-content-2_10563">
+              <div id="2_10564" class="frame-2_10564">
+                <p id="2_10565" class="paragraph-2_10565">📚</p>
+              </div>
+              <div id="2_10566" class="frame-2_10566">
+                <p id="2_10567" class="paragraph-2_10567">学习</p>
+              </div>
+            </div>
+          </div>
+          <div id="2_10568" class="frame-2_10568" style="cursor: pointer;">
+            <div class="frame-content-2_10568">
+              <div id="2_10569" class="frame-2_10569">
+                <p id="2_10570" class="paragraph-2_10570">📝</p>
+              </div>
+              <div id="2_10571" class="frame-2_10571">
+                <p id="2_10572" class="paragraph-2_10572">笔记</p>
+              </div>
+            </div>
+          </div>
+          <div id="2_10573" class="frame-2_10573" style="cursor: pointer;">
+            <div class="frame-content-2_10573">
+              <div id="2_10574" class="frame-2_10574">
+                <p id="2_10575" class="paragraph-2_10575">👤</p>
+              </div>
+              <div id="2_10576" class="frame-2_10576">
+                <p id="2_10577" class="paragraph-2_10577">我的</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stroke-2_10557"></div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

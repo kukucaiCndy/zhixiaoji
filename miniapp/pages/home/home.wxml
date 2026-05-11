@@ -1,0 +1,178 @@
+<view class="home-page">
+  <view class="header-section">
+    <view class="status-bar">
+      <text class="time">9:41</text>
+      <view class="status-icons">
+        <view class="signal-bar"></view>
+        <view class="signal-bar"></view>
+        <view class="signal-bar"></view>
+      </view>
+    </view>
+    <view class="nav-bar">
+      <text class="nav-title">知小记</text>
+      <view class="search-btn" bindtap="onSearch">
+        <text>🔍 搜索知识点</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="user-section">
+    <view class="user-info">
+      <view class="avatar">J</view>
+      <view class="user-meta">
+        <text class="username">Jesse</text>
+        <text class="streak-text">🔥 连续学习<text class="streak-highlight">7天</text></text>
+      </view>
+    </view>
+    <view class="points-card">
+      <text class="points-value">1,280</text>
+      <text class="points-label">积分</text>
+    </view>
+  </view>
+
+  <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="scroll-inner">
+    <view class="challenge-card">
+      <view class="challenge-deco-bg">
+        <view class="deco-circle c1"></view>
+        <view class="deco-circle c2"></view>
+      </view>
+      <text class="challenge-title">每日挑战</text>
+      <text class="challenge-desc">每天10题，巩固知识不忘记</text>
+      <view class="challenge-btn" bindtap="onChallenge">
+        <text>立即挑战 →</text>
+      </view>
+    </view>
+
+    <view class="section-header">
+      <text class="section-title">今日学习</text>
+      <text class="section-more" bindtap="onViewAll">查看全部</text>
+    </view>
+
+    <view class="stats-grid">
+      <view class="stat-item">
+        <view class="stat-icon purple">📖</view>
+        <text class="stat-number">6</text>
+        <text class="stat-label">待学习卡片</text>
+        <view class="stat-progress">
+          <view class="progress-track">
+            <view class="progress-fill purple" style="width: 85%"></view>
+          </view>
+        </view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-icon green">🔄</view>
+        <text class="stat-number">3</text>
+        <text class="stat-label">待复习</text>
+        <view class="stat-progress">
+          <view class="progress-track">
+            <view class="progress-fill green" style="width: 60%"></view>
+          </view>
+        </view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-icon orange">⭐</view>
+        <text class="stat-number">12</text>
+        <text class="stat-label">已掌握</text>
+        <view class="stat-progress">
+          <view class="progress-track">
+            <view class="progress-fill orange" style="width: 40%"></view>
+          </view>
+        </view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-icon red">📊</view>
+        <text class="stat-number">67%</text>
+        <text class="stat-label">正确率</text>
+        <view class="stat-progress">
+          <view class="progress-track">
+            <view class="progress-fill purple" style="width: 67%"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="challenge-entry" bindtap="onChallenge">
+      <view class="entry-icon">🏆</view>
+      <view class="entry-content">
+        <text class="entry-title">每日挑战</text>
+        <text class="entry-desc">今日剩余 3 次机会</text>
+      </view>
+      <view class="entry-arrow">›</view>
+    </view>
+
+    <view class="section-header">
+      <text class="section-title">学习进度</text>
+      <text class="section-more" bindtap="onViewDetail">详情</text>
+    </view>
+
+    <view class="progress-list">
+      <view class="progress-item">
+        <text class="progress-name">HTML</text>
+        <view class="progress-bar-wrap">
+          <view class="progress-track tall">
+            <view class="progress-fill purple" style="width: 85%"></view>
+          </view>
+        </view>
+        <text class="progress-percent">85%</text>
+      </view>
+      <view class="progress-item">
+        <text class="progress-name">CSS</text>
+        <view class="progress-bar-wrap">
+          <view class="progress-track tall">
+            <view class="progress-fill cyan" style="width: 60%"></view>
+          </view>
+        </view>
+        <text class="progress-percent">60%</text>
+      </view>
+      <view class="progress-item">
+        <text class="progress-name">JavaScript</text>
+        <view class="progress-bar-wrap">
+          <view class="progress-track tall">
+            <view class="progress-fill orange" style="width: 35%"></view>
+          </view>
+        </view>
+        <text class="progress-percent">35%</text>
+      </view>
+      <view class="progress-item">
+        <text class="progress-name">框架</text>
+        <view class="progress-bar-wrap">
+          <view class="progress-track tall">
+            <view class="progress-fill red" style="width: 20%"></view>
+          </view>
+        </view>
+        <text class="progress-percent">20%</text>
+      </view>
+    </view>
+
+    <view class="section-header">
+      <text class="section-title">推荐内容</text>
+      <text class="section-more" bindtap="onMore">更多</text>
+    </view>
+
+    <scroll-view class="recommend-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+      <view class="recommend-list">
+        <view class="rec-card" bindtap="onRecommendTap" data-id="1">
+          <view class="rec-thumb purple"></view>
+          <text class="rec-title">CSS Flexbox</text>
+          <text class="rec-desc">彻底理解弹性布局</text>
+        </view>
+        <view class="rec-card" bindtap="onRecommendTap" data-id="2">
+          <view class="rec-thumb cyan"></view>
+          <text class="rec-title">闭包详解</text>
+          <text class="rec-desc">JavaScript 核心概念</text>
+        </view>
+        <view class="rec-card" bindtap="onRecommendTap" data-id="3">
+          <view class="rec-thumb orange"></view>
+          <text class="rec-title">原型链</text>
+          <text class="rec-desc">面向对象编程基础</text>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="bottom-placeholder"></view>
+    </view>
+  </scroll-view>
+
+  <tab-bar activeIndex="0" bind:change="onTabChange"></tab-bar>
+</view>

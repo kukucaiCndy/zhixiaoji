@@ -1,0 +1,44 @@
+<view class="settings-page">
+  <view class="settings-group">
+    <view class="setting-item" catch:tap="onTheme">
+      <text class="setting-label">主题设置</text>
+      <view class="setting-right">
+        <view class="theme-dot" style="background: {{themeColor}}"></view>
+        <text class="arrow">&gt;</text>
+      </view>
+    </view>
+    <view class="setting-item">
+      <text class="setting-label">学习提醒</text>
+      <switch class="setting-switch" checked="{{remindEnabled}}" bindchange="onRemindChange" color="#34C759" />
+    </view>
+    <view class="setting-item" catch:tap="onFontSize">
+      <text class="setting-label">字体大小</text>
+      <view class="setting-right">
+        <text class="setting-value">{{fontSize}}</text>
+        <text class="arrow">&gt;</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="settings-group">
+    <view class="setting-item" catch:tap="onClearCache">
+      <text class="setting-label">清除缓存</text>
+      <view class="setting-right">
+        <text class="setting-value">{{cacheSize}}</text>
+        <text class="arrow">&gt;</text>
+      </view>
+    </view>
+    <view class="setting-item" catch:tap="onAbout">
+      <text class="setting-label">关于我们</text>
+      <text class="arrow">&gt;</text>
+    </view>
+    <view class="setting-item" catch:tap="onCheckUpdate">
+      <text class="setting-label">检查更新</text>
+      <text class="arrow">&gt;</text>
+    </view>
+  </view>
+
+  <view class="logout-section" catch:tap="onLogout">
+    <text class="logout-text">退出登录</text>
+  </view>
+</view>

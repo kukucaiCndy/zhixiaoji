@@ -1,0 +1,104 @@
+<view class="login-page">
+  <!-- 顶部渐变区域 -->
+  <view class="header-section">
+    <view class="status-bar">
+      <text class="time">9:41</text>
+      <view class="signal-icons">
+        <view class="signal-bar"></view>
+        <view class="signal-bar"></view>
+        <view class="signal-bar"></view>
+      </view>
+    </view>
+    <view class="header-content">
+      <view class="decoration-circle"></view>
+      <view class="decoration-grid">
+        <view class="grid-dot"></view>
+        <view class="grid-dot"></view>
+        <view class="grid-dot"></view>
+        <view class="grid-dot"></view>
+        <view class="grid-dot"></view>
+        <view class="grid-dot"></view>
+        <view class="grid-dot"></view>
+        <view class="grid-dot"></view>
+        <view class="grid-dot"></view>
+      </view>
+      <view class="header-icon">
+        <text class="book-icon">📚</text>
+      </view>
+      <view class="decoration-circle-small"></view>
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content-section">
+    <!-- Logo -->
+    <view class="logo-wrap">
+      <view class="logo-box">
+        <text class="logo-text">知</text>
+      </view>
+    </view>
+
+    <!-- 标题 -->
+    <view class="title-wrap">
+      <text class="title">欢迎来到知小记</text>
+    </view>
+
+    <!-- 副标题 -->
+    <view class="subtitle-wrap">
+      <text class="subtitle">AI 驱动的编程学习助手</text>
+      <text class="subtitle">让知识真正属于你</text>
+    </view>
+
+    <!-- 功能列表 -->
+    <view class="features-list">
+      <view class="feature-item">
+        <view class="feature-icon blue">
+          <text>🧠</text>
+        </view>
+        <view class="feature-text">
+          <text class="feature-title">艾宾浩斯智能复习</text>
+          <text class="feature-desc">科学记忆曲线，拒绝遗忘</text>
+        </view>
+      </view>
+      <view class="feature-item">
+        <view class="feature-icon green">
+          <text>📝</text>
+        </view>
+        <view class="feature-text">
+          <text class="feature-title">手写笔记</text>
+          <text class="feature-desc">像纸笔一样自然</text>
+        </view>
+      </view>
+      <view class="feature-item">
+        <view class="feature-icon orange">
+          <text>🎮</text>
+        </view>
+        <view class="feature-text">
+          <text class="feature-title">趣味刷题 + 文具收集</text>
+          <text class="feature-desc">学习也能像玩游戏一样有趣</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 登录按钮 -->
+    <view class="wechat-btn" bindtap="onWechatLogin">
+      <text class="wx-icon">💬</text>
+      <text class="wx-text">微信一键登录</text>
+    </view>
+
+    <!-- 游客按钮 -->
+    <view class="guest-btn-wrap">
+      <view class="guest-btn" bindtap="onGuestLogin">
+        <text class="guest-text">先逛逛（游客模式）</text>
+      </view>
+    </view>
+
+    <!-- 协议 -->
+    <view class="agreement">
+      <text class="agreement-text">登录即表示同意</text>
+      <text class="agreement-link" bindtap="onTapAgreement">用户协议</text>
+      <text class="agreement-text">和</text>
+      <text class="agreement-link" bindtap="onTapPrivacy">隐私政策</text>
+    </view>
+  </view>
+</view>

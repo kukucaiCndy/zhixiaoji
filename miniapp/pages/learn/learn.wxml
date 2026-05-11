@@ -1,0 +1,113 @@
+<view class="learn-page">
+  <view class="header-section">
+    <view class="status-bar">
+      <text class="time">9:41</text>
+      <view class="status-icons">
+        <view class="signal-bar"></view>
+        <view class="signal-bar"></view>
+        <view class="signal-bar"></view>
+      </view>
+    </view>
+    <view class="nav-bar">
+      <text class="nav-title">学习</text>
+      <view class="search-btn" bindtap="onSearch">
+        <text>🔍 搜索</text>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="scroll-inner">
+      <view class="path-tabs">
+        <view class="path-tab {{currentPath === 'main' ? 'active' : ''}}" bindtap="switchPath" data-path="main">
+          <text>📌 主线路径</text>
+          <view class="active-indicator"></view>
+        </view>
+        <view class="path-tab {{currentPath === 'quick' ? 'active' : ''}}" bindtap="switchPath" data-path="quick">
+          <text>⚡ 快速路径</text>
+          <view class="active-indicator"></view>
+        </view>
+        <view class="path-tab {{currentPath === 'interest' ? 'active' : ''}}" bindtap="switchPath" data-path="interest">
+          <text>🎯 兴趣路径</text>
+          <view class="active-indicator"></view>
+        </view>
+        <view class="path-tab {{currentPath === 'weakness' ? 'active' : ''}}" bindtap="switchPath" data-path="weakness">
+          <text>💪 补弱路径</text>
+          <view class="active-indicator"></view>
+        </view>
+      </view>
+
+      <view class="continue-card">
+        <view class="continue-header">
+          <text class="continue-title">继续学习</text>
+          <text class="continue-more" bindtap="onViewAll">查看全部 →</text>
+        </view>
+        <view class="continue-body">
+          <view class="continue-icon">📄</view>
+          <view class="continue-info">
+            <text class="continue-name">CSS Flexbox 布局详解</text>
+            <text class="continue-desc">CSS 基础 → 布局篇 → 第3节</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="feature-grid">
+        <view class="feature-item" bindtap="onFeatureTap" data-type="favorite">
+          <view class="feature-icon purple">⭐</view>
+          <text class="feature-label">收藏夹</text>
+        </view>
+        <view class="feature-item" bindtap="onFeatureTap" data-type="wrong">
+          <view class="feature-icon red">❌</view>
+          <text class="feature-label">错题本</text>
+        </view>
+        <view class="feature-item" bindtap="onFeatureTap" data-type="review">
+          <view class="feature-icon green">🔄</view>
+          <text class="feature-label">复习任务</text>
+        </view>
+        <view class="feature-item" bindtap="onFeatureTap" data-type="stats">
+          <view class="feature-icon orange">📊</view>
+          <text class="feature-label">学习统计</text>
+        </view>
+      </view>
+
+      <view class="section-header">
+        <text class="section-title">📚 知识体系</text>
+        <text class="section-more" bindtap="onExpandAll">展开全部</text>
+      </view>
+
+      <view class="knowledge-list">
+        <view class="knowledge-item" wx:for="{{knowledgeTree}}" wx:key="id" data-id="{{item.id}}" bindtap="toggleExpand">
+          <view class="knowledge-main">
+            <view class="knowledge-left">
+              <view class="knowledge-icon">{{item.icon}}</view>
+              <view class="knowledge-info">
+                <text class="knowledge-name">{{item.name}}</text>
+                <text class="knowledge-progress">{{item.completed}}/{{item.total}} 已完成</text>
+              </view>
+            </view>
+            <view class="knowledge-right">
+              <view class="knowledge-tag knowledge-tag-{{item.status}}">
+                <text>{{item.statusText}}</text>
+              </view>
+              <text class="knowledge-pct">{{item.percent}}%</text>
+              <text class="knowledge-arrow {{item.expanded ? 'expanded' : ''}}">▼</text>
+            </view>
+          </view>
+          <view class="knowledge-sub {{item.expanded ? 'show' : ''}}">
+            <view class="sub-item" wx:for="{{item.children}}" wx:key="name" wx:for-item="sub">
+              <view class="sub-line"></view>
+              <text class="sub-name">{{sub.name}}</text>
+              <view class="sub-badge sub-badge-{{sub.status}}">
+                <text>{{sub.badge}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="bottom-placeholder"></view>
+    </view>
+  </scroll-view>
+
+  <tab-bar activeIndex="1" bind:change="onTabChange"></tab-bar>
+</view>

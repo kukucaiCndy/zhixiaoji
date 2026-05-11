@@ -1,0 +1,65 @@
+{
+  "note": "学习页面设计稿关键数据摘要（从get_node_dsl和design_to_code提取）",
+  "page": {
+    "name": "学习",
+    "guid": "2:10579",
+    "width": 375, "height": 1238,
+    "background": "#F8FAFC"
+  },
+  "sections": [
+    {
+      "name": "Status Bar",
+      "guid": "2:10385",
+      "height": 44,
+      "bg": "#FFFFFF",
+      "contains": ["时间 9:41 14px bold #1E293B", "信号条"]
+    },
+    {
+      "name": "Nav Bar",
+      "height": 53,
+      "bg": "#FFFFFF",
+      "contains": ["学习 18px bold #1E293B", "搜索按钮 圆形40x40 bg:#F1F5F9 🔍16px"]
+    },
+    {
+      "name": "Path Tabs",
+      "top": 97,
+      "height": 44,
+      "bg": "#FFFFFF",
+      "items": ["主线学习", "快速学习", "兴趣专题"],
+      "active": "主线学习",
+      "activeBorder": "下划线 4px #4F46E5"
+    },
+    {
+      "name": "学习进度概览",
+      "top": 141,
+      "bg": "#FFFFFF",
+      "items": [
+        "已学 6 个知识点 15px bold #1E293B",
+        "掌握率 67% 15px bold #1E293B",
+        "连续学习 7 天 15px bold #1E293B"
+      ]
+    },
+    {
+      "name": "Section Header - 章节列表",
+      "top": 197,
+      "title": "章节列表 17px bold #1E293B",
+      "more": "查看全部 13px #4F46E5",
+      "padding": "12px 16px 8px"
+    },
+    {
+      "name": "Chapter List",
+      "top": 239,
+      "items": [
+        "卡片: 343x68px borderRadius:14px bg:white shadow:0 1px 3px rgba(0,0,0,0.06)",
+        "  chapter-main: HORIZONTAL space-between padding:14px 16px",
+        "  chapter-left: icon(40x40, borderRadius:10) + info(name:15px bold #1E293B, progress:12px #64748B)",
+        "  chapter-right: statusTag(46x18, borderRadius:8, fontSize:10px) + arrow(▶16px #94A3B8)"
+      ]
+    },
+    {
+      "name": "Tab Bar",
+      "top": 943,
+      "height": 50
+    }
+  ]
+}

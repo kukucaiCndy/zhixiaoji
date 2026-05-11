@@ -1,0 +1,23 @@
+<view class="splash-page">
+  <view class="skip-btn" bindtap="onSkip">
+    <text>跳过 {{countdown}}s</text>
+  </view>
+
+  <view class="ad-content">
+    <view class="ad-image">
+      <text class="phone-icon">📱</text>
+    </view>
+    <view class="ad-title-wrap">
+      <text class="sparkle">✨</text>
+      <text class="ad-title">AI编程特训营</text>
+    </view>
+    <text class="ad-subtitle">限时报名 · 7天掌握前端核心</text>
+    <view class="ad-btn" bindtap="onAdClick">
+      <text class="ad-btn-text">立即查看</text>
+    </view>
+  </view>
+
+  <view class="ad-footer">
+    <text>广告 · 知小记</text>
+  </view>
+</view>

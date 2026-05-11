@@ -1,0 +1,110 @@
+<view class="wrong-page">
+  <!-- 顶部区域 -->
+  <view class="header-section">
+    <view class="status-bar">
+      <text class="time">9:41</text>
+      <view class="status-icons">
+        <view class="signal-bar"></view>
+        <view class="signal-bar"></view>
+        <view class="signal-bar"></view>
+      </view>
+    </view>
+    <view class="nav-bar">
+      <view class="back-btn" bindtap="onBack">
+        <text class="back-icon">‹</text>
+      </view>
+      <text class="nav-title">错题本</text>
+      <view class="nav-placeholder"></view>
+    </view>
+  </view>
+
+  <!-- 标签筛选 -->
+  <view class="filter-section">
+    <scroll-view class="filter-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+      <view class="filter-list">
+        <view class="filter-item {{currentFilter === 'all' ? 'active' : ''}}" bindtap="onFilter" data-filter="all">
+          <text>全部</text>
+        </view>
+        <view class="filter-item {{currentFilter === 'frontend' ? 'active' : ''}}" bindtap="onFilter" data-filter="frontend">
+          <text>前端</text>
+        </view>
+        <view class="filter-item {{currentFilter === 'backend' ? 'active' : ''}}" bindtap="onFilter" data-filter="backend">
+          <text>后端</text>
+        </view>
+        <view class="filter-item {{currentFilter === 'algorithm' ? 'active' : ''}}" bindtap="onFilter" data-filter="algorithm">
+          <text>算法</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 错题列表 -->
+  <scroll-view class="wrong-list" scroll-y>
+    <view class="wrong-card {{item.practiced ? 'practiced' : ''}}" wx:for="{{wrongQuestions}}" wx:key="id">
+      <!-- 卡片头部：标签 + 日期 -->
+      <view class="wc-header">
+        <view class="wc-tag">
+          <text>❌ 选错</text>
+        </view>
+        <view class="wc-date">
+          <text>{{item.date}}</text>
+        </view>
+      </view>
+
+      <!-- 题目 -->
+      <view class="wc-question">
+        <text>{{item.question}}</text>
+      </view>
+
+      <!-- 答案对比 -->
+      <view class="wc-answers">
+        <view class="wc-answer wc-answer-wrong">
+          <view class="wa-label">
+            <text>你的答案</text>
+          </view>
+          <text class="wa-text">{{item.wrongAnswer}}</text>
+        </view>
+        <view class="wc-answer wc-answer-correct">
+          <view class="wa-label">
+            <text>正确答案</text>
+          </view>
+          <text class="wa-text">{{item.correctAnswer}}</text>
+        </view>
+      </view>
+
+      <!-- 关联知识点 -->
+      <view class="wc-knowledge">
+        <text class="wk-label">📖 关联知识点：</text>
+        <view class="wk-tag" wx:for="{{item.knowledgeTags}}" wx:key="*this" wx:for-item="tag">
+          <text>{{tag}}</text>
+        </view>
+      </view>
+
+      <!-- 已练习卡片底部 -->
+      <view class="wc-footer" wx:if="{{item.practiced}}">
+        <view class="wf-status">
+          <text>✓ 已重练 {{item.retryCount}} 次，正确率 {{item.accuracy}}%</text>
+        </view>
+        <view class="wf-btn" bindtap="onRetryQuestion" data-id="{{item.id}}">
+          <text>再次练习</text>
+        </view>
+      </view>
+    </view>
+    <view class="bottom-placeholder"></view>
+  </scroll-view>
+
+  <!-- 底部重练栏 -->
+  <view class="retry-bar">
+    <view class="rb-info">
+      <view class="rb-num">
+        <text>{{pendingCount}} 道错题待重练</text>
+      </view>
+      <view class="rb-label">
+        <text>点击开始练习，巩固薄弱知识点</text>
+      </view>
+    </view>
+    <view class="rb-btn" bindtap="onStartRetry">
+      <text>开始重练</text>
+    </view>
+  </view>
+</view>
