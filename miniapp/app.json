@@ -8,7 +8,8 @@
     "pages/profile/profile",
     "pages/profile/settings/settings",
     "pages/profile/edit-profile/edit-profile",
-    "pages/wrong-questions/wrong-questions"
+    "pages/wrong-questions/wrong-questions",
+    "pages/rank/rank"
   ],
   "window": {
     "navigationBarTitleText": "智小记",
