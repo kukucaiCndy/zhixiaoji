@@ -10,27 +10,33 @@
 
   <view class="nav-bar">
     <view class="back-btn" bindtap="onBack">
-      <text class="back-icon">‹</text>
+      <text class="back-icon">←</text>
     </view>
     <text class="nav-title">错题本</text>
-    <text class="nav-count">共 23 题</text>
+    <view class="nav-analysis" bindtap="onWeaknessAnalysis">
+      <text>📊 薄弱分析</text>
+    </view>
   </view>
 
   <view class="stats-card">
-    <view class="stats-top">
-      <view class="stats-total">
-        <text class="stats-total-num">{{totalWrong || 23}}</text>
-        <text class="stats-total-label">错题总数</text>
+    <view class="stats-row">
+      <view class="stats-left">
+        <text class="stats-big-num">{{totalWrong || 23}}</text>
+        <text class="stats-big-label">道错题</text>
       </view>
-    </view>
-    <view class="stats-bottom">
-      <view class="stats-item">
-        <text class="stats-item-num">{{pendingCount}}</text>
-        <text class="stats-item-label">待重练</text>
-      </view>
-      <view class="stats-item">
-        <text class="stats-item-num">{{masteredCount || 5}}</text>
-        <text class="stats-item-label">已掌握</text>
+      <view class="stats-right">
+        <view class="stats-item">
+          <text class="stats-item-num">{{pendingCount}}</text>
+          <text class="stats-item-label">待重练</text>
+        </view>
+        <view class="stats-item">
+          <text class="stats-item-num">{{masteredCount || 8}}</text>
+          <text class="stats-item-label">已掌握</text>
+        </view>
+        <view class="stats-item">
+          <text class="stats-item-num">{{newWrongCount || 3}}</text>
+          <text class="stats-item-label">新错题</text>
+        </view>
       </view>
     </view>
   </view>
@@ -49,11 +55,20 @@
       <view class="filter-item {{currentFilter === 'js' ? 'active' : ''}}" bindtap="onFilter" data-filter="js">
         <text>JavaScript</text>
       </view>
+      <view class="filter-item {{currentFilter === 'framework' ? 'active' : ''}}" bindtap="onFilter" data-filter="framework">
+        <text>框架</text>
+      </view>
+      <view class="filter-item {{currentFilter === 'pending' ? 'active' : ''}}" bindtap="onFilter" data-filter="pending">
+        <text>待重练</text>
+      </view>
+      <view class="filter-item {{currentFilter === 'mastered' ? 'active' : ''}}" bindtap="onFilter" data-filter="mastered">
+        <text>已掌握</text>
+      </view>
     </scroll-view>
   </view>
 
   <view class="wrong-list">
-    <view class="wrong-card" wx:for="{{wrongQuestions}}" wx:key="id" data-id="{{item.id}}">
+    <view class="wrong-card" wx:for="{{wrongQuestions}}" wx:key="id">
       <view class="wc-header">
         <view class="wc-tag">
           <text>❌ 选错</text>
@@ -64,13 +79,13 @@
         <text>{{item.question}}</text>
       </view>
       <view class="wc-answers">
-        <view class="wc-answer wc-answer-wrong">
+        <view class="wc-answer wrong-bg">
           <text class="wa-label">你的答案</text>
-          <text class="wa-text wrong">{{item.wrongAnswer}}</text>
+          <text class="wa-text red">{{item.wrongAnswer}}</text>
         </view>
-        <view class="wc-answer wc-answer-correct">
+        <view class="wc-answer correct-bg">
           <text class="wa-label">正确答案</text>
-          <text class="wa-text correct">{{item.correctAnswer}}</text>
+          <text class="wa-text green">{{item.correctAnswer}}</text>
         </view>
       </view>
       <view class="wc-knowledge">

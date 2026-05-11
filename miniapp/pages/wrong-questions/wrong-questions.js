@@ -23,18 +23,18 @@ Page({
         practiced: true,
         retryCount: 2,
         accuracy: 50,
-        category: 'html'
+        category: 'css'
       },
       {
         id: 2,
         date: '1周前 10:15',
-        question: 'JavaScript 中，以下哪个方法可以将类数组对象转换为数组？',
-        wrongAnswer: 'Array.join()',
-        correctAnswer: 'Array.from()',
-        knowledgeTags: ['JavaScript', 'ES6'],
+        question: 'JavaScript 中，typeof null 的返回值是什么？',
+        wrongAnswer: '"null"',
+        correctAnswer: '"object"',
+        knowledgeTags: ['JavaScript 基础', '数据类型'],
         practiced: true,
-        retryCount: 3,
-        accuracy: 67,
+        retryCount: 1,
+        accuracy: 100,
         category: 'js'
       },
       {
@@ -47,31 +47,31 @@ Page({
         practiced: false,
         retryCount: 0,
         accuracy: 0,
-        category: 'js'
+        category: 'framework'
       },
       {
         id: 4,
         date: '2周前 09:00',
-        question: 'Node.js 中，以下哪个模块用于文件系统操作？',
-        wrongAnswer: 'http',
-        correctAnswer: 'fs',
-        knowledgeTags: ['Node.js', '模块'],
+        question: '以下哪个 HTML 标签用于定义导航链接区域？',
+        wrongAnswer: 'div',
+        correctAnswer: 'nav',
+        knowledgeTags: ['HTML 基础', '语义化标签'],
         practiced: true,
         retryCount: 1,
         accuracy: 100,
-        category: 'js'
+        category: 'html'
       },
       {
         id: 5,
         date: '4天前 16:45',
-        question: '以下哪种排序算法的时间复杂度在最优情况下为 O(n)？',
-        wrongAnswer: '快速排序',
-        correctAnswer: '插入排序',
-        knowledgeTags: ['排序算法', '时间复杂度'],
+        question: '在 CSS 中，以下哪个属性用于设置元素的圆角？',
+        wrongAnswer: 'border-radius: 50%',
+        correctAnswer: 'border-radius: 8px',
+        knowledgeTags: ['CSS 基础', '盒子模型'],
         practiced: false,
         retryCount: 0,
         accuracy: 0,
-        category: 'js'
+        category: 'css'
       },
       {
         id: 6,
@@ -88,22 +88,22 @@ Page({
       {
         id: 7,
         date: '6天前 08:30',
-        question: 'RESTful API 中，以下哪个 HTTP 方法用于更新资源的个别字段？',
-        wrongAnswer: 'PUT',
-        correctAnswer: 'PATCH',
-        knowledgeTags: ['HTTP', 'REST API'],
-        practiced: false,
-        retryCount: 0,
-        accuracy: 0,
-        category: 'js'
+        question: 'Flexbox 中，align-items: center 的作用是什么？',
+        wrongAnswer: '主轴居中',
+        correctAnswer: '交叉轴居中',
+        knowledgeTags: ['CSS Flexbox', '布局'],
+        practiced: true,
+        retryCount: 2,
+        accuracy: 50,
+        category: 'css'
       },
       {
         id: 8,
         date: '3天前 20:00',
-        question: '二分查找的前提条件是什么？',
-        wrongAnswer: '数据可无序',
-        correctAnswer: '数据必须有序',
-        knowledgeTags: ['查找算法', '二分法'],
+        question: 'JavaScript 中，以下哪个方法可以将类数组对象转换为数组？',
+        wrongAnswer: 'Array.join()',
+        correctAnswer: 'Array.from()',
+        knowledgeTags: ['JavaScript', 'ES6'],
         practiced: false,
         retryCount: 0,
         accuracy: 0,
@@ -124,22 +124,22 @@ Page({
       {
         id: 10,
         date: '1周前 17:00',
-        question: 'MySQL 中，InnoDB 和 MyISAM 的主要区别是什么？',
-        wrongAnswer: 'MyISAM 支持事务',
-        correctAnswer: 'InnoDB 支持事务和外键',
-        knowledgeTags: ['MySQL', '存储引擎'],
+        question: 'React 中，useEffect 的依赖数组为空时表示什么？',
+        wrongAnswer: '每次渲染都执行',
+        correctAnswer: '只在组件挂载时执行一次',
+        knowledgeTags: ['React', 'Hooks'],
         practiced: false,
         retryCount: 0,
         accuracy: 0,
-        category: 'js'
+        category: 'framework'
       },
       {
         id: 11,
         date: '2天前 13:15',
-        question: '二分查找的时间复杂度是？',
-        wrongAnswer: 'O(n)',
-        correctAnswer: 'O(log n)',
-        knowledgeTags: ['算法分析', '复杂度'],
+        question: 'Node.js 中，以下哪个模块用于文件系统操作？',
+        wrongAnswer: 'http',
+        correctAnswer: 'fs',
+        knowledgeTags: ['Node.js', '模块'],
         practiced: false,
         retryCount: 0,
         accuracy: 0,
@@ -167,15 +167,22 @@ Page({
   },
 
   applyFilter(filter) {
-    const questions = filter === 'all'
-      ? this._allQuestions
-      : this._allQuestions.filter(q => q.category === filter);
-    const pending = questions.filter(q => !q.practiced).length;
-    const mastered = questions.filter(q => q.practiced).length;
+    var questions = this._allQuestions;
+    if (filter === 'pending') {
+      questions = this._allQuestions.filter(q => !q.practiced);
+    } else if (filter === 'mastered') {
+      questions = this._allQuestions.filter(q => q.practiced);
+    } else if (filter !== 'all') {
+      questions = this._allQuestions.filter(q => q.category === filter);
+    }
+    var pending = questions.filter(q => !q.practiced).length;
+    var mastered = questions.filter(q => q.practiced).length;
+    var newWrong = this._allQuestions.filter(q => !q.practiced && !q.retryCount).length;
     this.setData({
       wrongQuestions: questions,
       pendingCount: pending,
-      masteredCount: mastered
+      masteredCount: mastered,
+      newWrongCount: newWrong
     });
   },
 
@@ -183,6 +190,12 @@ Page({
     const filter = e.currentTarget.dataset.filter;
     this.setData({ currentFilter: filter });
     this.applyFilter(filter);
+  },
+
+  onWeaknessAnalysis() {
+    wx.navigateTo({
+      url: '/pages/weakness-analysis/weakness-analysis'
+    });
   },
 
   onBack() {
