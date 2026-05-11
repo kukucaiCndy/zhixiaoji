@@ -15,6 +15,7 @@
     <text class="nav-title">设置</text>
     <view class="nav-placeholder"></view>
   </view>
+  <view class="nav-border"></view>
 
   <view class="profile-card" bindtap="onEditProfile">
     <view class="profile-avatar">
@@ -31,9 +32,7 @@
 
   <view class="setting-group">
     <view class="setting-item" bindtap="onSetting" data-action="theme">
-      <view class="setting-icon gray-bg">
-        <text>🎨</text>
-      </view>
+      <view class="setting-icon blue-bg"><text>🎨</text></view>
       <view class="setting-info">
         <text class="setting-name">主题设置</text>
       </view>
@@ -41,9 +40,7 @@
       <text class="arrow">›</text>
     </view>
     <view class="setting-item" bindtap="onSetting" data-action="home-layout">
-      <view class="setting-icon gray-bg">
-        <text>📋</text>
-      </view>
+      <view class="setting-icon orange-bg"><text>📋</text></view>
       <view class="setting-info">
         <text class="setting-name">首页布局</text>
       </view>
@@ -51,9 +48,7 @@
       <text class="arrow">›</text>
     </view>
     <view class="setting-item" bindtap="onSetting" data-action="review-plan">
-      <view class="setting-icon gray-bg">
-        <text>🔄</text>
-      </view>
+      <view class="setting-icon green-bg"><text>🔄</text></view>
       <view class="setting-info">
         <text class="setting-name">复习计划</text>
       </view>
@@ -66,9 +61,7 @@
 
   <view class="setting-group">
     <view class="setting-item" bindtap="onSetting" data-action="notification">
-      <view class="setting-icon gray-bg">
-        <text>🔔</text>
-      </view>
+      <view class="setting-icon blue-bg"><text>🔔</text></view>
       <view class="setting-info">
         <text class="setting-name">通知设置</text>
       </view>
@@ -76,9 +69,7 @@
       <text class="arrow">›</text>
     </view>
     <view class="setting-item" bindtap="onSetting" data-action="messages">
-      <view class="setting-icon gray-bg">
-        <text>📨</text>
-      </view>
+      <view class="setting-icon purple-bg"><text>📨</text></view>
       <view class="setting-info">
         <text class="setting-name">消息通知</text>
       </view>
@@ -91,9 +82,7 @@
 
   <view class="setting-group">
     <view class="setting-item" bindtap="onSetting" data-action="account">
-      <view class="setting-icon purple-bg">
-        <text>🔐</text>
-      </view>
+      <view class="setting-icon purple-bg"><text>🔐</text></view>
       <view class="setting-info">
         <text class="setting-name">账号与安全</text>
       </view>
@@ -106,18 +95,14 @@
 
   <view class="setting-group">
     <view class="setting-item" bindtap="onSetting" data-action="help">
-      <view class="setting-icon gray-bg">
-        <text>💬</text>
-      </view>
+      <view class="setting-icon gray-bg"><text>💬</text></view>
       <view class="setting-info">
         <text class="setting-name">帮助与反馈</text>
       </view>
       <text class="arrow">›</text>
     </view>
     <view class="setting-item" bindtap="onSetting" data-action="about">
-      <view class="setting-icon gray-bg">
-        <text>ℹ️</text>
-      </view>
+      <view class="setting-icon gray-bg"><text>ℹ️</text></view>
       <view class="setting-info">
         <text class="setting-name">关于我们</text>
       </view>
@@ -125,9 +110,7 @@
       <text class="arrow">›</text>
     </view>
     <view class="setting-item" bindtap="onSetting" data-action="clear-cache">
-      <view class="setting-icon gray-bg">
-        <text>🗑️</text>
-      </view>
+      <view class="setting-icon gray-bg"><text>🗑️</text></view>
       <view class="setting-info">
         <text class="setting-name">清除缓存</text>
       </view>
