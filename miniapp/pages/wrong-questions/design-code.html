@@ -1,0 +1,3190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixso HTML</title>
+  <style>
+@font-face {
+	font-family: 'Microsoft YaHei';
+	font-style: normal;
+	font-weight: 400;
+	src: url(http://localhost:3667/assets/1778503999838/MSYH_1.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Microsoft YaHei';
+	font-style: normal;
+	font-weight: 700;
+	src: url(http://localhost:3667/assets/1778503999838/MSYHBD_1.ttf) format('truetype');
+}
+
+
+</style>
+  <script src="js/animation.js"></script>
+  <style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ol,ul,menu {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+ol li::marker, ul li::before {
+  letter-spacing: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body { 
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: white;
+}
+    
+span {
+  word-break: break-word;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.frame-3_1064 {
+  width: 375px;
+  height: 1232px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-3_1065 {
+  width: 375px;
+  height: 44px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-content-3_1065 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1066 {
+  width: 29.90999984741211px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1067 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: 32px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1068 {
+  width: 60px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_1068 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-3_1069 {
+  width: 16px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(255, 255, 255, 0.800000011920929);
+}
+
+.rectangle-3_1070 {
+  width: 16px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(255, 255, 255, 0.800000011920929);
+}
+
+.rectangle-3_1071 {
+  width: 16px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(255, 255, 255, 0.800000011920929);
+}
+
+.frame-3_1072 {
+  width: 375px;
+  height: 53px;
+  position: absolute;
+  left: 0px;
+  top: 44px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-content-3_1072 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1073 {
+  width: 30px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1074 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: 20px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1075 {
+  width: 216.9499969482422px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1076 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: 56px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1077 {
+  width: 72.05000305175781px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1078 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.800000011920929);
+  width: 74px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1079 {
+  width: 375px;
+  height: 135px;
+  position: absolute;
+  left: 0px;
+  top: 97px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1079 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1080 {
+  width: 343px;
+  height: 103px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-3_1081 {
+  width: 303px;
+  height: 63px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1081 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 16px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1082 {
+  width: 303px;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-content-3_1082 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1083 {
+  width: 90.41000366210938px;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_1083 {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1084 {
+  width: 44.40999984741211px;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1085 {
+  font-size: 36px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(239, 68, 68, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1086 {
+  width: 42px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1087 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 44px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1088 {
+  width: 131px;
+  height: 39px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_1088 {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1089 {
+  width: 33px;
+  height: 39px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_1090 {
+  width: 33px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1091 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  text-align: center;
+  color: rgba(30, 41, 59, 1);
+  width: 24px;
+  height: auto;
+  position: absolute;
+  left: 5px;
+  top: 0px;
+}
+
+.frame-3_1092 {
+  width: 33px;
+  height: 15px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+}
+
+.paragraph-3_1093 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: center;
+  color: rgba(148, 163, 184, 1);
+  width: 35px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1094 {
+  width: 33px;
+  height: 39px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_1095 {
+  width: 33px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1096 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  text-align: center;
+  color: rgba(30, 41, 59, 1);
+  width: 13px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 0px;
+}
+
+.frame-3_1097 {
+  width: 33px;
+  height: 15px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+}
+
+.paragraph-3_1098 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: center;
+  color: rgba(148, 163, 184, 1);
+  width: 35px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1099 {
+  width: 33px;
+  height: 39px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_1100 {
+  width: 33px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1101 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  text-align: center;
+  color: rgba(30, 41, 59, 1);
+  width: 13px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 0px;
+}
+
+.frame-3_1102 {
+  width: 33px;
+  height: 15px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+}
+
+.paragraph-3_1103 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: center;
+  color: rgba(148, 163, 184, 1);
+  width: 35px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1104 {
+  width: 375px;
+  height: 43px;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 232px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_1104 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 0px 16px 12px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1105 {
+  width: 58px;
+  height: 31px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.paragraph-3_1106 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: 28px;
+  height: auto;
+  position: absolute;
+  left: 16px;
+  top: 6px;
+}
+
+.frame-3_1107 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.stroke-wrapper-3_1107 {
+  position: relative;
+  width: 70.88999938964844px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
+.stroke-3_1107 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 16px 16px 16px 16px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.paragraph-3_1108 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 39px;
+  height: auto;
+  position: absolute;
+  left: 17px;
+  top: 7px;
+}
+
+.frame-3_1109 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.stroke-wrapper-3_1109 {
+  position: relative;
+  width: 57.70000076293945px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
+.stroke-3_1109 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 16px 16px 16px 16px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.paragraph-3_1110 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 26px;
+  height: auto;
+  position: absolute;
+  left: 17px;
+  top: 7px;
+}
+
+.frame-3_1111 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.stroke-wrapper-3_1111 {
+  position: relative;
+  width: 95.5px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
+.stroke-3_1111 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 16px 16px 16px 16px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.paragraph-3_1112 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 64px;
+  height: auto;
+  position: absolute;
+  left: 17px;
+  top: 7px;
+}
+
+.frame-3_1113 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.stroke-wrapper-3_1113 {
+  position: relative;
+  width: 60px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
+.stroke-3_1113 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 16px 16px 16px 16px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.paragraph-3_1114 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 28px;
+  height: auto;
+  position: absolute;
+  left: 17px;
+  top: 7px;
+}
+
+.frame-3_1115 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.stroke-wrapper-3_1115 {
+  position: relative;
+  width: 73px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
+.stroke-3_1115 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 16px 16px 16px 16px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.paragraph-3_1116 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 41px;
+  height: auto;
+  position: absolute;
+  left: 17px;
+  top: 7px;
+}
+
+.frame-3_1117 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.stroke-wrapper-3_1117 {
+  position: relative;
+  width: 73px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
+.stroke-3_1117 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 16px 16px 16px 16px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.paragraph-3_1118 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 41px;
+  height: auto;
+  position: absolute;
+  left: 17px;
+  top: 7px;
+}
+
+.frame-3_1119 {
+  width: 375px;
+  height: 888px;
+  position: absolute;
+  left: 0px;
+  top: 275px;
+}
+
+.frame-3_1120 {
+  width: 343px;
+  height: 212px;
+  position: absolute;
+  left: 16px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1120 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1121 {
+  width: 343px;
+  height: 202px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-3_1122 {
+  width: 311px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1122 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1123 {
+  width: 311px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-content-3_1123 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1124 {
+  width: 58.95000076293945px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(254, 242, 242, 1);
+}
+
+.paragraph-3_1125 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: 41px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 2px;
+}
+
+.frame-3_1126 {
+  width: 58.59000015258789px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1127 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: 61px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1128 {
+  width: 311px;
+  height: 55px;
+  position: absolute;
+  left: 16px;
+  top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1128 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1129 {
+  width: 311px;
+  height: 46px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1130 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  line-height: 22.5px;
+  color: rgba(30, 41, 59, 1);
+  width: 293px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 1px;
+}
+
+.frame-3_1131 {
+  width: 311px;
+  height: 56px;
+  position: absolute;
+  left: 16px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1131 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1132 {
+  width: 311px;
+  height: 46px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_1132 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1133 {
+  width: 152.1999969482422px;
+  height: 46px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(254, 242, 242, 1);
+}
+
+.frame-content-3_1133 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 12px 6px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1134 {
+  width: 33.09000015258789px;
+  height: 30px;
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0.699999988079071;
+}
+
+.paragraph-3_1135 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: 35px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1136 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_1137 {
+  width: 148.8000030517578px;
+  height: 46px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(236, 253, 245, 1);
+}
+
+.frame-content-3_1137 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 12px 6px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1138 {
+  width: 33.08000183105469px;
+  height: 30px;
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0.699999988079071;
+}
+
+.paragraph-3_1139 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: 35px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1140 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_1141 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_1141 {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  padding: 10px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-3_1141 {
+  position: absolute;
+  left: 16px;
+  top: 156px;
+  width: 311px;
+  height: 30px;
+  display: flex;
+  padding: 1px 0px 0px 0px;
+}
+
+.stroke-3_1141 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(241, 245, 249, 1);
+}
+
+.frame-3_1142 {
+  width: 90.5px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1143 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 93px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1144 {
+  width: 61.310001373291016px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_1145 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 47px;
+  height: auto;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+}
+
+.frame-3_1146 {
+  width: 60px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_1147 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+}
+
+.frame-3_1148 {
+  width: 343px;
+  height: 211px;
+  position: absolute;
+  left: 16px;
+  top: 212px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1148 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1149 {
+  width: 343px;
+  height: 201px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-3_1150 {
+  width: 311px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1150 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1151 {
+  width: 311px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-content-3_1151 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1152 {
+  width: 58.95000076293945px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(254, 242, 242, 1);
+}
+
+.paragraph-3_1153 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: 41px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 2px;
+}
+
+.frame-3_1154 {
+  width: 58.59000015258789px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1155 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: 61px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1156 {
+  width: 311px;
+  height: 33px;
+  position: absolute;
+  left: 16px;
+  top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1156 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1157 {
+  width: 311px;
+  height: 23px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1158 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  line-height: 22.5px;
+  color: rgba(30, 41, 59, 1);
+  width: 309px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1159 {
+  width: 311px;
+  height: 39px;
+  position: absolute;
+  left: 16px;
+  top: 78px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1159 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1160 {
+  width: 311px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_1160 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1161 {
+  width: 108.2699966430664px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(254, 242, 242, 1);
+}
+
+.frame-content-3_1161 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 12px 6px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1162 {
+  width: 44px;
+  height: 15px;
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0.699999988079071;
+}
+
+.paragraph-3_1163 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1164 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_1165 {
+  width: 124.11000061035156px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(236, 253, 245, 1);
+}
+
+.frame-content-3_1165 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 12px 6px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1166 {
+  width: 44px;
+  height: 15px;
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0.699999988079071;
+}
+
+.paragraph-3_1167 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1168 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_1169 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_1169 {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  padding: 10px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-3_1169 {
+  position: absolute;
+  left: 16px;
+  top: 117px;
+  width: 311px;
+  height: 30px;
+  display: flex;
+  padding: 1px 0px 0px 0px;
+}
+
+.stroke-3_1169 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(241, 245, 249, 1);
+}
+
+.frame-3_1170 {
+  width: 90.5px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1171 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 93px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1172 {
+  width: 93.30000305175781px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_1173 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 79px;
+  height: auto;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+}
+
+.frame-3_1174 {
+  width: 60px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_1175 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+}
+
+.frame-3_1176 {
+  width: 311px;
+  height: 38px;
+  position: absolute;
+  left: 16px;
+  top: 147px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1176 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1177 {
+  width: 311px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-content-3_1177 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1178 {
+  width: 156.22999572753906px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1179 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: 158px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1180 {
+  width: 80px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.paragraph-3_1181 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: 50px;
+  height: auto;
+  position: absolute;
+  left: 16px;
+  top: 6px;
+}
+
+.frame-3_1182 {
+  width: 343px;
+  height: 173px;
+  position: absolute;
+  left: 16px;
+  top: 423px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1182 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1183 {
+  width: 343px;
+  height: 163px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-3_1184 {
+  width: 311px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1184 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1185 {
+  width: 311px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-content-3_1185 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1186 {
+  width: 58.95000076293945px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(254, 242, 242, 1);
+}
+
+.paragraph-3_1187 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: 41px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 2px;
+}
+
+.frame-3_1188 {
+  width: 65.62999725341797px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1189 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: 68px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1190 {
+  width: 311px;
+  height: 33px;
+  position: absolute;
+  left: 16px;
+  top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1190 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1191 {
+  width: 311px;
+  height: 23px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1192 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  line-height: 22.5px;
+  color: rgba(30, 41, 59, 1);
+  width: 308px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: -1px;
+}
+
+.frame-3_1193 {
+  width: 311px;
+  height: 39px;
+  position: absolute;
+  left: 16px;
+  top: 77px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1193 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1194 {
+  width: 311px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_1194 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1195 {
+  width: 92.61000061035156px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(254, 242, 242, 1);
+}
+
+.frame-content-3_1195 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 12px 6px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1196 {
+  width: 44px;
+  height: 15px;
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0.699999988079071;
+}
+
+.paragraph-3_1197 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1198 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_1199 {
+  width: 96.02999877929688px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(236, 253, 245, 1);
+}
+
+.frame-content-3_1199 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 12px 6px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1200 {
+  width: 44px;
+  height: 15px;
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0.699999988079071;
+}
+
+.paragraph-3_1201 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1202 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_1203 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_1203 {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  padding: 10px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-3_1203 {
+  position: absolute;
+  left: 16px;
+  top: 116px;
+  width: 311px;
+  height: 30px;
+  display: flex;
+  padding: 1px 0px 0px 0px;
+}
+
+.stroke-3_1203 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(241, 245, 249, 1);
+}
+
+.frame-3_1204 {
+  width: 90.5px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1205 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 93px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1206 {
+  width: 72.47000122070312px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_1207 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 58px;
+  height: auto;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+}
+
+.frame-3_1208 {
+  width: 71px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_1209 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 57px;
+  height: auto;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+}
+
+.frame-3_1210 {
+  width: 343px;
+  height: 233px;
+  position: absolute;
+  left: 16px;
+  top: 595px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1210 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1211 {
+  width: 343px;
+  height: 223px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-3_1212 {
+  width: 311px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1212 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1213 {
+  width: 311px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-content-3_1213 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1214 {
+  width: 58.95000076293945px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(254, 242, 242, 1);
+}
+
+.paragraph-3_1215 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: 41px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 2px;
+}
+
+.frame-3_1216 {
+  width: 65.62999725341797px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1217 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: 68px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1218 {
+  width: 311px;
+  height: 55px;
+  position: absolute;
+  left: 16px;
+  top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1218 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1219 {
+  width: 311px;
+  height: 46px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1220 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  line-height: 22.5px;
+  color: rgba(30, 41, 59, 1);
+  width: 304px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 1px;
+}
+
+.frame-3_1221 {
+  width: 311px;
+  height: 39px;
+  position: absolute;
+  left: 16px;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1221 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1222 {
+  width: 311px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_1222 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1223 {
+  width: 126px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(254, 242, 242, 1);
+}
+
+.frame-content-3_1223 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 12px 6px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1224 {
+  width: 44px;
+  height: 15px;
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0.699999988079071;
+}
+
+.paragraph-3_1225 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1226 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_1227 {
+  width: 139px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(236, 253, 245, 1);
+}
+
+.frame-content-3_1227 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 12px 6px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1228 {
+  width: 44px;
+  height: 15px;
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0.699999988079071;
+}
+
+.paragraph-3_1229 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1230 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_1231 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_1231 {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  padding: 10px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-3_1231 {
+  position: absolute;
+  left: 16px;
+  top: 139px;
+  width: 311px;
+  height: 30px;
+  display: flex;
+  padding: 1px 0px 0px 0px;
+}
+
+.stroke-3_1231 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(241, 245, 249, 1);
+}
+
+.frame-3_1232 {
+  width: 90.5px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1233 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 93px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1234 {
+  width: 79.36000061035156px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_1235 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 65px;
+  height: auto;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+}
+
+.frame-3_1236 {
+  width: 38px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_1237 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 24px;
+  height: auto;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+}
+
+.frame-3_1238 {
+  width: 311px;
+  height: 38px;
+  position: absolute;
+  left: 16px;
+  top: 169px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_1238 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1239 {
+  width: 311px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-content-3_1239 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_1240 {
+  width: 149.1999969482422px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_1241 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: 151px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1242 {
+  width: 80px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.paragraph-3_1243 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: 50px;
+  height: auto;
+  position: absolute;
+  left: 16px;
+  top: 6px;
+}
+
+.frame-3_1244 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_1244 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 16px 12px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-3_1244 {
+  position: absolute;
+  left: 0px;
+  top: 924px;
+  width: 375px;
+  height: 69px;
+  display: flex;
+  padding: 1px 0px 0px 0px;
+}
+
+.stroke-3_1244 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.frame-3_1245 {
+  width: 209px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_1246 {
+  width: 209px;
+  height: 20px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_1247 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 115px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1248 {
+  width: 209px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: 20px;
+}
+
+.paragraph-3_1249 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: 170px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_1250 {
+  width: 124px;
+  height: 44px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 22px 22px 22px 22px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.paragraph-3_1251 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  width: 62px;
+  height: auto;
+  position: absolute;
+  left: 32px;
+  top: 12px;
+}
+
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="3_1064" class="frame-3_1064">
+    <div id="3_1065" class="frame-3_1065">
+      <div class="frame-content-3_1065">
+        <div id="3_1066" class="frame-3_1066">
+          <p id="3_1067" class="paragraph-3_1067">9:41</p>
+        </div>
+        <div id="3_1068" class="frame-3_1068">
+          <div class="frame-content-3_1068">
+            <div id="3_1069" class="rectangle-3_1069"></div>
+            <div id="3_1070" class="rectangle-3_1070"></div>
+            <div id="3_1071" class="rectangle-3_1071"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="3_1072" class="frame-3_1072">
+      <div class="frame-content-3_1072">
+        <div id="3_1073" class="frame-3_1073" style="cursor: pointer;">
+          <p id="3_1074" class="paragraph-3_1074">←</p>
+        </div>
+        <div id="3_1075" class="frame-3_1075">
+          <p id="3_1076" class="paragraph-3_1076">错题本</p>
+        </div>
+        <div id="3_1077" class="frame-3_1077">
+          <p id="3_1078" class="paragraph-3_1078">📊 薄弱分析</p>
+        </div>
+      </div>
+    </div>
+    <div id="3_1079" class="frame-3_1079">
+      <div class="frame-content-3_1079">
+        <div id="3_1080" class="frame-3_1080">
+          <div id="3_1081" class="frame-3_1081">
+            <div class="frame-content-3_1081">
+              <div id="3_1082" class="frame-3_1082">
+                <div class="frame-content-3_1082">
+                  <div id="3_1083" class="frame-3_1083">
+                    <div class="frame-content-3_1083">
+                      <div id="3_1084" class="frame-3_1084">
+                        <p id="3_1085" class="paragraph-3_1085">23</p>
+                      </div>
+                      <div id="3_1086" class="frame-3_1086">
+                        <p id="3_1087" class="paragraph-3_1087">道错题</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="3_1088" class="frame-3_1088">
+                    <div class="frame-content-3_1088">
+                      <div id="3_1089" class="frame-3_1089">
+                        <div id="3_1090" class="frame-3_1090">
+                          <p id="3_1091" class="paragraph-3_1091">12</p>
+                        </div>
+                        <div id="3_1092" class="frame-3_1092">
+                          <p id="3_1093" class="paragraph-3_1093">待重练</p>
+                        </div>
+                      </div>
+                      <div id="3_1094" class="frame-3_1094">
+                        <div id="3_1095" class="frame-3_1095">
+                          <p id="3_1096" class="paragraph-3_1096">8</p>
+                        </div>
+                        <div id="3_1097" class="frame-3_1097">
+                          <p id="3_1098" class="paragraph-3_1098">已掌握</p>
+                        </div>
+                      </div>
+                      <div id="3_1099" class="frame-3_1099">
+                        <div id="3_1100" class="frame-3_1100">
+                          <p id="3_1101" class="paragraph-3_1101">3</p>
+                        </div>
+                        <div id="3_1102" class="frame-3_1102">
+                          <p id="3_1103" class="paragraph-3_1103">新错题</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="3_1104" class="frame-3_1104">
+      <div class="frame-content-3_1104">
+        <div id="3_1105" class="frame-3_1105">
+          <p id="3_1106" class="paragraph-3_1106">全部</p>
+        </div>
+        <div id="3_1107" class="stroke-wrapper-3_1107">
+          <div class="frame-3_1107">
+            <p id="3_1108" class="paragraph-3_1108">HTML</p>
+          </div>
+          <div class="stroke-3_1107"></div>
+        </div>
+        <div id="3_1109" class="stroke-wrapper-3_1109">
+          <div class="frame-3_1109">
+            <p id="3_1110" class="paragraph-3_1110">CSS</p>
+          </div>
+          <div class="stroke-3_1109"></div>
+        </div>
+        <div id="3_1111" class="stroke-wrapper-3_1111">
+          <div class="frame-3_1111">
+            <p id="3_1112" class="paragraph-3_1112">JavaScript</p>
+          </div>
+          <div class="stroke-3_1111"></div>
+        </div>
+        <div id="3_1113" class="stroke-wrapper-3_1113">
+          <div class="frame-3_1113">
+            <p id="3_1114" class="paragraph-3_1114">框架</p>
+          </div>
+          <div class="stroke-3_1113"></div>
+        </div>
+        <div id="3_1115" class="stroke-wrapper-3_1115">
+          <div class="frame-3_1115">
+            <p id="3_1116" class="paragraph-3_1116">待重练</p>
+          </div>
+          <div class="stroke-3_1115"></div>
+        </div>
+        <div id="3_1117" class="stroke-wrapper-3_1117">
+          <div class="frame-3_1117">
+            <p id="3_1118" class="paragraph-3_1118">已掌握</p>
+          </div>
+          <div class="stroke-3_1117"></div>
+        </div>
+      </div>
+    </div>
+    <div id="3_1119" class="frame-3_1119">
+      <div id="3_1120" class="frame-3_1120">
+        <div class="frame-content-3_1120">
+          <div id="3_1121" class="frame-3_1121">
+            <div id="3_1122" class="frame-3_1122">
+              <div class="frame-content-3_1122">
+                <div id="3_1123" class="frame-3_1123">
+                  <div class="frame-content-3_1123">
+                    <div id="3_1124" class="frame-3_1124">
+                      <p id="3_1125" class="paragraph-3_1125">❌ 选错</p>
+                    </div>
+                    <div id="3_1126" class="frame-3_1126">
+                      <p id="3_1127" class="paragraph-3_1127">今天 14:30</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_1128" class="frame-3_1128">
+              <div class="frame-content-3_1128">
+                <div id="3_1129" class="frame-3_1129">
+                  <p id="3_1130" class="paragraph-3_1130">在 CSS 中，以下哪个属性用于设置元素的圆角？</p>
+                </div>
+              </div>
+            </div>
+            <div id="3_1131" class="frame-3_1131">
+              <div class="frame-content-3_1131">
+                <div id="3_1132" class="frame-3_1132">
+                  <div class="frame-content-3_1132">
+                    <div id="3_1133" class="frame-3_1133">
+                      <div class="frame-content-3_1133">
+                        <div id="3_1134" class="frame-3_1134">
+                          <p id="3_1135" class="paragraph-3_1135">你的答案</p>
+                        </div>
+                        <p id="3_1136" class="paragraph-3_1136">border-radius: 50%</p>
+                      </div>
+                    </div>
+                    <div id="3_1137" class="frame-3_1137">
+                      <div class="frame-content-3_1137">
+                        <div id="3_1138" class="frame-3_1138">
+                          <p id="3_1139" class="paragraph-3_1139">正确答案</p>
+                        </div>
+                        <p id="3_1140" class="paragraph-3_1140">border-radius: 8px</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_1141" class="stroke-wrapper-3_1141">
+              <div class="frame-3_1141">
+                <div class="frame-content-3_1141">
+                  <div id="3_1142" class="frame-3_1142">
+                    <p id="3_1143" class="paragraph-3_1143">📖 关联知识点：</p>
+                  </div>
+                  <div id="3_1144" class="frame-3_1144">
+                    <p id="3_1145" class="paragraph-3_1145">CSS 基础</p>
+                  </div>
+                  <div id="3_1146" class="frame-3_1146">
+                    <p id="3_1147" class="paragraph-3_1147">盒子模型</p>
+                  </div>
+                </div>
+              </div>
+              <div class="stroke-3_1141"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_1148" class="frame-3_1148">
+        <div class="frame-content-3_1148">
+          <div id="3_1149" class="frame-3_1149">
+            <div id="3_1150" class="frame-3_1150">
+              <div class="frame-content-3_1150">
+                <div id="3_1151" class="frame-3_1151">
+                  <div class="frame-content-3_1151">
+                    <div id="3_1152" class="frame-3_1152">
+                      <p id="3_1153" class="paragraph-3_1153">❌ 选错</p>
+                    </div>
+                    <div id="3_1154" class="frame-3_1154">
+                      <p id="3_1155" class="paragraph-3_1155">昨天 10:15</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_1156" class="frame-3_1156">
+              <div class="frame-content-3_1156">
+                <div id="3_1157" class="frame-3_1157">
+                  <p id="3_1158" class="paragraph-3_1158">JavaScript 中，typeof null 的返回值是什么？</p>
+                </div>
+              </div>
+            </div>
+            <div id="3_1159" class="frame-3_1159">
+              <div class="frame-content-3_1159">
+                <div id="3_1160" class="frame-3_1160">
+                  <div class="frame-content-3_1160">
+                    <div id="3_1161" class="frame-3_1161">
+                      <div class="frame-content-3_1161">
+                        <div id="3_1162" class="frame-3_1162">
+                          <p id="3_1163" class="paragraph-3_1163">你的答案</p>
+                        </div>
+                        <p id="3_1164" class="paragraph-3_1164">"null"</p>
+                      </div>
+                    </div>
+                    <div id="3_1165" class="frame-3_1165">
+                      <div class="frame-content-3_1165">
+                        <div id="3_1166" class="frame-3_1166">
+                          <p id="3_1167" class="paragraph-3_1167">正确答案</p>
+                        </div>
+                        <p id="3_1168" class="paragraph-3_1168">"object"</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_1169" class="stroke-wrapper-3_1169">
+              <div class="frame-3_1169">
+                <div class="frame-content-3_1169">
+                  <div id="3_1170" class="frame-3_1170">
+                    <p id="3_1171" class="paragraph-3_1171">📖 关联知识点：</p>
+                  </div>
+                  <div id="3_1172" class="frame-3_1172">
+                    <p id="3_1173" class="paragraph-3_1173">JavaScript 基础</p>
+                  </div>
+                  <div id="3_1174" class="frame-3_1174">
+                    <p id="3_1175" class="paragraph-3_1175">数据类型</p>
+                  </div>
+                </div>
+              </div>
+              <div class="stroke-3_1169"></div>
+            </div>
+            <div id="3_1176" class="frame-3_1176">
+              <div class="frame-content-3_1176">
+                <div id="3_1177" class="frame-3_1177">
+                  <div class="frame-content-3_1177">
+                    <div id="3_1178" class="frame-3_1178">
+                      <p id="3_1179" class="paragraph-3_1179">✓ 已重练 1 次，正确率 100%</p>
+                    </div>
+                    <div id="3_1180" class="frame-3_1180">
+                      <p id="3_1181" class="paragraph-3_1181">再次练习</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_1182" class="frame-3_1182">
+        <div class="frame-content-3_1182">
+          <div id="3_1183" class="frame-3_1183">
+            <div id="3_1184" class="frame-3_1184">
+              <div class="frame-content-3_1184">
+                <div id="3_1185" class="frame-3_1185">
+                  <div class="frame-content-3_1185">
+                    <div id="3_1186" class="frame-3_1186">
+                      <p id="3_1187" class="paragraph-3_1187">❌ 选错</p>
+                    </div>
+                    <div id="3_1188" class="frame-3_1188">
+                      <p id="3_1189" class="paragraph-3_1189">3天前 09:00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_1190" class="frame-3_1190">
+              <div class="frame-content-3_1190">
+                <div id="3_1191" class="frame-3_1191">
+                  <p id="3_1192" class="paragraph-3_1192">以下哪个 HTML 标签用于定义导航链接区域？</p>
+                </div>
+              </div>
+            </div>
+            <div id="3_1193" class="frame-3_1193">
+              <div class="frame-content-3_1193">
+                <div id="3_1194" class="frame-3_1194">
+                  <div class="frame-content-3_1194">
+                    <div id="3_1195" class="frame-3_1195">
+                      <div class="frame-content-3_1195">
+                        <div id="3_1196" class="frame-3_1196">
+                          <p id="3_1197" class="paragraph-3_1197">你的答案</p>
+                        </div>
+                        <p id="3_1198" class="paragraph-3_1198">div</p>
+                      </div>
+                    </div>
+                    <div id="3_1199" class="frame-3_1199">
+                      <div class="frame-content-3_1199">
+                        <div id="3_1200" class="frame-3_1200">
+                          <p id="3_1201" class="paragraph-3_1201">正确答案</p>
+                        </div>
+                        <p id="3_1202" class="paragraph-3_1202">nav</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_1203" class="stroke-wrapper-3_1203">
+              <div class="frame-3_1203">
+                <div class="frame-content-3_1203">
+                  <div id="3_1204" class="frame-3_1204">
+                    <p id="3_1205" class="paragraph-3_1205">📖 关联知识点：</p>
+                  </div>
+                  <div id="3_1206" class="frame-3_1206">
+                    <p id="3_1207" class="paragraph-3_1207">HTML 基础</p>
+                  </div>
+                  <div id="3_1208" class="frame-3_1208">
+                    <p id="3_1209" class="paragraph-3_1209">语义化标签</p>
+                  </div>
+                </div>
+              </div>
+              <div class="stroke-3_1203"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_1210" class="frame-3_1210">
+        <div class="frame-content-3_1210">
+          <div id="3_1211" class="frame-3_1211">
+            <div id="3_1212" class="frame-3_1212">
+              <div class="frame-content-3_1212">
+                <div id="3_1213" class="frame-3_1213">
+                  <div class="frame-content-3_1213">
+                    <div id="3_1214" class="frame-3_1214">
+                      <p id="3_1215" class="paragraph-3_1215">❌ 选错</p>
+                    </div>
+                    <div id="3_1216" class="frame-3_1216">
+                      <p id="3_1217" class="paragraph-3_1217">5天前 16:20</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_1218" class="frame-3_1218">
+              <div class="frame-content-3_1218">
+                <div id="3_1219" class="frame-3_1219">
+                  <p id="3_1220" class="paragraph-3_1220">Flexbox 中，align-items: center 的作用是什么？</p>
+                </div>
+              </div>
+            </div>
+            <div id="3_1221" class="frame-3_1221">
+              <div class="frame-content-3_1221">
+                <div id="3_1222" class="frame-3_1222">
+                  <div class="frame-content-3_1222">
+                    <div id="3_1223" class="frame-3_1223">
+                      <div class="frame-content-3_1223">
+                        <div id="3_1224" class="frame-3_1224">
+                          <p id="3_1225" class="paragraph-3_1225">你的答案</p>
+                        </div>
+                        <p id="3_1226" class="paragraph-3_1226">主轴居中</p>
+                      </div>
+                    </div>
+                    <div id="3_1227" class="frame-3_1227">
+                      <div class="frame-content-3_1227">
+                        <div id="3_1228" class="frame-3_1228">
+                          <p id="3_1229" class="paragraph-3_1229">正确答案</p>
+                        </div>
+                        <p id="3_1230" class="paragraph-3_1230">交叉轴居中</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_1231" class="stroke-wrapper-3_1231">
+              <div class="frame-3_1231">
+                <div class="frame-content-3_1231">
+                  <div id="3_1232" class="frame-3_1232">
+                    <p id="3_1233" class="paragraph-3_1233">📖 关联知识点：</p>
+                  </div>
+                  <div id="3_1234" class="frame-3_1234">
+                    <p id="3_1235" class="paragraph-3_1235">CSS Flexbox</p>
+                  </div>
+                  <div id="3_1236" class="frame-3_1236">
+                    <p id="3_1237" class="paragraph-3_1237">布局</p>
+                  </div>
+                </div>
+              </div>
+              <div class="stroke-3_1231"></div>
+            </div>
+            <div id="3_1238" class="frame-3_1238">
+              <div class="frame-content-3_1238">
+                <div id="3_1239" class="frame-3_1239">
+                  <div class="frame-content-3_1239">
+                    <div id="3_1240" class="frame-3_1240">
+                      <p id="3_1241" class="paragraph-3_1241">✓ 已重练 2 次，正确率 50%</p>
+                    </div>
+                    <div id="3_1242" class="frame-3_1242">
+                      <p id="3_1243" class="paragraph-3_1243">再次练习</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="3_1244" class="stroke-wrapper-3_1244">
+      <div class="frame-3_1244">
+        <div class="frame-content-3_1244">
+          <div id="3_1245" class="frame-3_1245">
+            <div id="3_1246" class="frame-3_1246">
+              <p id="3_1247" class="paragraph-3_1247">12 道错题待重练</p>
+            </div>
+            <div id="3_1248" class="frame-3_1248">
+              <p id="3_1249" class="paragraph-3_1249">点击开始练习，巩固薄弱知识点</p>
+            </div>
+          </div>
+          <div id="3_1250" class="frame-3_1250">
+            <p id="3_1251" class="paragraph-3_1251">开始重练</p>
+          </div>
+        </div>
+      </div>
+      <div class="stroke-3_1244"></div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
