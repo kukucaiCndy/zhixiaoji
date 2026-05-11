@@ -2,6 +2,7 @@
   width: 100vw;
   min-height: 100vh;
   background: #F8FAFC;
+  overflow-x: hidden;
 }
 
 .status-bar {
@@ -186,7 +187,7 @@
 }
 
 .points-card {
-  width: 100%;
+  width: 686rpx;
   height: 174rpx;
   border-radius: 32rpx;
   background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
@@ -194,6 +195,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .points-left {
@@ -211,21 +213,28 @@
   font-size: 56rpx;
   font-weight: 700;
   color: #FFFFFF;
+  line-height: 1;
 }
 
 .points-actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 16rpx;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .points-btn {
-  padding: 16rpx 32rpx;
+  height: 66rpx;
+  padding: 0 32rpx;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 40rpx;
   font-size: 26rpx;
   color: #FFFFFF;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .func-grid-wrap {
@@ -235,22 +244,20 @@
 .func-grid {
   display: flex;
   flex-wrap: wrap;
-  background: #E2E8F0;
   border-radius: 28rpx;
   overflow: hidden;
-  padding: 8rpx;
-  gap: 2rpx;
 }
 
 .func-item {
-  width: calc(33.33% - 2rpx);
+  width: 33.3333%;
   background: #FFFFFF;
-  padding: 36rpx 16rpx 24rpx;
+  padding: 36rpx 4rpx 24rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8rpx;
   box-sizing: border-box;
+  border: 2rpx solid #F8FAFC;
 }
 
 .func-icon-wrap {
