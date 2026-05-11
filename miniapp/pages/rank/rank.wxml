@@ -1,0 +1,70 @@
+<view class="rank-page">
+  <view class="status-bar">
+    <text class="time">9:41</text>
+    <view class="status-icons">
+      <view class="signal-bar"></view>
+      <view class="signal-bar"></view>
+      <view class="signal-bar"></view>
+    </view>
+  </view>
+
+  <view class="nav-bar">
+    <view class="back-btn" bindtap="onBack">
+      <text class="back-icon">←</text>
+    </view>
+    <text class="nav-title">排行榜</text>
+    <view class="nav-my-rank" bindtap="onMyRank">
+      <text>我的排名</text>
+    </view>
+  </view>
+
+  <view class="tab-bar">
+    <view class="tab-item {{currentTab === 'score' ? 'active' : ''}}" bindtap="onTabChange" data-tab="score">
+      <text>积分榜</text>
+    </view>
+    <view class="tab-item {{currentTab === 'checkin' ? 'active' : ''}}" bindtap="onTabChange" data-tab="checkin">
+      <text>打卡榜</text>
+    </view>
+    <view class="tab-item {{currentTab === 'accuracy' ? 'active' : ''}}" bindtap="onTabChange" data-tab="accuracy">
+      <text>正确率</text>
+    </view>
+    <view class="tab-item {{currentTab === 'favorite' ? 'active' : ''}}" bindtap="onTabChange" data-tab="favorite">
+      <text>收藏榜</text>
+    </view>
+    <view class="tab-item {{currentTab === 'duration' ? 'active' : ''}}" bindtap="onTabChange" data-tab="duration">
+      <text>时长榜</text>
+    </view>
+  </view>
+
+  <view class="my-rank-card">
+    <view class="my-rank-pos">12</view>
+    <view class="my-rank-avatar">
+      <text class="my-rank-avatar-text">{{myRank.initial || 'J'}}</text>
+    </view>
+    <view class="my-rank-info">
+      <text class="my-rank-name">{{myRank.name || 'Jesse'}}（你）</text>
+      <text class="my-rank-change">较上周上升 3 名 ↑</text>
+    </view>
+    <text class="my-rank-score">{{myRank.score || '1,280'}}</text>
+  </view>
+
+  <view class="rank-list">
+    <view class="rank-item" wx:for="{{rankList}}" wx:key="id">
+      <view class="ri-pos {{item.pos <= 3 ? 'ri-pos-top' : 'ri-pos-normal'}}">
+        <text>{{item.pos}}</text>
+      </view>
+      <view class="ri-avatar" style="background: {{item.avatarBg}};">
+        <text>{{item.initial}}</text>
+      </view>
+      <view class="ri-info">
+        <view class="ri-name">
+          <text>{{item.name}}</text>
+          <text class="ri-badge" wx:if="{{item.badge}}" style="background: {{item.badgeBg}}; color: {{item.badgeColor}};">{{item.badge}}</text>
+        </view>
+        <text class="ri-meta">{{item.meta}}</text>
+      </view>
+      <text class="ri-score" style="color: {{item.pos === 1 ? '#4F46E5' : '#1C1C1E'}};">{{item.score}}</text>
+      <text class="ri-trend {{item.trend === 'up' ? 'trend-up' : item.trend === 'down' ? 'trend-down' : 'trend-flat'}}">{{item.trendIcon}}</text>
+    </view>
+  </view>
+</view>

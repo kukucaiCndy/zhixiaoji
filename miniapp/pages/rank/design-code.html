@@ -1,0 +1,2920 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixso HTML</title>
+  <style>
+@font-face {
+	font-family: 'Noto Sans SC';
+	font-style: normal;
+	font-weight: 500;
+	src: url(http://localhost:3667/assets/1778504682720/NotoSansSC-VariableFont_wght_2.ttf) format('truetype');
+}
+
+
+</style>
+  <script src="js/animation.js"></script>
+  <style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ol,ul,menu {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+ol li::marker, ul li::before {
+  letter-spacing: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body { 
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: white;
+}
+    
+span {
+  word-break: break-word;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.frame-3_2742 {
+  width: 375px;
+  height: 822px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(240, 242, 245, 1);
+}
+
+.frame-3_2743 {
+  width: 375px;
+  height: 44px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_2743 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2744 {
+  width: 31px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2745 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.30000001192092896px;
+  color: rgba(28, 28, 30, 1);
+  width: 31px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_2746 {
+  width: 62px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_2746 {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-3_2747 {
+  width: 18px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(28, 28, 30, 1);
+  opacity: 0.4000000059604645;
+}
+
+.rectangle-3_2748 {
+  width: 18px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(28, 28, 30, 1);
+  opacity: 0.4000000059604645;
+}
+
+.rectangle-3_2749 {
+  width: 18px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(28, 28, 30, 1);
+  opacity: 0.4000000059604645;
+}
+
+.frame-3_2750 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_2750 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px 0px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-3_2750 {
+  position: absolute;
+  left: 0px;
+  top: 44px;
+  width: 375px;
+  height: 44px;
+  display: flex;
+  padding: 0px 0px 1px 0px;
+}
+
+.stroke-3_2750 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(0, 0, 0, 0.05000000074505806);
+}
+
+.frame-3_2751 {
+  width: 40px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2752 {
+  font-size: 17px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(28, 28, 30, 1);
+  width: 19px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_2753 {
+  width: 254.19000244140625px;
+  height: 23px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2754 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: 48px;
+  height: auto;
+  position: absolute;
+  left: 104px;
+  top: 2px;
+}
+
+.frame-3_2755 {
+  width: 51px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2756 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(79, 70, 229, 1);
+  width: 51px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-3_2757 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_2757 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px 16px 0px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-3_2757 {
+  position: absolute;
+  left: 0px;
+  top: 88px;
+  width: 375px;
+  height: 48px;
+  display: flex;
+  padding: 0px 0px 1px 0px;
+}
+
+.stroke-3_2757 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(0, 0, 0, 0.05000000074505806);
+}
+
+.frame-3_2758 {
+  width: auto;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.frame-content-3_2758 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px 16px 0px 0px;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2759 {
+  width: 45px;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2760 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(79, 70, 229, 1);
+  width: 45px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+}
+
+.rectangle-3_2761 {
+  width: 43px;
+  height: 2px;
+  position: absolute;
+  left: 0px;
+  top: 45px;
+  border-radius: 1px 1px 1px 1px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-3_2762 {
+  width: auto;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.frame-content-3_2762 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px 16px 0px 0px;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2763 {
+  width: 45px;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2764 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: 45px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+}
+
+.frame-3_2765 {
+  width: auto;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.frame-content-3_2765 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px 16px 0px 0px;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2766 {
+  width: 45px;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2767 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: 45px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+}
+
+.frame-3_2768 {
+  width: auto;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.frame-content-3_2768 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px 16px 0px 0px;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2769 {
+  width: 45px;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2770 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: 45px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+}
+
+.frame-3_2771 {
+  width: 45px;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2772 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: 45px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+}
+
+.frame-3_2773 {
+  width: 375px;
+  height: 92px;
+  position: absolute;
+  left: 0px;
+  top: 136px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2773 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 16px 12px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2774 {
+  width: 343px;
+  height: 68px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%20343%2068'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(0.5991%2C%203.0221%2C%20-0.0412%2C%200.2080%2C%200.2211%2C%20-1.1150)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(238%2C242%2C255%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(224%2C231%2C255%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-3_2774 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2775 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-content-3_2775 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2776 {
+  font-size: 18px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2777 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2040%2040'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%201.0000%2C%20-0.3536%2C%200.3536%2C%200.1768%2C%20-0.1768)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(79%2C70%2C229%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(6%2C182%2C212%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-3_2777 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2778 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2779 {
+  width: 148.9499969482422px;
+  height: 34px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_2780 {
+  width: 148.9499969482422px;
+  height: 20px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-3_2781 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: 42px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_2782 {
+  width: 148.9499969482422px;
+  height: 18px;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2782 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2783 {
+  width: 148.9499969482422px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2784 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(100, 116, 139, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2785 {
+  width: 50px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2786 {
+  font-size: 18px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(79, 70, 229, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2787 {
+  width: 375px;
+  height: 594px;
+  position: absolute;
+  left: 0px;
+  top: 228px;
+}
+
+.frame-3_2788 {
+  width: 343px;
+  height: 76px;
+  position: absolute;
+  left: 16px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2788 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2789 {
+  width: 343px;
+  height: 68px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.03999999925202014) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_2789 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2790 {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2028%2028'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%201.0000%2C%20-0.5051%2C%200.5051%2C%200.2525%2C%20-0.2525)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(251%2C191%2C36%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(245%2C158%2C11%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-3_2790 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2791 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2792 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2040%2040'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%201.0000%2C%20-0.3536%2C%200.3536%2C%200.1768%2C%20-0.1768)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(251%2C191%2C36%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(245%2C158%2C11%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-3_2792 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2793 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2794 {
+  width: 150.4499969482422px;
+  height: 33px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_2795 {
+  width: 150.4499969482422px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_2795 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2796 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2797 {
+  width: 28.719999313354492px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 4px 4px 4px 4px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2028.719999313354492%2016'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(0.7263%2C%201.6046%2C%20-0.4924%2C%201.0879%2C%200.3830%2C%20-0.8462)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(251%2C191%2C36%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(245%2C158%2C11%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.paragraph-3_2798 {
+  font-size: 10px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(255, 255, 255, 1);
+  width: 19px;
+  height: auto;
+  position: absolute;
+  left: 6px;
+  top: 1px;
+}
+
+.frame-3_2799 {
+  width: 150.4499969482422px;
+  height: 17px;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2799 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2800 {
+  width: 150.4499969482422px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2801 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2802 {
+  width: 41px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2803 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: -1px;
+  top: 0px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2804 {
+  width: 8px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2805 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: 8px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_2806 {
+  width: 343px;
+  height: 76px;
+  position: absolute;
+  left: 16px;
+  top: 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2806 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2807 {
+  width: 343px;
+  height: 68px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.03999999925202014) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_2807 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2808 {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2028%2028'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%201.0000%2C%20-0.5051%2C%200.5051%2C%200.2525%2C%20-0.2525)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(203%2C213%2C225%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(148%2C163%2C184%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-3_2808 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2809 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2810 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2040%2040'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%201.0000%2C%20-0.3536%2C%200.3536%2C%200.1768%2C%20-0.1768)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(203%2C213%2C225%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(148%2C163%2C184%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-3_2810 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2811 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2812 {
+  width: 150.4499969482422px;
+  height: 33px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_2813 {
+  width: 150.4499969482422px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_2813 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2814 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2815 {
+  width: 29.280000686645508px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 4px 4px 4px 4px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_2816 {
+  font-size: 10px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(79, 70, 229, 1);
+  width: 19px;
+  height: auto;
+  position: absolute;
+  left: 6px;
+  top: 1px;
+}
+
+.frame-3_2817 {
+  width: 150.4499969482422px;
+  height: 17px;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2817 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2818 {
+  width: 150.4499969482422px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2819 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2820 {
+  width: 41px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2821 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: -1px;
+  top: 0px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2822 {
+  width: 8px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2823 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: 8px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_2824 {
+  width: 343px;
+  height: 76px;
+  position: absolute;
+  left: 16px;
+  top: 152px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2824 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2825 {
+  width: 343px;
+  height: 68px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.03999999925202014) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_2825 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2826 {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2028%2028'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%201.0000%2C%20-0.5051%2C%200.5051%2C%200.2525%2C%20-0.2525)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(254%2C215%2C170%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(249%2C115%2C22%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-3_2826 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2827 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2828 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2040%2040'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%201.0000%2C%20-0.3536%2C%200.3536%2C%200.1768%2C%20-0.1768)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(254%2C215%2C170%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(249%2C115%2C22%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-3_2828 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2829 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2830 {
+  width: 144.4499969482422px;
+  height: 33px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_2831 {
+  width: 144.4499969482422px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_2831 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2832 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.frame-3_2833 {
+  width: 144.4499969482422px;
+  height: 17px;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2833 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2834 {
+  width: 144.4499969482422px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2835 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2836 {
+  width: 41px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2837 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: -1px;
+  top: 0px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2838 {
+  width: 14px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2839 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(142, 142, 147, 1);
+  width: 14px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_2840 {
+  width: 343px;
+  height: 76px;
+  position: absolute;
+  left: 16px;
+  top: 228px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2840 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2841 {
+  width: 343px;
+  height: 68px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.03999999925202014) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_2841 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2842 {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+}
+
+.frame-content-3_2842 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2843 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(142, 142, 147, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2844 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-content-3_2844 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2845 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2846 {
+  width: 150.4499969482422px;
+  height: 33px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_2847 {
+  width: 150.4499969482422px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_2847 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2848 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.frame-3_2849 {
+  width: 150.4499969482422px;
+  height: 17px;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2849 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2850 {
+  width: 150.4499969482422px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2851 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2852 {
+  width: 41px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2853 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: -1px;
+  top: 0px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2854 {
+  width: 8px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2855 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: 8px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_2856 {
+  width: 343px;
+  height: 76px;
+  position: absolute;
+  left: 16px;
+  top: 304px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2856 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2857 {
+  width: 343px;
+  height: 68px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.03999999925202014) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_2857 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2858 {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+}
+
+.frame-content-3_2858 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2859 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(142, 142, 147, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2860 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-color: rgba(6, 182, 212, 1);
+}
+
+.frame-content-3_2860 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2861 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2862 {
+  width: 150.4499969482422px;
+  height: 33px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_2863 {
+  width: 150.4499969482422px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_2863 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2864 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.frame-3_2865 {
+  width: 150.4499969482422px;
+  height: 17px;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2865 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2866 {
+  width: 150.4499969482422px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2867 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2868 {
+  width: 41px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2869 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: -1px;
+  top: 0px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2870 {
+  width: 8px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2871 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(239, 68, 68, 1);
+  width: 8px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_2872 {
+  width: 343px;
+  height: 76px;
+  position: absolute;
+  left: 16px;
+  top: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2872 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2873 {
+  width: 343px;
+  height: 68px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.03999999925202014) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_2873 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2874 {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+}
+
+.frame-content-3_2874 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2875 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(142, 142, 147, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2876 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-color: rgba(16, 185, 129, 1);
+}
+
+.frame-content-3_2876 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2877 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2878 {
+  width: 150.4499969482422px;
+  height: 33px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_2879 {
+  width: 150.4499969482422px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_2879 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2880 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.frame-3_2881 {
+  width: 150.4499969482422px;
+  height: 17px;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2881 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2882 {
+  width: 150.4499969482422px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2883 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2884 {
+  width: 41px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2885 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: -1px;
+  top: 0px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2886 {
+  width: 8px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2887 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: 8px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_2888 {
+  width: 343px;
+  height: 78px;
+  position: absolute;
+  left: 16px;
+  top: 456px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2888 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2889 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.03999999925202014) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_2889 {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-3_2889 {
+  position: relative;
+  width: 343px;
+  height: 70px;
+  display: flex;
+  flex-shrink: 0;
+  padding: 1px 1px 1px 1px;
+}
+
+.stroke-3_2889 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 14px 14px 14px 14px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(238, 242, 255, 1);
+}
+
+.frame-3_2890 {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+}
+
+.frame-content-3_2890 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2891 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(79, 70, 229, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2892 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2040%2040'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%201.0000%2C%20-0.3536%2C%200.3536%2C%200.1768%2C%20-0.1768)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(79%2C70%2C229%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(6%2C182%2C212%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-3_2892 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2893 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2894 {
+  width: 148.4499969482422px;
+  height: 33px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_2895 {
+  width: 148.4499969482422px;
+  height: 16px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_2895 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_2896 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(79, 70, 229, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2897 {
+  width: 36px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2898 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: 36px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-3_2899 {
+  width: 148.4499969482422px;
+  height: 17px;
+  position: absolute;
+  left: 0px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_2899 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_2900 {
+  width: 148.4499969482422px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2901 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(142, 142, 147, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2902 {
+  width: 41px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2903 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(79, 70, 229, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: -1px;
+  top: 0px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_2904 {
+  width: 8px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_2905 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(16, 185, 129, 1);
+  width: 8px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="3_2742" class="frame-3_2742">
+    <div id="3_2743" class="frame-3_2743">
+      <div class="frame-content-3_2743">
+        <div id="3_2744" class="frame-3_2744">
+          <p id="3_2745" class="paragraph-3_2745">9:41</p>
+        </div>
+        <div id="3_2746" class="frame-3_2746">
+          <div class="frame-content-3_2746">
+            <div id="3_2747" class="rectangle-3_2747"></div>
+            <div id="3_2748" class="rectangle-3_2748"></div>
+            <div id="3_2749" class="rectangle-3_2749"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="3_2750" class="stroke-wrapper-3_2750">
+      <div class="frame-3_2750">
+        <div class="frame-content-3_2750">
+          <div id="3_2751" class="frame-3_2751" style="cursor: pointer;">
+            <p id="3_2752" class="paragraph-3_2752">←</p>
+          </div>
+          <div id="3_2753" class="frame-3_2753">
+            <p id="3_2754" class="paragraph-3_2754">排行榜</p>
+          </div>
+          <div id="3_2755" class="frame-3_2755">
+            <p id="3_2756" class="paragraph-3_2756">我的排名</p>
+          </div>
+        </div>
+      </div>
+      <div class="stroke-3_2750"></div>
+    </div>
+    <div id="3_2757" class="stroke-wrapper-3_2757">
+      <div class="frame-3_2757">
+        <div class="frame-content-3_2757">
+          <div id="3_2758" class="frame-3_2758">
+            <div class="frame-content-3_2758">
+              <div id="3_2759" class="frame-3_2759">
+                <p id="3_2760" class="paragraph-3_2760">积分榜</p>
+                <div id="3_2761" class="rectangle-3_2761"></div>
+              </div>
+            </div>
+          </div>
+          <div id="3_2762" class="frame-3_2762">
+            <div class="frame-content-3_2762">
+              <div id="3_2763" class="frame-3_2763">
+                <p id="3_2764" class="paragraph-3_2764">打卡榜</p>
+              </div>
+            </div>
+          </div>
+          <div id="3_2765" class="frame-3_2765">
+            <div class="frame-content-3_2765">
+              <div id="3_2766" class="frame-3_2766">
+                <p id="3_2767" class="paragraph-3_2767">正确率</p>
+              </div>
+            </div>
+          </div>
+          <div id="3_2768" class="frame-3_2768">
+            <div class="frame-content-3_2768">
+              <div id="3_2769" class="frame-3_2769">
+                <p id="3_2770" class="paragraph-3_2770">收藏榜</p>
+              </div>
+            </div>
+          </div>
+          <div id="3_2771" class="frame-3_2771">
+            <p id="3_2772" class="paragraph-3_2772">时长榜</p>
+          </div>
+        </div>
+      </div>
+      <div class="stroke-3_2757"></div>
+    </div>
+    <div id="3_2773" class="frame-3_2773">
+      <div class="frame-content-3_2773">
+        <div id="3_2774" class="frame-3_2774">
+          <div class="frame-content-3_2774">
+            <div id="3_2775" class="frame-3_2775">
+              <div class="frame-content-3_2775">
+                <p id="3_2776" class="paragraph-3_2776">12</p>
+              </div>
+            </div>
+            <div id="3_2777" class="frame-3_2777">
+              <div class="frame-content-3_2777">
+                <p id="3_2778" class="paragraph-3_2778">J</p>
+              </div>
+            </div>
+            <div id="3_2779" class="frame-3_2779">
+              <div id="3_2780" class="frame-3_2780">
+                <p id="3_2781" class="paragraph-3_2781">Jesse</p>
+              </div>
+              <div id="3_2782" class="frame-3_2782">
+                <div class="frame-content-3_2782">
+                  <div id="3_2783" class="frame-3_2783">
+                    <p id="3_2784" class="paragraph-3_2784">较上周上升 3 名 ↑</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_2785" class="frame-3_2785">
+              <p id="3_2786" class="paragraph-3_2786">1,280</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="3_2787" class="frame-3_2787">
+      <div id="3_2788" class="frame-3_2788">
+        <div class="frame-content-3_2788">
+          <div id="3_2789" class="frame-3_2789">
+            <div class="frame-content-3_2789">
+              <div id="3_2790" class="frame-3_2790">
+                <div class="frame-content-3_2790">
+                  <p id="3_2791" class="paragraph-3_2791">1</p>
+                </div>
+              </div>
+              <div id="3_2792" class="frame-3_2792">
+                <div class="frame-content-3_2792">
+                  <p id="3_2793" class="paragraph-3_2793">M</p>
+                </div>
+              </div>
+              <div id="3_2794" class="frame-3_2794">
+                <div id="3_2795" class="frame-3_2795">
+                  <div class="frame-content-3_2795">
+                    <p id="3_2796" class="paragraph-3_2796">Ming</p>
+                    <div id="3_2797" class="frame-3_2797">
+                      <p id="3_2798" class="paragraph-3_2798">VIP</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="3_2799" class="frame-3_2799">
+                  <div class="frame-content-3_2799">
+                    <div id="3_2800" class="frame-3_2800">
+                      <p id="3_2801" class="paragraph-3_2801">Lv.8 · 学习 68 天</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="3_2802" class="frame-3_2802">
+                <p id="3_2803" class="paragraph-3_2803">4,280</p>
+              </div>
+              <div id="3_2804" class="frame-3_2804">
+                <p id="3_2805" class="paragraph-3_2805">↑</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_2806" class="frame-3_2806">
+        <div class="frame-content-3_2806">
+          <div id="3_2807" class="frame-3_2807">
+            <div class="frame-content-3_2807">
+              <div id="3_2808" class="frame-3_2808">
+                <div class="frame-content-3_2808">
+                  <p id="3_2809" class="paragraph-3_2809">2</p>
+                </div>
+              </div>
+              <div id="3_2810" class="frame-3_2810">
+                <div class="frame-content-3_2810">
+                  <p id="3_2811" class="paragraph-3_2811">L</p>
+                </div>
+              </div>
+              <div id="3_2812" class="frame-3_2812">
+                <div id="3_2813" class="frame-3_2813">
+                  <div class="frame-content-3_2813">
+                    <p id="3_2814" class="paragraph-3_2814">Lei</p>
+                    <div id="3_2815" class="frame-3_2815">
+                      <p id="3_2816" class="paragraph-3_2816">Pro</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="3_2817" class="frame-3_2817">
+                  <div class="frame-content-3_2817">
+                    <div id="3_2818" class="frame-3_2818">
+                      <p id="3_2819" class="paragraph-3_2819">Lv.7 · 学习 55 天</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="3_2820" class="frame-3_2820">
+                <p id="3_2821" class="paragraph-3_2821">3,650</p>
+              </div>
+              <div id="3_2822" class="frame-3_2822">
+                <p id="3_2823" class="paragraph-3_2823">↑</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_2824" class="frame-3_2824">
+        <div class="frame-content-3_2824">
+          <div id="3_2825" class="frame-3_2825">
+            <div class="frame-content-3_2825">
+              <div id="3_2826" class="frame-3_2826">
+                <div class="frame-content-3_2826">
+                  <p id="3_2827" class="paragraph-3_2827">3</p>
+                </div>
+              </div>
+              <div id="3_2828" class="frame-3_2828">
+                <div class="frame-content-3_2828">
+                  <p id="3_2829" class="paragraph-3_2829">W</p>
+                </div>
+              </div>
+              <div id="3_2830" class="frame-3_2830">
+                <div id="3_2831" class="frame-3_2831">
+                  <div class="frame-content-3_2831">
+                    <p id="3_2832" class="paragraph-3_2832">Wei</p>
+                  </div>
+                </div>
+                <div id="3_2833" class="frame-3_2833">
+                  <div class="frame-content-3_2833">
+                    <div id="3_2834" class="frame-3_2834">
+                      <p id="3_2835" class="paragraph-3_2835">Lv.7 · 学习 52 天</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="3_2836" class="frame-3_2836">
+                <p id="3_2837" class="paragraph-3_2837">3,120</p>
+              </div>
+              <div id="3_2838" class="frame-3_2838">
+                <p id="3_2839" class="paragraph-3_2839">—</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_2840" class="frame-3_2840">
+        <div class="frame-content-3_2840">
+          <div id="3_2841" class="frame-3_2841">
+            <div class="frame-content-3_2841">
+              <div id="3_2842" class="frame-3_2842">
+                <div class="frame-content-3_2842">
+                  <p id="3_2843" class="paragraph-3_2843">4</p>
+                </div>
+              </div>
+              <div id="3_2844" class="frame-3_2844">
+                <div class="frame-content-3_2844">
+                  <p id="3_2845" class="paragraph-3_2845">Y</p>
+                </div>
+              </div>
+              <div id="3_2846" class="frame-3_2846">
+                <div id="3_2847" class="frame-3_2847">
+                  <div class="frame-content-3_2847">
+                    <p id="3_2848" class="paragraph-3_2848">Yun</p>
+                  </div>
+                </div>
+                <div id="3_2849" class="frame-3_2849">
+                  <div class="frame-content-3_2849">
+                    <div id="3_2850" class="frame-3_2850">
+                      <p id="3_2851" class="paragraph-3_2851">Lv.6 · 学习 48 天</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="3_2852" class="frame-3_2852">
+                <p id="3_2853" class="paragraph-3_2853">2,890</p>
+              </div>
+              <div id="3_2854" class="frame-3_2854">
+                <p id="3_2855" class="paragraph-3_2855">↑</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_2856" class="frame-3_2856">
+        <div class="frame-content-3_2856">
+          <div id="3_2857" class="frame-3_2857">
+            <div class="frame-content-3_2857">
+              <div id="3_2858" class="frame-3_2858">
+                <div class="frame-content-3_2858">
+                  <p id="3_2859" class="paragraph-3_2859">5</p>
+                </div>
+              </div>
+              <div id="3_2860" class="frame-3_2860">
+                <div class="frame-content-3_2860">
+                  <p id="3_2861" class="paragraph-3_2861">Z</p>
+                </div>
+              </div>
+              <div id="3_2862" class="frame-3_2862">
+                <div id="3_2863" class="frame-3_2863">
+                  <div class="frame-content-3_2863">
+                    <p id="3_2864" class="paragraph-3_2864">Zhi</p>
+                  </div>
+                </div>
+                <div id="3_2865" class="frame-3_2865">
+                  <div class="frame-content-3_2865">
+                    <div id="3_2866" class="frame-3_2866">
+                      <p id="3_2867" class="paragraph-3_2867">Lv.6 · 学习 45 天</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="3_2868" class="frame-3_2868">
+                <p id="3_2869" class="paragraph-3_2869">2,560</p>
+              </div>
+              <div id="3_2870" class="frame-3_2870">
+                <p id="3_2871" class="paragraph-3_2871">↓</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_2872" class="frame-3_2872">
+        <div class="frame-content-3_2872">
+          <div id="3_2873" class="frame-3_2873">
+            <div class="frame-content-3_2873">
+              <div id="3_2874" class="frame-3_2874">
+                <div class="frame-content-3_2874">
+                  <p id="3_2875" class="paragraph-3_2875">6</p>
+                </div>
+              </div>
+              <div id="3_2876" class="frame-3_2876">
+                <div class="frame-content-3_2876">
+                  <p id="3_2877" class="paragraph-3_2877">C</p>
+                </div>
+              </div>
+              <div id="3_2878" class="frame-3_2878">
+                <div id="3_2879" class="frame-3_2879">
+                  <div class="frame-content-3_2879">
+                    <p id="3_2880" class="paragraph-3_2880">Chen</p>
+                  </div>
+                </div>
+                <div id="3_2881" class="frame-3_2881">
+                  <div class="frame-content-3_2881">
+                    <div id="3_2882" class="frame-3_2882">
+                      <p id="3_2883" class="paragraph-3_2883">Lv.5 · 学习 40 天</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="3_2884" class="frame-3_2884">
+                <p id="3_2885" class="paragraph-3_2885">2,240</p>
+              </div>
+              <div id="3_2886" class="frame-3_2886">
+                <p id="3_2887" class="paragraph-3_2887">↑</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_2888" class="frame-3_2888">
+        <div class="frame-content-3_2888">
+          <div id="3_2889" class="stroke-wrapper-3_2889">
+            <div class="frame-3_2889">
+              <div class="frame-content-3_2889">
+                <div id="3_2890" class="frame-3_2890">
+                  <div class="frame-content-3_2890">
+                    <p id="3_2891" class="paragraph-3_2891">12</p>
+                  </div>
+                </div>
+                <div id="3_2892" class="frame-3_2892">
+                  <div class="frame-content-3_2892">
+                    <p id="3_2893" class="paragraph-3_2893">J</p>
+                  </div>
+                </div>
+                <div id="3_2894" class="frame-3_2894">
+                  <div id="3_2895" class="frame-3_2895">
+                    <div class="frame-content-3_2895">
+                      <p id="3_2896" class="paragraph-3_2896">Jesse</p>
+                      <div id="3_2897" class="frame-3_2897">
+                        <p id="3_2898" class="paragraph-3_2898">（你）</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="3_2899" class="frame-3_2899">
+                    <div class="frame-content-3_2899">
+                      <div id="3_2900" class="frame-3_2900">
+                        <p id="3_2901" class="paragraph-3_2901">Lv.5 · 学习 28 天</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="3_2902" class="frame-3_2902">
+                  <p id="3_2903" class="paragraph-3_2903">1,280</p>
+                </div>
+                <div id="3_2904" class="frame-3_2904">
+                  <p id="3_2905" class="paragraph-3_2905">↑</p>
+                </div>
+              </div>
+            </div>
+            <div class="stroke-3_2889"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
