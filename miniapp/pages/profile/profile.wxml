@@ -1,154 +1,197 @@
 <view class="profile-page">
-  <!-- 顶部用户信息 -->
-  <view class="header-section">
-    <view class="status-bar">
-      <text class="time">9:41</text>
-      <view class="status-icons">
-        <view class="signal-bar"></view>
-        <view class="signal-bar"></view>
-        <view class="signal-bar"></view>
+  <view class="status-bar">
+    <text class="time">9:41</text>
+    <view class="status-icons">
+      <view class="signal-bar"></view>
+      <view class="signal-bar"></view>
+      <view class="signal-bar"></view>
+    </view>
+  </view>
+
+  <view class="nav-bar">
+    <text class="nav-title">我的</text>
+    <view class="nav-setting" bindtap="onSetting" data-action="settings">
+      <text>⚙️ 设置</text>
+    </view>
+  </view>
+
+  <view class="user-section">
+    <view class="avatar-wrap">
+      <view class="avatar">
+        <text class="avatar-text">{{userInfo.nickname[0]}}</text>
+      </view>
+      <view class="avatar-edit">
+        <text>✏️</text>
       </view>
     </view>
-    <view class="user-card">
-      <view class="avatar">
-        <text class="avatar-text">J</text>
+    <view class="user-detail">
+      <view class="user-top">
+        <text class="username">{{userInfo.nickname || 'Jesse'}}</text>
+        <text class="user-id">ID: {{userInfo.userId || '10086'}}</text>
       </view>
-      <view class="user-info">
-        <text class="username">Jesse</text>
+      <view class="user-level-row">
         <view class="level-badge">
-          <text class="level-icon">⭐</text>
-          <text class="level-text">Lv.5</text>
+          <text class="level-text">Lv.{{userInfo.level || 5}}</text>
+        </view>
+        <text class="level-desc">{{userInfo.levelTitle || '知识探索者'}} · 距下一级还差 {{userInfo.nextLevelExp || 320}} 经验</text>
+      </view>
+      <view class="user-stats">
+        <view class="user-stat-item">
+          <text class="stat-num">{{userInfo.streakDays || 12}}</text>
+          <text class="stat-label">连续天数</text>
+        </view>
+        <view class="user-stat-item">
+          <text class="stat-num">{{userInfo.completedCards || 156}}</text>
+          <text class="stat-label">完成卡片</text>
+        </view>
+        <view class="user-stat-item">
+          <text class="stat-num">{{userInfo.accuracy || '67%'}}</text>
+          <text class="stat-label">正确率</text>
         </view>
       </view>
-      <view class="edit-btn" bindtap="onEditProfile">
-        <text>编辑</text>
+    </view>
+  </view>
+
+  <view class="points-section">
+    <view class="points-card">
+      <view class="points-left">
+        <view class="points-label">我的积分</view>
+        <text class="points-num">{{userInfo.points || '1,280'}}</text>
+      </view>
+      <view class="points-actions">
+        <view class="points-btn" bindtap="onNavigate" data-url="/pages/points/shop/shop">
+          <text>📦 积分商城</text>
+        </view>
+        <view class="points-btn" bindtap="onNavigate" data-url="/pages/points/detail/detail">
+          <text>📊 积分明细</text>
+        </view>
       </view>
     </view>
   </view>
 
-  <!-- 学习统计 -->
-  <view class="stats-section">
-    <view class="stat-item">
-      <text class="stat-number">36</text>
-      <text class="stat-label">学习天数</text>
-    </view>
-    <view class="stat-divider"></view>
-    <view class="stat-item">
-      <text class="stat-number">47</text>
-      <text class="stat-label">已掌握</text>
-    </view>
-    <view class="stat-divider"></view>
-    <view class="stat-item">
-      <text class="stat-number">1,280</text>
-      <text class="stat-label">积分</text>
+  <view class="func-grid-wrap">
+    <view class="func-grid">
+      <view class="func-item" bindtap="onMenuItem" data-action="rank">
+        <view class="func-icon-wrap">
+          <text class="func-icon">🏆</text>
+        </view>
+        <text class="func-name">排行榜</text>
+        <text class="func-desc">本周排名</text>
+      </view>
+      <view class="func-item" bindtap="onMenuItem" data-action="achievements">
+        <view class="func-icon-wrap">
+          <text class="func-icon">🎖️</text>
+        </view>
+        <text class="func-name">成就中心</text>
+        <text class="func-desc">{{userInfo.pendingAchievements || '6项未达成'}}</text>
+      </view>
+      <view class="func-item" bindtap="onMenuItem" data-action="learn-stats">
+        <view class="func-icon-wrap">
+          <text class="func-icon">📈</text>
+        </view>
+        <text class="func-name">学习统计</text>
+        <text class="func-desc">详细数据</text>
+      </view>
+      <view class="func-item" bindtap="onMenuItem" data-action="wrong-questions">
+        <view class="func-icon-wrap">
+          <text class="func-icon">❌</text>
+        </view>
+        <text class="func-name">错题本</text>
+        <text class="func-desc">{{userInfo.wrongCount || '23'}}道错题</text>
+      </view>
+      <view class="func-item" bindtap="onMenuItem" data-action="favorites">
+        <view class="func-icon-wrap">
+          <text class="func-icon">⭐</text>
+        </view>
+        <text class="func-name">收藏夹</text>
+        <text class="func-desc">{{userInfo.favoriteCount || '15'}}个收藏</text>
+      </view>
+      <view class="func-item" bindtap="onMenuItem" data-action="desk">
+        <view class="func-icon-wrap">
+          <text class="func-icon">🖥️</text>
+        </view>
+        <text class="func-name">我的书桌</text>
+        <text class="func-desc">{{userInfo.stationeryCount || '8'}}件文具</text>
+      </view>
     </view>
   </view>
 
-  <!-- 功能菜单 -->
-  <view class="menu-section">
-    <view class="menu-item" bindtap="onMenuItem" data-action="learn-record">
-      <view class="menu-icon">
-        <text>📖</text>
+  <view class="overview-section">
+    <view class="overview-title">
+      <text>📊 学习概览</text>
+    </view>
+    <view class="overview-stats">
+      <view class="overview-item">
+        <text class="overview-num">{{userInfo.learnDays || 42}}</text>
+        <text class="overview-label">累计学习(天)</text>
       </view>
-      <text class="menu-label">学习记录</text>
-      <view class="menu-arrow">
-        <text>›</text>
+      <view class="overview-item">
+        <text class="overview-num">{{userInfo.completedCards || 156}}</text>
+        <text class="overview-label">完成卡片</text>
+      </view>
+      <view class="overview-item">
+        <text class="overview-num">{{userInfo.accuracy || '67%'}}</text>
+        <text class="overview-label">正确率</text>
       </view>
     </view>
-    <view class="menu-item" bindtap="onMenuItem" data-action="favorites">
-      <view class="menu-icon">
-        <text>❤️</text>
-      </view>
-      <text class="menu-label">我的收藏</text>
-      <view class="menu-arrow">
-        <text>›</text>
-      </view>
-    </view>
-    <view class="menu-item" bindtap="onMenuItem" data-action="wrong-questions">
-      <view class="menu-icon">
-        <text>❌</text>
-      </view>
-      <text class="menu-label">错题本</text>
-      <view class="menu-arrow">
-        <text>›</text>
-      </view>
-    </view>
-    <view class="menu-item" bindtap="onMenuItem" data-action="achievements">
-      <view class="menu-icon">
-        <text>🏆</text>
-      </view>
-      <text class="menu-label">成就系统</text>
-      <view class="menu-arrow">
-        <text>›</text>
-      </view>
-    </view>
-    <view class="menu-item" bindtap="onMenuItem" data-action="desk">
-      <view class="menu-icon">
+  </view>
+
+  <view class="settings-card">
+    <view class="setting-item" bindtap="onSetting" data-action="theme">
+      <view class="setting-icon-wrap">
         <text>🎨</text>
       </view>
-      <text class="menu-label">我的书桌</text>
-      <view class="menu-arrow">
-        <text>›</text>
-      </view>
+      <text class="setting-label">主题设置</text>
+      <text class="setting-value">清新蓝绿</text>
+      <view class="setting-arrow">›</view>
     </view>
-    <view class="menu-item" bindtap="onMenuItem" data-action="invite">
-      <view class="menu-icon">
-        <text>🎁</text>
+    <view class="setting-item" bindtap="onSetting" data-action="review-plan">
+      <view class="setting-icon-wrap">
+        <text>📅</text>
       </view>
-      <text class="menu-label">邀请好友</text>
-      <view class="menu-arrow">
-        <text>›</text>
-      </view>
+      <text class="setting-label">复习计划</text>
+      <text class="setting-value">艾宾浩斯</text>
+      <view class="setting-arrow">›</view>
     </view>
-  </view>
-
-  <!-- 设置区域 -->
-  <view class="settings-section">
     <view class="setting-item" bindtap="onSetting" data-action="notification">
-      <view class="setting-icon">
+      <view class="setting-icon-wrap">
         <text>🔔</text>
       </view>
-      <text class="setting-label">消息通知</text>
-      <view class="setting-right">
-        <text class="setting-value">已开启</text>
-        <view class="setting-arrow">
-          <text>›</text>
-        </view>
+      <text class="setting-label">通知设置</text>
+      <text class="setting-value">已开启</text>
+      <view class="setting-arrow">›</view>
+    </view>
+    <view class="setting-item" bindtap="onSetting" data-action="account">
+      <view class="setting-icon-wrap">
+        <text>🔒</text>
       </view>
+      <text class="setting-label">账号与安全</text>
+      <view class="setting-arrow">›</view>
     </view>
     <view class="setting-item" bindtap="onSetting" data-action="help">
-      <view class="setting-icon">
-        <text>❓</text>
+      <view class="setting-icon-wrap">
+        <text>💬</text>
       </view>
       <text class="setting-label">帮助与反馈</text>
-      <view class="setting-arrow">
-        <text>›</text>
-      </view>
+      <view class="setting-arrow">›</view>
     </view>
     <view class="setting-item" bindtap="onSetting" data-action="about">
-      <view class="setting-icon">
+      <view class="setting-icon-wrap">
         <text>ℹ️</text>
       </view>
       <text class="setting-label">关于我们</text>
-      <view class="setting-right">
-        <text class="setting-value">v1.0.0</text>
-        <view class="setting-arrow">
-          <text>›</text>
-        </view>
-      </view>
+      <text class="setting-value">v1.0.0</text>
+      <view class="setting-arrow">›</view>
     </view>
   </view>
 
-  <!-- 退出登录 -->
   <view class="logout-section">
     <view class="logout-btn" bindtap="onLogout">
       <text>退出登录</text>
     </view>
   </view>
 
-  <!-- 底部占位 -->
   <view class="bottom-placeholder"></view>
 
-  <!-- 底部 Tab Bar -->
   <tab-bar activeIndex="3" bind:change="onTabChange"></tab-bar>
 </view>

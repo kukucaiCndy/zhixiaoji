@@ -59,9 +59,22 @@ const mockHome = {
       code: 0,
       data: {
         nickname: '小知同学',
+        userId: '10086',
         avatarUrl: 'https://img.zhixiaoji.com/avatars/default.png',
         level: 5,
-        points: 1280
+        levelTitle: '知识探索者',
+        nextLevelExp: 320,
+        points: 1280,
+        stats: {
+          streakDays: 12,
+          completedCards: 156,
+          accuracy: '67%',
+          learnDays: 42,
+          wrongCount: 23,
+          favoriteCount: 15,
+          stationeryCount: 8,
+          pendingAchievements: '6项未达成'
+        }
       }
     };
   },
