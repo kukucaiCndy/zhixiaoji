@@ -1,31 +1,85 @@
 <view class="edit-page">
-  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
-    <view class="nav-inner">
-      <view class="nav-back" catch:tap="onBack">
-        <text class="nav-back-icon">&lt;</text>
-      </view>
-      <text class="nav-title">编辑资料</text>
-      <view class="nav-save {{saving ? 'nav-save-disabled' : ''}}" catch:tap="onSave">
-        <text class="nav-save-text">保存</text>
-      </view>
+  <view class="status-bar">
+    <text class="time">9:41</text>
+    <view class="status-icons">
+      <view class="signal-bar"></view>
+      <view class="signal-bar"></view>
+      <view class="signal-bar"></view>
     </view>
   </view>
 
-  <view class="edit-content" style="padding-top: {{statusBarHeight + 88}}rpx;">
-    <view class="avatar-section" catch:tap="onChooseAvatar">
-      <image class="edit-avatar" src="{{avatarUrl || '../../images/default-avatar.png'}}" mode="aspectFill" />
-      <text class="avatar-hint">点击更换头像</text>
+  <view class="nav-bar">
+    <view class="back-btn" bindtap="onBack">
+      <text class="back-icon">‹</text>
     </view>
+    <text class="nav-title">编辑资料</text>
+    <view class="save-btn" bindtap="onSave">
+      <text class="save-text">保存</text>
+    </view>
+  </view>
 
-    <view class="form-section">
-      <view class="form-group">
-        <text class="form-label">昵称</text>
-        <input class="form-input" type="text" value="{{nickname}}" placeholder="请输入昵称" maxlength="20" bindinput="onNicknameInput" />
+  <view class="avatar-section" bindtap="onChooseAvatar">
+    <view class="avatar">
+      <text class="avatar-text">{{avatarLetter || 'J'}}</text>
+    </view>
+    <text class="avatar-hint">点击更换头像</text>
+  </view>
+
+  <view class="section-title">账号</view>
+
+  <view class="setting-group">
+    <view class="setting-item" bindtap="onEditNickname">
+      <view class="setting-icon gray-bg"><text>👤</text></view>
+      <view class="setting-info">
+        <text class="setting-name">昵称</text>
       </view>
-      <view class="form-group">
-        <text class="form-label">个性签名</text>
-        <input class="form-input" type="text" value="{{bio}}" placeholder="选填：一句话介绍自己" maxlength="50" bindinput="onBioInput" />
+      <text class="setting-value">{{nickname || 'Jesse'}}</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="setting-item" bindtap="onEditBio">
+      <view class="setting-icon yellow-bg"><text>🏅</text></view>
+      <view class="setting-info">
+        <text class="setting-name">个性签名</text>
       </view>
+      <text class="setting-value">{{bio || '努力学习前端中...'}}</text>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+
+  <view class="section-title">个人信息</view>
+
+  <view class="setting-group">
+    <view class="setting-item" bindtap="onEditGender">
+      <view class="setting-icon purple-bg"><text>📅</text></view>
+      <view class="setting-info">
+        <text class="setting-name">性别</text>
+      </view>
+      <text class="setting-value">{{gender || '男'}}</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="setting-item" bindtap="onEditBirthday">
+      <view class="setting-icon cyan-bg"><text>📆</text></view>
+      <view class="setting-info">
+        <text class="setting-name">生日</text>
+      </view>
+      <text class="setting-value">{{birthday || '1998-06-15'}}</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="setting-item" bindtap="onEditEmail">
+      <view class="setting-icon green-bg"><text>📬</text></view>
+      <view class="setting-info">
+        <text class="setting-name">邮箱</text>
+      </view>
+      <text class="setting-value">{{email || '未设置'}}</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="setting-item" bindtap="onEditLocation">
+      <view class="setting-icon gray-bg"><text>🌍</text></view>
+      <view class="setting-info">
+        <text class="setting-name">所在地</text>
+      </view>
+      <text class="setting-value">{{location || '广东深圳'}}</text>
+      <text class="arrow">›</text>
     </view>
   </view>
 </view>

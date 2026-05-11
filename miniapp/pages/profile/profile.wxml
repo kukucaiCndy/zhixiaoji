@@ -20,7 +20,7 @@
       <view class="avatar">
         <text class="avatar-text">{{userInfo.nickname[0]}}</text>
       </view>
-      <view class="avatar-edit">
+      <view class="avatar-edit" bindtap="onEditProfile">
         <text>✏️</text>
       </view>
     </view>

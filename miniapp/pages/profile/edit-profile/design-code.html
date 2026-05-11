@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixso HTML</title>
+  <style>
+@font-face {
+	font-family: 'Noto Sans SC';
+	font-style: normal;
+	font-weight: 600;
+	src: url(http://localhost:3667/assets/1778503732748/NotoSansSC-VariableFont_wght_2.ttf) format('truetype');
+}
+
+
+</style>
+  <script src="js/animation.js"></script>
+  <style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ol,ul,menu {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+ol li::marker, ul li::before {
+  letter-spacing: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body { 
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: white;
+}
+    
+span {
+  word-break: break-word;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.frame-9_1672 {
+  width: 375px;
+  height: 985px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 24px 24px 24px 24px;
+  box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.1) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-9_1673 {
+  width: 375px;
+  height: 44px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-9_1673 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-9_1674 {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1675 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(28, 28, 30, 1);
+  width: 30px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-9_1676 {
+  width: 62px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-9_1676 {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-9_1677 {
+  width: 18px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(28, 28, 30, 1);
+  opacity: 0.4000000059604645;
+}
+
+.rectangle-9_1678 {
+  width: 18px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(28, 28, 30, 1);
+  opacity: 0.4000000059604645;
+}
+
+.rectangle-9_1679 {
+  width: 18px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(28, 28, 30, 1);
+  opacity: 0.4000000059604645;
+}
+
+.frame-9_1680 {
+  width: 375px;
+  height: 23px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.paragraph-9_1681 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  width: 80px;
+  height: auto;
+  position: absolute;
+  left: 148px;
+  top: 6px;
+}
+
+.frame-9_1682 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-9_1682 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px 0px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-9_1682 {
+  position: absolute;
+  left: 0px;
+  top: 44px;
+  width: 375px;
+  height: 44px;
+  display: flex;
+  padding: 0px 0px 1px 0px;
+}
+
+.stroke-9_1682 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(0, 0, 0, 0.05000000074505806);
+}
+
+.frame-9_1683 {
+  width: 40px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1684 {
+  font-size: 17px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(28, 28, 30, 1);
+  width: 13px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-9_1685 {
+  width: 245px;
+  height: 23px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1686 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.20000000298023224px;
+  color: rgba(28, 28, 30, 1);
+  width: 63px;
+  height: auto;
+  position: absolute;
+  left: 92px;
+  top: 2px;
+}
+
+.frame-9_1687 {
+  width: 58px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 14px 14px 14px 14px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-9_1688 {
+  font-size: 13px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(79, 70, 229, 1);
+  width: 28px;
+  height: auto;
+  position: absolute;
+  left: 16px;
+  top: 8px;
+}
+
+.frame-9_1689 {
+  width: 375px;
+  height: 165px;
+  position: absolute;
+  left: 0px;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-9_1689 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-9_1690 {
+  width: 375px;
+  height: 157px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-9_1691 {
+  width: 343px;
+  height: 84px;
+  position: absolute;
+  left: 16.5px;
+  top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-9_1691 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 135.5px 12px 135.5px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-9_1692 {
+  width: 72px;
+  height: 72px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 36px 36px 36px 36px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2072%2072'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%201.0000%2C%20-0.1964%2C%200.1964%2C%200.0982%2C%20-0.0982)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(79%2C70%2C229%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(6%2C182%2C212%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-9_1692 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-9_1693 {
+  font-size: 28px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-9_1694 {
+  width: 343px;
+  height: 22px;
+  position: absolute;
+  left: 16px;
+  top: 116px;
+}
+
+.paragraph-9_1695 {
+  font-size: 13px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  text-align: center;
+  color: rgba(79, 70, 229, 1);
+  width: 80px;
+  height: auto;
+  position: absolute;
+  left: 133px;
+  top: 3px;
+}
+
+.frame-9_1696 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.stroke-wrapper-9_1696 {
+  position: absolute;
+  left: 0px;
+  top: 253px;
+  width: 375px;
+  height: 196px;
+}
+
+.stroke-9_1696 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 1px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(0, 0, 0, 0.05000000074505806);
+}
+
+.frame-9_1697 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-9_1697 {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-9_1697 {
+  position: absolute;
+  left: 0px;
+  top: 1px;
+  width: 375px;
+  height: 65px;
+  display: flex;
+  padding: 0px 0px 1px 0px;
+}
+
+.stroke-9_1697 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(0, 0, 0, 0.03999999910593033);
+}
+
+.frame-9_1698 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.frame-content-9_1698 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-9_1699 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-9_1700 {
+  width: 273.6700134277344px;
+  height: 33px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-9_1701 {
+  width: 273.6700134277344px;
+  height: 23px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-9_1702 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(28, 28, 30, 1);
+  width: 30px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.frame-9_1703 {
+  width: 273.6700134277344px;
+  height: 14px;
+  position: absolute;
+  left: 0px;
+  top: 19px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-9_1703 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-9_1704 {
+  width: 273.6700134277344px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1705 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(142, 142, 147, 1);
+  width: 31px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-9_1706 {
+  width: 7px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1707 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(199, 199, 204, 1);
+  width: 7px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-9_1708 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-9_1708 {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-9_1708 {
+  position: absolute;
+  left: 0px;
+  top: 66px;
+  width: 375px;
+  height: 65px;
+  display: flex;
+  padding: 0px 0px 1px 0px;
+}
+
+.stroke-9_1708 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(0, 0, 0, 0.03999999910593033);
+}
+
+.frame-9_1709 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(255, 244, 229, 1);
+}
+
+.frame-content-9_1709 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-9_1710 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-9_1711 {
+  width: 273.6700134277344px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-9_1712 {
+  width: 273.6700134277344px;
+  height: 23px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-9_1713 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(28, 28, 30, 1);
+  width: 58px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.frame-9_1714 {
+  width: 273.6700134277344px;
+  height: 17px;
+  position: absolute;
+  left: 0px;
+  top: 19px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-9_1714 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-9_1715 {
+  width: 273.6700134277344px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1716 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(142, 142, 147, 1);
+  width: 88px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-9_1717 {
+  width: 7px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1718 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(199, 199, 204, 1);
+  width: 7px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-9_1719 {
+  width: 375px;
+  height: 64px;
+  position: absolute;
+  left: 0px;
+  top: 131px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-9_1719 {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-9_1720 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(232, 248, 239, 1);
+}
+
+.frame-content-9_1720 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-9_1721 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-9_1722 {
+  width: 273.6700134277344px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-9_1723 {
+  width: 273.6700134277344px;
+  height: 23px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-9_1724 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(28, 28, 30, 1);
+  width: 30px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.frame-9_1725 {
+  width: 273.6700134277344px;
+  height: 17px;
+  position: absolute;
+  left: 0px;
+  top: 19px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-9_1725 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-9_1726 {
+  width: 273.6700134277344px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1727 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(142, 142, 147, 1);
+  width: 35px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-9_1728 {
+  width: 7px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1729 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(199, 199, 204, 1);
+  width: 7px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-9_1730 {
+  width: 375px;
+  height: 53px;
+  position: absolute;
+  left: 0px;
+  top: 449px;
+}
+
+.paragraph-9_1731 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  letter-spacing: 0.30000001192092896px;
+  color: rgba(142, 142, 147, 1);
+  width: 59px;
+  height: auto;
+  position: absolute;
+  left: 16px;
+  top: 26px;
+}
+
+.frame-9_1732 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.stroke-wrapper-9_1732 {
+  position: absolute;
+  left: 0px;
+  top: 502px;
+  width: 375px;
+  height: 196px;
+}
+
+.stroke-9_1732 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 1px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(0, 0, 0, 0.05000000074505806);
+}
+
+.frame-9_1733 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-9_1733 {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-9_1733 {
+  position: absolute;
+  left: 0px;
+  top: 1px;
+  width: 375px;
+  height: 65px;
+  display: flex;
+  padding: 0px 0px 1px 0px;
+}
+
+.stroke-9_1733 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(0, 0, 0, 0.03999999910593033);
+}
+
+.frame-9_1734 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(245, 243, 255, 1);
+}
+
+.frame-content-9_1734 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-9_1735 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-9_1736 {
+  width: 273.6700134277344px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-9_1737 {
+  width: 273.6700134277344px;
+  height: 23px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-9_1738 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(28, 28, 30, 1);
+  width: 30px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.frame-9_1739 {
+  width: 273.6700134277344px;
+  height: 17px;
+  position: absolute;
+  left: 0px;
+  top: 19px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-9_1739 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-9_1740 {
+  width: 273.6700134277344px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1741 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(142, 142, 147, 1);
+  width: 13px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-9_1742 {
+  width: 7px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1743 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(199, 199, 204, 1);
+  width: 7px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-9_1744 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-9_1744 {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-9_1744 {
+  position: absolute;
+  left: 0px;
+  top: 66px;
+  width: 375px;
+  height: 65px;
+  display: flex;
+  padding: 0px 0px 1px 0px;
+}
+
+.stroke-9_1744 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(0, 0, 0, 0.03999999910593033);
+}
+
+.frame-9_1745 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(236, 254, 255, 1);
+}
+
+.frame-content-9_1745 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-9_1746 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-9_1747 {
+  width: 273.6700134277344px;
+  height: 33px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-9_1748 {
+  width: 273.6700134277344px;
+  height: 23px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-9_1749 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(28, 28, 30, 1);
+  width: 30px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.frame-9_1750 {
+  width: 273.6700134277344px;
+  height: 14px;
+  position: absolute;
+  left: 0px;
+  top: 19px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-9_1750 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-9_1751 {
+  width: 273.6700134277344px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1752 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(142, 142, 147, 1);
+  width: 58px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-9_1753 {
+  width: 7px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1754 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(199, 199, 204, 1);
+  width: 7px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-9_1755 {
+  width: 375px;
+  height: 64px;
+  position: absolute;
+  left: 0px;
+  top: 131px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-9_1755 {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px 14px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-9_1756 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(240, 242, 245, 1);
+}
+
+.frame-content-9_1756 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-9_1757 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-9_1758 {
+  width: 273.6700134277344px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-9_1759 {
+  width: 273.6700134277344px;
+  height: 23px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.paragraph-9_1760 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(28, 28, 30, 1);
+  width: 44px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.frame-9_1761 {
+  width: 273.6700134277344px;
+  height: 17px;
+  position: absolute;
+  left: 0px;
+  top: 19px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-9_1761 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-9_1762 {
+  width: 273.6700134277344px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1763 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(142, 142, 147, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-9_1764 {
+  width: 7px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-9_1765 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(199, 199, 204, 1);
+  width: 7px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="9_1672" class="frame-9_1672">
+    <div id="9_1673" class="frame-9_1673">
+      <div class="frame-content-9_1673">
+        <div id="9_1674" class="frame-9_1674">
+          <p id="9_1675" class="paragraph-9_1675">9:41</p>
+        </div>
+        <div id="9_1676" class="frame-9_1676">
+          <div class="frame-content-9_1676">
+            <div id="9_1677" class="rectangle-9_1677"></div>
+            <div id="9_1678" class="rectangle-9_1678"></div>
+            <div id="9_1679" class="rectangle-9_1679"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="9_1680" class="frame-9_1680">
+      <p id="9_1681" class="paragraph-9_1681">5. 个人资料编辑</p>
+    </div>
+    <div id="9_1682" class="stroke-wrapper-9_1682">
+      <div class="frame-9_1682">
+        <div class="frame-content-9_1682">
+          <div id="9_1683" class="frame-9_1683" style="cursor: pointer;">
+            <p id="9_1684" class="paragraph-9_1684">{}</p>
+          </div>
+          <div id="9_1685" class="frame-9_1685">
+            <p id="9_1686" class="paragraph-9_1686">编辑资料</p>
+          </div>
+          <div id="9_1687" class="frame-9_1687">
+            <p id="9_1688" class="paragraph-9_1688">保存</p>
+          </div>
+        </div>
+      </div>
+      <div class="stroke-9_1682"></div>
+    </div>
+    <div id="9_1689" class="frame-9_1689">
+      <div class="frame-content-9_1689">
+        <div id="9_1690" class="frame-9_1690">
+          <div id="9_1691" class="frame-9_1691">
+            <div class="frame-content-9_1691">
+              <div id="9_1692" class="frame-9_1692" style="cursor: pointer;">
+                <div class="frame-content-9_1692">
+                  <p id="9_1693" class="paragraph-9_1693">J</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="9_1694" class="frame-9_1694">
+            <p id="9_1695" class="paragraph-9_1695">点击更换头像</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="9_1696" class="stroke-wrapper-9_1696">
+      <div class="frame-9_1696">
+        <div id="9_1697" class="stroke-wrapper-9_1697">
+          <div class="frame-9_1697">
+            <div class="frame-content-9_1697">
+              <div id="9_1698" class="frame-9_1698">
+                <div class="frame-content-9_1698">
+                  <p id="9_1699" class="paragraph-9_1699">👤</p>
+                </div>
+              </div>
+              <div id="9_1700" class="frame-9_1700">
+                <div id="9_1701" class="frame-9_1701">
+                  <p id="9_1702" class="paragraph-9_1702">昵称</p>
+                </div>
+                <div id="9_1703" class="frame-9_1703">
+                  <div class="frame-content-9_1703">
+                    <div id="9_1704" class="frame-9_1704">
+                      <p id="9_1705" class="paragraph-9_1705">Jesse</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="9_1706" class="frame-9_1706">
+                <p id="9_1707" class="paragraph-9_1707">›</p>
+              </div>
+            </div>
+          </div>
+          <div class="stroke-9_1697"></div>
+        </div>
+        <div id="9_1708" class="stroke-wrapper-9_1708">
+          <div class="frame-9_1708">
+            <div class="frame-content-9_1708">
+              <div id="9_1709" class="frame-9_1709">
+                <div class="frame-content-9_1709">
+                  <p id="9_1710" class="paragraph-9_1710">🏅</p>
+                </div>
+              </div>
+              <div id="9_1711" class="frame-9_1711">
+                <div id="9_1712" class="frame-9_1712">
+                  <p id="9_1713" class="paragraph-9_1713">个性签名</p>
+                </div>
+                <div id="9_1714" class="frame-9_1714">
+                  <div class="frame-content-9_1714">
+                    <div id="9_1715" class="frame-9_1715">
+                      <p id="9_1716" class="paragraph-9_1716">努力学习前端中...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="9_1717" class="frame-9_1717">
+                <p id="9_1718" class="paragraph-9_1718">›</p>
+              </div>
+            </div>
+          </div>
+          <div class="stroke-9_1708"></div>
+        </div>
+        <div id="9_1719" class="frame-9_1719">
+          <div class="frame-content-9_1719">
+            <div id="9_1720" class="frame-9_1720">
+              <div class="frame-content-9_1720">
+                <p id="9_1721" class="paragraph-9_1721">📬</p>
+              </div>
+            </div>
+            <div id="9_1722" class="frame-9_1722">
+              <div id="9_1723" class="frame-9_1723">
+                <p id="9_1724" class="paragraph-9_1724">邮箱</p>
+              </div>
+              <div id="9_1725" class="frame-9_1725">
+                <div class="frame-content-9_1725">
+                  <div id="9_1726" class="frame-9_1726">
+                    <p id="9_1727" class="paragraph-9_1727">未设置</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="9_1728" class="frame-9_1728">
+              <p id="9_1729" class="paragraph-9_1729">›</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stroke-9_1696"></div>
+    </div>
+    <div id="9_1730" class="frame-9_1730">
+      <p id="9_1731" class="paragraph-9_1731">个人信息</p>
+    </div>
+    <div id="9_1732" class="stroke-wrapper-9_1732">
+      <div class="frame-9_1732">
+        <div id="9_1733" class="stroke-wrapper-9_1733">
+          <div class="frame-9_1733">
+            <div class="frame-content-9_1733">
+              <div id="9_1734" class="frame-9_1734">
+                <div class="frame-content-9_1734">
+                  <p id="9_1735" class="paragraph-9_1735">📅</p>
+                </div>
+              </div>
+              <div id="9_1736" class="frame-9_1736">
+                <div id="9_1737" class="frame-9_1737">
+                  <p id="9_1738" class="paragraph-9_1738">性别</p>
+                </div>
+                <div id="9_1739" class="frame-9_1739">
+                  <div class="frame-content-9_1739">
+                    <div id="9_1740" class="frame-9_1740">
+                      <p id="9_1741" class="paragraph-9_1741">男</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="9_1742" class="frame-9_1742">
+                <p id="9_1743" class="paragraph-9_1743">›</p>
+              </div>
+            </div>
+          </div>
+          <div class="stroke-9_1733"></div>
+        </div>
+        <div id="9_1744" class="stroke-wrapper-9_1744">
+          <div class="frame-9_1744">
+            <div class="frame-content-9_1744">
+              <div id="9_1745" class="frame-9_1745">
+                <div class="frame-content-9_1745">
+                  <p id="9_1746" class="paragraph-9_1746">📆</p>
+                </div>
+              </div>
+              <div id="9_1747" class="frame-9_1747">
+                <div id="9_1748" class="frame-9_1748">
+                  <p id="9_1749" class="paragraph-9_1749">生日</p>
+                </div>
+                <div id="9_1750" class="frame-9_1750">
+                  <div class="frame-content-9_1750">
+                    <div id="9_1751" class="frame-9_1751">
+                      <p id="9_1752" class="paragraph-9_1752">1998-06-15</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="9_1753" class="frame-9_1753">
+                <p id="9_1754" class="paragraph-9_1754">›</p>
+              </div>
+            </div>
+          </div>
+          <div class="stroke-9_1744"></div>
+        </div>
+        <div id="9_1755" class="frame-9_1755">
+          <div class="frame-content-9_1755">
+            <div id="9_1756" class="frame-9_1756">
+              <div class="frame-content-9_1756">
+                <p id="9_1757" class="paragraph-9_1757">🌍</p>
+              </div>
+            </div>
+            <div id="9_1758" class="frame-9_1758">
+              <div id="9_1759" class="frame-9_1759">
+                <p id="9_1760" class="paragraph-9_1760">所在地</p>
+              </div>
+              <div id="9_1761" class="frame-9_1761">
+                <div class="frame-content-9_1761">
+                  <div id="9_1762" class="frame-9_1762">
+                    <p id="9_1763" class="paragraph-9_1763">广东深圳</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="9_1764" class="frame-9_1764">
+              <p id="9_1765" class="paragraph-9_1765">›</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stroke-9_1732"></div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

@@ -60,6 +60,12 @@ Page({
     wx.navigateTo({ url });
   },
 
+  onEditProfile() {
+    wx.navigateTo({
+      url: '/pages/profile/edit-profile/edit-profile'
+    });
+  },
+
   onMenuItem(e) {
     const action = e.currentTarget.dataset.action;
     const routes = {
