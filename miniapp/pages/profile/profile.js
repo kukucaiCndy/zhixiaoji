@@ -85,7 +85,7 @@ Page({
       'theme': '/pages/settings/theme/theme',
       'review-plan': '/pages/settings/review-plan/review-plan',
       'notification': '/pages/settings/notification/notification',
-      'account': '/pages/settings/account/account',
+      'account': '/pages/profile/settings/settings',
       'help': '/pages/settings/help/help',
       'about': '/pages/settings/about/about'
     };
