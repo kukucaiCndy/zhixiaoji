@@ -268,7 +268,7 @@ miniapp/
 4. **禁止擅自推送远程**：用户未主动要求，不得 push 到远程仓库。
 
 5. **Pixso 设计稿驱动**：页面开发严格遵循 [pixso-to-miniprogram](file:///f:/work/software/zhixiaoji/miniapp/.trae/skills/pixso-to-miniprogram/SKILL.md) skill 的流程：
-   - ① 获取数据 → ② 提取信息（grep 文本 + top 归属图）→ ③ 一阶段 WXML → ④ 二阶段 WXSS → ⑤ 走查
+   - ① 获取数据 → ② 提取信息（grep 文本 + top 归属图）→ ③ 一阶段 WXML → ④ 二阶段 WXSS → ⑤ 对接组件 → ⑥ 走查验证（三步地毯式核对）
 
 ## 核心原则
 
