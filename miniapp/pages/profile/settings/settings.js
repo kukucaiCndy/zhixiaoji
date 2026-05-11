@@ -1,5 +1,23 @@
 Page({
-  data: {},
+  data: {
+    userInfo: {
+      nickname: 'Jesse',
+      userId: '10086'
+    }
+  },
+
+  onLoad() {
+    this.loadUserInfo();
+  },
+
+  loadUserInfo() {
+    try {
+      const app = getApp();
+      if (app.globalData?.userInfo) {
+        this.setData({ userInfo: app.globalData.userInfo });
+      }
+    } catch (e) {}
+  },
 
   onBack() {
     wx.navigateBack();
@@ -14,11 +32,14 @@ Page({
   onSetting(e) {
     const action = e.currentTarget.dataset.action;
     const routes = {
-      'wechat-bind': '/pages/settings/wechat-bind/wechat-bind',
-      'phone-bind': '/pages/settings/phone-bind/phone-bind',
-      'change-password': '/pages/settings/change-password/change-password',
-      'wechat-auth': '/pages/settings/wechat-auth/wechat-auth',
-      'account-delete': '/pages/settings/account-delete/account-delete'
+      'home-layout': '/pages/settings/home-layout/home-layout',
+      'review-plan': '/pages/settings/review-plan/review-plan',
+      'notification': '/pages/settings/notification/notification',
+      'messages': '/pages/settings/messages/messages',
+      'account': '/pages/settings/account/account',
+      'help': '/pages/settings/help/help',
+      'about': '/pages/settings/about/about',
+      'clear-cache': '/pages/settings/clear-cache/clear-cache'
     };
     const url = routes[action];
     if (url) {
