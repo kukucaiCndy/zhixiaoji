@@ -23,7 +23,7 @@ Page({
         practiced: true,
         retryCount: 2,
         accuracy: 50,
-        category: 'frontend'
+        category: 'html'
       },
       {
         id: 2,
@@ -35,7 +35,7 @@ Page({
         practiced: true,
         retryCount: 3,
         accuracy: 67,
-        category: 'frontend'
+        category: 'js'
       },
       {
         id: 3,
@@ -47,7 +47,7 @@ Page({
         practiced: false,
         retryCount: 0,
         accuracy: 0,
-        category: 'frontend'
+        category: 'js'
       },
       {
         id: 4,
@@ -59,7 +59,7 @@ Page({
         practiced: true,
         retryCount: 1,
         accuracy: 100,
-        category: 'backend'
+        category: 'js'
       },
       {
         id: 5,
@@ -71,7 +71,7 @@ Page({
         practiced: false,
         retryCount: 0,
         accuracy: 0,
-        category: 'algorithm'
+        category: 'js'
       },
       {
         id: 6,
@@ -83,7 +83,7 @@ Page({
         practiced: false,
         retryCount: 0,
         accuracy: 0,
-        category: 'frontend'
+        category: 'css'
       },
       {
         id: 7,
@@ -95,7 +95,7 @@ Page({
         practiced: false,
         retryCount: 0,
         accuracy: 0,
-        category: 'backend'
+        category: 'js'
       },
       {
         id: 8,
@@ -107,7 +107,7 @@ Page({
         practiced: false,
         retryCount: 0,
         accuracy: 0,
-        category: 'algorithm'
+        category: 'js'
       },
       {
         id: 9,
@@ -119,7 +119,7 @@ Page({
         practiced: true,
         retryCount: 1,
         accuracy: 100,
-        category: 'frontend'
+        category: 'js'
       },
       {
         id: 10,
@@ -131,7 +131,7 @@ Page({
         practiced: false,
         retryCount: 0,
         accuracy: 0,
-        category: 'backend'
+        category: 'js'
       },
       {
         id: 11,
@@ -143,7 +143,7 @@ Page({
         practiced: false,
         retryCount: 0,
         accuracy: 0,
-        category: 'algorithm'
+        category: 'js'
       },
       {
         id: 12,
@@ -155,11 +155,14 @@ Page({
         practiced: false,
         retryCount: 0,
         accuracy: 0,
-        category: 'frontend'
+        category: 'js'
       }
     ];
 
     this._allQuestions = allQuestions;
+    this.setData({
+      totalWrong: allQuestions.length
+    });
     this.applyFilter('all');
   },
 
@@ -168,9 +171,11 @@ Page({
       ? this._allQuestions
       : this._allQuestions.filter(q => q.category === filter);
     const pending = questions.filter(q => !q.practiced).length;
+    const mastered = questions.filter(q => q.practiced).length;
     this.setData({
       wrongQuestions: questions,
-      pendingCount: pending
+      pendingCount: pending,
+      masteredCount: mastered
     });
   },
 

@@ -13,24 +13,41 @@
       <text class="back-icon">‹</text>
     </view>
     <text class="nav-title">错题本</text>
-    <view class="nav-placeholder"></view>
+    <text class="nav-count">共 23 题</text>
+  </view>
+
+  <view class="stats-card">
+    <view class="stats-top">
+      <view class="stats-total">
+        <text class="stats-total-num">{{totalWrong || 23}}</text>
+        <text class="stats-total-label">错题总数</text>
+      </view>
+    </view>
+    <view class="stats-bottom">
+      <view class="stats-item">
+        <text class="stats-item-num">{{pendingCount}}</text>
+        <text class="stats-item-label">待重练</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-item-num">{{masteredCount || 5}}</text>
+        <text class="stats-item-label">已掌握</text>
+      </view>
+    </view>
   </view>
 
   <view class="filter-section">
     <scroll-view class="filter-scroll" scroll-x enhanced show-scrollbar="{{false}}">
-      <view class="filter-list">
-        <view class="filter-item {{currentFilter === 'all' ? 'active' : ''}}" bindtap="onFilter" data-filter="all">
-          <text>全部</text>
-        </view>
-        <view class="filter-item {{currentFilter === 'frontend' ? 'active' : ''}}" bindtap="onFilter" data-filter="frontend">
-          <text>前端</text>
-        </view>
-        <view class="filter-item {{currentFilter === 'backend' ? 'active' : ''}}" bindtap="onFilter" data-filter="backend">
-          <text>后端</text>
-        </view>
-        <view class="filter-item {{currentFilter === 'algorithm' ? 'active' : ''}}" bindtap="onFilter" data-filter="algorithm">
-          <text>算法</text>
-        </view>
+      <view class="filter-item {{currentFilter === 'all' ? 'active' : ''}}" bindtap="onFilter" data-filter="all">
+        <text>全部</text>
+      </view>
+      <view class="filter-item {{currentFilter === 'html' ? 'active' : ''}}" bindtap="onFilter" data-filter="html">
+        <text>HTML</text>
+      </view>
+      <view class="filter-item {{currentFilter === 'css' ? 'active' : ''}}" bindtap="onFilter" data-filter="css">
+        <text>CSS</text>
+      </view>
+      <view class="filter-item {{currentFilter === 'js' ? 'active' : ''}}" bindtap="onFilter" data-filter="js">
+        <text>JavaScript</text>
       </view>
     </scroll-view>
   </view>
