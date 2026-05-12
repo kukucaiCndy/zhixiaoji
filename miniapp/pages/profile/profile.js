@@ -1,4 +1,5 @@
 const mockApi = require('../../services/monk-api');
+const authService = require('../../services/auth-service');
 
 Page({
   data: {
@@ -104,15 +105,17 @@ Page({
   },
 
   onLogout() {
+    var that = this;
     wx.showModal({
       title: '确认退出',
       content: '退出后需要重新登录',
       confirmColor: '#EF4444',
-      success: (res) => {
+      success: function (res) {
         if (res.confirm) {
-          wx.clearStorageSync();
-          wx.reLaunch({
-            url: '/pages/auth/login-guide/login-guide'
+          authService.logout().then(function () {
+            wx.reLaunch({
+              url: '/pages/auth/login-guide/login-guide'
+            });
           });
         }
       }

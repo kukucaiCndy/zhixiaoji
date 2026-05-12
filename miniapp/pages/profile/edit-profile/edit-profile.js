@@ -1,5 +1,6 @@
 var app = getApp();
 var monkApi = require('../../../services/monk-api');
+var authService = require('../../../services/auth-service');
 
 Page({
   data: {
@@ -133,12 +134,10 @@ Page({
       email: that.data.email,
       location: that.data.location
     };
-    monkApi.auth.updateProfile(userInfo.id || '', data).then(function (res) {
+    authService.updateUser(userInfo.id || '', data).then(function (res) {
       wx.hideLoading();
       that.setData({ saving: false });
-      if (res.code === 0) {
-        var updated = Object.assign({}, userInfo, data);
-        wx.setStorageSync('userInfo', updated);
+      if (res.success) {
         wx.showToast({ title: '保存成功', icon: 'success' });
         setTimeout(function () {
           wx.navigateBack();
