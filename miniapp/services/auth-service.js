@@ -162,7 +162,7 @@ async function checkLoginStatus() {
 async function uploadAvatar(filePath, userId) {
   try {
     console.log('[Upload Avatar] 开始上传:', filePath);
-    const result = await auth.uploadFile(filePath, 'avatar', userId);
+    const result = await auth.uploadFile(filePath, userId, 'avatar');
     console.log('[Upload Avatar] 上传响应:', result);
     
     if (result.code === 0 && result.data) {
