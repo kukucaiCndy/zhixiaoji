@@ -70,11 +70,20 @@ Page({
   },
 
   // 上传头像并保存
-  uploadAvatarAndSave(avatarUrl, nickname) {
+  uploadAvatarAndSave(tempPath, nickname) {
     const that = this;
-    // 这里简化处理，实际应该上传到服务器
-    // 暂时使用本地路径作为头像URL
-    this.updateProfile(nickname, avatarUrl);
+    wx.showLoading({ title: '上传头像中...' });
+    authService.uploadAvatar(tempPath).then(function (uploadRes) {
+      if (uploadRes.success) {
+        that.updateProfile(nickname, uploadRes.data.url);
+      } else {
+        wx.hideLoading();
+        wx.showToast({ title: uploadRes.message || '头像上传失败', icon: 'none' });
+      }
+    }).catch(function () {
+      wx.hideLoading();
+      wx.showToast({ title: '头像上传失败', icon: 'none' });
+    });
   },
 
   // 更新用户资料到后端
@@ -97,8 +106,7 @@ Page({
       .then(function(result) {
         wx.hideLoading();
         if (result.success) {
-          const newUserInfo = Object.assign({}, userInfo, updateData);
-          getApp().setUserInfo(newUserInfo);
+          getApp().setUserInfo(result.data);
           
           wx.showToast({ title: '保存成功', icon: 'success' });
           getApp().loadUserInfo().then(function () {
@@ -126,10 +134,14 @@ Page({
     const userId = userInfo && userInfo.id;
     
     if (userId) {
-      authService.updateUser(userId, { nickname: defaultNickname, avatarUrl: null })
-        .then(() => {
-          const newUserInfo = Object.assign({}, userInfo, { nickname: defaultNickname, avatarUrl: null });
-          getApp().setUserInfo(newUserInfo);
+      authService.updateUser(userId, { nickname: defaultNickname })
+        .then(function (result) {
+          if (result.success) {
+            getApp().setUserInfo(result.data);
+          } else {
+            var newUserInfo = Object.assign({}, userInfo, { nickname: defaultNickname, avatarUrl: null });
+            getApp().setUserInfo(newUserInfo);
+          }
         })
         .finally(() => {
           wx.hideLoading();

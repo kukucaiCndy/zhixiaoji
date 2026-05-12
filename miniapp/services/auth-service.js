@@ -97,12 +97,8 @@ async function updateUser(userId, data) {
     const result = await auth.updateProfile(userId, data);
     
     if (result.code === 0) {
-      var userInfo = storage.getSync(STORAGE_KEYS.USER_INFO);
-      if (userInfo) {
-        Object.assign(userInfo, data);
-        storage.setSync(STORAGE_KEYS.USER_INFO, userInfo);
-      }
-      return { success: true, message: '更新成功' };
+      storage.setSync(STORAGE_KEYS.USER_INFO, result.data);
+      return { success: true, data: result.data, message: '更新成功' };
     }
     
     return { success: false, message: result.message || '更新失败' };
@@ -116,14 +112,16 @@ async function updateUser(userId, data) {
  * 退出登录
  */
 async function logout() {
+  // 先立即清理本地 token，防止 app.js 启动守卫重复调用
+  clearToken();
+  storage.removeSync(STORAGE_KEYS.USER_INFO);
+  storage.removeSync(STORAGE_KEYS.REFRESH_TOKEN);
+  
   try {
+    // 再调用服务端 logout（可选，失败不影响本地退出）
     await auth.logout();
   } catch (error) {
-    console.error('登出接口调用失败:', error);
-  } finally {
-    clearToken();
-    storage.removeSync(STORAGE_KEYS.USER_INFO);
-    storage.removeSync(STORAGE_KEYS.REFRESH_TOKEN);
+    console.error('服务端登出接口调用失败:', error);
   }
   
   return { success: true, message: '已退出登录' };
@@ -143,11 +141,46 @@ async function checkLoginStatus() {
   }
 }
 
+/**
+ * 上传头像
+ * @param {string} filePath - 图片临时路径
+ */
+async function uploadAvatar(filePath) {
+  try {
+    const result = await auth.uploadAvatar(filePath);
+    
+    if (result.code === 0 && result.data) {
+      var userInfo = storage.getSync(STORAGE_KEYS.USER_INFO);
+      if (userInfo) {
+        userInfo.avatarUrl = result.data.url;
+        storage.setSync(STORAGE_KEYS.USER_INFO, userInfo);
+      }
+      return { 
+        success: true, 
+        data: result.data,
+        message: '上传成功' 
+      };
+    }
+    
+    return { 
+      success: false, 
+      message: result.message || '上传失败' 
+    };
+  } catch (error) {
+    console.error('上传头像失败:', error);
+    return { 
+      success: false, 
+      message: error.message || '网络错误' 
+    };
+  }
+}
+
 module.exports = {
   miniappLogin,
   refreshToken,
   getCurrentUser,
   updateUser,
   logout,
-  checkLoginStatus
+  checkLoginStatus,
+  uploadAvatar
 };

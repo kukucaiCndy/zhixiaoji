@@ -80,7 +80,7 @@ Page({
         authService.uploadAvatar(tempPath).then(function (uploadRes) {
           wx.hideLoading();
           if (uploadRes.success) {
-            that.setData({ avatarUrl: uploadRes.data.avatarUrl });
+            that.setData({ avatarUrl: uploadRes.data.url });
             wx.showToast({ title: '头像已更新', icon: 'success' });
           } else {
             wx.showToast({ title: uploadRes.message || '上传失败', icon: 'none' });
