@@ -1,15 +1,19 @@
 var authService = require('../../../services/auth-service');
 
+var GENDER_MAP = { male: '男', female: '女', other: '保密' };
+var GENDER_VALUES = { '男': 'male', '女': 'female', '保密': 'other' };
+
 Page({
   data: {
     avatarLetter: 'J',
     nickname: '',
     bio: '',
     gender: '',
+    genderDisplay: '',
     birthday: '',
     email: '',
-    location: '',
-    locationRegion: [],
+    address: '',
+    addressRegion: [],
     maxDate: '2099-12-31',
     saving: false,
     statusBarHeight: 0,
@@ -41,21 +45,25 @@ Page({
           nickname: user.nickname || '',
           bio: user.bio || '',
           gender: user.gender || '',
+          genderDisplay: GENDER_MAP[user.gender] || '',
           birthday: user.birthday || '',
           email: user.email || '',
-          location: user.location || ''
+          address: user.address || ''
         });
       }
     }).catch(function () {
       var userInfo = wx.getStorageSync('userInfo') || {};
+      var oldGender = userInfo.gender || '';
+      var genderValue = GENDER_VALUES[oldGender] || oldGender || '';
       that.setData({
         avatarLetter: (userInfo.nickname || 'J')[0],
         nickname: userInfo.nickname || '',
         bio: userInfo.bio || '',
-        gender: userInfo.gender || '',
+        gender: genderValue,
+        genderDisplay: GENDER_MAP[genderValue] || oldGender || '',
         birthday: userInfo.birthday || '',
         email: userInfo.email || '',
-        location: userInfo.location || ''
+        address: userInfo.address || userInfo.location || ''
       });
     });
   },
@@ -121,7 +129,11 @@ Page({
       itemList: ['男', '女', '保密'],
       success(res) {
         var options = ['男', '女', '保密'];
-        that.setData({ gender: options[res.tapIndex] });
+        var display = options[res.tapIndex];
+        that.setData({
+          genderDisplay: display,
+          gender: GENDER_VALUES[display]
+        });
       }
     });
   },
@@ -147,10 +159,10 @@ Page({
 
   onLocationChange(e) {
     var region = e.detail.value;
-    var location = region[0].replace('省', '') + region[1].replace('市', '');
+    var address = region[0].replace('省', '') + region[1].replace('市', '');
     this.setData({
-      location: location,
-      locationRegion: region
+      address: address,
+      addressRegion: region
     });
   },
 
@@ -172,7 +184,7 @@ Page({
       gender: that.data.gender,
       birthday: that.data.birthday,
       email: that.data.email,
-      location: that.data.location
+      address: that.data.address
     };
     authService.updateUser(userId, data).then(function (res) {
       wx.hideLoading();

@@ -45,7 +45,7 @@
       <view class="setting-info">
         <text class="setting-name">性别</text>
       </view>
-      <text class="setting-value">{{gender || '男'}}</text>
+      <text class="setting-value">{{genderDisplay || '男'}}</text>
       <text class="arrow">›</text>
     </view>
     <picker mode="date" value="{{birthday}}" start="1900-01-01" end="2099-12-31" bindchange="onBirthdayChange">
@@ -66,13 +66,13 @@
       <text class="setting-value">{{email || '未设置'}}</text>
       <text class="arrow">›</text>
     </view>
-    <picker mode="region" value="{{locationRegion}}" bindchange="onLocationChange">
+    <picker mode="region" value="{{addressRegion}}" bindchange="onLocationChange">
       <view class="setting-item">
         <view class="setting-icon gray-bg"><text>🌍</text></view>
         <view class="setting-info">
           <text class="setting-name">所在地</text>
         </view>
-        <text class="setting-value">{{location || '广东深圳'}}</text>
+        <text class="setting-value">{{address || '广东深圳'}}</text>
         <text class="arrow">›</text>
       </view>
     </picker>
