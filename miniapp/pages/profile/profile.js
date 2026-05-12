@@ -36,10 +36,12 @@ Page({
   },
 
   setUserData(data) {
+    var rawId = data.id || '';
+    var shortId = rawId.indexOf('-') !== -1 ? rawId.slice(rawId.lastIndexOf('-') + 1) : rawId;
     this.setData({
       userInfo: {
         nickname: data.nickname || '',
-        userId: data.id || '',
+        userId: shortId,
         avatar: data.avatarUrl || '',
         level: data.level || 0,
         points: data.points || 0,

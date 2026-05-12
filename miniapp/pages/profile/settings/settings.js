@@ -12,9 +12,16 @@ Page({
 
   loadUserInfo() {
     try {
-      const app = getApp();
-      if (app.globalData?.userInfo) {
-        this.setData({ userInfo: app.globalData.userInfo });
+      var app = getApp();
+      if (app.globalData && app.globalData.userInfo) {
+        var rawId = app.globalData.userInfo.id || '';
+        var shortId = rawId.indexOf('-') !== -1 ? rawId.slice(rawId.lastIndexOf('-') + 1) : rawId;
+        this.setData({
+          userInfo: {
+            nickname: app.globalData.userInfo.nickname || '',
+            userId: shortId
+          }
+        });
       }
     } catch (e) {}
   },
