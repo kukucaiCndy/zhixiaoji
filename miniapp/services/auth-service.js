@@ -147,7 +147,9 @@ async function checkLoginStatus() {
  */
 async function uploadAvatar(filePath) {
   try {
+    console.log('[Upload Avatar] 开始上传:', filePath);
     const result = await auth.uploadAvatar(filePath);
+    console.log('[Upload Avatar] 上传响应:', result);
     
     if (result.code === 0 && result.data) {
       var userInfo = storage.getSync(STORAGE_KEYS.USER_INFO);
@@ -167,7 +169,7 @@ async function uploadAvatar(filePath) {
       message: result.message || '上传失败' 
     };
   } catch (error) {
-    console.error('上传头像失败:', error);
+    console.error('[Upload Avatar] 上传失败:', error);
     return { 
       success: false, 
       message: error.message || '网络错误' 
