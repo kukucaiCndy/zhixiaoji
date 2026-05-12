@@ -1,20 +1,13 @@
 <view class="edit-page">
-  <view class="status-bar">
-    <text class="time">9:41</text>
-    <view class="status-icons">
-      <view class="signal-bar"></view>
-      <view class="signal-bar"></view>
-      <view class="signal-bar"></view>
-    </view>
-  </view>
-
-  <view class="nav-bar">
-    <view class="back-btn" bindtap="onBack">
-      <text class="back-icon">‹</text>
-    </view>
-    <text class="nav-title">编辑资料</text>
-    <view class="save-btn" bindtap="onSave">
-      <text class="save-text">保存</text>
+  <view class="nav-header" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-bar" style="height: {{navBarHeight}}px; padding-right: {{navRightPadding}}px;">
+      <view class="back-btn" bindtap="onBack">
+        <text class="back-icon">‹</text>
+      </view>
+      <text class="nav-title">编辑资料</text>
+      <view class="save-btn" bindtap="onSave">
+        <text class="save-text">保存</text>
+      </view>
     </view>
   </view>
 

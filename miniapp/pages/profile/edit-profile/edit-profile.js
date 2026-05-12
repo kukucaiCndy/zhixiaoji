@@ -11,11 +11,28 @@ Page({
     location: '',
     locationRegion: [],
     maxDate: '2099-12-31',
-    saving: false
+    saving: false,
+    statusBarHeight: 0,
+    navBarHeight: 0,
+    navRightPadding: 0
   },
 
   onLoad() {
+    this.initNavBar();
     this.loadUserInfo();
+  },
+
+  initNavBar() {
+    var systemInfo = wx.getSystemInfoSync();
+    var menuButton = wx.getMenuButtonBoundingClientRect();
+    var statusBarHeight = systemInfo.statusBarHeight;
+    var navBarHeight = (menuButton.top - statusBarHeight) * 2 + menuButton.height;
+    var navRightPadding = systemInfo.windowWidth - menuButton.left + 12;
+    this.setData({
+      statusBarHeight: statusBarHeight,
+      navBarHeight: navBarHeight,
+      navRightPadding: navRightPadding
+    });
   },
 
   loadUserInfo() {
