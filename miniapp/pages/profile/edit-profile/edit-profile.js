@@ -77,7 +77,9 @@ Page({
       success(chooseRes) {
         var tempPath = chooseRes.tempFilePaths[0];
         wx.showLoading({ title: '上传中...', mask: true });
-        authService.uploadAvatar(tempPath).then(function (uploadRes) {
+        var userInfo = getApp().globalData.userInfo || {};
+        var userId = userInfo.id || userInfo._id || userInfo.userId || '';
+        authService.uploadAvatar(tempPath, userId).then(function (uploadRes) {
           wx.hideLoading();
           if (uploadRes.success) {
             that.setData({ avatarUrl: uploadRes.data.url });

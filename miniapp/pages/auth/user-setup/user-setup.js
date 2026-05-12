@@ -73,7 +73,9 @@ Page({
   uploadAvatarAndSave(tempPath, nickname) {
     const that = this;
     wx.showLoading({ title: '上传头像中...' });
-    authService.uploadAvatar(tempPath).then(function (uploadRes) {
+    var userInfo = storage.getUserInfo();
+    var userId = userInfo && userInfo.id;
+    authService.uploadAvatar(tempPath, userId).then(function (uploadRes) {
       if (uploadRes.success) {
         that.updateProfile(nickname, uploadRes.data.url);
       } else {

@@ -14,6 +14,6 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@zhixiaoji/api-sdk-wechat": "^0.5.2"
+    "@zhixiaoji/api-sdk-wechat": "^0.6.0"
   }
 }

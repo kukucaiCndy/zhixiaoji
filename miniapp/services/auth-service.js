@@ -145,10 +145,10 @@ async function checkLoginStatus() {
  * 上传头像
  * @param {string} filePath - 图片临时路径
  */
-async function uploadAvatar(filePath) {
+async function uploadAvatar(filePath, userId) {
   try {
     console.log('[Upload Avatar] 开始上传:', filePath);
-    const result = await auth.uploadAvatar(filePath);
+    const result = await auth.uploadAvatar(filePath, userId);
     console.log('[Upload Avatar] 上传响应:', result);
     
     if (result.code === 0 && result.data) {
