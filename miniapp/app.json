@@ -2,6 +2,7 @@
   "pages": [
     "pages/splash/splash",
     "pages/auth/login-guide/login-guide",
+    "pages/auth/user-setup/user-setup",
     "pages/home/home",
     "pages/learn/learn",
     "pages/note/note",

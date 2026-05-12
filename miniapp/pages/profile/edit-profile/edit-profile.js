@@ -11,6 +11,8 @@ Page({
     birthday: '',
     email: '',
     location: '',
+    locationRegion: [],
+    maxDate: '2099-12-31',
     saving: false
   },
 
@@ -86,9 +88,8 @@ Page({
     });
   },
 
-  onEditBirthday() {
-    var that = this;
-    wx.showToast({ title: '请选择日期', icon: 'none' });
+  onBirthdayChange(e) {
+    this.setData({ birthday: e.detail.value });
   },
 
   onEditEmail() {
@@ -106,18 +107,12 @@ Page({
     });
   },
 
-  onEditLocation() {
-    var that = this;
-    wx.showModal({
-      title: '修改所在地',
-      content: '',
-      editable: true,
-      placeholderText: '例如：广东深圳',
-      success(res) {
-        if (res.confirm && res.content) {
-          that.setData({ location: res.content });
-        }
-      }
+  onLocationChange(e) {
+    var region = e.detail.value;
+    var location = region[0].replace('省', '') + region[1].replace('市', '');
+    this.setData({
+      location: location,
+      locationRegion: region
     });
   },
 
