@@ -1,0 +1,38 @@
+{
+  "name": "@zhixiaoji/api-sdk",
+  "version": "0.3.0",
+  "private": false,
+  "description": "知晓记 API SDK - 支持微信小程序和 Vue3",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "devDependencies": {
+    "miniprogram-api-typings": "^5.2.0",
+    "typescript": "^5.3.0"
+  },
+  "keywords": [
+    "zhixiaoji",
+    "api",
+    "sdk",
+    "wechat",
+    "vue3"
+  ],
+  "author": "知晓记团队",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "build:debug": "tsc --sourceMap true",
+    "build:release": "tsc --sourceMap false --declarationMap false",
+    "lint": "echo 'lint ok'",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "publish:debug": "node scripts/publish-debug.js",
+    "publish:local": "npm publish --registry http://localhost:4873/ --access public",
+    "publish:release": "node scripts/publish-release.js",
+    "publish:release:dry": "node scripts/publish-release.js --dry-run"
+  }
+}

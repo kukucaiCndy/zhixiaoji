@@ -1,13 +1,10 @@
 /**
  * API 客户端配置
  * 使用 @zhixiaoji/api-sdk 创建微信小程序专用客户端
+ * 需先在开发者工具中执行: 工具 → 构建 npm
  */
 
-// 注意：小程序中不能使用 npm 包直接导入，需要通过构建 npm 或复制文件
-// 这里使用相对路径引用 SDK（假设 SDK 文件已复制到项目中）
-// 实际使用时需要根据 SDK 的集成方式调整
-
-const { createWechatApiClient } = require('../node_modules/@zhixiaoji/api-sdk/dist/index.js');
+const { createWechatApiClient } = require('@zhixiaoji/api-sdk');
 
 // 环境配置
 const ENV_CONFIG = {
@@ -34,10 +31,9 @@ const apiClient = createWechatApiClient({
   baseURL: config.baseURL,
   timeout: config.timeout,
   onAuthError: () => {
-    // Token 失效时自动跳转登录页
     console.log('认证失败，跳转登录页');
     wx.reLaunch({
-      url: '/pages/auth/login-guide/index'
+      url: '/pages/auth/login-guide/login-guide'
     });
   }
 });

@@ -1,3 +1,5 @@
+var STORAGE_KEYS = require('../utils/constants').STORAGE_KEYS;
+
 Page({
   data: {
     countdown: 5,
@@ -39,12 +41,10 @@ Page({
   onAdClick() {
     this.clearTimer();
     wx.showToast({ title: '跳转广告页面', icon: 'none' });
-    // 实际项目中这里会跳转到广告落地页
-    // wx.navigateTo({ url: '/pages/ad-detail/ad-detail' });
   },
 
   goToNextPage() {
-    const guideShown = wx.getStorageSync('guide_shown');
+    const guideShown = wx.getStorageSync(STORAGE_KEYS.GUIDE_SHOWN);
     
     if (!guideShown) {
       wx.reLaunch({ url: '/pages/auth/login-guide/login-guide' });
