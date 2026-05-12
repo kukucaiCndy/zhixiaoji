@@ -29,12 +29,9 @@ var ENV_CONFIG = {
 var CURRENT_ENV = 'development';
 var config = ENV_CONFIG[CURRENT_ENV];
 
-// 多服务路由配置（SDK v0.5.2+ upload() 通过 service 路由）
-// core 去掉 /api/v1 前缀，因为 uploadAvatar 路径已包含 /api/v1
-var baseHost = config.baseURL.replace(/\/api\/v1\/?$/, '');
 var services = {
   auth: config.baseURL,
-  core: baseHost,
+  core: 'http://192.168.16.129:3002/api/v1',
   knowledge: config.baseURL
 };
 
