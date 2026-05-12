@@ -7,6 +7,14 @@ const { auth, setToken, clearToken } = require('./api-client');
 const storage = require('../utils/storage');
 const { STORAGE_KEYS } = require('../utils/constants');
 
+var UPLOAD_BASE = 'http://192.168.16.129:3002';
+
+function normalizeAvatarUrl(url) {
+  if (!url) return '';
+  if (/^https?:\/\//.test(url)) return url;
+  return UPLOAD_BASE + (url[0] === '/' ? '' : '/') + url;
+}
+
 /**
  * 微信小程序登录
  */
@@ -16,6 +24,10 @@ async function miniappLogin(code) {
     
     if (result.code === 0 && result.data) {
       const { accessToken, refreshToken, user } = result.data;
+
+      if (user) {
+        user.avatarUrl = normalizeAvatarUrl(user.avatarUrl);
+      }
       
       setToken(accessToken);
       storage.setSync(STORAGE_KEYS.USER_INFO, user);
@@ -78,6 +90,7 @@ async function getCurrentUser() {
     const result = await auth.getProfile();
     
     if (result.code === 0 && result.data) {
+      result.data.avatarUrl = normalizeAvatarUrl(result.data.avatarUrl);
       storage.setSync(STORAGE_KEYS.USER_INFO, result.data);
       return { success: true, data: result.data };
     }
@@ -97,6 +110,7 @@ async function updateUser(userId, data) {
     const result = await auth.updateProfile(userId, data);
     
     if (result.code === 0) {
+      result.data.avatarUrl = normalizeAvatarUrl(result.data.avatarUrl);
       storage.setSync(STORAGE_KEYS.USER_INFO, result.data);
       return { success: true, data: result.data, message: '更新成功' };
     }
@@ -154,7 +168,7 @@ async function uploadAvatar(filePath, userId) {
     if (result.code === 0 && result.data) {
       var userInfo = storage.getSync(STORAGE_KEYS.USER_INFO);
       if (userInfo) {
-        userInfo.avatarUrl = result.data.url;
+        userInfo.avatarUrl = normalizeAvatarUrl(result.data.url);
         storage.setSync(STORAGE_KEYS.USER_INFO, userInfo);
       }
       return { 
@@ -184,5 +198,6 @@ module.exports = {
   updateUser,
   logout,
   checkLoginStatus,
-  uploadAvatar
+  uploadAvatar,
+  normalizeAvatarUrl
 };
