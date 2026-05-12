@@ -18,7 +18,7 @@
   <view class="user-section">
     <view class="avatar-wrap">
       <view class="avatar">
-        <text class="avatar-text">{{userInfo.nickname[0]}}</text>
+        <text class="avatar-text">{{userInfo.nickname[0] || '?'}}</text>
       </view>
       <view class="avatar-edit" bindtap="onEditProfile">
         <text>✏️</text>
@@ -26,27 +26,27 @@
     </view>
     <view class="user-detail">
       <view class="user-top">
-        <text class="username">{{userInfo.nickname || 'Jesse'}}</text>
-        <text class="user-id">ID: {{userInfo.userId || '10086'}}</text>
+        <text class="username">{{userInfo.nickname || '未登录'}}</text>
+        <text class="user-id">ID: {{userInfo.userId || '---'}}</text>
       </view>
       <view class="user-level-row">
         <view class="level-badge">
-          <text class="level-text">Lv.{{userInfo.level || 5}}</text>
+          <text class="level-text">Lv.{{userInfo.level || 0}}</text>
         </view>
-        <text class="level-desc">{{userInfo.levelTitle || '知识探索者'}} · 距下一级还差 {{userInfo.nextLevelExp || 320}} 经验</text>
+        <text class="level-desc">已学习 {{userInfo.learnedCards || 0}} 张卡片</text>
       </view>
       <view class="user-stats">
         <view class="user-stat-item">
-          <text class="stat-num">{{userInfo.streakDays || 12}}</text>
-          <text class="stat-label">连续天数</text>
+          <text class="stat-num">{{userInfo.level || 0}}</text>
+          <text class="stat-label">等级</text>
         </view>
         <view class="user-stat-item">
-          <text class="stat-num">{{userInfo.completedCards || 156}}</text>
-          <text class="stat-label">完成卡片</text>
+          <text class="stat-num">{{userInfo.learnedCards || 0}}</text>
+          <text class="stat-label">学习卡片</text>
         </view>
         <view class="user-stat-item">
-          <text class="stat-num">{{userInfo.accuracy || '67%'}}</text>
-          <text class="stat-label">正确率</text>
+          <text class="stat-num">{{userInfo.points || 0}}</text>
+          <text class="stat-label">积分</text>
         </view>
       </view>
     </view>
@@ -56,7 +56,7 @@
     <view class="points-card">
       <view class="points-left">
         <view class="points-label">我的积分</view>
-        <text class="points-num">{{userInfo.points || '1,280'}}</text>
+        <text class="points-num">{{userInfo.points || 0}}</text>
       </view>
       <view class="points-actions">
         <view class="points-btn" bindtap="onNavigate" data-url="/pages/points/shop/shop">
@@ -83,7 +83,7 @@
           <text class="func-icon">🎖️</text>
         </view>
         <text class="func-name">成就中心</text>
-        <text class="func-desc">{{userInfo.pendingAchievements || '6项未达成'}}</text>
+        <text class="func-desc">敬请期待</text>
       </view>
       <view class="func-item" bindtap="onMenuItem" data-action="learn-stats">
         <view class="func-icon-wrap">
@@ -97,21 +97,21 @@
           <text class="func-icon">❌</text>
         </view>
         <text class="func-name">错题本</text>
-        <text class="func-desc">{{userInfo.wrongCount || '23'}}道错题</text>
+        <text class="func-desc">敬请期待</text>
       </view>
       <view class="func-item" bindtap="onMenuItem" data-action="favorites">
         <view class="func-icon-wrap">
           <text class="func-icon">⭐</text>
         </view>
         <text class="func-name">收藏夹</text>
-        <text class="func-desc">{{userInfo.favoriteCount || '15'}}个收藏</text>
+        <text class="func-desc">敬请期待</text>
       </view>
       <view class="func-item" bindtap="onMenuItem" data-action="desk">
         <view class="func-icon-wrap">
           <text class="func-icon">🖥️</text>
         </view>
         <text class="func-name">我的书桌</text>
-        <text class="func-desc">{{userInfo.stationeryCount || '8'}}件文具</text>
+        <text class="func-desc">敬请期待</text>
       </view>
     </view>
   </view>
@@ -122,16 +122,16 @@
     </view>
     <view class="overview-stats">
       <view class="overview-item">
-        <text class="overview-num">{{userInfo.learnDays || 42}}</text>
-        <text class="overview-label">累计学习(天)</text>
+        <text class="overview-num">{{userInfo.learnedCards || 0}}</text>
+        <text class="overview-label">学习卡片</text>
       </view>
       <view class="overview-item">
-        <text class="overview-num">{{userInfo.completedCards || 156}}</text>
-        <text class="overview-label">完成卡片</text>
+        <text class="overview-num">{{userInfo.points || 0}}</text>
+        <text class="overview-label">积分</text>
       </view>
       <view class="overview-item">
-        <text class="overview-num">{{userInfo.accuracy || '67%'}}</text>
-        <text class="overview-label">正确率</text>
+        <text class="overview-num">{{userInfo.level || 0}}</text>
+        <text class="overview-label">等级</text>
       </view>
     </view>
   </view>

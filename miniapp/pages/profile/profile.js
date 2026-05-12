@@ -3,21 +3,12 @@ var authService = require('../../services/auth-service');
 Page({
   data: {
     userInfo: {
-      nickname: 'Jesse',
-      userId: '10086',
+      nickname: '',
+      userId: '',
       avatar: '',
-      level: 5,
-      levelTitle: '知识探索者',
-      nextLevelExp: 320,
-      points: '1,280',
-      streakDays: 12,
-      completedCards: 156,
-      accuracy: '67%',
-      learnDays: 42,
-      wrongCount: 23,
-      favoriteCount: 15,
-      stationeryCount: 8,
-      pendingAchievements: '6项未达成'
+      level: 0,
+      points: 0,
+      learnedCards: 0
     }
   },
 
@@ -47,21 +38,12 @@ Page({
   setUserData(data) {
     this.setData({
       userInfo: {
-        nickname: data.nickname || 'Jesse',
-        userId: data.userId || '10086',
+        nickname: data.nickname || '',
+        userId: data.id || '',
         avatar: data.avatarUrl || '',
-        level: data.level || 5,
-        levelTitle: data.levelTitle || '知识探索者',
-        nextLevelExp: data.nextLevelExp || 320,
-        points: (data.points || 1280).toLocaleString(),
-        streakDays: (data.stats && data.stats.streakDays) || 12,
-        completedCards: (data.stats && data.stats.completedCards) || 156,
-        accuracy: (data.stats && data.stats.accuracy) || '67%',
-        learnDays: (data.stats && data.stats.learnDays) || 42,
-        wrongCount: (data.stats && data.stats.wrongCount) || 23,
-        favoriteCount: (data.stats && data.stats.favoriteCount) || 15,
-        stationeryCount: (data.stats && data.stats.stationeryCount) || 8,
-        pendingAchievements: (data.stats && data.stats.pendingAchievements) || '6项未达成'
+        level: data.level || 0,
+        points: data.points || 0,
+        learnedCards: data.learnedCards || 0
       }
     });
   },
