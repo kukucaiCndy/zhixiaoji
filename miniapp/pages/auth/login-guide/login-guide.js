@@ -133,11 +133,11 @@ Page({
 
     authService.miniappLogin(code).then(function (result) {
       if (result.success) {
-        if (nickname || avatarUrl) {
+        if (nickname) {
           var userInfo = storage.getUserInfo();
           var userId = userInfo && userInfo.id;
           if (userId) {
-            return authService.updateUser(userId, { nickname: nickname, avatarUrl: avatarUrl });
+            return authService.updateUser(userId, { nickname: nickname });
           }
         }
         return { success: true };

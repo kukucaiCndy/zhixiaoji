@@ -102,7 +102,6 @@ Page({
 
     const updateData = {};
     if (nickname) updateData.nickname = nickname;
-    if (avatarUrl) updateData.avatarUrl = avatarUrl;
 
     authService.updateUser(userId, updateData)
       .then(function(result) {
