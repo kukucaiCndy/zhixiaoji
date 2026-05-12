@@ -123,39 +123,50 @@ Page({
   },
 
   // 处理登录流程
-  processLogin(code, nickname, avatarUrl) {
+  processLogin(code, nickname, avatarTempPath) {
     var that = this;
-    
-    // 构建登录数据
-    var loginData = { code: code };
-    if (nickname) loginData.nickname = nickname;
-    if (avatarUrl) loginData.avatar = avatarUrl;
 
     authService.miniappLogin(code).then(function (result) {
-      if (result.success) {
-        if (nickname) {
-          var userInfo = storage.getUserInfo();
-          var userId = userInfo && userInfo.id;
-          if (userId) {
-            return authService.updateUser(userId, { nickname: nickname });
-          }
-        }
-        return { success: true };
+      if (!result.success) {
+        that.setData({ logging: false });
+        wx.showToast({ title: result.message || '登录失败', icon: 'none' });
+        return Promise.reject('login_failed');
       }
-      return result;
-    }).then(function (updateResult) {
+
+      var userInfo = storage.getUserInfo();
+      var userId = userInfo && userInfo.id;
+      var promises = [];
+
+      if (userId && nickname) {
+        promises.push(authService.updateUser(userId, { nickname: nickname }));
+      }
+
+      if (userId && avatarTempPath) {
+        promises.push(authService.uploadAvatar(avatarTempPath, userId));
+      }
+
+      if (promises.length > 0) {
+        return Promise.all(promises).then(function () {
+          return { success: true };
+        });
+      }
+
+      return { success: true };
+    }).then(function () {
       that.setData({ logging: false });
-      if (updateResult.success) {
+      wx.setStorageSync(STORAGE_KEYS.GUIDE_SHOWN, true);
+      getApp().loadUserInfo().then(function () {
+        that.goHome();
+      });
+    }).catch(function (err) {
+      that.setData({ logging: false });
+      if (err !== 'login_failed') {
+        console.error('登录后处理失败:', err);
         wx.setStorageSync(STORAGE_KEYS.GUIDE_SHOWN, true);
         getApp().loadUserInfo().then(function () {
           that.goHome();
         });
-      } else {
-        wx.showToast({ title: updateResult.message || '登录失败', icon: 'none' });
       }
-    }).catch(function () {
-      that.setData({ logging: false });
-      wx.showToast({ title: '网络异常，请重试', icon: 'none' });
     });
   },
 
