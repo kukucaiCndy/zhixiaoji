@@ -118,7 +118,7 @@ function remove(key) {
  * @returns {string|null}
  */
 function getToken() {
-  return getSync(STORAGE_KEYS.TOKEN);
+  return getSync(STORAGE_KEYS.ACCESS_TOKEN);
 }
 
 /**
@@ -126,7 +126,7 @@ function getToken() {
  * @param {string} token
  */
 function setToken(token) {
-  setSync(STORAGE_KEYS.TOKEN, token);
+  setSync(STORAGE_KEYS.ACCESS_TOKEN, token);
 }
 
 /**
@@ -149,7 +149,7 @@ function setRefreshToken(token) {
  * 清除所有 Token
  */
 function clearTokens() {
-  removeSync(STORAGE_KEYS.TOKEN);
+  removeSync(STORAGE_KEYS.ACCESS_TOKEN);
   removeSync(STORAGE_KEYS.REFRESH_TOKEN);
 }
 
@@ -164,4 +164,35 @@ function getUserInfo() {
 }
 
 /**
+ * 设置用户信息
+ * @param {Object} userInfo
+ */
+function setUserInfo(userInfo) {
+  setSync(STORAGE_KEYS.USER_INFO, userInfo);
+}
+
+/**
+ * 清除用户信息
+ */
+function clearUserInfo() {
+  removeSync(STORAGE_KEYS.USER_INFO);
+}
+
+module.exports = {
+  getSync,
+  setSync,
+  removeSync,
+  clearSync,
+  get,
+  set,
+  remove,
+  getToken,
+  setToken,
+  getRefreshToken,
+  setRefreshToken,
+  clearTokens,
+  getUserInfo,
+  setUserInfo,
+  clearUserInfo
+};
  *
