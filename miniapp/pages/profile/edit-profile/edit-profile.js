@@ -1,4 +1,3 @@
-var app = getApp();
 var authService = require('../../../services/auth-service');
 
 Page({
@@ -21,9 +20,8 @@ Page({
 
   loadUserInfo() {
     var that = this;
-    authService.getCurrentUser().then(function (res) {
-      if (res.success && res.data) {
-        var user = res.data;
+    getApp().loadUserInfo().then(function (user) {
+      if (user) {
         that.setData({
           avatarLetter: (user.nickname || 'J')[0],
           nickname: user.nickname || '',
@@ -54,16 +52,16 @@ Page({
       count: 1,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
-      success(res) {
-        var tempPath = res.tempFilePaths[0];
+      success(chooseRes) {
+        var tempPath = chooseRes.tempFilePaths[0];
         wx.showLoading({ title: '上传中...', mask: true });
-        authService.uploadAvatar(tempPath).then(function (res) {
+        authService.uploadAvatar(tempPath).then(function (uploadRes) {
           wx.hideLoading();
-          if (res.success) {
-            that.setData({ avatarUrl: res.data.avatarUrl });
+          if (uploadRes.success) {
+            that.setData({ avatarUrl: uploadRes.data.avatarUrl });
             wx.showToast({ title: '头像已更新', icon: 'success' });
           } else {
-            wx.showToast({ title: res.message || '上传失败', icon: 'none' });
+            wx.showToast({ title: uploadRes.message || '上传失败', icon: 'none' });
           }
         }).catch(function () {
           wx.hideLoading();
@@ -146,7 +144,14 @@ Page({
     var that = this;
     this.setData({ saving: true });
     wx.showLoading({ title: '保存中...', mask: true });
-    var userId = (getApp().globalData.userInfo || {}).id || '';
+    var userInfo = getApp().globalData.userInfo || {};
+    var userId = userInfo.id || userInfo._id || userInfo.userId || '';
+    if (!userId) {
+      wx.hideLoading();
+      that.setData({ saving: false });
+      wx.showToast({ title: '用户信息异常，请重新登录', icon: 'none' });
+      return;
+    }
     var data = {
       nickname: that.data.nickname,
       bio: that.data.bio,
