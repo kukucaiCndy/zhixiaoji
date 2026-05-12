@@ -29,7 +29,6 @@ Thumbs.db
 # 构建产物
 dist/
 build/
-miniprogram_npm/
 *.gz
 
 # 环境配置

@@ -15,8 +15,13 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "packNpmManually": false,
-    "packNpmRelationList": []
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./miniprogram_npm"
+      }
+    ]
   },
   "compileType": "miniprogram",
   "libVersion": "3.15.2",
