@@ -1,13 +1,11 @@
 <view class="edit-page">
   <view class="nav-header" style="padding-top: {{statusBarHeight}}px;">
-    <view class="nav-bar" style="height: {{navBarHeight}}px; padding-right: {{navRightPadding}}px;">
+    <view class="nav-bar" style="height: {{navBarHeight}}px;">
       <view class="back-btn" bindtap="onBack">
         <text class="back-icon">‹</text>
       </view>
       <text class="nav-title">编辑资料</text>
-      <view class="save-btn" bindtap="onSave">
-        <text class="save-text">保存</text>
-      </view>
+      <view class="nav-placeholder"></view>
     </view>
   </view>
 
@@ -78,5 +76,16 @@
         <text class="arrow">›</text>
       </view>
     </picker>
+  </view>
+
+  <view class="bottom-action">
+    <view class="bottom-save-btn" bindtap="onSave">
+      <text wx:if="{{!saving}}" class="bottom-save-text">保存</text>
+      <view wx:else class="bottom-save-loading">
+        <view class="bottom-save-loading-dot"></view>
+        <view class="bottom-save-loading-dot"></view>
+        <view class="bottom-save-loading-dot"></view>
+      </view>
+    </view>
   </view>
 </view>
