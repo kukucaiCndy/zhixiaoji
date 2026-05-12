@@ -1,5 +1,4 @@
 var app = getApp();
-var monkApi = require('../../../services/monk-api');
 var authService = require('../../../services/auth-service');
 
 Page({
@@ -21,15 +20,31 @@ Page({
   },
 
   loadUserInfo() {
-    var userInfo = wx.getStorageSync('userInfo') || {};
-    this.setData({
-      avatarLetter: (userInfo.nickname || 'J')[0],
-      nickname: userInfo.nickname || '',
-      bio: userInfo.bio || '',
-      gender: userInfo.gender || '',
-      birthday: userInfo.birthday || '',
-      email: userInfo.email || '',
-      location: userInfo.location || ''
+    var that = this;
+    authService.getCurrentUser().then(function (res) {
+      if (res.success && res.data) {
+        var user = res.data;
+        that.setData({
+          avatarLetter: (user.nickname || 'J')[0],
+          nickname: user.nickname || '',
+          bio: user.bio || '',
+          gender: user.gender || '',
+          birthday: user.birthday || '',
+          email: user.email || '',
+          location: user.location || ''
+        });
+      }
+    }).catch(function () {
+      var userInfo = wx.getStorageSync('userInfo') || {};
+      that.setData({
+        avatarLetter: (userInfo.nickname || 'J')[0],
+        nickname: userInfo.nickname || '',
+        bio: userInfo.bio || '',
+        gender: userInfo.gender || '',
+        birthday: userInfo.birthday || '',
+        email: userInfo.email || '',
+        location: userInfo.location || ''
+      });
     });
   },
 
@@ -41,8 +56,19 @@ Page({
       sourceType: ['album', 'camera'],
       success(res) {
         var tempPath = res.tempFilePaths[0];
-        that.setData({ avatarUrl: tempPath });
-        wx.showToast({ title: '头像已选择', icon: 'none' });
+        wx.showLoading({ title: '上传中...', mask: true });
+        authService.uploadAvatar(tempPath).then(function (res) {
+          wx.hideLoading();
+          if (res.success) {
+            that.setData({ avatarUrl: res.data.avatarUrl });
+            wx.showToast({ title: '头像已更新', icon: 'success' });
+          } else {
+            wx.showToast({ title: res.message || '上传失败', icon: 'none' });
+          }
+        }).catch(function () {
+          wx.hideLoading();
+          wx.showToast({ title: '头像上传失败', icon: 'none' });
+        });
       }
     });
   },
