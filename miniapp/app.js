@@ -1,6 +1,5 @@
 var authService = require('services/auth-service');
 var storage = require('utils/storage');
-var STORAGE_KEYS = require('utils/constants').STORAGE_KEYS;
 
 App({
   globalData: {
@@ -11,30 +10,34 @@ App({
   onLaunch() {
     var that = this;
     var systemInfo = wx.getSystemInfoSync();
-    this.globalData.systemInfo = systemInfo;
-    storage.setSync(STORAGE_KEYS.SYSTEM_INFO, systemInfo);
+    that.globalData.systemInfo = systemInfo;
 
     var token = storage.getToken();
     if (token) {
-      authService.refreshToken().then(function (result) {
-        if (result.success) {
-          return authService.getCurrentUser();
-        }
-      }).then(function (userResult) {
-        if (userResult && userResult.success) {
-          that.globalData.userInfo = userResult.data;
-          storage.setSync(STORAGE_KEYS.USER_INFO, userResult.data);
-        } else {
-          storage.clearTokens();
-        }
-      }).catch(function () {
-        storage.clearTokens();
-      });
+      var cachedUser = storage.getUserInfo();
+      if (cachedUser) {
+        that.globalData.userInfo = cachedUser;
+      }
+      that.loadUserInfo();
     }
+  },
+
+  loadUserInfo() {
+    var that = this;
+    return authService.getCurrentUser().then(function (res) {
+      if (res.success && res.data) {
+        that.globalData.userInfo = res.data;
+        return res.data;
+      }
+      return null;
+    }).catch(function () {
+      console.error('获取用户信息失败，使用缓存数据');
+      return that.globalData.userInfo;
+    });
   },
 
   setUserInfo(userInfo) {
     this.globalData.userInfo = userInfo;
-    storage.setSync(STORAGE_KEYS.USER_INFO, userInfo);
+    storage.setUserInfo(userInfo);
   }
 });

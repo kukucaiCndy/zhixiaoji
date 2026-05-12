@@ -1,4 +1,4 @@
-const mockApi = require('../../services/monk-api');
+var mockApi = require('../../services/monk-api');
 
 Page({
   data: {
@@ -28,14 +28,37 @@ Page({
     this.loadHomeData();
   },
 
-  async loadHomeData() {
+  loadHomeData() {
+    var app = getApp();
+    if (app.globalData.userInfo) {
+      this.setUserInfo(app.globalData.userInfo);
+    }
+    app.loadUserInfo().then(function (user) {
+      if (user) {
+        this.setUserInfo(user);
+      }
+    }.bind(this));
+    this.loadStudyData();
+  },
+
+  setUserInfo(user) {
+    this.setData({
+      username: user.nickname || 'Jesse',
+      points: user.points || 1280,
+      streak: (user.stats && user.stats.streakDays) || 7,
+      stats: {
+        toLearn: (user.stats && user.stats.toLearn) || 6,
+        toReview: (user.stats && user.stats.toReview) || 3,
+        mastered: (user.stats && user.stats.mastered) || 12,
+        accuracy: (user.stats && user.stats.accuracy) || 67
+      }
+    });
+  },
+
+  async loadStudyData() {
     try {
-      const userInfo = await mockApi.getUserInfo();
-      const studyProgress = await mockApi.getStudyProgress();
-      
+      var studyProgress = await mockApi.getStudyProgress();
       this.setData({
-        username: userInfo.data.nickname || 'Jesse',
-        points: userInfo.data.points || 1280,
         stats: {
           toLearn: studyProgress.data.toLearn || 6,
           toReview: studyProgress.data.toReview || 3,
@@ -44,39 +67,26 @@ Page({
         }
       });
     } catch (error) {
-      console.error('加载首页数据失败:', error);
+      console.error('加载学习进度失败:', error);
     }
   },
 
-  onSearch() {
-    wx.showToast({ title: '搜索功能开发中', icon: 'none' });
-  },
-
-  onChallenge() {
-    wx.navigateTo({ url: '/pages/challenge/challenge' });
-  },
-
-  onViewAll() {
-    wx.navigateTo({ url: '/pages/learn/learn' });
-  },
-
-  onViewDetail() {
-    wx.navigateTo({ url: '/pages/progress/progress' });
-  },
-
-  onMore() {
-    wx.navigateTo({ url: '/pages/learn/learn' });
-  },
-
-  onRecommendTap(e) {
-    const id = e.currentTarget.dataset.id;
+  onTapCard(e) {
+    var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: `/pages/card-detail/card-detail?id=${id}`
+      url: '/pages/learn/learn?cardId=' + id
     });
   },
 
-  onTabChange(e) {
-    const { index } = e.detail;
-    console.log('切换到 Tab:', index);
+  onStartLearn() {
+    wx.switchTab({
+      url: '/pages/learn/learn'
+    });
+  },
+
+  onStartReview() {
+    wx.switchTab({
+      url: '/pages/learn/learn'
+    });
   }
 });

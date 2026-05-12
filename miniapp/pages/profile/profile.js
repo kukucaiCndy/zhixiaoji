@@ -1,5 +1,4 @@
-const mockApi = require('../../services/monk-api');
-const authService = require('../../services/auth-service');
+var authService = require('../../services/auth-service');
 
 Page({
   data: {
@@ -26,39 +25,50 @@ Page({
     this.loadUserProfile();
   },
 
-  async loadUserProfile() {
-    try {
-      const res = await mockApi.getUserInfo();
-      if (res.code === 0) {
-        const data = res.data;
-        this.setData({
-          userInfo: {
-            nickname: data.nickname || 'Jesse',
-            userId: data.userId || '10086',
-            avatar: data.avatarUrl || '',
-            level: data.level || 5,
-            levelTitle: data.levelTitle || '知识探索者',
-            nextLevelExp: data.nextLevelExp || 320,
-            points: (data.points || 1280).toLocaleString(),
-            streakDays: data.stats?.streakDays || 12,
-            completedCards: data.stats?.completedCards || 156,
-            accuracy: data.stats?.accuracy || '67%',
-            learnDays: data.stats?.learnDays || 42,
-            wrongCount: data.stats?.wrongCount || 23,
-            favoriteCount: data.stats?.favoriteCount || 15,
-            stationeryCount: data.stats?.stationeryCount || 8,
-            pendingAchievements: data.stats?.pendingAchievements || '6项未达成'
-          }
-        });
-      }
-    } catch (error) {
-      console.error('加载用户信息失败:', error);
+  onShow() {
+    var app = getApp();
+    if (app.globalData.userInfo) {
+      this.setUserData(app.globalData.userInfo);
     }
   },
 
+  loadUserProfile() {
+    var app = getApp();
+    if (app.globalData.userInfo) {
+      this.setUserData(app.globalData.userInfo);
+    }
+    app.loadUserInfo().then(function (user) {
+      if (user) {
+        this.setUserData(user);
+      }
+    }.bind(this));
+  },
+
+  setUserData(data) {
+    this.setData({
+      userInfo: {
+        nickname: data.nickname || 'Jesse',
+        userId: data.userId || '10086',
+        avatar: data.avatarUrl || '',
+        level: data.level || 5,
+        levelTitle: data.levelTitle || '知识探索者',
+        nextLevelExp: data.nextLevelExp || 320,
+        points: (data.points || 1280).toLocaleString(),
+        streakDays: (data.stats && data.stats.streakDays) || 12,
+        completedCards: (data.stats && data.stats.completedCards) || 156,
+        accuracy: (data.stats && data.stats.accuracy) || '67%',
+        learnDays: (data.stats && data.stats.learnDays) || 42,
+        wrongCount: (data.stats && data.stats.wrongCount) || 23,
+        favoriteCount: (data.stats && data.stats.favoriteCount) || 15,
+        stationeryCount: (data.stats && data.stats.stationeryCount) || 8,
+        pendingAchievements: (data.stats && data.stats.pendingAchievements) || '6项未达成'
+      }
+    });
+  },
+
   onNavigate(e) {
-    const url = e.currentTarget.dataset.url;
-    wx.navigateTo({ url });
+    var url = e.currentTarget.dataset.url;
+    wx.navigateTo({ url: url });
   },
 
   onEditProfile() {
@@ -68,8 +78,8 @@ Page({
   },
 
   onMenuItem(e) {
-    const action = e.currentTarget.dataset.action;
-    const routes = {
+    var action = e.currentTarget.dataset.action;
+    var routes = {
       'rank': '/pages/rank/rank',
       'achievements': '/pages/achievements/achievements',
       'learn-stats': '/pages/learn-stats/learn-stats',
@@ -77,17 +87,17 @@ Page({
       'favorites': '/pages/favorites/favorites',
       'desk': '/pages/desk/desk'
     };
-    const url = routes[action];
+    var url = routes[action];
     if (url) {
-      wx.navigateTo({ url });
+      wx.navigateTo({ url: url });
     } else {
       wx.showToast({ title: '功能开发中', icon: 'none' });
     }
   },
 
   onSetting(e) {
-    const action = e.currentTarget.dataset.action;
-    const routes = {
+    var action = e.currentTarget.dataset.action;
+    var routes = {
       'settings': '/pages/profile/settings/settings',
       'theme': '/pages/settings/theme/theme',
       'review-plan': '/pages/settings/review-plan/review-plan',
@@ -96,9 +106,9 @@ Page({
       'help': '/pages/settings/help/help',
       'about': '/pages/settings/about/about'
     };
-    const url = routes[action];
+    var url = routes[action];
     if (url) {
-      wx.navigateTo({ url });
+      wx.navigateTo({ url: url });
     } else {
       wx.showToast({ title: '功能开发中', icon: 'none' });
     }
@@ -123,7 +133,7 @@ Page({
   },
 
   onTabChange(e) {
-    const { index } = e.detail;
+    var index = e.detail.index;
     console.log('切换到 Tab:', index);
   }
 });

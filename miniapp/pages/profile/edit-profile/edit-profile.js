@@ -146,7 +146,7 @@ Page({
     var that = this;
     this.setData({ saving: true });
     wx.showLoading({ title: '保存中...', mask: true });
-    var userInfo = wx.getStorageSync('userInfo') || {};
+    var userId = (getApp().globalData.userInfo || {}).id || '';
     var data = {
       nickname: that.data.nickname,
       bio: that.data.bio,
@@ -155,14 +155,14 @@ Page({
       email: that.data.email,
       location: that.data.location
     };
-    authService.updateUser(userInfo.id || '', data).then(function (res) {
+    authService.updateUser(userId, data).then(function (res) {
       wx.hideLoading();
       that.setData({ saving: false });
       if (res.success) {
         wx.showToast({ title: '保存成功', icon: 'success' });
-        setTimeout(function () {
+        getApp().loadUserInfo().then(function () {
           wx.navigateBack();
-        }, 1500);
+        });
       } else {
         wx.showToast({ title: res.message || '保存失败', icon: 'none' });
       }
