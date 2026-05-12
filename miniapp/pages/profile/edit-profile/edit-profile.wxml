@@ -11,7 +11,11 @@
 
   <view class="avatar-section" bindtap="onChooseAvatar">
     <view class="avatar">
-      <text class="avatar-text">{{avatarLetter || 'J'}}</text>
+      <image wx:if="{{avatarUrl}}" class="avatar-img" src="{{avatarUrl}}" mode="aspectFill" />
+      <view wx:if="{{uploading}}" class="avatar-mask">
+        <view class="avatar-spinner"></view>
+      </view>
+      <text wx:elif="{{!avatarUrl}}" class="avatar-text">{{avatarLetter || 'J'}}</text>
     </view>
     <text class="avatar-hint">点击更换头像</text>
   </view>

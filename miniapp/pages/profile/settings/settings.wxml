@@ -19,7 +19,8 @@
 
   <view class="profile-card" bindtap="onEditProfile">
     <view class="profile-avatar">
-      <text class="avatar-text">{{userInfo.nickname[0] || 'J'}}</text>
+      <image wx:if="{{userInfo.avatarUrl}}" class="avatar-img" src="{{userInfo.avatarUrl}}" mode="aspectFill" />
+      <text wx:else class="avatar-text">{{userInfo.nickname[0] || 'J'}}</text>
     </view>
     <view class="profile-info">
       <text class="profile-name">{{userInfo.nickname || 'Jesse'}}</text>

@@ -1,6 +1,7 @@
 Page({
   data: {
     username: '',
+    avatarUrl: '',
     streak: 0,
     points: 0,
     stats: {
@@ -39,6 +40,7 @@ Page({
   setUserInfo(user) {
     this.setData({
       username: user.nickname || '',
+      avatarUrl: user.avatarUrl || '',
       points: user.points || 0,
       streak: (user.stats && user.stats.streakDays) || 0
     });

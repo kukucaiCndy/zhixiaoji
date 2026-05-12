@@ -6,6 +6,8 @@ var GENDER_VALUES = { '男': 'male', '女': 'female', '保密': 'other' };
 Page({
   data: {
     avatarLetter: 'J',
+    avatarUrl: '',
+    uploading: false,
     nickname: '',
     bio: '',
     gender: '',
@@ -42,6 +44,7 @@ Page({
       if (user) {
         that.setData({
           avatarLetter: (user.nickname || 'J')[0],
+          avatarUrl: user.avatarUrl || '',
           nickname: user.nickname || '',
           bio: user.bio || '',
           gender: user.gender || '',
@@ -57,6 +60,7 @@ Page({
       var genderValue = GENDER_VALUES[oldGender] || oldGender || '';
       that.setData({
         avatarLetter: (userInfo.nickname || 'J')[0],
+        avatarUrl: userInfo.avatarUrl || '',
         nickname: userInfo.nickname || '',
         bio: userInfo.bio || '',
         gender: genderValue,
@@ -76,19 +80,29 @@ Page({
       sourceType: ['album', 'camera'],
       success(chooseRes) {
         var tempPath = chooseRes.tempFilePaths[0];
+        that.setData({ uploading: true });
         wx.showLoading({ title: '上传中...', mask: true });
         var userInfo = getApp().globalData.userInfo || {};
         var userId = userInfo.id || userInfo._id || userInfo.userId || '';
         authService.uploadAvatar(tempPath, userId).then(function (uploadRes) {
           wx.hideLoading();
+          that.setData({ uploading: false });
           if (uploadRes.success) {
-            that.setData({ avatarUrl: uploadRes.data.url });
+            getApp().loadUserInfo().then(function (user) {
+              if (user) {
+                that.setData({
+                  avatarLetter: (user.nickname || 'J')[0],
+                  avatarUrl: user.avatarUrl || ''
+                });
+              }
+            });
             wx.showToast({ title: '头像已更新', icon: 'success' });
           } else {
             wx.showToast({ title: uploadRes.message || '上传失败', icon: 'none' });
           }
         }).catch(function () {
           wx.hideLoading();
+          that.setData({ uploading: false });
           wx.showToast({ title: '头像上传失败', icon: 'none' });
         });
       }

@@ -2,7 +2,8 @@ Page({
   data: {
     userInfo: {
       nickname: 'Jesse',
-      userId: '10086'
+      userId: '10086',
+      avatarUrl: ''
     }
   },
 
@@ -19,7 +20,8 @@ Page({
         this.setData({
           userInfo: {
             nickname: app.globalData.userInfo.nickname || '',
-            userId: shortId
+            userId: shortId,
+            avatarUrl: app.globalData.userInfo.avatarUrl || ''
           }
         });
       }
