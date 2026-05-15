@@ -7,7 +7,7 @@ import {
 setLoggerEnabled(true)
 
 const api = createApiClient({
-  baseURL: 'http://192.168.16.129:3001/api/v1',
+  baseURL: 'http://192.168.16.129:12301/api/v1',
   storage: localStorageAdapter,
   onAuthError: () => {
     localStorage.removeItem('accessToken')
