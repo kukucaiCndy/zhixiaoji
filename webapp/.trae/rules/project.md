@@ -85,7 +85,108 @@
 
 ---
 
-## 四、目录结构
+## 四、私有依赖说明
+
+### 4.1 私有 npm 仓库
+
+本项目的 npm 依赖分为两部分：公网包（Vue / Element Plus 等，从 npmmirror.com 安装）和私有 SDK 包（`@zhixiaoji/*`，从内网 npm 仓库安装）。
+
+| 配置项 | 值 |
+|--------|-----|
+| 仓库地址 | `http://192.168.16.129:4873` |
+| 仓库范围 | `@zhixiaoji` |
+| 仓库页面 | [http://192.168.16.129:4873/-/web/detail/@zhixiaoji/api-sdk-web](http://192.168.16.129:4873/-/web/detail/@zhixiaoji/api-sdk-web) |
+
+### 4.2 SDK 包列表
+
+| 包名 | 最新版本 | 用途 | 目标平台 |
+|------|----------|------|----------|
+| `@zhixiaoji/api-sdk-web` | 0.1.1 | Web 管理后台 API 客户端 | Vue 3 / 浏览器 |
+| `@zhixiaoji/api-sdk-wechat` | 0.7.1 | 微信小程序 API 客户端 | 微信小程序 |
+
+### 4.3 安装方式
+
+#### 方式一：npm 直接安装（仓库可用时）
+
+```bash
+# 配置 @zhixiaoji scope 指向私有仓库
+npm config set @zhixiaoji:registry http://192.168.16.129:4873
+
+# Web 管理后台
+cd webapp
+npm install @zhixiaoji/api-sdk-web@0.1.1
+
+# 小程序
+cd miniapp
+npm install @zhixiaoji/api-sdk-wechat@0.7.1
+```
+
+#### 方式二：离线 tarball 安装（仓库不可用时）
+
+```bash
+# 1. 用 curl 下载 tarball（注意使用 --noproxy '*' 绕过代理）
+curl --noproxy '*' -L -o sdk.tgz "http://192.168.16.129:4873/@zhixiaoji/api-sdk-web/-/api-sdk-web-0.1.1.tgz"
+
+# 2. 从本地 tarball 安装
+cd webapp
+npm install ./sdk.tgz
+```
+
+> **注意**：离线安装后 `package.json` 中会记录 `"file:..."` 路径，如果仓库恢复可用，建议改用方式一重新安装以获取更友好的依赖声明。
+
+#### 方式三：直接复用已安装的 SDK
+
+如果 `miniapp/node_modules/@zhixiaoji/` 下已有所需的 SDK 包，可以直接复制到 webapp：
+
+```bash
+cp -r miniapp/node_modules/@zhixiaoji/api-sdk-web webapp/node_modules/@zhixiaoji/
+```
+
+> **注意**：此方式不会写入 `package.json`，需要手动添加依赖声明。
+
+### 4.4 SDK API 概览
+
+详见 SDK 仓库页面：[http://192.168.16.129:4873/-/web/detail/@zhixiaoji/api-sdk-web](http://192.168.16.129:4873/-/web/detail/@zhixiaoji/api-sdk-web)
+
+| 方法 | 说明 |
+|------|------|
+| `createApiClient(config)` | 创建通用 API 客户端 |
+| `createVue3ApiClient(options)` | 创建 Vue 3 + Pinia 集成客户端 |
+| `auth.adminLogin(data)` | 管理后台登录 |
+| `auth.refreshToken(data)` | 刷新 JWT Token |
+| `auth.logout()` | 退出登录 |
+| `auth.getProfile()` | 获取当前用户信息 |
+| `auth.getAdminProfile()` | 获取当前管理员信息 |
+| `auth.updateProfile(userId, data)` | 更新用户信息 |
+| `auth.getUsers(params)` | 获取用户列表（后台） |
+| `auth.updateUserStatus(userId, data)` | 禁用/启用用户 |
+| `setToken(token)` | 设置 JWT Token |
+| `clearToken()` | 清除 Token |
+| `setLogEnabled(enabled)` | 开启/关闭调试日志 |
+
+### 4.5 本项目 SDK 初始化
+
+SDK 客户端初始化在 [src/api/sdk-client.ts](src/api/sdk-client.ts)：
+
+```typescript
+import { createApiClient, localStorageAdapter } from '@zhixiaoji/api-sdk-web'
+
+const api = createApiClient({
+  baseURL: 'http://192.168.16.129:3001/api/v1',
+  storage: localStorageAdapter,
+  onAuthError: () => {
+    localStorage.removeItem('accessToken')
+    window.location.href = '/login'
+  },
+  enableLog: true
+})
+```
+
+Token 存储 key 统一为 `accessToken`，由 SDK `localStorageAdapter` 自动管理。
+
+---
+
+## 五、目录结构
 
 ```
 webapp/
@@ -104,3 +205,4 @@ webapp/
 > | 版本 | 日期 | 修订人 | 修订内容 |
 > |------|------|--------|----------|
 > | V1.0 | 2026-05-04 | 开发团队 | 初始版本，完成项目总览与里程碑定义 |
+> | V1.1 | 2026-05-15 | 开发团队 | 新增第四章"私有依赖说明"，记录 SDK 安装方式与 API 概览 |
