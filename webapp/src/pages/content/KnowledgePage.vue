@@ -1031,4 +1031,61 @@ onMounted(() => {
       </el-form>
       <template #footer>
         <el-button @click="sectionDialogVisible = false">取消</el-button>
-        <el-button type="primary
+        <el-button type="primary" @click="handleSectionSubmit">确定</el-button>
+      </template>
+    </el-dialog>
+  </div>
+</template>
+
+<style scoped lang="scss">
+.knowledge {
+  display: flex; flex-direction: column; gap: 20px;
+  &__breadcrumb { :deep(.el-breadcrumb__inner) { color: var(--app-text-secondary); font-size: 13px;
+      &.is-link { color: var(--app-text-secondary); &:hover { color: var(--app-primary-color) } } }
+    :deep(.el-breadcrumb__item:last-child .el-breadcrumb__inner) { color: var(--app-text-primary); font-weight: 500 } }
+  &__top-bar { display: flex; align-items: center; justify-content: space-between }
+  &__title { font-family: var(--app-font-heading); font-size: 20px; font-weight: 700; color: var(--app-text-primary); margin: 0 }
+  &__top-actions { display: flex; gap: 12px }
+  &__btn-ai { --el-button-bg-color: var(--app-primary-color); --el-button-border-color: var(--app-primary-color) }
+  &__grid { display: flex; flex-direction: column; gap: 20px }
+  &__grid-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px }
+  &__card { display: flex; gap: 20px; background: var(--app-bg-card); border: 1px solid var(--app-border-color); border-radius: 12px; padding: 24px; cursor: pointer; transition: box-shadow .2s;
+    &:hover { box-shadow: 0 2px 12px rgba(0,0,0,.08) }
+    &--expanded { border-color: var(--app-primary-color); box-shadow: 0 2px 12px rgba(212,145,110,.15) } }
+  &__card-icon { font-size: 36px }
+  &__card-info { flex: 1 }
+  &__card-name { font-family: var(--app-font-heading); font-size: 16px; font-weight: 600; color: var(--app-text-primary); margin-bottom: 6px }
+  &__card-desc { font-family: var(--app-font-body); font-size: 13px; color: #A89880; margin-bottom: 10px }
+  &__card-meta { display: flex; align-items: center; gap: 10px }
+  &__card-badge { font-family: var(--app-font-body); font-size: 12px; font-weight: 500; color: var(--app-text-regular) }
+  &__card-tag { font-size: 11px }
+  &__card-actions { display: flex; flex-direction: column; gap: 8px }
+  &__expanded { margin-top: 20px; background: var(--app-bg-card); border: 1px solid var(--app-border-color); border-radius: 12px; padding: 24px }
+  &__expanded-title { font-family: var(--app-font-heading); font-size: 15px; font-weight: 600; color: var(--app-text-primary); margin-bottom: 16px }
+  &__chapter-panel { background: #FDFBF7; border-radius: 8px; padding: 16px; margin-bottom: 12px; &:last-child { margin-bottom: 0 } }
+  &__chapter-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px }
+  &__chapter-name { font-family: var(--app-font-heading); font-size: 14px; font-weight: 600; color: var(--app-text-primary); flex: 1 }
+  &__chapter-count { font-family: var(--app-font-body); font-size: 12px; font-weight: 500; color: #A89880 }
+  &__chapter-actions { display: flex; gap: 8px }
+  &__section-row { display: flex; gap: 16px }
+  &__section-card { background: #FFF; border: 1px solid var(--app-border-color); border-radius: 8px; padding: 12px; width: 260px; flex-shrink: 0 }
+  &__section-cover { height: 100px; background: #F5F0EB; border-radius: 6px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center }
+  &__section-cover-text { font-family: var(--app-font-body); font-size: 12px; color: #A89880 }
+  &__section-title { font-family: var(--app-font-heading); font-size: 14px; font-weight: 600; color: var(--app-text-primary); margin-bottom: 4px }
+  &__section-summary { font-family: var(--app-font-body); font-size: 12px; color: #A89880; margin-bottom: 8px }
+  &__section-meta { display: flex; justify-content: space-between; align-items: center }
+  &__section-actions { display: flex; gap: 6px }
+  &__empty { text-align: center; padding: 60px 0; color: #A89880; &--hint { font-size: 13px } }
+  &__cover-preview { position: relative; display: inline-block }
+  &__cover-img { width: 200px; height: 120px; object-fit: cover; border-radius: 8px }
+  &__cover-remove { position: absolute; top: -6px; right: -6px }
+  &__cover-placeholder { width: 200px; height: 120px; background: #F5F0EB; border: 1px dashed var(--app-border-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative }
+  &__cover-icon { font-size: 24px; color: #A89880 }
+  &__cover-input { position: absolute; inset: 0; opacity: 0; cursor: pointer }
+  &__generate-result { margin-top: 16px; border: 1px solid var(--app-border-color); border-radius: 8px; max-height: 300px; overflow: auto }
+  &__generate-tree { padding: 12px 16px }
+  &__gen-category { font-family: var(--app-font-heading); font-size: 14px; font-weight: 600; color: var(--app-text-primary); padding: 8px 0 }
+  &__gen-chapter { padding: 6px 0 6px 24px; font-family: var(--app-font-heading); font-size: 13px; font-weight: 500; color: var(--app-text-regular) }
+  &__gen-section { padding: 4px 0 4px 48px; font-family: var(--app-font-body); font-size: 12px; color: #A89880 }
+}
+</style>
