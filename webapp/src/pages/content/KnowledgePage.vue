@@ -1,88 +1,84 @@
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Plus, Edit, Delete } from '@element-plus/icons-vue'
+import { Plus, Edit, Delete, MagicStick, View } from '@element-plus/icons-vue'
 import { knowledgeApi } from '@/api/modules/content'
+import type { ICategory, IChapter, ISection } from '@/mock/knowledge'
 
-interface IVolume {
-  id: number
-  name: string
-  sortOrder: number
-  status: string
-  chapterCount: number
-}
+// ==================== Data State ====================
 
-interface IChapter {
-  id: number
-  volumeId: number
-  volumeName: string
-  name: string
-  sortOrder: number
-  difficulty: string
-  needPoints: boolean
-  pointsRequired: number
-  preChapterId: number
-  preChapterName: string
-  status: string
-  cardCount: number
-}
+const categories = ref<ICategory[]>([])
+const chaptersMap = ref<Record<number, IChapter[]>>({})
+const sectionsMap = ref<Record<number, ISection[]>>({})
+const pageLoading = ref(false)
+const chaptersLoading = ref(false)
+const sectionsLoading = ref(false)
 
-interface IVolumeForm {
-  name: string
-  sortOrder: number
-  status: string
-}
+const allChapters = computed(() => Object.values(chaptersMap.value).flat() as IChapter[])
 
-interface IChapterForm {
-  name: string
-  volumeId: number | undefined
-  sortOrder: number
-  difficulty: string
-  needPoints: boolean
-  pointsRequired: number
-  preChapterId: number | undefined
-}
+// ==================== UI State ====================
 
-const volumeList = ref<IVolume[]>([])
-const chapterList = ref<IChapter[]>([])
-const tableLoading = ref(false)
+const expandedCategoryId = ref<number | null>(null)
+const expandedChapterIds = ref<Set<number>>(new Set())
 
-// Volume dialog
-const volumeDialogVisible = ref(false)
-const volumeDialogTitle = ref('新增篇章')
-const volumeFormRef = ref()
-const volumeForm = reactive<IVolumeForm>({
+// Category dialog
+const categoryDialogVisible = ref(false)
+const categoryDialogTitle = ref('新增大类')
+const categoryFormRef = ref()
+const categoryForm = reactive({
   name: '',
+  icon: '📁',
+  description: '',
   sortOrder: 1,
   status: '草稿'
 })
-let editingVolumeId: number | null = null
+let editingCategoryId: number | null = null
 
 // Chapter dialog
 const chapterDialogVisible = ref(false)
 const chapterDialogTitle = ref('新增章节')
 const chapterFormRef = ref()
-const chapterForm = reactive<IChapterForm>({
+const chapterForm = reactive({
   name: '',
-  volumeId: undefined,
+  categoryId: undefined as number | undefined,
   sortOrder: 1,
-  difficulty: '入门',
-  needPoints: false,
-  pointsRequired: 0,
-  preChapterId: undefined
+  difficulty: '入门'
 })
 let editingChapterId: number | null = null
 
-const volumeDialogRules = {
-  name: [{ required: true, message: '请输入篇章名称', trigger: 'blur' }],
-  sortOrder: [{ required: true, message: '请输入排序序号', trigger: 'blur' }]
-}
+// Section dialog
+const sectionDialogVisible = ref(false)
+const sectionDialogTitle = ref('新增小节')
+const sectionFormRef = ref()
+const sectionForm = reactive({
+  title: '',
+  chapterId: undefined as number | undefined,
+  sortOrder: 1,
+  content: '',
+  coverImage: '',
+  summary: ''
+})
+let editingSectionId: number | null = null
 
-const chapterDialogRules = {
-  name: [{ required: true, message: '请输入章节名称', trigger: 'blur' }],
-  volumeId: [{ required: true, message: '请选择所属篇章', trigger: 'change' }],
-  sortOrder: [{ required: true, message: '请输入排序序号', trigger: 'blur' }]
-}
+// Section preview
+const previewDialogVisible = ref(false)
+const previewSection = ref<ISection | null>(null)
+
+// AI generate dialog
+const aiDialogVisible = ref(false)
+const aiStep = ref<'input' | 'generating' | 'result'>('input')
+const aiCategoryName = ref('')
+const aiCategoryDesc = ref('')
+const aiProgressText = ref('')
+const aiProgressPercent = ref(0)
+const aiResult = ref<{
+  category: ICategory
+  chapters: IChapter[]
+  sections: ISection[]
+} | null>(null)
+const aiExpandedChapterIds = ref<Set<number>>(new Set())
+
+// ==================== Constants ====================
 
 const difficultyOptions = [
   { label: '入门', value: '入门' },
@@ -90,19 +86,58 @@ const difficultyOptions = [
   { label: '进阶', value: '进阶' }
 ]
 
-const chapterOptions = computed(() => {
-  return chapterList.value
-    .filter((ch) => ch.volumeId === chapterForm.volumeId)
-    .map((ch) => ({ label: ch.name, value: ch.id }))
+const emojiOptions = [
+  '📁', '💻', '🔧', '🚀', '🌐', '📊', '🎨', '📚',
+  '⚡', '🔬', '🎯', '💡', '🌟', '🔥', '🎵', '🏆',
+  '📱', '🤖', '🎮', '📷', '🗂️', '🧠', '📈', '🛠️'
+]
+
+const categoryDialogRules = {
+  name: [{ required: true, message: '请输入大类名称', trigger: 'blur' }],
+  sortOrder: [{ required: true, message: '请输入排序序号', trigger: 'blur' }]
+}
+
+const chapterDialogRules = {
+  name: [{ required: true, message: '请输入章节名称', trigger: 'blur' }],
+  categoryId: [{ required: true, message: '请选择所属大类', trigger: 'change' }],
+  sortOrder: [{ required: true, message: '请输入排序序号', trigger: 'blur' }]
+}
+
+const sectionDialogRules = {
+  title: [{ required: true, message: '请输入小节标题', trigger: 'blur' }],
+  chapterId: [{ required: true, message: '请选择所属章节', trigger: 'change' }],
+  sortOrder: [{ required: true, message: '请输入排序序号', trigger: 'blur' }]
+}
+
+// ==================== Computed ====================
+
+const selectedCategory = computed(() => {
+  if (expandedCategoryId.value === null) return null
+  return categories.value.find((c) => c.id === expandedCategoryId.value) || null
 })
+
+const selectedCategoryChapters = computed(() => {
+  if (expandedCategoryId.value === null) return []
+  return chaptersMap.value[expandedCategoryId.value] || []
+})
+
+function getSectionsForChapter(chapterId: number): ISection[] {
+  return sectionsMap.value[chapterId] || []
+}
+
+// ==================== Helper Functions ====================
 
 function getStatusTagType(status: string): 'primary' | 'success' | 'info' | 'warning' | 'danger' {
   switch (status) {
     case '已上架': return 'success'
-    case '已下架': return 'info'
     case '草稿': return 'warning'
     default: return 'info'
   }
+}
+
+function handleCoverUpload(e: Event) {
+  const file = (e.target as HTMLInputElement).files?.[0]
+  if (file) sectionForm.coverImage = window.URL.createObjectURL(file)
 }
 
 function getDifficultyTagType(difficulty: string): 'primary' | 'success' | 'info' | 'warning' | 'danger' {
@@ -114,58 +149,113 @@ function getDifficultyTagType(difficulty: string): 'primary' | 'success' | 'info
   }
 }
 
-async function fetchData() {
-  tableLoading.value = true
+function formatDate(dateStr: string): string {
+  if (!dateStr) return ''
+  const d = new Date(dateStr)
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  const h = String(d.getHours()).padStart(2, '0')
+  const min = String(d.getMinutes()).padStart(2, '0')
+  return `${y}-${m}-${day} ${h}:${min}`
+}
+
+// ==================== Data Fetching ====================
+
+async function fetchCategories() {
   try {
-    const volRes = await knowledgeApi.getVolumes()
-    if (volRes.code === 0) {
-      volumeList.value = volRes.data as IVolume[]
-    }
-    const chRes = await knowledgeApi.getChapters()
-    if (chRes.code === 0) {
-      chapterList.value = chRes.data as IChapter[]
+    pageLoading.value = true
+    const res = await knowledgeApi.getCategories()
+    if (res.code === 0) {
+      categories.value = (res.data as ICategory[]).sort((a, b) => a.sortOrder - b.sortOrder)
     }
   } catch {
-    ElMessage.error('获取知识体系数据失败，请稍后重试')
+    ElMessage.error('获取大类列表失败，请稍后重试')
   } finally {
-    tableLoading.value = false
+    pageLoading.value = false
   }
 }
 
-function getChaptersByVolume(volumeId: number): IChapter[] {
-  return chapterList.value.filter((ch) => ch.volumeId === volumeId)
+async function fetchChapters(categoryId: number) {
+  try {
+    chaptersLoading.value = true
+    const res = await knowledgeApi.getChapters(categoryId)
+    if (res.code === 0) {
+      chaptersMap.value[categoryId] = (res.data as IChapter[]).sort((a, b) => a.sortOrder - b.sortOrder)
+    }
+  } catch {
+    ElMessage.error('获取章节列表失败，请稍后重试')
+  } finally {
+    chaptersLoading.value = false
+  }
 }
 
-// Volume CRUD
-function handleAddVolume() {
-  editingVolumeId = null
-  volumeDialogTitle.value = '新增篇章'
-  volumeForm.name = ''
-  volumeForm.sortOrder = volumeList.value.length + 1
-  volumeForm.status = '草稿'
-  volumeDialogVisible.value = true
+async function fetchSections(chapterId: number) {
+  try {
+    sectionsLoading.value = true
+    const res = await knowledgeApi.getSections(chapterId)
+    if (res.code === 0) {
+      sectionsMap.value[chapterId] = (res.data as ISection[]).sort((a, b) => a.sortOrder - b.sortOrder)
+    }
+  } catch {
+    ElMessage.error('获取小节列表失败，请稍后重试')
+  } finally {
+    sectionsLoading.value = false
+  }
 }
 
-function handleEditVolume(volume: IVolume) {
-  editingVolumeId = volume.id
-  volumeDialogTitle.value = '编辑篇章'
-  volumeForm.name = volume.name
-  volumeForm.sortOrder = volume.sortOrder
-  volumeForm.status = volume.status
-  volumeDialogVisible.value = true
+// ==================== Category Actions ====================
+
+function handleToggleCategory(categoryId: number) {
+  if (expandedCategoryId.value === categoryId) {
+    expandedCategoryId.value = null
+    expandedChapterIds.value.clear()
+    return
+  }
+  expandedCategoryId.value = categoryId
+  expandedChapterIds.value.clear()
+  if (!chaptersMap.value[categoryId]) {
+    fetchChapters(categoryId)
+  }
 }
 
-async function handleDeleteVolume(volume: IVolume) {
+function handleAddCategory() {
+  editingCategoryId = null
+  categoryDialogTitle.value = '新增大类'
+  categoryForm.name = ''
+  categoryForm.icon = '📁'
+  categoryForm.description = ''
+  categoryForm.sortOrder = categories.value.length + 1
+  categoryForm.status = '草稿'
+  categoryDialogVisible.value = true
+}
+
+function handleEditCategory(cat: ICategory) {
+  editingCategoryId = cat.id
+  categoryDialogTitle.value = '编辑大类'
+  categoryForm.name = cat.name
+  categoryForm.icon = cat.icon
+  categoryForm.description = cat.description
+  categoryForm.sortOrder = cat.sortOrder
+  categoryForm.status = cat.status
+  categoryDialogVisible.value = true
+}
+
+async function handleDeleteCategory(cat: ICategory) {
   try {
     await ElMessageBox.confirm(
-      `确定要删除篇章「${volume.name}」吗？删除后该篇章下的所有章节也将被删除，此操作不可恢复。`,
+      `确定要删除大类「${cat.name}」吗？删除后该大类下的所有章节和小节也将被删除，此操作不可恢复。`,
       '删除确认',
       { confirmButtonText: '确定删除', cancelButtonText: '取消', type: 'warning' }
     )
-    const res = await knowledgeApi.deleteVolume(volume.id)
+    const res = await knowledgeApi.deleteCategory(cat.id)
     if (res.code === 0) {
-      ElMessage.success('篇章删除成功')
-      await fetchData()
+      ElMessage.success('大类删除成功')
+      if (expandedCategoryId.value === cat.id) {
+        expandedCategoryId.value = null
+        expandedChapterIds.value.clear()
+      }
+      await fetchCategories()
     } else {
       ElMessage.error(res.message || '删除失败')
     }
@@ -174,27 +264,27 @@ async function handleDeleteVolume(volume: IVolume) {
   }
 }
 
-async function handleVolumeSubmit() {
-  const valid = await volumeFormRef.value?.validate().catch(() => false)
+async function handleCategorySubmit() {
+  const valid = await categoryFormRef.value?.validate().catch(() => false)
   if (!valid) return
 
   try {
-    const data = { ...volumeForm }
-    if (editingVolumeId !== null) {
-      const res = await knowledgeApi.updateVolume(editingVolumeId, data)
+    const data = { ...categoryForm }
+    if (editingCategoryId !== null) {
+      const res = await knowledgeApi.updateCategory(editingCategoryId, data)
       if (res.code === 0) {
-        ElMessage.success('篇章更新成功')
-        volumeDialogVisible.value = false
-        await fetchData()
+        ElMessage.success('大类更新成功')
+        categoryDialogVisible.value = false
+        await fetchCategories()
       } else {
         ElMessage.error(res.message || '更新失败')
       }
     } else {
-      const res = await knowledgeApi.createVolume(data)
+      const res = await knowledgeApi.createCategory(data)
       if (res.code === 0) {
-        ElMessage.success('篇章新增成功')
-        volumeDialogVisible.value = false
-        await fetchData()
+        ElMessage.success('大类新增成功')
+        categoryDialogVisible.value = false
+        await fetchCategories()
       } else {
         ElMessage.error(res.message || '新增失败')
       }
@@ -204,44 +294,55 @@ async function handleVolumeSubmit() {
   }
 }
 
-// Chapter CRUD
-function handleAddChapter(volume?: IVolume) {
+// ==================== Chapter Actions ====================
+
+function handleToggleChapter(chapterId: number) {
+  if (expandedChapterIds.value.has(chapterId)) {
+    expandedChapterIds.value.delete(chapterId)
+  } else {
+    expandedChapterIds.value.add(chapterId)
+    if (!sectionsMap.value[chapterId]) {
+      fetchSections(chapterId)
+    }
+  }
+  // trigger reactivity
+  expandedChapterIds.value = new Set(expandedChapterIds.value)
+}
+
+function handleAddChapter(cat?: ICategory) {
   editingChapterId = null
   chapterDialogTitle.value = '新增章节'
   chapterForm.name = ''
-  chapterForm.volumeId = volume ? volume.id : undefined
+  chapterForm.categoryId = cat ? cat.id : undefined
   chapterForm.sortOrder = 1
   chapterForm.difficulty = '入门'
-  chapterForm.needPoints = false
-  chapterForm.pointsRequired = 0
-  chapterForm.preChapterId = undefined
   chapterDialogVisible.value = true
 }
 
-function handleEditChapter(chapter: IChapter) {
-  editingChapterId = chapter.id
+function handleEditChapter(ch: IChapter) {
+  editingChapterId = ch.id
   chapterDialogTitle.value = '编辑章节'
-  chapterForm.name = chapter.name
-  chapterForm.volumeId = chapter.volumeId
-  chapterForm.sortOrder = chapter.sortOrder
-  chapterForm.difficulty = chapter.difficulty
-  chapterForm.needPoints = chapter.needPoints
-  chapterForm.pointsRequired = chapter.pointsRequired
-  chapterForm.preChapterId = chapter.preChapterId || undefined
+  chapterForm.name = ch.name
+  chapterForm.categoryId = ch.categoryId
+  chapterForm.sortOrder = ch.sortOrder
+  chapterForm.difficulty = ch.difficulty
   chapterDialogVisible.value = true
 }
 
-async function handleDeleteChapter(chapter: IChapter) {
+async function handleDeleteChapter(ch: IChapter) {
   try {
     await ElMessageBox.confirm(
-      `确定要删除章节「${chapter.name}」吗？此操作不可恢复。`,
+      `确定要删除章节「${ch.name}」吗？删除后该章节下的所有小节也将被删除，此操作不可恢复。`,
       '删除确认',
       { confirmButtonText: '确定删除', cancelButtonText: '取消', type: 'warning' }
     )
-    const res = await knowledgeApi.deleteChapter(chapter.id)
+    const res = await knowledgeApi.deleteChapter(ch.id)
     if (res.code === 0) {
       ElMessage.success('章节删除成功')
-      await fetchData()
+      if (expandedCategoryId.value === ch.categoryId) {
+        delete chaptersMap.value[ch.categoryId]
+        await fetchChapters(ch.categoryId)
+      }
     } else {
       ElMessage.error(res.message || '删除失败')
     }
@@ -254,12 +355,15 @@ async function handleChapterSubmit() {
   const valid = await chapterFormRef.value?.validate().catch(() => false)
   if (!valid) return
 
-  const volume = volumeList.value.find((v) => v.id === chapterForm.volumeId)
+  const cat = categories.value.find((c) => c.id === chapterForm.categoryId)
 
   try {
     const data = {
-      ...chapterForm,
-      volumeName: volume ? volume.name : '',
+      categoryId: chapterForm.categoryId!,
+      categoryName: cat ? cat.name : '',
+      name: chapterForm.name,
+      sortOrder: chapterForm.sortOrder,
+      difficulty: chapterForm.difficulty,
       status: '草稿'
     }
     if (editingChapterId !== null) {
@@ -267,7 +371,9 @@ async function handleChapterSubmit() {
       if (res.code === 0) {
         ElMessage.success('章节更新成功')
         chapterDialogVisible.value = false
-        await fetchData()
+        if (expandedCategoryId.value === chapterForm.categoryId) {
+          await fetchChapters(chapterForm.categoryId!)
+        }
       } else {
         ElMessage.error(res.message || '更新失败')
       }
@@ -276,7 +382,9 @@ async function handleChapterSubmit() {
       if (res.code === 0) {
         ElMessage.success('章节新增成功')
         chapterDialogVisible.value = false
-        await fetchData()
+        if (expandedCategoryId.value === chapterForm.categoryId) {
+          await fetchChapters(chapterForm.categoryId!)
+        }
       } else {
         ElMessage.error(res.message || '新增失败')
       }
@@ -286,156 +394,496 @@ async function handleChapterSubmit() {
   }
 }
 
+// ==================== Section Actions ====================
+
+function handleAddSection(ch?: IChapter) {
+  editingSectionId = null
+  sectionDialogTitle.value = '新增小节'
+  sectionForm.title = ''
+  sectionForm.chapterId = ch ? ch.id : undefined
+  sectionForm.sortOrder = 1
+  sectionForm.content = ''
+  sectionForm.coverImage = ''
+  sectionForm.summary = ''
+  sectionDialogVisible.value = true
+}
+
+function handleEditSection(sec: ISection) {
+  editingSectionId = sec.id
+  sectionDialogTitle.value = '编辑小节'
+  sectionForm.title = sec.title
+  sectionForm.chapterId = sec.chapterId
+  sectionForm.sortOrder = sec.sortOrder
+  sectionForm.content = sec.content
+  sectionForm.coverImage = sec.coverImage
+  sectionForm.summary = sec.summary
+  sectionDialogVisible.value = true
+}
+
+function handlePreviewSection(sec: ISection) {
+  previewSection.value = sec
+  previewDialogVisible.value = true
+}
+
+async function handleDeleteSection(sec: ISection) {
+  try {
+    await ElMessageBox.confirm(
+      `确定要删除小节「${sec.title}」吗？此操作不可恢复。`,
+      '删除确认',
+      { confirmButtonText: '确定删除', cancelButtonText: '取消', type: 'warning' }
+    )
+    const res = await knowledgeApi.deleteSection(sec.id)
+    if (res.code === 0) {
+      ElMessage.success('小节删除成功')
+      if (expandedChapterIds.value.has(sec.chapterId)) {
+        delete sectionsMap.value[sec.chapterId]
+        await fetchSections(sec.chapterId)
+      }
+    } else {
+      ElMessage.error(res.message || '删除失败')
+    }
+  } catch {
+    // user cancelled
+  }
+}
+
+async function handleSectionSubmit() {
+  const valid = await sectionFormRef.value?.validate().catch(() => false)
+  if (!valid) return
+
+  const ch = chaptersMap.value[sectionForm.chapterId!]?.find((c) => c.id === sectionForm.chapterId)
+    || allChapters.value.find((c) => c.id === sectionForm.chapterId)
+
+  try {
+    const data = {
+      chapterId: sectionForm.chapterId!,
+      chapterName: ch ? ch.name : '',
+      title: sectionForm.title,
+      sortOrder: sectionForm.sortOrder,
+      content: sectionForm.content,
+      coverImage: sectionForm.coverImage,
+      summary: sectionForm.summary,
+      status: '草稿'
+    }
+    if (editingSectionId !== null) {
+      const res = await knowledgeApi.updateSection(editingSectionId, data)
+      if (res.code === 0) {
+        ElMessage.success('小节更新成功')
+        sectionDialogVisible.value = false
+        if (expandedChapterIds.value.has(sectionForm.chapterId!)) {
+          await fetchSections(sectionForm.chapterId!)
+        }
+      } else {
+        ElMessage.error(res.message || '更新失败')
+      }
+    } else {
+      const res = await knowledgeApi.createSection(data)
+      if (res.code === 0) {
+        ElMessage.success('小节新增成功')
+        sectionDialogVisible.value = false
+        if (expandedChapterIds.value.has(sectionForm.chapterId!)) {
+          await fetchSections(sectionForm.chapterId!)
+        }
+      } else {
+        ElMessage.error(res.message || '新增失败')
+      }
+    }
+  } catch {
+    ElMessage.error('操作失败，请稍后重试')
+  }
+}
+
+// ==================== AI Generate ====================
+
+function handleOpenAIDialog() {
+  aiStep.value = 'input'
+  aiCategoryName.value = ''
+  aiCategoryDesc.value = ''
+  aiProgressText.value = ''
+  aiProgressPercent.value = 0
+  aiResult.value = null
+  aiExpandedChapterIds.value.clear()
+  aiDialogVisible.value = true
+}
+
+async function handleAIGenerate() {
+  if (!aiCategoryName.value.trim()) {
+    ElMessage.warning('请输入大类名称')
+    return
+  }
+
+  aiStep.value = 'generating'
+  aiProgressPercent.value = 0
+
+  const stages = [
+    { text: '正在分析知识领域...', percent: 25, delay: 2000 },
+    { text: '正在规划章节结构...', percent: 50, delay: 2000 },
+    { text: '正在生成章节内容...', percent: 75, delay: 3000 },
+    { text: '内容生成完毕！', percent: 100, delay: 1000 }
+  ]
+
+  try {
+    for (const stage of stages) {
+      aiProgressText.value = stage.text
+      aiProgressPercent.value = stage.percent
+      await new Promise((resolve) => setTimeout(resolve, stage.delay))
+    }
+
+    const res = await knowledgeApi.generateCategoryContent(aiCategoryName.value.trim())
+    if (res.code === 0) {
+      aiResult.value = res.data as { category: ICategory; chapters: IChapter[]; sections: ISection[] }
+      aiStep.value = 'result'
+    } else {
+      ElMessage.error(res.message || 'AI 生成失败')
+      aiStep.value = 'input'
+    }
+  } catch {
+    ElMessage.error('AI 生成失败，请稍后重试')
+    aiStep.value = 'input'
+  }
+}
+
+function handleAIToggleChapter(chapterId: number) {
+  if (aiExpandedChapterIds.value.has(chapterId)) {
+    aiExpandedChapterIds.value.delete(chapterId)
+  } else {
+    aiExpandedChapterIds.value.add(chapterId)
+  }
+  aiExpandedChapterIds.value = new Set(aiExpandedChapterIds.value)
+}
+
+async function handleAISaveAsDraft() {
+  if (!aiResult.value) return
+  try {
+    const { category, chapters, sections } = aiResult.value
+    const catRes = await knowledgeApi.createCategory({
+      name: category.name,
+      icon: category.icon,
+      description: category.description,
+      sortOrder: category.sortOrder,
+      status: '草稿'
+    })
+    if (catRes.code !== 0) {
+      ElMessage.error(catRes.message || '保存大类失败')
+      return
+    }
+    const savedCat = catRes.data as ICategory
+    for (const ch of chapters) {
+      const chRes = await knowledgeApi.createChapter({
+        categoryId: savedCat.id,
+        categoryName: savedCat.name,
+        name: ch.name,
+        sortOrder: ch.sortOrder,
+        difficulty: ch.difficulty,
+        status: '草稿'
+      })
+      if (chRes.code === 0) {
+        const savedCh = chRes.data as IChapter
+        const chSections = sections.filter((s) => s.chapterId === ch.id)
+        for (const sec of chSections) {
+          await knowledgeApi.createSection({
+            chapterId: savedCh.id,
+            chapterName: savedCh.name,
+            title: sec.title,
+            sortOrder: sec.sortOrder,
+            content: sec.content,
+            coverImage: sec.coverImage || '',
+            summary: sec.summary || '',
+            status: '草稿'
+          })
+        }
+      }
+    }
+    ElMessage.success('AI 生成内容已保存为草稿')
+    aiDialogVisible.value = false
+    await fetchCategories()
+  } catch {
+    ElMessage.error('保存失败，请稍后重试')
+  }
+}
+
+async function handleAIPublish() {
+  if (!aiResult.value) return
+
+  try {
+    await ElMessageBox.confirm(
+      '确定要直接发布 AI 生成的内容吗？发布后用户将立即可见。',
+      '发布确认',
+      { confirmButtonText: '确定发布', cancelButtonText: '取消', type: 'warning' }
+    )
+  } catch {
+    return
+  }
+
+  try {
+    const { category, chapters, sections } = aiResult.value
+    const catRes = await knowledgeApi.createCategory({
+      name: category.name,
+      icon: category.icon,
+      description: category.description,
+      sortOrder: category.sortOrder,
+      status: '已上架'
+    })
+    if (catRes.code !== 0) {
+      ElMessage.error(catRes.message || '发布大类失败')
+      return
+    }
+    const savedCat = catRes.data as ICategory
+    for (const ch of chapters) {
+      const chRes = await knowledgeApi.createChapter({
+        categoryId: savedCat.id,
+        categoryName: savedCat.name,
+        name: ch.name,
+        sortOrder: ch.sortOrder,
+        difficulty: ch.difficulty,
+        status: '已上架'
+      })
+      if (chRes.code === 0) {
+        const savedCh = chRes.data as IChapter
+        const chSections = sections.filter((s) => s.chapterId === ch.id)
+        for (const sec of chSections) {
+          await knowledgeApi.createSection({
+            chapterId: savedCh.id,
+            chapterName: savedCh.name,
+            title: sec.title,
+            sortOrder: sec.sortOrder,
+            content: sec.content,
+            coverImage: sec.coverImage || '',
+            summary: sec.summary || '',
+            status: '已上架'
+          })
+        }
+      }
+    }
+    ElMessage.success('AI 生成内容已发布')
+    aiDialogVisible.value = false
+    await fetchCategories()
+  } catch {
+    ElMessage.error('发布失败，请稍后重试')
+  }
+}
+
+function handleAIRegenerate() {
+  aiStep.value = 'input'
+  aiResult.value = null
+  aiExpandedChapterIds.value.clear()
+}
+
+// ==================== Lifecycle ====================
+
 onMounted(() => {
-  fetchData()
+  fetchCategories()
 })
 </script>
 
 <template>
-  <div class="knowledge-page">
+  <div class="knowledge">
     <!-- Breadcrumb -->
-    <el-breadcrumb class="knowledge-page__breadcrumb" separator="/">
+    <el-breadcrumb class="knowledge__breadcrumb" separator="/">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>内容管理</el-breadcrumb-item>
       <el-breadcrumb-item>知识体系</el-breadcrumb-item>
     </el-breadcrumb>
 
     <!-- Top Bar -->
-    <div class="knowledge-page__top-bar">
-      <h2 class="knowledge-page__title">知识体系管理</h2>
-      <div class="knowledge-page__top-actions">
-        <el-button type="primary" :icon="Plus" @click="handleAddVolume()">
-          新增篇章
+    <div class="knowledge__top-bar">
+      <h2 class="knowledge__title">知识体系管理</h2>
+      <div class="knowledge__top-actions">
+        <el-button type="primary" :icon="MagicStick" class="knowledge__btn-ai" @click="handleOpenAIDialog">
+          AI 生成大类
+        </el-button>
+        <el-button :icon="Plus" @click="handleAddCategory">
+          + 新增大类
         </el-button>
       </div>
     </div>
 
-    <!-- Tree Table -->
-    <div class="knowledge-page__table-card">
-      <el-table
-        v-loading="tableLoading"
-        :data="volumeList"
-        row-key="id"
-        class="knowledge-page__table"
-        default-expand-all
-        :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
-        empty-text="暂无知识体系数据"
-      >
-        <!-- Volume columns -->
-        <el-table-column prop="name" label="名称" min-width="240">
-          <template #default="{ row }: { row: IVolume }">
-            <div class="knowledge-page__volume-cell">
-              <span class="knowledge-page__volume-icon">&#9670;</span>
-              <span class="knowledge-page__volume-name">{{ row.name }}</span>
-            </div>
-          </template>
-        </el-table-column>
-
-        <el-table-column prop="sortOrder" label="排序序号" width="100" align="center" />
-
-        <el-table-column label="难度" width="100" align="center">
-          <template #default="{ row }: { row: IVolume }">
-            <span v-if="getChaptersByVolume(row.id).length" class="knowledge-page__difficulty-text">
-              {{ getChaptersByVolume(row.id)[0]?.difficulty || '-' }}
-            </span>
-            <span v-else class="knowledge-page__text-placeholder">-</span>
-          </template>
-        </el-table-column>
-
-        <el-table-column label="状态" width="100" align="center">
-          <template #default="{ row }: { row: IVolume }">
-            <el-tag :type="getStatusTagType(row.status)" size="small">
-              {{ row.status }}
-            </el-tag>
-          </template>
-        </el-table-column>
-
-        <el-table-column label="操作" width="200" align="center" fixed="right">
-          <template #default="{ row }: { row: IVolume }">
-            <div class="knowledge-page__actions">
-              <el-button link type="primary" size="small" @click="handleAddChapter(row)">
-                新增章节
-              </el-button>
-              <el-button link type="primary" size="small" :icon="Edit" @click="handleEditVolume(row)">
-                编辑
-              </el-button>
-              <el-button link type="danger" size="small" :icon="Delete" @click="handleDeleteVolume(row)">
-                删除
-              </el-button>
-            </div>
-          </template>
-        </el-table-column>
-      </el-table>
-
-      <!-- Chapters nested under volumes -->
-      <div class="knowledge-page__chapters">
-        <div
-          v-for="volume in volumeList"
-          :key="'ch-' + volume.id"
-        >
-          <div
-            v-for="chapter in getChaptersByVolume(volume.id)"
-            :key="chapter.id"
-            class="knowledge-page__chapter-row"
-          >
-            <div class="knowledge-page__chapter-name-cell">
-              <span class="knowledge-page__chapter-indent"></span>
-              <span class="knowledge-page__chapter-icon">&#8226;</span>
-              <span class="knowledge-page__chapter-name">{{ chapter.name }}</span>
-            </div>
-            <div class="knowledge-page__chapter-cell knowledge-page__chapter-cell--sort">
-              {{ chapter.sortOrder }}
-            </div>
-            <div class="knowledge-page__chapter-cell knowledge-page__chapter-cell--difficulty">
-              <el-tag :type="getDifficultyTagType(chapter.difficulty)" size="small">
-                {{ chapter.difficulty }}
-              </el-tag>
-            </div>
-            <div class="knowledge-page__chapter-cell knowledge-page__chapter-cell--status">
-              <el-tag :type="getStatusTagType(chapter.status)" size="small">
-                {{ chapter.status }}
-              </el-tag>
-            </div>
-            <div class="knowledge-page__chapter-cell knowledge-page__chapter-cell--actions">
-              <el-button link type="primary" size="small" :icon="Edit" @click="handleEditChapter(chapter)">
-                编辑
-              </el-button>
-              <el-button link type="danger" size="small" :icon="Delete" @click="handleDeleteChapter(chapter)">
-                删除
-              </el-button>
-            </div>
-          </div>
-          <div
-            v-if="getChaptersByVolume(volume.id).length === 0"
-            class="knowledge-page__chapter-empty"
-          >
-            <span class="knowledge-page__chapter-indent"></span>
-            <span class="knowledge-page__empty-hint">暂未添加章节，点击上方"新增章节"添加</span>
-          </div>
-        </div>
-      </div>
+    <!-- Empty State -->
+    <div v-if="!pageLoading && categories.length === 0" class="knowledge__empty">
+      <div class="knowledge__empty-icon">📚</div>
+      <p class="knowledge__empty-text">暂无知识体系数据，点击「+ 新增大类」开始创建</p>
     </div>
 
-    <!-- Volume Dialog -->
+    <!-- Category Grid -->
+    <div v-else v-loading="pageLoading" class="knowledge__grid">
+      <template v-for="cat in categories" :key="cat.id">
+        <div
+          class="knowledge__card"
+          :class="{ 'knowledge__card--expanded': expandedCategoryId === cat.id }"
+          @click="handleToggleCategory(cat.id)"
+        >
+          <div class="knowledge__card-body">
+            <div class="knowledge__card-icon">{{ cat.icon }}</div>
+            <div class="knowledge__card-info">
+              <div class="knowledge__card-name">{{ cat.name }}</div>
+              <div class="knowledge__card-desc">{{ cat.description }}</div>
+              <div class="knowledge__card-meta">
+                <span class="knowledge__card-badge">{{ cat.chapterCount }} 个章节</span>
+                <el-tag
+                  :type="getStatusTagType(cat.status)"
+                  size="small"
+                  class="knowledge__card-tag"
+                >
+                  {{ cat.status }}
+                </el-tag>
+              </div>
+            </div>
+          </div>
+          <div class="knowledge__card-actions" @click.stop>
+            <el-button link type="primary" size="small" :icon="Edit" @click="handleEditCategory(cat)">
+              编辑
+            </el-button>
+            <el-button link type="danger" size="small" :icon="Delete" @click="handleDeleteCategory(cat)">
+              删除
+            </el-button>
+          </div>
+        </div>
+
+        <!-- Expanded Category View -->
+        <div
+          v-if="expandedCategoryId === cat.id"
+          class="knowledge__expanded"
+        >
+          <div class="knowledge__expanded-header">
+            <span class="knowledge__expanded-title">{{ cat.name }} - 章节列表</span>
+            <el-button size="small" :icon="Plus" @click.stop="handleAddChapter(cat)">
+              新增章节
+            </el-button>
+          </div>
+
+          <div v-loading="chaptersLoading" class="knowledge__chapters">
+            <div v-if="selectedCategoryChapters.length === 0 && !chaptersLoading" class="knowledge__chapters-empty">
+              暂无章节，点击「新增章节」开始创建
+            </div>
+
+            <div
+              v-for="ch in selectedCategoryChapters"
+              :key="ch.id"
+              class="knowledge__chapter"
+            >
+              <div
+                class="knowledge__chapter-header"
+                @click="handleToggleChapter(ch.id)"
+              >
+                <div class="knowledge__chapter-main">
+                  <span class="knowledge__chapter-arrow">
+                    {{ expandedChapterIds.has(ch.id) ? '&#9660;' : '&#9654;' }}
+                  </span>
+                  <span class="knowledge__chapter-name">{{ ch.name }}</span>
+                  <el-tag :type="getDifficultyTagType(ch.difficulty)" size="small" class="knowledge__chapter-diff">
+                    {{ ch.difficulty }}
+                  </el-tag>
+                  <span class="knowledge__chapter-count">{{ ch.sectionCount }} 个小节</span>
+                </div>
+                <div class="knowledge__chapter-actions" @click.stop>
+                  <el-button size="small" :icon="Plus" @click="handleAddSection(ch)">
+                    新增小节
+                  </el-button>
+                  <el-button link type="primary" size="small" :icon="Edit" @click="handleEditChapter(ch)">
+                    编辑
+                  </el-button>
+                  <el-button link type="danger" size="small" :icon="Delete" @click="handleDeleteChapter(ch)">
+                    删除
+                  </el-button>
+                </div>
+              </div>
+
+              <!-- Section Cards -->
+              <div v-if="expandedChapterIds.has(ch.id)" class="knowledge__sections">
+                <div v-if="sectionsLoading" class="knowledge__sections-loading">
+                  加载小节中...
+                </div>
+                <div v-else-if="getSectionsForChapter(ch.id).length === 0" class="knowledge__sections-empty">
+                  暂无小节，点击「新增小节」开始创建
+                </div>
+                <div v-else class="knowledge__sections-list">
+                  <div
+                    v-for="sec in getSectionsForChapter(ch.id)"
+                    :key="sec.id"
+                    class="knowledge__section-card"
+                  >
+                    <div class="knowledge__section-cover">
+                      <img v-if="sec.coverImage" :src="sec.coverImage" :alt="sec.title" class="knowledge__section-img" />
+                      <div v-else class="knowledge__section-cover-placeholder">
+                        <span>📄</span>
+                      </div>
+                    </div>
+                    <div class="knowledge__section-body">
+                      <div class="knowledge__section-title">{{ sec.title }}</div>
+                      <div class="knowledge__section-summary">{{ sec.summary || '暂无摘要' }}</div>
+                      <div class="knowledge__section-meta">
+                        <el-tag
+                          :type="getStatusTagType(sec.status)"
+                          size="small"
+                        >
+                          {{ sec.status }}
+                        </el-tag>
+                        <span class="knowledge__section-date">{{ formatDate(sec.createdAt) }}</span>
+                      </div>
+                    </div>
+                    <div class="knowledge__section-actions">
+                      <el-button link type="primary" size="small" :icon="Edit" @click="handleEditSection(sec)">
+                        编辑
+                      </el-button>
+                      <el-button link type="primary" size="small" :icon="View" @click="handlePreviewSection(sec)">
+                        预览
+                      </el-button>
+                      <el-button link type="danger" size="small" :icon="Delete" @click="handleDeleteSection(sec)">
+                        删除
+                      </el-button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- ==================== Category Dialog ==================== -->
     <el-dialog
-      v-model="volumeDialogVisible"
-      :title="volumeDialogTitle"
+      v-model="categoryDialogVisible"
+      :title="categoryDialogTitle"
       width="480px"
       :close-on-click-modal="false"
     >
       <el-form
-        ref="volumeFormRef"
-        :model="volumeForm"
-        :rules="volumeDialogRules"
+        ref="categoryFormRef"
+        :model="categoryForm"
+        :rules="categoryDialogRules"
         label-width="90px"
         label-position="right"
       >
-        <el-form-item label="篇章名称" prop="name">
-          <el-input v-model="volumeForm.name" placeholder="请输入篇章名称" maxlength="50" />
+        <el-form-item label="名称" prop="name">
+          <el-input v-model="categoryForm.name" placeholder="请输入大类名称" maxlength="50" />
         </el-form-item>
-        <el-form-item label="排序序号" prop="sortOrder">
+        <el-form-item label="图标">
+          <div class="knowledge__emoji-grid">
+            <span
+              v-for="emoji in emojiOptions"
+              :key="emoji"
+              class="knowledge__emoji-item"
+              :class="{ 'knowledge__emoji-item--active': categoryForm.icon === emoji }"
+              @click="categoryForm.icon = emoji"
+            >
+              {{ emoji }}
+            </span>
+          </div>
+        </el-form-item>
+        <el-form-item label="描述">
+          <el-input
+            v-model="categoryForm.description"
+            type="textarea"
+            :rows="3"
+            placeholder="请输入大类描述"
+            maxlength="200"
+            show-word-limit
+          />
+        </el-form-item>
+        <el-form-item label="排序" prop="sortOrder">
           <el-input-number
-            v-model="volumeForm.sortOrder"
+            v-model="categoryForm.sortOrder"
             :min="1"
             :max="999"
             controls-position="right"
@@ -443,7 +891,7 @@ onMounted(() => {
         </el-form-item>
         <el-form-item label="状态">
           <el-switch
-            v-model="volumeForm.status"
+            v-model="categoryForm.status"
             active-value="已上架"
             inactive-value="草稿"
             active-text="已上架"
@@ -452,16 +900,16 @@ onMounted(() => {
         </el-form-item>
       </el-form>
       <template #footer>
-        <el-button @click="volumeDialogVisible = false">取消</el-button>
-        <el-button type="primary" @click="handleVolumeSubmit">确定</el-button>
+        <el-button @click="categoryDialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="handleCategorySubmit">确定</el-button>
       </template>
     </el-dialog>
 
-    <!-- Chapter Dialog -->
+    <!-- ==================== Chapter Dialog ==================== -->
     <el-dialog
       v-model="chapterDialogVisible"
       :title="chapterDialogTitle"
-      width="520px"
+      width="500px"
       :close-on-click-modal="false"
     >
       <el-form
@@ -471,20 +919,20 @@ onMounted(() => {
         label-width="90px"
         label-position="right"
       >
-        <el-form-item label="章节名称" prop="name">
+        <el-form-item label="名称" prop="name">
           <el-input v-model="chapterForm.name" placeholder="请输入章节名称" maxlength="50" />
         </el-form-item>
-        <el-form-item label="所属篇章" prop="volumeId">
-          <el-select v-model="chapterForm.volumeId" placeholder="请选择所属篇章" style="width: 100%">
+        <el-form-item label="所属大类" prop="categoryId">
+          <el-select v-model="chapterForm.categoryId" placeholder="请选择所属大类" style="width: 100%">
             <el-option
-              v-for="vol in volumeList"
-              :key="vol.id"
-              :label="vol.name"
-              :value="vol.id"
+              v-for="cat in categories"
+              :key="cat.id"
+              :label="cat.name"
+              :value="cat.id"
             />
           </el-select>
         </el-form-item>
-        <el-form-item label="排序序号" prop="sortOrder">
+        <el-form-item label="排序" prop="sortOrder">
           <el-input-number
             v-model="chapterForm.sortOrder"
             :min="1"
@@ -503,244 +951,84 @@ onMounted(() => {
             </el-radio-button>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="前置章节">
-          <el-select
-            v-model="chapterForm.preChapterId"
-            placeholder="请选择前置章节（可选）"
-            style="width: 100%"
-            clearable
-            :disabled="!chapterForm.volumeId"
-          >
-            <el-option
-              v-for="opt in chapterOptions"
-              :key="opt.value"
-              :label="opt.label"
-              :value="opt.value"
-            />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="积分解锁">
-          <el-switch v-model="chapterForm.needPoints" />
-        </el-form-item>
-        <el-form-item v-if="chapterForm.needPoints" label="所需积分">
-          <el-input-number
-            v-model="chapterForm.pointsRequired"
-            :min="0"
-            :max="99999"
-            controls-position="right"
-          />
-        </el-form-item>
       </el-form>
       <template #footer>
         <el-button @click="chapterDialogVisible = false">取消</el-button>
         <el-button type="primary" @click="handleChapterSubmit">确定</el-button>
       </template>
     </el-dialog>
-  </div>
-</template>
 
-<style scoped lang="scss">
-.knowledge-page {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  &__breadcrumb {
-    :deep(.el-breadcrumb__inner) {
-      color: var(--app-text-secondary);
-      font-size: 13px;
-
-      &.is-link {
-        color: var(--app-text-secondary);
-
-        &:hover {
-          color: var(--app-primary-color);
-        }
-      }
-    }
-
-    :deep(.el-breadcrumb__item:last-child .el-breadcrumb__inner) {
-      color: var(--app-text-primary);
-      font-weight: 500;
-    }
-  }
-
-  &__top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &__title {
-    font-family: var(--app-font-heading);
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--app-text-primary);
-    margin: 0;
-  }
-
-  &__top-actions {
-    display: flex;
-    gap: 12px;
-  }
-
-  &__table-card {
-    background: var(--app-bg-card);
-    border: 1px solid var(--app-border-color);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  &__table {
-    :deep(.el-table__header-wrapper) {
-      .el-table__cell {
-        background-color: #FDFBF7;
-        color: var(--app-text-secondary);
-        font-weight: 500;
-        font-size: 13px;
-        border-bottom: 1px solid var(--app-border-color);
-        padding: 12px 0;
-
-        &::before {
-          display: none;
-        }
-      }
-    }
-
-    :deep(.el-table__body-wrapper) {
-      .el-table__row {
-        &:hover > td {
-          background-color: #FDFBF7;
-        }
-      }
-
-      .el-table__cell {
-        border-bottom: 1px solid var(--app-border-light);
-        padding: 14px 0;
-      }
-    }
-
-    :deep(.el-table__empty-text) {
-      color: var(--app-text-secondary);
-    }
-  }
-
-  &__volume-cell {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-left: 4px;
-  }
-
-  &__volume-icon {
-    color: var(--app-primary-color);
-    font-size: 10px;
-  }
-
-  &__volume-name {
-    font-weight: 600;
-    color: var(--app-text-primary);
-    font-size: 14px;
-  }
-
-  &__difficulty-text {
-    color: var(--app-text-regular);
-    font-size: 13px;
-  }
-
-  &__text-placeholder {
-    color: var(--app-text-placeholder);
-  }
-
-  &__actions {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    justify-content: center;
-  }
-
-  // Chapters section
-  &__chapters {
-    border-top: none;
-  }
-
-  &__chapter-row {
-    display: flex;
-    align-items: center;
-    background-color: #FDFBF7;
-    border-bottom: 1px solid var(--app-border-light);
-    font-size: 13px;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background-color: #F8F4ED;
-    }
-
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-
-  &__chapter-name-cell {
-    flex: 1;
-    min-width: 240px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 16px;
-  }
-
-  &__chapter-indent {
-    width: 32px;
-    flex-shrink: 0;
-  }
-
-  &__chapter-icon {
-    color: var(--app-text-secondary);
-    font-size: 18px;
-    line-height: 1;
-  }
-
-  &__chapter-name {
-    color: var(--app-text-regular);
-  }
-
-  &__chapter-cell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 8px;
-
-    &--sort {
-      width: 100px;
-      color: var(--app-text-secondary);
-    }
-
-    &--difficulty {
-      width: 100px;
-    }
-
-    &--status {
-      width: 100px;
-    }
-
-    &--actions {
-      width: 200px;
-      gap: 4px;
-    }
-  }
-
-  &__chapter-empty {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    background-color: #FDFBF7;
-    border-bottom: 1px solid var(--app-border-light);
-  }
-
-  &__empty-hint {
-    color: var(--app-text-placeholder);
-    font-size: 13px;
-  }
-}
-</style>
+    <!-- ==================== Section Dialog ==================== -->
+    <el-dialog
+      v-model="sectionDialogVisible"
+      :title="sectionDialogTitle"
+      width="700px"
+      :close-on-click-modal="false"
+    >
+      <el-form
+        ref="sectionFormRef"
+        :model="sectionForm"
+        :rules="sectionDialogRules"
+        label-width="90px"
+        label-position="right"
+      >
+        <el-form-item label="标题" prop="title">
+          <el-input v-model="sectionForm.title" placeholder="请输入小节标题" maxlength="100" />
+        </el-form-item>
+        <el-form-item label="所属章节" prop="chapterId">
+          <el-select v-model="sectionForm.chapterId" placeholder="请选择所属章节" style="width: 100%">
+            <el-option
+              v-for="ch in allChapters"
+              :key="ch.id"
+              :label="`${ch.categoryName} / ${ch.name}`"
+              :value="ch.id"
+            />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="封面图">
+          <div class="knowledge__cover-upload">
+            <div v-if="sectionForm.coverImage" class="knowledge__cover-preview">
+              <img :src="sectionForm.coverImage" alt="封面图" class="knowledge__cover-img" />
+              <el-button
+                type="danger"
+                size="small"
+                circle
+                class="knowledge__cover-remove"
+                @click="sectionForm.coverImage = ''"
+              >
+                ✕
+              </el-button>
+            </div>
+            <div v-else class="knowledge__cover-placeholder">
+              <el-icon size="32"><Plus /></el-icon>
+              <span>点击上传封面图</span>
+              <input
+                type="file"
+                accept="image/*"
+                class="knowledge__cover-input"
+                @change="handleCoverUpload"
+              />
+            </div>
+          </div>
+        </el-form-item>
+        <el-form-item label="正文内容">
+          <el-input
+            v-model="sectionForm.content"
+            type="textarea"
+            :rows="10"
+            placeholder="请输入正文内容，支持 Markdown 格式"
+          />
+          <div class="knowledge__form-tip">支持 Markdown 格式</div>
+        </el-form-item>
+        <el-form-item label="排序" prop="sortOrder">
+          <el-input-number
+            v-model="sectionForm.sortOrder"
+            :min="1"
+            :max="999"
+            controls-position="right"
+          />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <el-button @click="sectionDialogVisible = false">取消</el-button>
+        <el-button type="primary

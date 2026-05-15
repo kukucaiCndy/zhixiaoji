@@ -5,14 +5,14 @@ import { ElMessage } from 'element-plus'
 import { ArrowLeft } from '@element-plus/icons-vue'
 import { cardApi, knowledgeApi } from '@/api/modules/content'
 
-interface IVolume {
+interface ICategory {
   id: number
   name: string
 }
 
 interface IChapter {
   id: number
-  volumeId: number
+  categoryId: number
   name: string
 }
 
@@ -86,21 +86,21 @@ function togglePanel(panel: IEditorPanel) {
 
 async function buildCascaderOptions() {
   try {
-    const volRes = await knowledgeApi.getVolumes()
-    if (volRes.code !== 0) return
+    const catRes = await knowledgeApi.getCategories()
+    if (catRes.code !== 0) return
 
-    const volumes = volRes.data as IVolume[]
+    const categories = catRes.data as ICategory[]
     const chRes = await knowledgeApi.getChapters()
     if (chRes.code !== 0) return
 
     const chapters = chRes.data as IChapter[]
 
-    cascaderOptions.value = volumes.map((vol) => {
-      const volChapters = chapters.filter((ch) => ch.volumeId === vol.id)
+    cascaderOptions.value = categories.map((cat) => {
+      const catChapters = chapters.filter((ch) => ch.categoryId === cat.id)
       return {
-        value: vol.id,
-        label: vol.name,
-        children: volChapters.map((ch) => ({
+        value: cat.id,
+        label: cat.name,
+        children: catChapters.map((ch) => ({
           value: ch.id,
           label: ch.name
         }))

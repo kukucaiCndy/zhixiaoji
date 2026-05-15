@@ -3,14 +3,54 @@ import { contentMock } from '@/mock/content'
 import { questionMock } from '@/mock/question'
 
 export const knowledgeApi = {
-  getVolumes: () => knowledgeMock.getVolumes(),
-  getChapters: (volumeId?: number) => knowledgeMock.getChapters(volumeId),
-  createVolume: (data: { name: string; sortOrder: number; status: string }) => knowledgeMock.createVolume(data),
-  updateVolume: (id: number, data: { name: string; sortOrder: number; status: string }) => knowledgeMock.updateVolume(id, data),
-  deleteVolume: (id: number) => knowledgeMock.deleteVolume(id),
-  createChapter: (data: Record<string, unknown>) => knowledgeMock.createChapter(data),
+  // ---- New API (three-level) ----
+
+  // Category (大类)
+  getCategories: () => knowledgeMock.getCategories(),
+  createCategory: (data: { name: string; icon: string; description: string; sortOrder: number; status: string }) =>
+    knowledgeMock.createCategory(data),
+  updateCategory: (id: number, data: Record<string, unknown>) => knowledgeMock.updateCategory(id, data),
+  deleteCategory: (id: number) => knowledgeMock.deleteCategory(id),
+
+  // Chapter (章节)
+  getChapters: (categoryId?: number) => knowledgeMock.getChapters(categoryId),
+  createChapter: (data: Record<string, unknown>) => knowledgeMock.createChapter(data as { categoryId: number; categoryName: string; name: string; sortOrder: number; difficulty: string; status: string }),
   updateChapter: (id: number, data: Record<string, unknown>) => knowledgeMock.updateChapter(id, data),
-  deleteChapter: (id: number) => knowledgeMock.deleteChapter(id)
+  deleteChapter: (id: number) => knowledgeMock.deleteChapter(id),
+
+  // Section (小节/知识卡片)
+  getSections: (chapterId?: number) => knowledgeMock.getSections(chapterId),
+  getSection: (id: number) => knowledgeMock.getSection(id),
+  createSection: (data: Record<string, unknown>) => knowledgeMock.createSection(data as { chapterId: number; chapterName: string; title: string; sortOrder: number; content: string; coverImage?: string; summary?: string; status: string }),
+  updateSection: (id: number, data: Record<string, unknown>) => knowledgeMock.updateSection(id, data),
+  deleteSection: (id: number) => knowledgeMock.deleteSection(id),
+
+  // AI generation
+  generateCategoryContent: (categoryName: string) => knowledgeMock.generateCategoryContent(categoryName),
+
+  // ---- Backward-compatible aliases (for existing pages not yet migrated) ----
+
+  /** @deprecated use getCategories() */
+  async getVolumes() {
+    const res = await knowledgeMock.getCategories()
+    if (res.code !== 0) return res
+    return { ...res, data: res.data }
+  },
+
+  /** @deprecated use createCategory() */
+  async createVolume(data: { name: string; sortOrder: number; status: string }) {
+    return knowledgeMock.createCategory({ ...data, icon: '📁', description: '' })
+  },
+
+  /** @deprecated use updateCategory() */
+  async updateVolume(id: number, data: Record<string, unknown>) {
+    return knowledgeMock.updateCategory(id, data)
+  },
+
+  /** @deprecated use deleteCategory() */
+  async deleteVolume(id: number) {
+    return knowledgeMock.deleteCategory(id)
+  }
 }
 
 export const cardApi = {
