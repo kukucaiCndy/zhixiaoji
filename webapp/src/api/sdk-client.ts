@@ -11,7 +11,8 @@ const api = createApiClient({
   storage: localStorageAdapter,
   onAuthError: () => {
     localStorage.removeItem('accessToken')
-    window.location.href = '/login'
+    sessionStorage.setItem('auth_expired', '1')
+    window.location.replace('/login')
   },
   enableLog: true
 })

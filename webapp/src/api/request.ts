@@ -33,8 +33,8 @@ instance.interceptors.response.use(
       const { status } = error.response
       if (status === 401) {
         localStorage.removeItem('accessToken')
-        window.location.href = '/login'
-        ElMessage.error('登录已过期，请重新登录')
+        sessionStorage.setItem('auth_expired', '1')
+        window.location.replace('/login')
       } else if (status === 403) {
         ElMessage.error('没有操作权限')
       } else if (status >= 500) {

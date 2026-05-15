@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { User, Lock } from '@element-plus/icons-vue'
@@ -9,6 +9,13 @@ import { useUserStore } from '@/store/user'
 
 const router = useRouter()
 const userStore = useUserStore()
+
+onMounted(() => {
+  if (sessionStorage.getItem('auth_expired') === '1') {
+    sessionStorage.removeItem('auth_expired')
+    ElMessage.warning('登录已过期，请重新登录')
+  }
+})
 
 const loginFormRef = ref()
 
