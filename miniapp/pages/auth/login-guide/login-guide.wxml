@@ -80,11 +80,11 @@
       </view>
     </view>
 
-    <!-- 登录按钮 -->
-    <view class="wechat-btn" bindtap="onWechatLogin">
+    <!-- 登录按钮 - 使用微信原生能力获取头像昵称 -->
+    <button class="wechat-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
       <text class="wx-icon">💬</text>
       <text class="wx-text">微信一键登录</text>
-    </view>
+    </button>
 
     <!-- 游客按钮 -->
     <view class="guest-btn-wrap">
@@ -99,6 +99,46 @@
       <text class="agreement-link" bindtap="onTapAgreement">用户协议</text>
       <text class="agreement-text">和</text>
       <text class="agreement-link" bindtap="onTapPrivacy">隐私政策</text>
+    </view>
+  </view>
+
+  <!-- 授权弹窗 - 使用微信原生头像昵称填写能力 -->
+  <view wx:if="{{showAuthModal}}" class="auth-modal">
+    <view class="auth-mask" bindtap="onCloseAuth"></view>
+    <view class="auth-content">
+      <view class="auth-header">
+        <text class="auth-title">完善个人信息</text>
+        <text class="auth-subtitle">授权获取微信头像和昵称</text>
+      </view>
+      
+      <!-- 头像选择 - 微信原生组件 -->
+      <view class="avatar-wrap">
+        <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onAvatarChange">
+          <image wx:if="{{avatarUrl}}" class="avatar-img" src="{{avatarUrl}}" mode="aspectFill"/>
+          <view wx:else class="avatar-placeholder">
+            <text class="avatar-icon">📷</text>
+            <text class="avatar-text">点击选择头像</text>
+          </view>
+        </button>
+      </view>
+
+      <!-- 昵称输入 - 微信原生组件 -->
+      <view class="nickname-wrap">
+        <text class="nickname-label">昵称</text>
+        <input 
+          type="nickname"
+          class="nickname-input"
+          placeholder="请输入昵称"
+          value="{{nickname}}"
+          bind:input="onNicknameInput"
+        />
+      </view>
+
+      <!-- 按钮 -->
+      <view class="auth-btns">
+        <button class="confirm-btn {{canConfirm ? 'active' : ''}}" bindtap="onConfirmAuth">确认</button>
+        <button class="skip-btn" bindtap="onSkipAuth">跳过</button>
+      </view>
     </view>
   </view>
 </view>

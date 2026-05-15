@@ -242,15 +242,28 @@
 }
 
 /* 微信登录按钮 */
-.wechat-btn {
+button.wechat-btn {
   width: 100%;
   height: 116rpx;
+  line-height: 116rpx;
   background: #07C160;
   border-radius: 48rpx;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24rpx;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+button.wechat-btn::after {
+  border: none;
+}
+
+button.wechat-btn[loading] {
+  opacity: 0.7;
 }
 
 .wx-icon {
@@ -317,4 +330,216 @@
   color: #4F46E5;
   line-height: 1.6;
   margin: 0 8rpx;
+}
+
+/* 授权弹窗 - 匹配APP渐变紫色设计风格 */
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(8rpx);
+}
+
+.auth-content {
+  position: relative;
+  width: 560rpx;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  border-radius: 24rpx;
+  padding: 40rpx 40rpx 32rpx;
+  z-index: 1001;
+  box-shadow: 0 24rpx 80rpx rgba(79, 70, 229, 0.2);
+  overflow: hidden;
+}
+
+/* 顶部装饰条 */
+.auth-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6rpx;
+  background: linear-gradient(90deg, #4F46E5 0%, #06B6D4 100%);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 32rpx;
+}
+
+.auth-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 8rpx;
+  font-family: "Microsoft YaHei";
+}
+
+.auth-subtitle {
+  display: block;
+  font-size: 26rpx;
+  color: #64748B;
+  font-family: "Microsoft YaHei";
+}
+
+/* 头像选择 - 完美圆形 */
+.avatar-wrap {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+  margin: 0 auto 32rpx;
+  padding: 4rpx;
+  box-sizing: border-box;
+  box-shadow: 0 8rpx 32rpx rgba(79, 70, 229, 0.3);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-btn {
+  width: 152rpx;
+  height: 152rpx;
+  border-radius: 50%;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.avatar-btn::after {
+  border: none;
+}
+
+.avatar-img {
+  width: 152rpx;
+  height: 152rpx;
+  border-radius: 50%;
+  border: 4rpx solid #fff;
+  box-sizing: border-box;
+  display: block;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 152rpx;
+  height: 152rpx;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-icon {
+  font-size: 48rpx;
+  margin-bottom: 4rpx;
+}
+
+.avatar-text {
+  font-size: 20rpx;
+  color: #94A3B8;
+}
+
+/* 昵称输入 */
+.nickname-wrap {
+  margin-bottom: 32rpx;
+}
+
+.nickname-label {
+  display: block;
+  font-size: 26rpx;
+  color: #1E293B;
+  margin-bottom: 12rpx;
+  font-weight: 500;
+  font-family: "Microsoft YaHei";
+}
+
+.nickname-input {
+  width: 100%;
+  height: 80rpx;
+  background: #F8FAFC;
+  border: 2rpx solid #E2E8F0;
+  border-radius: 12rpx;
+  padding: 0 24rpx;
+  font-size: 30rpx;
+  color: #1E293B;
+  box-sizing: border-box;
+}
+
+/* 按钮 - 横向排列 */
+.auth-btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.confirm-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #CBD5E1;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 600;
+  border-radius: 40rpx;
+  border: none;
+  font-family: "Microsoft YaHei";
+  transition: all 0.2s;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-btn.active {
+  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+  box-shadow: 0 4rpx 20rpx rgba(79, 70, 229, 0.4);
+}
+
+.confirm-btn::after {
+  border: none;
+}
+
+.skip-btn {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #F1F5F9;
+  color: #64748B;
+  font-size: 30rpx;
+  border: none;
+  font-family: "Microsoft YaHei";
+  border-radius: 40rpx;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skip-btn::after {
+  border: none;
 }

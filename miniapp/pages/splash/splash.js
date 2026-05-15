@@ -1,4 +1,4 @@
-var STORAGE_KEYS = require('../utils/constants').STORAGE_KEYS;
+var STORAGE_KEYS = require('../../utils/constants').STORAGE_KEYS;
 
 Page({
   data: {

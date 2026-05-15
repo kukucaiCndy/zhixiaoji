@@ -14,26 +14,35 @@
 
 ## 技术栈
 
-- 前端框架：待定（Vue 3 / React 18 选型中）
-- UI 组件库：待定
-- 构建工具：待定
+| 技术领域 | 选型 |
+|---------|------|
+| 核心框架 | Vue 3 (Composition API) |
+| 构建工具 | Vite 5 |
+| UI 组件库 | Element Plus 4.x |
+| 状态管理 | Pinia 3.x |
+| 路由 | Vue Router 4.x |
+| HTTP 客户端 | axios |
+| 图表库 | ECharts 5 |
+| 富文本编辑器 | Tiptap 2.x |
+| 拖拽库 | vuedraggable 4.x |
+| CSS 预处理 | SCSS |
+| 代码规范 | ESLint + Prettier |
+| 包管理 | pnpm |
 
 ## 当前状态
 
-🔴 **项目初始化阶段** —— 尚未开始编码
+🟢 **M0 已完成** — 技术方案设计、代码开发规范已输出，准备进入编码阶段
 
-## 文档
+## 文档索引
 
-| 文档 | 说明 |
-|------|------|
-| [project.md](project.md) | 项目总览、开发里程碑、强制开发要求 |
-| [doc/PRD.md](doc/PRD.md) | 小程序产品需求文档 |
-| [doc/Admin-PRD.md](doc/Admin-PRD.md) | 管理后台产品需求文档 |
-| [doc/交互设计文档.md](doc/交互设计文档.md) | 管理后台交互设计规格说明 |
-
-## 开发要求
-
-详细的开发规范和强制要求请参见 [project.md](project.md) 中的「强制开发要求」章节。
+| 文档 | 路径 | 说明 |
+|------|------|------|
+| 项目总览 | [.trae/rules/project.md](.trae/rules/project.md) | 项目概述、里程碑、强制开发要求 |
+| 代码开发规范 | [.trae/rules/code_rule.md](.trae/rules/code_rule.md) | Vue 3 + TypeScript 编码规范 |
+| 小程序 PRD | [doc/PRD.md](doc/PRD.md) | 小程序产品需求文档 |
+| 管理后台 PRD | [doc/Admin-PRD.md](doc/Admin-PRD.md) | 管理后台产品需求文档 |
+| 交互设计文档 | [doc/交互设计文档.md](doc/交互设计文档.md) | 管理后台交互设计规格说明 |
+| 技术方案设计 | [doc/技术方案设计文档.md](doc/技术方案设计文档.md) | 技术选型、架构设计、AI 工作流方案 |
 
 ## 关联项目
 
@@ -41,4 +50,4 @@
 
 ---
 
-> 创建日期：2026-05-04
+> 创建日期：2026-05-04 | 更新日期：2026-05-06

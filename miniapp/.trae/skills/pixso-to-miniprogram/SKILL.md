@@ -21,11 +21,10 @@ description: "Converts Pixso design稿 to WeChat Mini Program code (WXML+WXSS+JS
 ## 流程总览
 
 ```
-① 获取数据 → ② 下载保存 → ③ 一阶段WXML → ④ 二阶段WXSS → ⑤ 走查
-   同时调用      立即下载      对照body编写      从CSS反查      对照清单验证
-   d2c + dsl      到本地的     只关心"有哪些      精确还原每
-                 design-code.  元素和文字"     个视觉属性
-                 html
+① 获取数据 → ② 提取信息 → ③ 一阶段WXML → ④ 二阶段WXSS → ⑤ 对接组件 → ⑥ 走查验证
+   d2c+dsl      grep+top      对照body        从CSS反查      TabBar/交互    三步核对
+   同时调用     归属关系图     只关心结构       精确还原属性    绑定事件      逐区域+逐样式
+                                                                           +截图对照
 ```
 
 ---
