@@ -6,7 +6,7 @@ import { Search, RefreshRight, Download, View } from '@element-plus/icons-vue'
 import { userApi } from '@/api/modules/user'
 
 interface IUserItem {
-  id: number
+  id: number | string
   nickname: string
   avatar: string
   level: number
@@ -26,7 +26,7 @@ const tableLoading = ref(false)
 const total = ref(0)
 const page = ref(1)
 const pageSize = ref(20)
-const selectedIds = ref<number[]>([])
+const selectedIds = ref<(number | string)[]>([])
 
 const searchUserId = ref('')
 const searchNickname = ref('')
@@ -51,6 +51,19 @@ function getLevelBadgeClass(level: number): string {
 
 function getStatusTagType(status: string) {
   return status === '正常' ? 'success' : 'danger'
+}
+
+function formatId(id: number | string): string {
+  if (typeof id === 'number') return String(id)
+  return id.slice(-8)
+}
+
+function formatTime(time: string): string {
+  if (!time) return '-'
+  const d = new Date(time)
+  if (isNaN(d.getTime())) return time.slice(0, 10)
+  const pad = (n: number) => String(n).padStart(2, '0')
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
 }
 
 async function fetchUsers() {
@@ -347,7 +360,11 @@ onMounted(() => {
       >
         <el-table-column type="selection" width="50" />
 
-        <el-table-column prop="id" label="用户ID" width="90" align="center" />
+        <el-table-column label="用户ID" width="100" align="center">
+          <template #default="{ row }: { row: IUserItem }">
+            <span :title="String(row.id)">{{ formatId(row.id) }}</span>
+          </template>
+        </el-table-column>
 
         <el-table-column label="头像" width="70" align="center">
           <template #default="{ row }: { row: IUserItem }">
@@ -361,11 +378,15 @@ onMounted(() => {
 
         <el-table-column prop="nickname" label="昵称" min-width="130" show-overflow-tooltip />
 
-        <el-table-column prop="registerTime" label="注册时间" width="120" align="center" />
+        <el-table-column label="注册时间" width="150" align="center">
+          <template #default="{ row }: { row: IUserItem }">
+            {{ formatTime(row.registerTime) }}
+          </template>
+        </el-table-column>
 
         <el-table-column label="最后活跃时间" width="150" align="center">
           <template #default="{ row }: { row: IUserItem }">
-            {{ row.lastActiveTime }}
+            {{ formatTime(row.lastActiveTime) }}
           </template>
         </el-table-column>
 
