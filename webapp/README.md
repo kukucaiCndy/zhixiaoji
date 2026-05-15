@@ -2,52 +2,28 @@
 
 > 知晓记小程序的 Web 端运营管理后台
 
-## 项目简介
-
-本项目是「知晓记」微信小程序的运营管理后台，为运营人员提供：
-
-- **数据看板**：实时监控用户增长、活跃度、内容消费等核心指标
-- **内容管理**：知识体系的构建、知识卡片与题目的创建编辑、AI 内容生成
-- **用户管理**：用户列表与详情、笔记审核、学习记录追踪
-- **运营管理**：广告位配置、页面装饰、积分规则、文具系统、等级体系等
-- **系统配置**：账号管理、复习规则、操作日志审计
-
 ## 技术栈
 
-| 技术领域 | 选型 |
-|---------|------|
-| 核心框架 | Vue 3 (Composition API) |
-| 构建工具 | Vite 5 |
-| UI 组件库 | Element Plus 4.x |
-| 状态管理 | Pinia 3.x |
-| 路由 | Vue Router 4.x |
-| HTTP 客户端 | axios |
-| 图表库 | ECharts 5 |
-| 富文本编辑器 | Tiptap 2.x |
-| 拖拽库 | vuedraggable 4.x |
-| CSS 预处理 | SCSS |
-| 代码规范 | ESLint + Prettier |
-| 包管理 | pnpm |
+Vue 3 + TypeScript + Vite + Element Plus + Pinia + ECharts + SCSS
 
 ## 当前状态
 
-🟢 **M0 已完成** — 技术方案设计、代码开发规范已输出，准备进入编码阶段
+🟢 M1-M6 页面开发完成 | 🔴 待联调测试
+
+## 快速启动
+
+```bash
+./scripts/webapp-manager.sh start   # 开发服务器 http://localhost:3000
+./scripts/webapp-manager.sh debug   # Chrome + DevTools 调试
+./scripts/build.sh build            # 编译构建
+```
 
 ## 文档索引
 
-| 文档 | 路径 | 说明 |
-|------|------|------|
-| 项目总览 | [.trae/rules/project.md](.trae/rules/project.md) | 项目概述、里程碑、强制开发要求 |
-| 代码开发规范 | [.trae/rules/code_rule.md](.trae/rules/code_rule.md) | Vue 3 + TypeScript 编码规范 |
-| 小程序 PRD | [doc/PRD.md](doc/PRD.md) | 小程序产品需求文档 |
-| 管理后台 PRD | [doc/Admin-PRD.md](doc/Admin-PRD.md) | 管理后台产品需求文档 |
-| 交互设计文档 | [doc/交互设计文档.md](doc/交互设计文档.md) | 管理后台交互设计规格说明 |
-| 技术方案设计 | [doc/技术方案设计文档.md](doc/技术方案设计文档.md) | 技术选型、架构设计、AI 工作流方案 |
-
-## 关联项目
-
-- **知晓记小程序** —— 面向终端用户的微信小程序
-
----
-
-> 创建日期：2026-05-04 | 更新日期：2026-05-06
+| 文档 | 路径 |
+|------|------|
+| 项目总览 | [.trae/rules/project.md](.trae/rules/project.md) |
+| 代码规范 | [.trae/rules/code_rule.md](.trae/rules/code_rule.md) |
+| 管理后台 PRD | [doc/Admin-PRD.md](doc/Admin-PRD.md) |
+| 交互设计 | [doc/交互设计文档.md](doc/交互设计文档.md) |
+| 技术方案 | [doc/技术方案设计文档.md](doc/技术方案设计文档.md) |
