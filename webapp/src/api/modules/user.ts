@@ -50,7 +50,7 @@ export const userApi = {
     }
   },
 
-  getUserDetail: (id: number) => userMock.getUserDetail(id),
+  getUserDetail: (id: number | string) => userMock.getUserDetail(Number(id)),
 
   async updateUserStatus(id: number | string, status: string) {
     try {
@@ -63,7 +63,7 @@ export const userApi = {
   },
 
   batchUpdateStatus: (ids: (number | string)[], status: string) => userMock.batchUpdateStatus(ids as number[], status),
-  adjustPoints: (data: { userId: number; type: string; amount: number; reason: string }) => userMock.adjustPoints(data)
+  adjustPoints: (data: { userId: number | string; type: string; amount: number; reason: string }) => userMock.adjustPoints(data as { userId: number; type: string; amount: number; reason: string }),
 }
 
 export const noteApi = {

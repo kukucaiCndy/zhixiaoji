@@ -6,7 +6,7 @@ import { ArrowLeft, Coin, WarningFilled } from '@element-plus/icons-vue'
 import { userApi } from '@/api/modules/user'
 
 interface IUserDetail {
-  id: number
+  id: number | string
   nickname: string
   avatar: string
   level: number
@@ -63,7 +63,7 @@ interface ILevelRecord {
 const router = useRouter()
 const route = useRoute()
 
-const userId = Number(route.params.id)
+const userId: number | string = /^\d+$/.test(route.params.id as string) ? Number(route.params.id) : route.params.id as string
 
 const userDetail = ref<IUserDetail | null>(null)
 const detailLoading = ref(false)
@@ -117,8 +117,21 @@ async function fetchUserDetail() {
     if (res.code === 0) {
       userDetail.value = res.data as IUserDetail
     } else {
-      ElMessage.error(res.message || '获取用户详情失败')
-      router.back()
+      const routeState = (history.state as Record<string, unknown> | null)?.user as IUserDetail | undefined
+      if (routeState) {
+        userDetail.value = {
+          ...routeState,
+          studyDays: 0,
+          totalAnswers: 0,
+          correctRate: 0,
+          streakDays: 0,
+          inviteCount: 0,
+          deviceInfo: ''
+        }
+      } else {
+        ElMessage.error(res.message || '获取用户详情失败')
+        router.back()
+      }
     }
   } catch {
     ElMessage.error('获取用户详情失败，请稍后重试')

@@ -136,11 +136,11 @@ function handleSelectionChange(selection: IUserItem[]) {
 }
 
 function handleViewDetail(row: IUserItem) {
-  router.push(`/user/${row.id}/detail`)
+  router.push({ path: `/user/${row.id}/detail`, state: { user: JSON.parse(JSON.stringify(row)) } })
 }
 
 function handleRowClick(row: IUserItem) {
-  router.push(`/user/${row.id}/detail`)
+  router.push({ path: `/user/${row.id}/detail`, state: { user: JSON.parse(JSON.stringify(row)) } })
 }
 
 async function handleDisableUser(row: IUserItem) {
