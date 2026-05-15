@@ -1,40 +1,39 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 
-interface IUserInfo {
-  id: number
-  nickname: string
-  avatar: string
+interface IAdminInfo {
+  id: string
+  username: string
   role: string
+  createdAt: string
 }
 
 export const useUserStore = defineStore('user', () => {
   const token = ref<string>('')
-  const userInfo = ref<IUserInfo | null>(null)
+  const adminInfo = ref<IAdminInfo | null>(null)
 
   const isLoggedIn = computed(() => !!token.value)
 
   function setToken(val: string) {
     token.value = val
-    localStorage.setItem('token', val)
   }
 
   function loadToken() {
-    const saved = localStorage.getItem('token')
+    const saved = localStorage.getItem('accessToken')
     if (saved) token.value = saved
   }
 
-  function setUserInfo(info: IUserInfo) {
-    userInfo.value = info
+  function setAdminInfo(info: IAdminInfo) {
+    adminInfo.value = info
   }
 
   function logout() {
     token.value = ''
-    userInfo.value = null
-    localStorage.removeItem('token')
+    adminInfo.value = null
+    localStorage.removeItem('accessToken')
   }
 
   loadToken()
 
-  return { token, userInfo, isLoggedIn, setToken, setUserInfo, logout, loadToken }
+  return { token, adminInfo, isLoggedIn, setToken, setAdminInfo, logout, loadToken }
 })

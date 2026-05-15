@@ -252,7 +252,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, _from, next) => {
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem('accessToken')
   if (!to.meta.noAuth && !token) {
     next('/login')
   } else if (to.path === '/login' && token) {

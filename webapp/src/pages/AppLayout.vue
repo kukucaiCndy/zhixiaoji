@@ -101,7 +101,7 @@ function handleLogout() {
         <el-dropdown trigger="click">
           <div class="app-layout__user">
             <el-avatar :size="32" icon="UserFilled" />
-            <span class="app-layout__username">{{ userStore.userInfo?.nickname || 'Admin' }}</span>
+            <span class="app-layout__username">{{ userStore.adminInfo?.username || 'Admin' }}</span>
           </div>
           <template #dropdown>
             <el-dropdown-menu>

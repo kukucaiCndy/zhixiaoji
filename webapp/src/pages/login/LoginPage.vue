@@ -3,7 +3,8 @@ import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { User, Lock } from '@element-plus/icons-vue'
-import { authApi } from '@/api/modules/auth'
+import { authSdk } from '@/api/modules/auth'
+import { setToken } from '@/api/sdk-client'
 import { useUserStore } from '@/store/user'
 
 const router = useRouter()
@@ -23,27 +24,23 @@ const loginRules = {
 
 const loading = ref(false)
 
-interface ILoginResult {
-  token: string
-  userInfo: {
-    id: number
-    nickname: string
-    avatar: string
-    role: string
-  }
-}
-
 async function handleLogin() {
   const valid = await loginFormRef.value?.validate().catch(() => false)
   if (!valid) return
 
   loading.value = true
   try {
-    const res = await authApi.login(form)
-    if (res.code === 0) {
-      const data = res.data as ILoginResult
-      userStore.setToken(data.token)
-      userStore.setUserInfo(data.userInfo)
+    const res = await authSdk.login(form)
+    if (res.code === 0 && res.data) {
+      const data = res.data
+      setToken(data.accessToken)
+      userStore.setToken(data.accessToken)
+      userStore.setAdminInfo({
+        id: data.admin.id,
+        username: data.admin.username,
+        role: data.admin.role,
+        createdAt: data.admin.createdAt
+      })
       ElMessage.success('登录成功')
       router.push('/dashboard')
     } else {
@@ -60,17 +57,17 @@ async function handleLogin() {
 <template>
   <div class="login-page">
     <div class="login-page__card">
-      <div class="login-page__header">
+      <div class="login-page__logo">
         <span class="login-page__logo-icon">📖</span>
-        <h1 class="login-page__title">知晓记管理后台</h1>
-        <p class="login-page__subtitle">运营内容管理平台</p>
+        <span class="login-page__logo-text">知晓记管理后台</span>
       </div>
+      <p class="login-page__desc">运营内容管理平台</p>
 
       <el-form
         ref="loginFormRef"
         :model="form"
         :rules="loginRules"
-        class="login-page__form"
+        label-position="top"
         @keyup.enter="handleLogin"
       >
         <el-form-item prop="username">
@@ -81,7 +78,6 @@ async function handleLogin() {
             size="large"
           />
         </el-form-item>
-
         <el-form-item prop="password">
           <el-input
             v-model="form.password"
@@ -92,23 +88,18 @@ async function handleLogin() {
             show-password
           />
         </el-form-item>
-
-        <el-form-item>
-          <el-button
-            type="primary"
-            size="large"
-            :loading="loading"
-            class="login-page__submit-btn"
-            @click="handleLogin"
-          >
-            {{ loading ? '登录中...' : '登 录' }}
-          </el-button>
-        </el-form-item>
+        <el-button
+          type="primary"
+          size="large"
+          :loading="loading"
+          class="login-page__btn"
+          @click="handleLogin"
+        >
+          登 录
+        </el-button>
       </el-form>
 
-      <p class="login-page__hint">
-        初始账号：admin / admin123
-      </p>
+      <p class="login-page__hint">仅限授权运营人员登录</p>
     </div>
   </div>
 </template>
@@ -119,87 +110,57 @@ async function handleLogin() {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #FAF7F2;
+  background-color: var(--app-bg-color);
 
   &__card {
     width: 420px;
-    padding: 48px 40px 40px;
+    padding: 48px;
     background-color: #fff;
-    border: 1px solid #E8DED0;
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--app-border-color);
   }
 
-  &__header {
-    text-align: center;
-    margin-bottom: 36px;
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
   }
 
   &__logo-icon {
-    font-size: 40px;
-    display: block;
-    margin-bottom: 12px;
+    font-size: 32px;
+    color: var(--app-primary-color);
   }
 
-  &__title {
+  &__logo-text {
     font-family: var(--app-font-heading);
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 600;
     color: var(--app-text-primary);
-    margin: 0 0 8px 0;
   }
 
-  &__subtitle {
-    font-family: var(--app-font-body);
+  &__desc {
+    text-align: center;
     font-size: 14px;
     color: var(--app-text-secondary);
-    margin: 0;
+    margin-bottom: 32px;
   }
 
-  &__form {
-    :deep(.el-input__wrapper) {
-      background-color: #F5F0EB;
-      box-shadow: none;
-      border: 1px solid #E8DED0;
-      border-radius: 10px;
-
-      &:hover,
-      &.is-focus {
-        border-color: #D4916E;
-        box-shadow: 0 0 0 1px rgba(212, 145, 110, 0.2);
-      }
-    }
-
-    :deep(.el-form-item__error) {
-      padding-top: 2px;
-    }
-  }
-
-  &__submit-btn {
+  &__btn {
     width: 100%;
-    height: 44px;
-    font-size: 15px;
-    border-radius: 10px;
-    background-color: #D4916E;
-    border-color: #D4916E;
-
-    &:hover,
-    &:focus {
-      background-color: #C47A55;
-      border-color: #C47A55;
-    }
-
-    &:active {
-      background-color: #B36A48;
-      border-color: #B36A48;
-    }
+    margin-top: 8px;
+    --el-button-bg-color: var(--app-primary-color);
+    --el-button-border-color: var(--app-primary-color);
+    --el-button-hover-bg-color: #c0805e;
+    --el-button-hover-border-color: #c0805e;
   }
 
   &__hint {
     text-align: center;
+    margin-top: 24px;
     font-size: 12px;
-    color: var(--app-text-placeholder);
-    margin: 0;
+    color: var(--app-text-secondary);
   }
 }
 </style>
