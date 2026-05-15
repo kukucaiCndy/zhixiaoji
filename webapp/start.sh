@@ -1,132 +1,83 @@
 #!/bin/bash
 # ============================================
-# 知晓记管理后台 - 自动编译与启动脚本
+# 知晓记管理后台 - 快速启动入口
 # ============================================
+# 本脚本为便捷入口，实际逻辑委托到 scripts/ 下
+#
 # 用法:
-#   ./start.sh dev      启动开发服务器（默认，热更新）
-#   ./start.sh build    生产构建 + 预览
-#   ./start.sh check    仅类型检查
-#   ./start.sh help     显示帮助
+#   ./start.sh             启动开发服务器
+#   ./start.sh build       编译构建
+#   ./start.sh restart     重启开发服务器
+#   ./start.sh status      查看服务状态
+#   ./start.sh logs        查看实时日志
+#   ./start.sh debug       启动调试模式
+#   ./start.sh help        显示帮助
 # ============================================
 
 set -e
-
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$PROJECT_DIR"
 
-MODE="${1:-dev}"
-
-print_banner() {
-  echo ""
-  echo "  ╔════════════════════════════════════╗"
-  echo "  ║     知晓记管理后台                  ║"
-  echo "  ║     zhixiaoji-admin v1.0.0         ║"
-  echo "  ╚════════════════════════════════════╝"
-  echo ""
-}
-
-check_node() {
-  if ! command -v node &>/dev/null; then
-    echo "❌ 未找到 Node.js，请先安装 Node.js"
-    exit 1
-  fi
-  echo "   Node.js: $(node --version)"
-  echo "   npm:     $(npm --version)"
-}
-
-install_deps() {
-  if [ ! -d "node_modules" ]; then
-    echo ""
-    echo "📦 检测到依赖未安装，正在安装..."
-    npm install
-    echo "✅ 依赖安装完成"
-  fi
-}
-
-run_typecheck() {
-  echo ""
-  echo "🔍 TypeScript 类型检查..."
-  npx vue-tsc --noEmit
-  echo "✅ 类型检查通过"
-}
-
-run_dev() {
-  print_banner
-  check_node
-  install_deps
-  echo ""
-  echo "🚀 启动开发服务器 (http://localhost:3000)..."
-  echo "   按 Ctrl+C 停止服务器"
-  echo ""
-  npx vite --host 0.0.0.0
-}
-
-run_build() {
-  print_banner
-  check_node
-  install_deps
-  echo ""
-  echo "🔍 TypeScript 类型检查..."
-  npx vue-tsc --noEmit
-  echo ""
-  echo "📦 生产构建..."
-  npx vite build
-  echo ""
-  echo "✅ 构建完成！产出目录: dist/"
-  echo ""
-  echo "🚀 启动预览服务器 (http://localhost:4173)..."
-  echo "   按 Ctrl+C 停止服务器"
-  echo ""
-  npx vite preview --host 0.0.0.0
-}
-
-run_check() {
-  print_banner
-  check_node
-  install_deps
-  echo ""
-  echo "🔍 TypeScript 类型检查..."
-  npx vue-tsc --noEmit
-  echo ""
-  echo "📦 生产构建验证..."
-  npx vite build
-  echo ""
-  echo "✅ 全部检查通过！"
-}
+SCRIPTS_DIR="$PROJECT_DIR/scripts"
+MODE="${1:-start}"
 
 show_help() {
-  echo "知晓记管理后台 - 启动脚本"
+  echo "知晓记管理后台 - 快速启动"
   echo ""
-  echo "用法: ./start.sh [模式]"
+  echo "用法: ./start.sh [命令]"
   echo ""
-  echo "可用模式:"
-  echo "  dev      启动开发服务器（默认，热更新）"
-  echo "  build    类型检查 + 生产构建 + 预览"
-  echo "  check    类型检查 + 构建验证（不启动服务）"
-  echo "  help     显示此帮助信息"
+  echo "开发命令:"
+  echo "  (默认)    启动开发服务器"
+  echo "  start     同默认，启动开发服务器"
+  echo "  restart   重启开发服务器"
+  echo "  stop      停止开发服务器"
+  echo "  status    查看服务状态"
+  echo "  logs      查看实时日志"
+  echo "  debug     启动调试模式（Chrome + DevTools + CDP）"
   echo ""
-  echo "示例:"
-  echo "  ./start.sh          # 启动开发服务器"
-  echo "  ./start.sh dev      # 同上"
-  echo "  ./start.sh build    # 生产构建并预览"
-  echo "  ./start.sh check    # 仅验证编译"
+  echo "编译命令:"
+  echo "  build     类型检查 + 生产构建"
+  echo "  check     类型检查 + 构建验证"
+  echo ""
+  echo "常用: ./start.sh          # 启动开发服务器"
+  echo "      ./start.sh debug    # 启动调试模式"
+  echo ""
+  echo "详细脚本请见 scripts/ 目录"
 }
 
 case "$MODE" in
-  dev)
-    run_dev
+  start|dev)
+    bash "$SCRIPTS_DIR/webapp-manager.sh" start
+    ;;
+  stop)
+    bash "$SCRIPTS_DIR/webapp-manager.sh" stop
+    ;;
+  restart)
+    bash "$SCRIPTS_DIR/webapp-manager.sh" restart
+    ;;
+  status)
+    bash "$SCRIPTS_DIR/webapp-manager.sh" status
+    ;;
+  logs)
+    bash "$SCRIPTS_DIR/webapp-manager.sh" logs
+    ;;
+  debug)
+    bash "$SCRIPTS_DIR/webapp-manager.sh" debug
     ;;
   build)
-    run_build
+    bash "$SCRIPTS_DIR/build.sh" build
     ;;
   check)
-    run_check
+    bash "$SCRIPTS_DIR/build.sh" check
+    ;;
+  clean)
+    bash "$SCRIPTS_DIR/build.sh" clean
     ;;
   help|--help|-h)
     show_help
     ;;
   *)
-    echo "❌ 未知模式: $MODE"
+    echo "❌ 未知命令: $MODE"
     show_help
     exit 1
     ;;
