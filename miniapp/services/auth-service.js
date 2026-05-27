@@ -7,7 +7,7 @@ const { auth, setToken, clearToken } = require('./api-client');
 const storage = require('../utils/storage');
 const { STORAGE_KEYS } = require('../utils/constants');
 
-var UPLOAD_BASE = 'http://192.168.16.129:3002';
+var UPLOAD_BASE = 'http://192.168.16.129:12302';
 
 function normalizeAvatarUrl(url) {
   if (!url) return '';

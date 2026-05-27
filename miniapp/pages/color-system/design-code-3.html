@@ -1,0 +1,3200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixso HTML</title>
+  <style>
+@font-face {
+	font-family: 'Microsoft YaHei';
+	font-style: normal;
+	font-weight: 700;
+	src: url(http://localhost:3667/assets/1779262708021/MSYHBD_1.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Microsoft YaHei';
+	font-style: normal;
+	font-weight: 400;
+	src: url(http://localhost:3667/assets/1779262708021/MSYH_1.ttf) format('truetype');
+}
+
+
+</style>
+  <script src="js/animation.js"></script>
+  <style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ol,ul,menu {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+ol li::marker, ul li::before {
+  letter-spacing: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body { 
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: white;
+}
+    
+span {
+  word-break: break-word;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.frame-2_9445 {
+  width: 1840px;
+  height: 1973px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(255, 251, 235, 1);
+}
+
+.frame-2_9446 {
+  width: 1840px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9446 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 470px 0px 470px;
+  width: 100%;
+  position: relative;
+}
+
+.frame-2_9447 {
+  width: 900px;
+  height: 1973px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_9448 {
+  width: 900px;
+  height: 156px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9448 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 48px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9449 {
+  width: 900px;
+  height: 108px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_9450 {
+  width: 900px;
+  height: 50px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9450 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9451 {
+  width: 900px;
+  height: 42px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9452 {
+  font-size: 32px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  text-align: center;
+  color: rgba(41, 37, 36, 1);
+  width: 179px;
+  height: auto;
+  position: absolute;
+  left: 361px;
+  top: 0px;
+}
+
+.frame-2_9453 {
+  width: 900px;
+  height: 21px;
+  position: absolute;
+  left: 0px;
+  top: 50px;
+}
+
+.paragraph-2_9454 {
+  font-size: 16px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: center;
+  color: rgba(120, 113, 108, 1);
+  width: 127px;
+  height: auto;
+  position: absolute;
+  left: 387px;
+  top: 0px;
+}
+
+.frame-2_9455 {
+  width: 211.8300018310547px;
+  height: 37px;
+  position: absolute;
+  left: 344px;
+  top: 71px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9455 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9456 {
+  width: 211.8300018310547px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 20px 20px 20px 20px;
+  background-color: rgba(249, 115, 22, 1);
+}
+
+.paragraph-2_9457 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  width: 182px;
+  height: auto;
+  position: absolute;
+  left: 16px;
+  top: 4px;
+}
+
+.frame-2_9458 {
+  width: 900px;
+  height: 93px;
+  position: absolute;
+  left: 0px;
+  top: 116px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9458 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 0px 24px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9459 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.stroke-wrapper-2_9459 {
+  position: relative;
+  width: 900px;
+  height: 29px;
+  flex-shrink: 0;
+}
+
+.stroke-2_9459 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 0px 4px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(249, 115, 22, 1);
+}
+
+.paragraph-2_9460 {
+  font-size: 22px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 90px;
+  height: auto;
+  position: absolute;
+  left: 20px;
+  top: 0px;
+}
+
+.frame-2_9461 {
+  width: 900px;
+  height: 115px;
+  position: absolute;
+  left: 0px;
+  top: 209px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9461 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 40px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9462 {
+  width: 900px;
+  height: 75px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9463 {
+  width: 852px;
+  height: 27px;
+  position: absolute;
+  left: 24px;
+  top: 24px;
+}
+
+.paragraph-2_9464 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  line-height: 27px;
+  color: rgba(120, 113, 108, 1);
+  width: 827px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9465 {
+  width: 900px;
+  height: 93px;
+  position: absolute;
+  left: 0px;
+  top: 284px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9465 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 0px 24px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9466 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.stroke-wrapper-2_9466 {
+  position: relative;
+  width: 900px;
+  height: 29px;
+  flex-shrink: 0;
+}
+
+.stroke-2_9466 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 0px 4px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(249, 115, 22, 1);
+}
+
+.paragraph-2_9467 {
+  font-size: 22px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 90px;
+  height: auto;
+  position: absolute;
+  left: 20px;
+  top: 0px;
+}
+
+.frame-2_9468 {
+  width: 900px;
+  height: 969px;
+  position: absolute;
+  left: 0px;
+  top: 377px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9468 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 40px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9469 {
+  width: 900px;
+  height: 929px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_9470 {
+  width: 442px;
+  height: 173px;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9471 {
+  width: 442px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: rgba(249, 115, 22, 1);
+}
+
+.frame-content-2_9471 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 12px 12px 12px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9472 {
+  width: 79.66999816894531px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(255, 255, 255, 0.8999999761581421);
+}
+
+.paragraph-2_9473 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  width: 58px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9474 {
+  width: 442px;
+  height: 73px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+}
+
+.frame-2_9475 {
+  width: 410px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9475 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9476 {
+  width: 410px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9477 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 107px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9478 {
+  width: 410px;
+  height: 17px;
+  position: absolute;
+  left: 16px;
+  top: 40px;
+}
+
+.paragraph-2_9479 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 158px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9480 {
+  width: 442px;
+  height: 173px;
+  overflow: hidden;
+  position: absolute;
+  left: 458px;
+  top: 0px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9481 {
+  width: 442px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: rgba(251, 191, 36, 1);
+}
+
+.frame-content-2_9481 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 12px 12px 12px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9482 {
+  width: 80.63999938964844px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(255, 255, 255, 0.8999999761581421);
+}
+
+.paragraph-2_9483 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  width: 59px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9484 {
+  width: 442px;
+  height: 73px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+}
+
+.frame-2_9485 {
+  width: 410px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9485 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9486 {
+  width: 410px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9487 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 142px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9488 {
+  width: 410px;
+  height: 17px;
+  position: absolute;
+  left: 16px;
+  top: 40px;
+}
+
+.paragraph-2_9489 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 132px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9490 {
+  width: 442px;
+  height: 173px;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 189px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9491 {
+  width: 442px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: rgba(34, 197, 94, 1);
+}
+
+.frame-content-2_9491 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 12px 12px 12px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9492 {
+  width: 80.58000183105469px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(255, 255, 255, 0.8999999761581421);
+}
+
+.paragraph-2_9493 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  width: 59px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9494 {
+  width: 442px;
+  height: 73px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+}
+
+.frame-2_9495 {
+  width: 410px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9495 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9496 {
+  width: 410px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9497 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 120px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9498 {
+  width: 410px;
+  height: 17px;
+  position: absolute;
+  left: 16px;
+  top: 40px;
+}
+
+.paragraph-2_9499 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 119px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9500 {
+  width: 442px;
+  height: 173px;
+  overflow: hidden;
+  position: absolute;
+  left: 458px;
+  top: 189px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9501 {
+  width: 442px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: rgba(234, 179, 8, 1);
+}
+
+.frame-content-2_9501 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 12px 12px 12px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9502 {
+  width: 82.66000366210938px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(255, 255, 255, 0.8999999761581421);
+}
+
+.paragraph-2_9503 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  width: 61px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9504 {
+  width: 442px;
+  height: 73px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+}
+
+.frame-2_9505 {
+  width: 410px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9505 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9506 {
+  width: 410px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9507 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 127px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9508 {
+  width: 410px;
+  height: 17px;
+  position: absolute;
+  left: 16px;
+  top: 40px;
+}
+
+.paragraph-2_9509 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 119px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9510 {
+  width: 442px;
+  height: 173px;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 378px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9511 {
+  width: 442px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: rgba(220, 38, 38, 1);
+}
+
+.frame-content-2_9511 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 12px 12px 12px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9512 {
+  width: 83.44000244140625px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(255, 255, 255, 0.8999999761581421);
+}
+
+.paragraph-2_9513 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  width: 61px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9514 {
+  width: 442px;
+  height: 73px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+}
+
+.frame-2_9515 {
+  width: 410px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9515 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9516 {
+  width: 410px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9517 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 100px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9518 {
+  width: 410px;
+  height: 17px;
+  position: absolute;
+  left: 16px;
+  top: 40px;
+}
+
+.paragraph-2_9519 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 119px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9520 {
+  width: 442px;
+  height: 173px;
+  overflow: hidden;
+  position: absolute;
+  left: 458px;
+  top: 378px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9521 {
+  width: 442px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: rgba(255, 251, 235, 1);
+}
+
+.frame-content-2_9521 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 12px 12px 12px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9522 {
+  width: 79.30000305175781px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(255, 255, 255, 0.8999999761581421);
+}
+
+.paragraph-2_9523 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  width: 57px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9524 {
+  width: 442px;
+  height: 73px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+}
+
+.frame-2_9525 {
+  width: 410px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9525 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9526 {
+  width: 410px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9527 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 153px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9528 {
+  width: 410px;
+  height: 17px;
+  position: absolute;
+  left: 16px;
+  top: 40px;
+}
+
+.paragraph-2_9529 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 54px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9530 {
+  width: 442px;
+  height: 173px;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 567px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9531 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-2_9531 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 12px 12px 12px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-2_9531 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 442px;
+  height: 100px;
+  display: flex;
+  padding: 1px 1px 1px 1px;
+}
+
+.stroke-2_9531 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(231, 229, 228, 1);
+}
+
+.frame-2_9532 {
+  width: 75.86000061035156px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(255, 255, 255, 0.8999999761581421);
+}
+
+.paragraph-2_9533 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  width: 54px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9534 {
+  width: 442px;
+  height: 73px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+}
+
+.frame-2_9535 {
+  width: 410px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9535 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9536 {
+  width: 410px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9537 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 98px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9538 {
+  width: 410px;
+  height: 17px;
+  position: absolute;
+  left: 16px;
+  top: 40px;
+}
+
+.paragraph-2_9539 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 54px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9540 {
+  width: 442px;
+  height: 173px;
+  overflow: hidden;
+  position: absolute;
+  left: 458px;
+  top: 567px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9541 {
+  width: 442px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: rgba(41, 37, 36, 1);
+}
+
+.frame-content-2_9541 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 12px 12px 12px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9542 {
+  width: 80.44000244140625px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(255, 255, 255, 0.8999999761581421);
+}
+
+.paragraph-2_9543 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  width: 58px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9544 {
+  width: 442px;
+  height: 73px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+}
+
+.frame-2_9545 {
+  width: 410px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9545 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9546 {
+  width: 410px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9547 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 173px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9548 {
+  width: 410px;
+  height: 17px;
+  position: absolute;
+  left: 16px;
+  top: 40px;
+}
+
+.paragraph-2_9549 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 67px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9550 {
+  width: 442px;
+  height: 173px;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 756px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9551 {
+  width: 442px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: rgba(120, 113, 108, 1);
+}
+
+.frame-content-2_9551 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 12px 12px 12px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9552 {
+  width: 81.16999816894531px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(255, 255, 255, 0.8999999761581421);
+}
+
+.paragraph-2_9553 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  width: 59px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9554 {
+  width: 442px;
+  height: 73px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+}
+
+.frame-2_9555 {
+  width: 410px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9555 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9556 {
+  width: 410px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9557 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 193px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9558 {
+  width: 410px;
+  height: 17px;
+  position: absolute;
+  left: 16px;
+  top: 40px;
+}
+
+.paragraph-2_9559 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 93px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9560 {
+  width: 442px;
+  height: 173px;
+  overflow: hidden;
+  position: absolute;
+  left: 458px;
+  top: 756px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9561 {
+  width: 442px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: rgba(231, 229, 228, 1);
+}
+
+.frame-content-2_9561 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 12px 12px 12px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9562 {
+  width: 78.69000244140625px;
+  height: 25px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(255, 255, 255, 0.8999999761581421);
+}
+
+.paragraph-2_9563 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  width: 57px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9564 {
+  width: 442px;
+  height: 73px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+}
+
+.frame-2_9565 {
+  width: 410px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9565 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9566 {
+  width: 410px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9567 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 117px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9568 {
+  width: 410px;
+  height: 17px;
+  position: absolute;
+  left: 16px;
+  top: 40px;
+}
+
+.paragraph-2_9569 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 80px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9570 {
+  width: 900px;
+  height: 93px;
+  position: absolute;
+  left: 0px;
+  top: 1306px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9570 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 0px 24px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9571 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.stroke-wrapper-2_9571 {
+  position: relative;
+  width: 900px;
+  height: 29px;
+  flex-shrink: 0;
+}
+
+.stroke-2_9571 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 0px 4px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(249, 115, 22, 1);
+}
+
+.paragraph-2_9572 {
+  font-size: 22px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 46px;
+  height: auto;
+  position: absolute;
+  left: 20px;
+  top: 0px;
+}
+
+.frame-2_9573 {
+  width: 900px;
+  height: 169px;
+  position: absolute;
+  left: 0px;
+  top: 1399px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9573 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 40px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9574 {
+  width: 900px;
+  height: 129px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_9575 {
+  width: 440px;
+  height: 129px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 16px 16px 16px 16px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%20440%20129'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(0.6466%2C%202.2054%2C%20-0.0321%2C%200.1096%2C%200.1928%2C%20-0.6575)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(249%2C115%2C22%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(251%2C191%2C36%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-2_9576 {
+  width: 360px;
+  height: 32px;
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9576 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9577 {
+  width: 360px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9578 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  width: 56px;
+  height: auto;
+  position: absolute;
+  left: 153px;
+  top: 0px;
+}
+
+.frame-2_9579 {
+  width: 360px;
+  height: 17px;
+  position: absolute;
+  left: 40px;
+  top: 72px;
+  opacity: 0.800000011920929;
+}
+
+.paragraph-2_9580 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  width: 332px;
+  height: auto;
+  position: absolute;
+  left: 15px;
+  top: 0px;
+}
+
+.frame-2_9581 {
+  width: 440px;
+  height: 129px;
+  position: absolute;
+  left: 460px;
+  top: 0px;
+  border-radius: 16px 16px 16px 16px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%20440%20129'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(0.0000%2C%201.0000%2C%20-0.0455%2C%200.0000%2C%200.5227%2C%200.0000)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(255%2C251%2C235%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(254%2C243%2C199%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-2_9582 {
+  width: 360px;
+  height: 32px;
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9582 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9583 {
+  width: 360px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9584 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  text-align: center;
+  color: rgba(41, 37, 36, 1);
+  width: 74px;
+  height: auto;
+  position: absolute;
+  left: 144px;
+  top: 0px;
+}
+
+.frame-2_9585 {
+  width: 360px;
+  height: 17px;
+  position: absolute;
+  left: 40px;
+  top: 72px;
+  opacity: 0.800000011920929;
+}
+
+.paragraph-2_9586 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: center;
+  color: rgba(41, 37, 36, 1);
+  width: 330px;
+  height: auto;
+  position: absolute;
+  left: 16px;
+  top: 0px;
+}
+
+.frame-2_9587 {
+  width: 900px;
+  height: 93px;
+  position: absolute;
+  left: 0px;
+  top: 1528px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9587 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 0px 24px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9588 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.stroke-wrapper-2_9588 {
+  position: relative;
+  width: 900px;
+  height: 29px;
+  flex-shrink: 0;
+}
+
+.stroke-2_9588 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 0px 4px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(249, 115, 22, 1);
+}
+
+.paragraph-2_9589 {
+  font-size: 22px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 134px;
+  height: auto;
+  position: absolute;
+  left: 20px;
+  top: 0px;
+}
+
+.frame-2_9590 {
+  width: 900px;
+  height: 286px;
+  position: absolute;
+  left: 0px;
+  top: 1621px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9590 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 40px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9591 {
+  width: 900px;
+  height: 246px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_9592 {
+  width: 289.3299865722656px;
+  height: 246px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9593 {
+  width: 241.3300018310547px;
+  height: 29px;
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9593 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9594 {
+  width: 241.3300018310547px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9595 {
+  font-size: 16px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 66px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9596 {
+  width: 104px;
+  height: 51px;
+  position: absolute;
+  left: 24px;
+  top: 53px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9596 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9597 {
+  width: 104px;
+  height: 39px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 22px 22px 22px 22px;
+  background-color: rgba(249, 115, 22, 1);
+}
+
+.paragraph-2_9598 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: 58px;
+  height: auto;
+  position: absolute;
+  left: 24px;
+  top: 10px;
+}
+
+.frame-2_9599 {
+  width: 241.3300018310547px;
+  height: 59px;
+  position: absolute;
+  left: 24px;
+  top: 104px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9599 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9600 {
+  width: 241.3300018310547px;
+  height: 51px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_9601 {
+  width: 104px;
+  height: 51px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9601 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9602 {
+  width: 104px;
+  height: 39px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 22px 22px 22px 22px;
+  background-color: rgba(34, 197, 94, 1);
+}
+
+.paragraph-2_9603 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: 58px;
+  height: auto;
+  position: absolute;
+  left: 24px;
+  top: 10px;
+}
+
+.frame-2_9604 {
+  width: 241.3300018310547px;
+  height: 59px;
+  position: absolute;
+  left: 24px;
+  top: 163px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9604 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9605 {
+  width: 241.3300018310547px;
+  height: 51px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_9606 {
+  width: 104px;
+  height: 51px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9606 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9607 {
+  width: 104px;
+  height: 39px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 22px 22px 22px 22px;
+  background-color: rgba(234, 179, 8, 1);
+}
+
+.paragraph-2_9608 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: 58px;
+  height: auto;
+  position: absolute;
+  left: 24px;
+  top: 10px;
+}
+
+.frame-2_9609 {
+  width: 289.3299865722656px;
+  height: 246px;
+  position: absolute;
+  left: 305px;
+  top: 0px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9610 {
+  width: 241.3300018310547px;
+  height: 29px;
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9610 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9611 {
+  width: 241.3300018310547px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9612 {
+  font-size: 16px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 66px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9613 {
+  width: 241.3300018310547px;
+  height: 40px;
+  position: absolute;
+  left: 24px;
+  top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9613 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9614 {
+  width: 241.3300018310547px;
+  height: 32px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_9615 {
+  width: 80px;
+  height: 32px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9615 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 4px 4px 4px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9616 {
+  width: 72px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(251, 191, 36, 1);
+}
+
+.paragraph-2_9617 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(41, 37, 36, 1);
+  width: 50px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9618 {
+  width: 88.7699966430664px;
+  height: 32px;
+  position: absolute;
+  left: 80px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9618 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 4px 4px 4px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9619 {
+  width: 80.7699966430664px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(249, 115, 22, 1);
+}
+
+.paragraph-2_9620 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: 59px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9621 {
+  width: 241.3300018310547px;
+  height: 40px;
+  position: absolute;
+  left: 24px;
+  top: 85px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9621 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9622 {
+  width: 241.3300018310547px;
+  height: 32px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-2_9623 {
+  width: 68px;
+  height: 32px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9623 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 4px 4px 4px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9624 {
+  width: 60px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(34, 197, 94, 1);
+}
+
+.paragraph-2_9625 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: 38px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9626 {
+  width: 68px;
+  height: 32px;
+  position: absolute;
+  left: 68px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9626 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 4px 4px 4px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9627 {
+  width: 60px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(234, 179, 8, 1);
+}
+
+.paragraph-2_9628 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(41, 37, 36, 1);
+  width: 38px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.frame-2_9629 {
+  width: 289.3399963378906px;
+  height: 246px;
+  position: absolute;
+  left: 611px;
+  top: 0px;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-2_9630 {
+  width: 241.33999633789062px;
+  height: 29px;
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9630 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9631 {
+  width: 241.33999633789062px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9632 {
+  font-size: 16px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 66px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9633 {
+  width: 241.33999633789062px;
+  height: 29px;
+  position: absolute;
+  left: 24px;
+  top: 53px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9633 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9634 {
+  width: 241.33999633789062px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-2_9635 {
+  font-size: 16px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(41, 37, 36, 1);
+  width: 185px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9636 {
+  width: 241.33999633789062px;
+  height: 19px;
+  position: absolute;
+  left: 24px;
+  top: 82px;
+}
+
+.paragraph-2_9637 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 187px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9638 {
+  width: 241.33999633789062px;
+  height: 25px;
+  position: absolute;
+  left: 24px;
+  top: 101px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9638 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 0px 12px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-2_9639 {
+  width: 241.33999633789062px;
+  height: 1px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(231, 229, 228, 1);
+}
+
+.frame-2_9640 {
+  width: 241.33999633789062px;
+  height: 19px;
+  position: absolute;
+  left: 24px;
+  top: 126px;
+}
+
+.paragraph-2_9641 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(120, 113, 108, 1);
+  width: 114px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-2_9642 {
+  width: 900px;
+  height: 86px;
+  position: absolute;
+  left: 0px;
+  top: 1887px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-2_9642 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-2_9643 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.stroke-wrapper-2_9643 {
+  position: relative;
+  width: 900px;
+  height: 66px;
+  flex-shrink: 0;
+}
+
+.stroke-2_9643 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(231, 229, 228, 1);
+}
+
+.paragraph-2_9644 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: center;
+  color: rgba(168, 162, 158, 1);
+  width: 250px;
+  height: auto;
+  position: absolute;
+  left: 326px;
+  top: 25px;
+}
+
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="2_9445" class="frame-2_9445">
+    <div id="2_9446" class="frame-2_9446">
+      <div class="frame-content-2_9446">
+        <div id="2_9447" class="frame-2_9447">
+          <div id="2_9448" class="frame-2_9448">
+            <div class="frame-content-2_9448">
+              <div id="2_9449" class="frame-2_9449">
+                <div id="2_9450" class="frame-2_9450">
+                  <div class="frame-content-2_9450">
+                    <div id="2_9451" class="frame-2_9451">
+                      <p id="2_9452" class="paragraph-2_9452">🎨 配色系统</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9453" class="frame-2_9453">
+                  <p id="2_9454" class="paragraph-2_9454">知晓记 · 设计语言</p>
+                </div>
+                <div id="2_9455" class="frame-2_9455">
+                  <div class="frame-content-2_9455">
+                    <div id="2_9456" class="frame-2_9456">
+                      <p id="2_9457" class="paragraph-2_9457">方案二 · 温暖橙黄（活力主题）</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="2_9458" class="frame-2_9458">
+            <div class="frame-content-2_9458">
+              <div id="2_9459" class="stroke-wrapper-2_9459">
+                <div class="frame-2_9459">
+                  <p id="2_9460" class="paragraph-2_9460">设计理念</p>
+                </div>
+                <div class="stroke-2_9459"></div>
+              </div>
+            </div>
+          </div>
+          <div id="2_9461" class="frame-2_9461">
+            <div class="frame-content-2_9461">
+              <div id="2_9462" class="frame-2_9462">
+                <div id="2_9463" class="frame-2_9463">
+                  <p id="2_9464" class="paragraph-2_9464">温暖、活力、亲和，适合轻松学习氛围。以橙红色为主色调，搭配明黄为辅助色，营造温暖积极的学习氛围，激发学习动力。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="2_9465" class="frame-2_9465">
+            <div class="frame-content-2_9465">
+              <div id="2_9466" class="stroke-wrapper-2_9466">
+                <div class="frame-2_9466">
+                  <p id="2_9467" class="paragraph-2_9467">核心色板</p>
+                </div>
+                <div class="stroke-2_9466"></div>
+              </div>
+            </div>
+          </div>
+          <div id="2_9468" class="frame-2_9468">
+            <div class="frame-content-2_9468">
+              <div id="2_9469" class="frame-2_9469">
+                <div id="2_9470" class="frame-2_9470">
+                  <div id="2_9471" class="frame-2_9471">
+                    <div class="frame-content-2_9471">
+                      <div id="2_9472" class="frame-2_9472">
+                        <p id="2_9473" class="paragraph-2_9473">#F97316</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9474" class="frame-2_9474">
+                    <div id="2_9475" class="frame-2_9475">
+                      <div class="frame-content-2_9475">
+                        <div id="2_9476" class="frame-2_9476">
+                          <p id="2_9477" class="paragraph-2_9477">Primary · 主色</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="2_9478" class="frame-2_9478">
+                      <p id="2_9479" class="paragraph-2_9479">按钮、选中状态、重点标记</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9480" class="frame-2_9480">
+                  <div id="2_9481" class="frame-2_9481">
+                    <div class="frame-content-2_9481">
+                      <div id="2_9482" class="frame-2_9482">
+                        <p id="2_9483" class="paragraph-2_9483">#FBBF24</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9484" class="frame-2_9484">
+                    <div id="2_9485" class="frame-2_9485">
+                      <div class="frame-content-2_9485">
+                        <div id="2_9486" class="frame-2_9486">
+                          <p id="2_9487" class="paragraph-2_9487">Secondary · 辅助色</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="2_9488" class="frame-2_9488">
+                      <p id="2_9489" class="paragraph-2_9489">次级按钮、标签、图标</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9490" class="frame-2_9490">
+                  <div id="2_9491" class="frame-2_9491">
+                    <div class="frame-content-2_9491">
+                      <div id="2_9492" class="frame-2_9492">
+                        <p id="2_9493" class="paragraph-2_9493">#22C55E</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9494" class="frame-2_9494">
+                    <div id="2_9495" class="frame-2_9495">
+                      <div class="frame-content-2_9495">
+                        <div id="2_9496" class="frame-2_9496">
+                          <p id="2_9497" class="paragraph-2_9497">Success · 成功色</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="2_9498" class="frame-2_9498">
+                      <p id="2_9499" class="paragraph-2_9499">成功状态、通过标识</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9500" class="frame-2_9500">
+                  <div id="2_9501" class="frame-2_9501">
+                    <div class="frame-content-2_9501">
+                      <div id="2_9502" class="frame-2_9502">
+                        <p id="2_9503" class="paragraph-2_9503">#EAB308</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9504" class="frame-2_9504">
+                    <div id="2_9505" class="frame-2_9505">
+                      <div class="frame-content-2_9505">
+                        <div id="2_9506" class="frame-2_9506">
+                          <p id="2_9507" class="paragraph-2_9507">Warning · 警告色</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="2_9508" class="frame-2_9508">
+                      <p id="2_9509" class="paragraph-2_9509">警告提示、待办事项</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9510" class="frame-2_9510">
+                  <div id="2_9511" class="frame-2_9511">
+                    <div class="frame-content-2_9511">
+                      <div id="2_9512" class="frame-2_9512">
+                        <p id="2_9513" class="paragraph-2_9513">#DC2626</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9514" class="frame-2_9514">
+                    <div id="2_9515" class="frame-2_9515">
+                      <div class="frame-content-2_9515">
+                        <div id="2_9516" class="frame-2_9516">
+                          <p id="2_9517" class="paragraph-2_9517">Error · 错误色</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="2_9518" class="frame-2_9518">
+                      <p id="2_9519" class="paragraph-2_9519">错误状态、删除操作</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9520" class="frame-2_9520">
+                  <div id="2_9521" class="frame-2_9521">
+                    <div class="frame-content-2_9521">
+                      <div id="2_9522" class="frame-2_9522">
+                        <p id="2_9523" class="paragraph-2_9523">#FFFBEB</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9524" class="frame-2_9524">
+                    <div id="2_9525" class="frame-2_9525">
+                      <div class="frame-content-2_9525">
+                        <div id="2_9526" class="frame-2_9526">
+                          <p id="2_9527" class="paragraph-2_9527">Background · 背景色</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="2_9528" class="frame-2_9528">
+                      <p id="2_9529" class="paragraph-2_9529">页面背景</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9530" class="frame-2_9530">
+                  <div id="2_9531" class="stroke-wrapper-2_9531">
+                    <div class="frame-2_9531">
+                      <div class="frame-content-2_9531">
+                        <div id="2_9532" class="frame-2_9532">
+                          <p id="2_9533" class="paragraph-2_9533">#FFFFFF</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="stroke-2_9531"></div>
+                  </div>
+                  <div id="2_9534" class="frame-2_9534">
+                    <div id="2_9535" class="frame-2_9535">
+                      <div class="frame-content-2_9535">
+                        <div id="2_9536" class="frame-2_9536">
+                          <p id="2_9537" class="paragraph-2_9537">Card · 卡片色</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="2_9538" class="frame-2_9538">
+                      <p id="2_9539" class="paragraph-2_9539">卡片背景</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9540" class="frame-2_9540">
+                  <div id="2_9541" class="frame-2_9541">
+                    <div class="frame-content-2_9541">
+                      <div id="2_9542" class="frame-2_9542">
+                        <p id="2_9543" class="paragraph-2_9543">#292524</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9544" class="frame-2_9544">
+                    <div id="2_9545" class="frame-2_9545">
+                      <div class="frame-content-2_9545">
+                        <div id="2_9546" class="frame-2_9546">
+                          <p id="2_9547" class="paragraph-2_9547">Text Primary · 文字主色</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="2_9548" class="frame-2_9548">
+                      <p id="2_9549" class="paragraph-2_9549">标题、正文</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9550" class="frame-2_9550">
+                  <div id="2_9551" class="frame-2_9551">
+                    <div class="frame-content-2_9551">
+                      <div id="2_9552" class="frame-2_9552">
+                        <p id="2_9553" class="paragraph-2_9553">#78716C</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9554" class="frame-2_9554">
+                    <div id="2_9555" class="frame-2_9555">
+                      <div class="frame-content-2_9555">
+                        <div id="2_9556" class="frame-2_9556">
+                          <p id="2_9557" class="paragraph-2_9557">Text Secondary · 文字次色</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="2_9558" class="frame-2_9558">
+                      <p id="2_9559" class="paragraph-2_9559">辅助文字、描述</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9560" class="frame-2_9560">
+                  <div id="2_9561" class="frame-2_9561">
+                    <div class="frame-content-2_9561">
+                      <div id="2_9562" class="frame-2_9562">
+                        <p id="2_9563" class="paragraph-2_9563">#E7E5E4</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9564" class="frame-2_9564">
+                    <div id="2_9565" class="frame-2_9565">
+                      <div class="frame-content-2_9565">
+                        <div id="2_9566" class="frame-2_9566">
+                          <p id="2_9567" class="paragraph-2_9567">Divider · 分割线</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="2_9568" class="frame-2_9568">
+                      <p id="2_9569" class="paragraph-2_9569">分割线、边框</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="2_9570" class="frame-2_9570">
+            <div class="frame-content-2_9570">
+              <div id="2_9571" class="stroke-wrapper-2_9571">
+                <div class="frame-2_9571">
+                  <p id="2_9572" class="paragraph-2_9572">渐变</p>
+                </div>
+                <div class="stroke-2_9571"></div>
+              </div>
+            </div>
+          </div>
+          <div id="2_9573" class="frame-2_9573">
+            <div class="frame-content-2_9573">
+              <div id="2_9574" class="frame-2_9574">
+                <div id="2_9575" class="frame-2_9575">
+                  <div id="2_9576" class="frame-2_9576">
+                    <div class="frame-content-2_9576">
+                      <div id="2_9577" class="frame-2_9577">
+                        <p id="2_9578" class="paragraph-2_9578">主渐变</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9579" class="frame-2_9579">
+                    <p id="2_9580" class="paragraph-2_9580">linear-gradient(135deg, #F97316 0%, #FBBF24 100%)</p>
+                  </div>
+                </div>
+                <div id="2_9581" class="frame-2_9581">
+                  <div id="2_9582" class="frame-2_9582">
+                    <div class="frame-content-2_9582">
+                      <div id="2_9583" class="frame-2_9583">
+                        <p id="2_9584" class="paragraph-2_9584">背景渐变</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9585" class="frame-2_9585">
+                    <p id="2_9586" class="paragraph-2_9586">linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="2_9587" class="frame-2_9587">
+            <div class="frame-content-2_9587">
+              <div id="2_9588" class="stroke-wrapper-2_9588">
+                <div class="frame-2_9588">
+                  <p id="2_9589" class="paragraph-2_9589">色彩应用示例</p>
+                </div>
+                <div class="stroke-2_9588"></div>
+              </div>
+            </div>
+          </div>
+          <div id="2_9590" class="frame-2_9590">
+            <div class="frame-content-2_9590">
+              <div id="2_9591" class="frame-2_9591">
+                <div id="2_9592" class="frame-2_9592">
+                  <div id="2_9593" class="frame-2_9593">
+                    <div class="frame-content-2_9593">
+                      <div id="2_9594" class="frame-2_9594">
+                        <p id="2_9595" class="paragraph-2_9595">按钮示例</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9596" class="frame-2_9596">
+                    <div class="frame-content-2_9596">
+                      <div id="2_9597" class="frame-2_9597">
+                        <p id="2_9598" class="paragraph-2_9598">主要按钮</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9599" class="frame-2_9599">
+                    <div class="frame-content-2_9599">
+                      <div id="2_9600" class="frame-2_9600">
+                        <div id="2_9601" class="frame-2_9601">
+                          <div class="frame-content-2_9601">
+                            <div id="2_9602" class="frame-2_9602">
+                              <p id="2_9603" class="paragraph-2_9603">成功按钮</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9604" class="frame-2_9604">
+                    <div class="frame-content-2_9604">
+                      <div id="2_9605" class="frame-2_9605">
+                        <div id="2_9606" class="frame-2_9606">
+                          <div class="frame-content-2_9606">
+                            <div id="2_9607" class="frame-2_9607">
+                              <p id="2_9608" class="paragraph-2_9608">警告按钮</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9609" class="frame-2_9609">
+                  <div id="2_9610" class="frame-2_9610">
+                    <div class="frame-content-2_9610">
+                      <div id="2_9611" class="frame-2_9611">
+                        <p id="2_9612" class="paragraph-2_9612">标签示例</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9613" class="frame-2_9613">
+                    <div class="frame-content-2_9613">
+                      <div id="2_9614" class="frame-2_9614">
+                        <div id="2_9615" class="frame-2_9615">
+                          <div class="frame-content-2_9615">
+                            <div id="2_9616" class="frame-2_9616">
+                              <p id="2_9617" class="paragraph-2_9617">编程语言</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="2_9618" class="frame-2_9618">
+                          <div class="frame-content-2_9618">
+                            <div id="2_9619" class="frame-2_9619">
+                              <p id="2_9620" class="paragraph-2_9620">JavaScript</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9621" class="frame-2_9621">
+                    <div class="frame-content-2_9621">
+                      <div id="2_9622" class="frame-2_9622">
+                        <div id="2_9623" class="frame-2_9623">
+                          <div class="frame-content-2_9623">
+                            <div id="2_9624" class="frame-2_9624">
+                              <p id="2_9625" class="paragraph-2_9625">已完成</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="2_9626" class="frame-2_9626">
+                          <div class="frame-content-2_9626">
+                            <div id="2_9627" class="frame-2_9627">
+                              <p id="2_9628" class="paragraph-2_9628">待复习</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="2_9629" class="frame-2_9629">
+                  <div id="2_9630" class="frame-2_9630">
+                    <div class="frame-content-2_9630">
+                      <div id="2_9631" class="frame-2_9631">
+                        <p id="2_9632" class="paragraph-2_9632">文字层级</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9633" class="frame-2_9633">
+                    <div class="frame-content-2_9633">
+                      <div id="2_9634" class="frame-2_9634">
+                        <p id="2_9635" class="paragraph-2_9635">这是标题文字 (#292524)</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="2_9636" class="frame-2_9636">
+                    <p id="2_9637" class="paragraph-2_9637">这是辅助说明文字 (#78716C)</p>
+                  </div>
+                  <div id="2_9638" class="frame-2_9638">
+                    <div class="frame-content-2_9638">
+                      <div id="2_9639" class="rectangle-2_9639"></div>
+                    </div>
+                  </div>
+                  <div id="2_9640" class="frame-2_9640">
+                    <p id="2_9641" class="paragraph-2_9641">分割线 (#E7E5E4)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="2_9642" class="frame-2_9642">
+            <div class="frame-content-2_9642">
+              <div id="2_9643" class="stroke-wrapper-2_9643">
+                <div class="frame-2_9643">
+                  <p id="2_9644" class="paragraph-2_9644">知小记设计系统 · 配色方案 V1.0 · 温暖橙黄</p>
+                </div>
+                <div class="stroke-2_9643"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

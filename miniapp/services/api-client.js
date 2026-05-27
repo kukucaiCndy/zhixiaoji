@@ -12,7 +12,7 @@ setLoggerEnabled(true);
 // 环境配置
 var ENV_CONFIG = {
   development: {
-    baseURL: 'http://192.168.16.129:3001/api/v1',
+    baseURL: 'http://192.168.16.129:12301/api/v1',
     timeout: 10000
   },
   test: {
@@ -31,8 +31,8 @@ var config = ENV_CONFIG[CURRENT_ENV];
 
 var services = {
   auth: config.baseURL,
-  core: 'http://192.168.16.129:3002/api/v1',
-  knowledge: config.baseURL
+  core: 'http://192.168.16.129:12302/api/v1',
+  knowledge: 'http://192.168.16.129:12303/api/v1'
 };
 
 // 创建 API 客户端
