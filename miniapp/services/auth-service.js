@@ -11,7 +11,13 @@ var UPLOAD_BASE = 'http://192.168.16.129:12302';
 
 function normalizeAvatarUrl(url) {
   if (!url) return '';
-  if (/^https?:\/\//.test(url)) return url;
+  if (/^https?:\/\//.test(url)) {
+    if (url.includes('localhost')) {
+      var uploadHost = UPLOAD_BASE.replace(/^https?:\/\//, '');
+      return url.replace(/https?:\/\/localhost(:\d+)?/, 'http://' + uploadHost);
+    }
+    return url;
+  }
   return UPLOAD_BASE + (url[0] === '/' ? '' : '/') + url;
 }
 
