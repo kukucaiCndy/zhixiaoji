@@ -1,133 +1,38 @@
+var HTML_BASE = 'http://192.168.16.129:12302';
+
 Page({
   data: {
-    statusBarHeight: 44,
-    isFlipped: false,
-    isFavorite: false,
-    cardTitle: 'CSS Flexbox',
-    chapterId: '',
-    currentSection: 0,
-    totalSections: 0,
-    sectionDots: [],
-    htmlUrl: '',
-    cardData: {}
+    url: ''
   },
 
   onLoad(options) {
-    var sysInfo = wx.getSystemInfoSync();
-    this.setData({ statusBarHeight: sysInfo.statusBarHeight });
+    var htmlId = options.htmlId || '';
     var chapterId = options.chapterId || '';
-    var title = options.title ? decodeURIComponent(options.title) : '';
-    var currentSection = parseInt(options.currentSection) || 0;
-    var totalSections = parseInt(options.totalSections) || 0;
-    var sectionDots = [];
-    for (var i = 0; i < totalSections; i++) {
-      sectionDots.push(i);
+    var currentSection = options.currentSection || '0';
+    var totalSections = options.totalSections || '0';
+
+    var url = HTML_BASE + '/html-pages/' + htmlId + '.html'
+      + '?chapterId=' + chapterId
+      + '&currentSection=' + currentSection
+      + '&totalSections=' + totalSections;
+
+    this.setData({ url: url });
+  },
+
+  onMessage(e) {
+    var data = e.detail.data;
+    if (!data || !data.length) return;
+    var msg = data[data.length - 1];
+    var action = msg.action;
+
+    if (action === 'note') {
+      wx.navigateTo({ url: '/pages/note/note' });
+    } else if (action === 'markUnderstood') {
+      console.log('[WebView] 标记为理解:', msg.chapterId, msg.sectionIndex);
+    } else if (action === 'markHard') {
+      console.log('[WebView] 标记为有点难:', msg.chapterId, msg.sectionIndex);
+    } else if (action === 'back') {
+      wx.navigateBack({ delta: 1 });
     }
-
-    this.setData({
-      chapterId: chapterId,
-      cardTitle: title || 'CSS Flexbox',
-      currentSection: currentSection,
-      totalSections: totalSections,
-      sectionDots: sectionDots
-    });
-
-    if (chapterId) {
-      this.loadCardData(chapterId);
-    }
-  },
-
-  loadCardData(chapterId) {
-    var knowledgeApi = require('../../services/knowledge-api');
-    var self = this;
-    knowledgeApi.getStudyStats().catch(function () {
-      return null;
-    });
-  },
-
-  onBack() {
-    wx.navigateBack({
-      delta: 1,
-      fail: function () {
-        wx.switchTab({ url: '/pages/learn/learn' });
-      }
-    });
-  },
-
-  onFavorite() {
-    this.setData({
-      isFavorite: !this.data.isFavorite
-    });
-    wx.showToast({
-      title: this.data.isFavorite ? '已收藏' : '已取消收藏',
-      icon: 'none'
-    });
-  },
-
-  onFlipCard() {
-    this.setData({
-      isFlipped: !this.data.isFlipped
-    });
-  },
-
-  onOpenHtml() {
-    var url = this.data.htmlUrl;
-    if (!url) {
-      wx.showToast({ title: '暂无内容', icon: 'none' });
-      return;
-    }
-    wx.navigateTo({
-      url: '/pages/knowledge-html/knowledge-html?url=' + encodeURIComponent(url)
-    });
-  },
-
-  onPrevCard() {
-    if (this.data.currentSection > 0) {
-      this.setData({
-        currentSection: this.data.currentSection - 1
-      });
-      wx.showToast({ title: '上一节', icon: 'none' });
-    } else {
-      wx.showToast({ title: '已是第一节', icon: 'none' });
-    }
-  },
-
-  onNextCard() {
-    if (this.data.currentSection < this.data.totalSections - 1) {
-      this.setData({
-        currentSection: this.data.currentSection + 1
-      });
-      wx.showToast({ title: '下一节', icon: 'none' });
-    } else {
-      wx.showToast({ title: '已是最后一节', icon: 'none' });
-    }
-  },
-
-  onUnderstood() {
-    wx.showToast({
-      title: '已标记为理解',
-      icon: 'none'
-    });
-  },
-
-  onHard() {
-    wx.showToast({
-      title: '已标记为有点难',
-      icon: 'none'
-    });
-  },
-
-  onNote() {
-    wx.navigateTo({
-      url: '/pages/note/note'
-    });
-  },
-
-  onExtendTap(e) {
-    var id = e.currentTarget.dataset.id;
-    wx.showToast({
-      title: '跳转至延伸阅读',
-      icon: 'none'
-    });
   }
 });
