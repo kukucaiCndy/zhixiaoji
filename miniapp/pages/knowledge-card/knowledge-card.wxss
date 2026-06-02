@@ -51,6 +51,7 @@
   padding: 0 32rpx;
   flex-shrink: 0;
   position: relative;
+  box-sizing: border-box;
 }
 
 .nav-back {
@@ -183,6 +184,7 @@
   width: 100%;
   padding: 0 32rpx;
   margin-bottom: 32rpx;
+  box-sizing: border-box;
 }
 
 .cf-inner {
@@ -192,6 +194,7 @@
   border-radius: 40rpx;
   box-shadow: 0 8rpx 40rpx rgba(0, 0, 0, 0.08);
   padding: 40rpx 32rpx;
+  box-sizing: border-box;
 }
 
 .cf-type {
@@ -259,6 +262,7 @@
   width: 100%;
   padding: 0 32rpx;
   margin-bottom: 32rpx;
+  box-sizing: border-box;
 }
 
 .cb-inner {
@@ -267,6 +271,7 @@
   border-radius: 40rpx;
   box-shadow: 0 8rpx 40rpx rgba(0, 0, 0, 0.08);
   padding: 40rpx 48rpx;
+  box-sizing: border-box;
 }
 
 .cb-section {
@@ -370,6 +375,7 @@
   align-items: center;
   gap: 12rpx;
   padding: 0 32rpx 80rpx;
+  box-sizing: border-box;
 }
 
 .action-nav {
