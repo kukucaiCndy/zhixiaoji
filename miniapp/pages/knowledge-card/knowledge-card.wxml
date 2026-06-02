@@ -10,7 +10,6 @@
     </view>
   </view>
   <view class="nav-border"></view>
-
   <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}">
     <view class="scroll-inner">
 
@@ -33,7 +32,7 @@
       </view>
 
       <view class="card-front">
-        <view class="cf-inner">
+        <view class="cf-inner" bindtap="onOpenHtml">
           <view class="cf-type">
             <text class="cf-type-icon">📖</text>
             <text class="cf-type-label">概念问题</text>

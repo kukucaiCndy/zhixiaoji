@@ -8,6 +8,7 @@ Page({
     currentSection: 0,
     totalSections: 0,
     sectionDots: [],
+    htmlUrl: '',
     cardData: {}
   },
 
@@ -66,6 +67,17 @@ Page({
   onFlipCard() {
     this.setData({
       isFlipped: !this.data.isFlipped
+    });
+  },
+
+  onOpenHtml() {
+    var url = this.data.htmlUrl;
+    if (!url) {
+      wx.showToast({ title: '暂无内容', icon: 'none' });
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/knowledge-html/knowledge-html?url=' + encodeURIComponent(url)
     });
   },
 
