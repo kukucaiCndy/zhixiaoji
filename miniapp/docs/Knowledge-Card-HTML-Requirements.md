@@ -1,7 +1,7 @@
 # Knowledge Card HTML 页面需求文档
 
-> 创建日期：2026-05-27
-> 方案：知识卡片页面改为纯 web-view，所有 UI/交互由后端返回的 HTML 页面完成
+> 创建日期：2026-05-27 / 更新：2026-05-27
+> 方案：web-view 渲染 HTML 内容 + cover-view 悬浮操作栏
 
 ---
 
@@ -10,15 +10,22 @@
 ```
 小程序 learn 页面
   ↓ 点击章节
-小程序 knowledge-card 页面 (纯 web-view)
-  ↓ 加载
-后端 HTML 页面 (http://192.168.16.129:12302/html-pages/{htmlId}.html)
-  ├── 完整卡片UI（与设计稿一致）
-  ├── 圆点指示器（可根据 URL 参数初始化）
-  ├── 卡片翻转交互
-  ├── 记笔记 → postMessage 通知小程序
-  ├── 标记理解/困难 → postMessage 通知小程序
-  └── 返回 → postMessage 通知小程序
+小程序 knowledge-card 页面
+  ┌─ cover-view 圆点指示器 ──────────────┐  ← position:fixed; top:statusBarHeight
+  │  ○ ○ ▬ ● ●                         │
+  └──────────────────────────────────────┘
+  ┌──────────────────────────────────────┐
+  │ web-view (后端 HTML)                  │
+  │  ├ 导航栏 (← 返回、♥ 收藏)            │
+  │  ├ 标签行 (难度/时间/分类)             │
+  │  ├ 卡片内容 (翻转交互)                 │
+  │  └ 延伸阅读                           │
+  │     (默认折叠，滑到底部自动展开)         │
+  │     (顶部留 32px + 底留 64px padding)  │
+  └──────────────────────────────────────┘
+  ┌─ cover-view 悬浮操作栏 ───────────────┐  ← position:fixed; bottom:0
+  │  ‹  ✅理解了  🤔有点难  📝记笔记  ›   │
+  └──────────────────────────────────────┘
 ```
 
 ---
@@ -26,7 +33,29 @@
 ## 二、URL 格式
 
 ```
-GET http://192.168.16.129:12302/html-pages/{htmlId}.html?chapterId=xxx&currentSection=0&totalSections=5
+小程序 learn 页面
+  ↓ 点击章节
+小程序 knowledge-card 页面
+  ┌─ cover-view 圆点指示器 ──────────────┐  ← position:fixed; top:statusBarHeight
+  │  ○ ○ ▬ ● ●                         │
+  └──────────────────────────────────────┘
+  ┌──────────────────────────────────────┐
+  │ web-view (后端 HTML)                  │
+  │  ├ 导航栏 (← 返回、♥ 收藏)            │
+  │  ├ 标签行 (难度/时间/分类)             │
+  │  ├ 卡片内容 (翻转交互)                 │
+  │  └ 延伸阅读                           │
+  │     (默认折叠，滑到底部自动展开)         │
+  │     (顶部留 32px + 底留 64px padding)  │
+  └──────────────────────────────────────┘
+  ┌─ cover-view 悬浮操作栏 ───────────────┐  ← position:fixed; bottom:0
+  │  ‹  ✅理解了  🤔有点难  📝记笔记  ›   │
+  └──────────────────────────────────────┘
+```
+
+---
+
+## 二、URL 格式
 ```
 
 | 参数 | 类型 | 说明 |
@@ -121,34 +150,15 @@ HTML 页面必须 1:1 复刻小程序原生 knowledge-card 页面的视觉效果
 
 ### 4.3 记笔记
 
-点击"📝 记笔记"按钮 → 调用小程序通信：
-
-```javascript
-wx.miniProgram.postMessage({
-  data: { action: 'note', chapterId: chapterId, sectionIndex: currentSection }
-});
-wx.miniProgram.navigateBack();
-```
+由 cover-view 原生按钮处理，HTML 页面**不需要**实现此按钮。
 
 ### 4.4 标记"理解了"
 
-点击"✅ 理解了" → 调用通信：
-
-```javascript
-wx.miniProgram.postMessage({
-  data: { action: 'markUnderstood', chapterId: chapterId, sectionIndex: currentSection }
-});
-```
+由 cover-view 原生按钮处理。
 
 ### 4.5 标记"有点难"
 
-点击"🤔 有点难" → 调用通信：
-
-```javascript
-wx.miniProgram.postMessage({
-  data: { action: 'markHard', chapterId: chapterId, sectionIndex: currentSection }
-});
-```
+由 cover-view 原生按钮处理。
 
 ### 4.6 返回
 
@@ -225,3 +235,40 @@ function postToMiniProgram(action, extra) {
 完整的小程序原生页面实现（布局+样式）参见：
 - `miniapp/pages/knowledge-card/knowledge-card.wxml` (commit e418c16 之前的版本)
 - `miniapp/pages/knowledge-card/knowledge-card.wxss` (commit e418c16 之前的版本)
+
+---
+
+## 八、延伸阅读自动展开（HTML 侧实现）
+
+延伸阅读区默认折叠，当用户滚动到页面底部时自动展开。
+
+```javascript
+var extendSection = document.querySelector('.extend-section');
+var extendExpanded = false;
+
+window.addEventListener('scroll', function() {
+  if (extendExpanded) return;
+  var scrollBottom = window.innerHeight + window.scrollY;
+  var docHeight = document.documentElement.scrollHeight;
+  if (scrollBottom >= docHeight - 10) {
+    extendSection.classList.add('expanded');
+    extendExpanded = true;
+  }
+});
+```
+
+CSS:
+```css
+.extend-section .extend-list { display: none; }
+.extend-section.expanded .extend-list { display: flex; }
+```
+
+---
+
+## 九、⚠️ cover-view 注意事项
+
+1. **HTML 不需要实现操作栏**：理解了/有点难/记笔记/‹/› 按钮由 cover-view 渲染
+2. **HTML 不需要实现圆点指示器**：圆点由 cover-view 渲染（position:fixed; top:statusBarHeight）
+3. **HTML 顶部 padding**：需留 `padding-top: 32px`，防止内容被圆点 cover-view 遮挡
+4. **HTML 底部 padding**：需留 `padding-bottom: 64px`，防止内容被操作栏 cover-view 遮挡
+5. **cover-view 限制**：不支持 `box-shadow`、`gap`、`overflow` 等属性，样式需降级处理

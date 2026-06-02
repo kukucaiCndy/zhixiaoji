@@ -1,4 +1,9 @@
 <web-view src="{{url}}">
+  <cover-view class="section-dots" style="top: {{statusBarHeight}}px;">
+    <cover-view wx:for="{{sectionDots}}" wx:key="*this" wx:for-index="idx"
+      class="section-dot {{idx === currentSection ? 'active' : idx < currentSection ? 'done' : ''}}">
+    </cover-view>
+  </cover-view>
   <cover-view class="action-bar">
     <cover-view class="action-nav" bindtap="onPrevCard">
       <cover-view class="nav-text">‹</cover-view>

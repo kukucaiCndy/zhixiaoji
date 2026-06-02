@@ -3,6 +3,37 @@ web-view {
   height: 100%;
 }
 
+.section-dots {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 64rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.section-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 8rpx;
+  background: #E2E8F0;
+  flex-shrink: 0;
+  margin-left: 6rpx;
+  margin-right: 6rpx;
+}
+
+.section-dot.done {
+  background: #4F46E5;
+}
+
+.section-dot.active {
+  width: 48rpx;
+  background: #4F46E5;
+}
+
 .action-bar {
   position: fixed;
   bottom: 0;

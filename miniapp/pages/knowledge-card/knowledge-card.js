@@ -5,19 +5,29 @@ Page({
     url: '',
     chapterId: '',
     currentSection: 0,
-    totalSections: 0
+    totalSections: 0,
+    statusBarHeight: 44,
+    sectionDots: []
   },
 
   onLoad(options) {
+    var sysInfo = wx.getSystemInfoSync();
+    var statusBarHeight = sysInfo.statusBarHeight || 44;
     var htmlId = options.htmlId || '';
     var chapterId = options.chapterId || '';
     var currentSection = parseInt(options.currentSection) || 0;
     var totalSections = parseInt(options.totalSections) || 0;
+    var sectionDots = [];
+    for (var i = 0; i < totalSections; i++) {
+      sectionDots.push(i);
+    }
 
     this.setData({
       chapterId: chapterId,
       currentSection: currentSection,
-      totalSections: totalSections
+      totalSections: totalSections,
+      statusBarHeight: statusBarHeight,
+      sectionDots: sectionDots
     });
 
     var url = HTML_BASE + '/html-pages/' + htmlId + '.html'
