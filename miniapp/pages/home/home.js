@@ -85,9 +85,4 @@ Page({
     });
   },
 
-  onTestCoverView() {
-    wx.navigateTo({
-      url: '/pages/test-coverview/test-coverview'
-    });
-  }
 });
