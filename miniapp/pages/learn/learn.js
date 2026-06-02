@@ -66,10 +66,16 @@ Page({
   onSubItemTap(e) {
     var sub = e.currentTarget.dataset.item;
     var parent = e.currentTarget.dataset.parent;
+    var idx = e.currentTarget.dataset.index;
     var chapterId = sub.chapterId || parent.id || '';
     var title = sub.name || '';
+    var totalSections = (parent.children && parent.children.length) || 0;
+    var currentSection = (typeof idx === 'number') ? idx : 0;
     wx.navigateTo({
-      url: '/pages/knowledge-card/knowledge-card?chapterId=' + chapterId + '&title=' + encodeURIComponent(title)
+      url: '/pages/knowledge-card/knowledge-card?chapterId=' + chapterId
+        + '&title=' + encodeURIComponent(title)
+        + '&currentSection=' + currentSection
+        + '&totalSections=' + totalSections
     });
   },
 

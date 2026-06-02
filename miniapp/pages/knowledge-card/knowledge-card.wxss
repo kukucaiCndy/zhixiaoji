@@ -4,6 +4,8 @@
   background: #F8FAFC;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .status-bar {
@@ -16,6 +18,7 @@
   align-items: center;
   padding: 0 40rpx;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .time-text {
@@ -94,6 +97,8 @@
 .scroll-content {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .scroll-inner {
@@ -102,29 +107,35 @@
 
 .card-header {
   width: 100%;
-  padding: 32rpx 32rpx 24rpx;
+  padding: 24rpx 32rpx;
+  box-sizing: border-box;
 }
 
-.header-deco {
+.section-dots {
   display: flex;
   flex-direction: row;
-  gap: 16rpx;
+  gap: 12rpx;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 24rpx;
 }
 
-.deco-rect {
-  width: 48rpx;
-  height: 120rpx;
-  border-radius: 24rpx;
-  background: #EEF2FF;
+.section-dot-item {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 8rpx;
+  background: #E2E8F0;
+  flex-shrink: 0;
 }
 
-.deco-rect.r1 { background: #EEF2FF; height: 80rpx; }
-.deco-rect.r2 { background: #E0E7FF; height: 120rpx; }
-.deco-rect.r3 { background: #C7D2FE; height: 96rpx; }
-.deco-rect.r4 { background: #A5B4FC; height: 108rpx; }
-.deco-rect.r5 { background: #EEF2FF; height: 64rpx; }
-.deco-rect.r6 { background: #E0E7FF; height: 88rpx; }
+.section-dot-item.done {
+  background: #4F46E5;
+}
+
+.section-dot-item.active {
+  width: 48rpx;
+  background: #4F46E5;
+}
 
 .header-meta {
   display: flex;

@@ -85,7 +85,7 @@
             </view>
           </view>
           <view class="knowledge-sub {{item.expanded ? 'show' : ''}}">
-            <view class="sub-item" wx:for="{{item.children}}" wx:key="name" wx:for-item="sub" bindtap="onSubItemTap" data-item="{{sub}}" data-parent="{{item}}">
+            <view class="sub-item" wx:for="{{item.children}}" wx:key="name" wx:for-item="sub" wx:for-index="idx" catchtap="onSubItemTap" data-item="{{sub}}" data-parent="{{item}}" data-index="{{idx}}">
               <view class="sub-line"></view>
               <text class="sub-name">{{sub.name}}</text>
               <view class="sub-badge sub-badge-{{sub.status}}">

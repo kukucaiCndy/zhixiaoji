@@ -3,17 +3,31 @@ Page({
     isFlipped: false,
     isFavorite: false,
     cardTitle: 'CSS Flexbox',
+    chapterId: '',
+    currentSection: 0,
+    totalSections: 0,
     cardData: {}
   },
 
   onLoad(options) {
-    var cardId = options.cardId || '';
-    if (cardId) {
-      this.loadCardData(cardId);
+    var chapterId = options.chapterId || '';
+    var title = options.title ? decodeURIComponent(options.title) : '';
+    var currentSection = parseInt(options.currentSection) || 0;
+    var totalSections = parseInt(options.totalSections) || 0;
+
+    this.setData({
+      chapterId: chapterId,
+      cardTitle: title || 'CSS Flexbox',
+      currentSection: currentSection,
+      totalSections: totalSections
+    });
+
+    if (chapterId) {
+      this.loadCardData(chapterId);
     }
   },
 
-  loadCardData(cardId) {
+  loadCardData(chapterId) {
     var knowledgeApi = require('../../services/knowledge-api');
     var self = this;
     knowledgeApi.getStudyStats().catch(function () {
@@ -41,24 +55,31 @@ Page({
   },
 
   onFlipCard() {
-    wx.showToast({
-      title: '翻转卡片',
-      icon: 'none'
+    this.setData({
+      isFlipped: !this.data.isFlipped
     });
   },
 
   onPrevCard() {
-    wx.showToast({
-      title: '上一张卡片',
-      icon: 'none'
-    });
+    if (this.data.currentSection > 0) {
+      this.setData({
+        currentSection: this.data.currentSection - 1
+      });
+      wx.showToast({ title: '上一节', icon: 'none' });
+    } else {
+      wx.showToast({ title: '已是第一节', icon: 'none' });
+    }
   },
 
   onNextCard() {
-    wx.showToast({
-      title: '下一张卡片',
-      icon: 'none'
-    });
+    if (this.data.currentSection < this.data.totalSections - 1) {
+      this.setData({
+        currentSection: this.data.currentSection + 1
+      });
+      wx.showToast({ title: '下一节', icon: 'none' });
+    } else {
+      wx.showToast({ title: '已是最后一节', icon: 'none' });
+    }
   },
 
   onUnderstood() {

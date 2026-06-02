@@ -23,13 +23,9 @@
     <view class="scroll-inner">
 
       <view class="card-header">
-        <view class="header-deco">
-          <view class="deco-rect r1"></view>
-          <view class="deco-rect r2"></view>
-          <view class="deco-rect r3"></view>
-          <view class="deco-rect r4"></view>
-          <view class="deco-rect r5"></view>
-          <view class="deco-rect r6"></view>
+        <view class="section-dots">
+          <view wx:for="{{totalSections}}" wx:key="*this" wx:for-index="idx" class="section-dot-item {{idx === currentSection ? 'active' : idx < currentSection ? 'done' : ''}}">
+          </view>
         </view>
         <view class="header-meta">
           <view class="meta-tag difficulty">
