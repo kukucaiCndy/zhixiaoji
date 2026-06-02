@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.1 什么是编程语言</title>
+    <style>
+        :root {
+            /* Design System Colors */
+            --primary: #4A90E2;
+            --secondary: #50E3C2;
+            --success: #7ED321;
+            --warning: #F5A623;
+            --danger: #D0021B;
+            --bg-color: #F5F7FA;
+            --card-bg: #FFFFFF;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --border-radius: 12px;
+            --spacing: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 120px;
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .chapter-tag {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0 0 12px 0;
+            color: var(--text-primary);
+        }
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            background: #EAF2F8;
+            padding: 6px 16px;
+            border-radius: 20px;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: var(--spacing);
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .card-content {
+            white-space: pre-wrap;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        /* Visuals */
+        .visual-block {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 16px 0;
+            display: block;
+            object-fit: cover;
+            background-color: #f0f0f0; /* Placeholder color */
+        }
+
+        /* Highlight Cards */
+        .highlight-card {
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 16px;
+            font-size: 14px;
+            border-left: 4px solid transparent;
+            line-height: 1.5;
+        }
+        .highlight-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        /* Type Mapping */
+        .type-important {
+            background-color: #FFF9C4; /* Yellow card */
+            border-left-color: #FBC02D;
+            color: #5d4037;
+        }
+        .type-warning {
+            background-color: #FFEBEE; /* Red card */
+            border-left-color: #E53935;
+            color: #b71c1c;
+        }
+        .type-misconception {
+            background-color: #F5F5F5; /* Gray card */
+            border-left-color: #757575;
+            color: #424242;
+        }
+        .type-memory_tip {
+            background-color: #E3F2FD; /* Blue card */
+            border-left-color: #1E88E5;
+            color: #0d47a1;
+        }
+
+        /* Code Block */
+        .code-container {
+            background: #282C34;
+            border-radius: 8px;
+            padding: 12px;
+            overflow-x: auto;
+            margin: 12px 0;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            color: #ABB2BF;
+            white-space: pre;
+            display: block;
+        }
+        .code-explanation {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        /* ===== 底部操作栏（固定悬浮） ===== */
+        .action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            padding: 12px 20px;
+            padding-bottom: max(12px, env(safe-area-inset-bottom));
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+        .action-btn {
+            flex: 1;
+            padding: 12px 8px;
+            border-radius: 24px;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: opacity 0.15s;
+            line-height: 1.4;
+        }
+        .action-btn:active {
+            opacity: 0.8;
+        }
+        .action-btn--understood {
+            background: var(--primary);
+            color: #FFFFFF;
+        }
+        .action-btn--hard {
+            background: #FFFFFF;
+            color: var(--warning);
+            border: 2px solid var(--warning);
+        }
+        .action-btn--note {
+            background: #FFFFFF;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+    </style>
+    <!-- 微信 JS-SDK（web-view 内 postMessage 通信） -->
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+</head>
+<body>
+<div class="container">
+        <!-- Section Header -->
+        <header class="section-header">
+            <span class="chapter-tag">第1章 C++编程初体验</span>
+            <h1 class="section-title">1.1 什么是编程语言</h1>
+            <div class="meta-info">
+                <span>难度: easy</span>
+                <span>⏱ 5分钟</span>
+            </div>
+        </header>
+
+        <!-- Block b1: Intro -->
+        <section class="card">
+            <!-- Visual v1: before_block -->
+            <img src="http://192.168.16.129:12302/html-pages/ad51fd5e-95f6-4b41-be53-7a0bfc4d96c1/d83daf9c-d0e3-42aa-a78d-1039cdb9cdf3/images/b6c9b45b1373e94d6e4c51fdd1fa1848.jpg" alt="教学配图" class="visual-block" />
+            
+            <h2 class="card-title">开篇小问题</h2>
+            <div class="card-content">你有没有过这种疑惑？😵
+为什么敲几行字符，
+电脑就能乖乖听话干活？
+这就要从「编程语言」说起啦。</div>
+        </section>
+
+        <!-- Block b2: Explanation -->
+        <section class="card">
+            <h2 class="card-title">编程语言的本质</h2>
+            <div class="card-content">简单来说：
+编程语言是人和计算机之间的「翻译官」。
+你只会说中文/英文，
+计算机只看得懂0和1的机器码，
+双方完全无法直接沟通。
+而编程语言，就是帮你们互相转译的中间工具。</div>
+            
+            <!-- Visual v2: middle_of_block -->
+            <img src="http://192.168.16.129:12302/html-pages/ad51fd5e-95f6-4b41-be53-7a0bfc4d96c1/d83daf9c-d0e3-42aa-a78d-1039cdb9cdf3/images/470fbc1c9e506a1b600c50c5484956ba.jpg" alt="教学配图" class="visual-block" />
+
+            <!-- Highlight: important -->
+            <div class="highlight-card type-important">
+                <div class="highlight-title">📌 核心定义</div>
+                <div class="highlight-content">编程语言是人与计算机之间作为翻译工具，负责转译人类可理解的指令和计算机可识别的机器码</div>
+            </div>
+        </section>
+
+        <!-- Block b3: Analogy -->
+        <section class="card">
+            <h2 class="card-title">生活化类比：点外卖</h2>
+            <div class="card-content">你可以把编程过程类比成点外卖：
+👉你（人）：用中文说「我要一份微辣的黄焖鸡」（用编程语言写代码）
+👉外卖平台（编程语言）：把你的需求翻译成商家能看懂的订单格式（把代码转成计算机能识别的机器码）
+👉商家（计算机）：收到订单后做饭，把餐品送给你（执行指令后返回结果）
+是不是一下就懂了？</div>
+
+            <!-- Visual v3: after_block -->
+            <img src="http://192.168.16.129:12302/html-pages/ad51fd5e-95f6-4b41-be53-7a0bfc4d96c1/d83daf9c-d0e3-42aa-a78d-1039cdb9cdf3/images/c8e664f6f7ac0ee1b8a07fd3e2da06d5.jpg" alt="教学配图" class="visual-block" />
+
+            <!-- Highlight: memory_tip -->
+            <div class="highlight-card type-memory_tip">
+                <div class="highlight-title">💡 类比记忆法</div>
+                <div class="highlight-content">写代码=提外卖需求，编程语言=外卖平台，计算机=出餐商家</div>
+            </div>
+        </section>
+
+        <!-- Block b4: Explanation -->
+        <section class="card">
+            <h2 class="card-title">为什么有这么多编程语言？</h2>
+            <div class="card-content">就像翻译官也分不同领域：
+有的翻译官擅长商务谈判，适合处理复杂交易；
+有的翻译官擅长日常交流，适合快速沟通。
+不同编程语言也有不同擅长的场景：
+✅ C++适合做高性能游戏、操作系统
+✅ Python适合做数据分析、自动化脚本
+✅ Java适合做企业级应用开发</div>
+
+            <!-- Visual v4: middle_of_block -->
+            <img src="http://192.168.16.129:12302/html-pages/ad51fd5e-95f6-4b41-be53-7a0bfc4d96c1/d83daf9c-d0e3-42aa-a78d-1039cdb9cdf3/images/ca19462f8a7fed410a3416e9118f9012.jpg" alt="教学配图" class="visual-block" />
+
+            <!-- Highlight: important -->
+            <div class="highlight-card type-important">
+                <div class="highlight-title">🛠 语言分工提示</div>
+                <div class="highlight-content">没有绝对最好的编程语言，只有最适合具体场景的编程语言</div>
+            </div>
+        </section>
+
+        <!-- Block b5: Misconception -->
+        <section class="card">
+            <!-- Visual v5: before_block -->
+            <img src="http://192.168.16.129:12302/html-pages/ad51fd5e-95f6-4b41-be53-7a0bfc4d96c1/d83daf9c-d0e3-42aa-a78d-1039cdb9cdf3/images/6a4c7ebbbff23d0ae95caff4c239b173.jpg" alt="教学配图" class="visual-block" />
+
+            <h2 class="card-title">常见误区：入门选语言焦虑</h2>
+            <div class="card-content">很多刚入门的同学会纠结：
+「我到底该选哪个编程语言学？」
+其实完全不用纠结，编程语言只是工具。
+你学会了骑自行车，再学电动车就会非常快。
+先选一个入门，掌握核心逻辑后，其他语言触类旁通。</div>
+
+            <!-- Highlight: misconception -->
+            <div class="highlight-card type-misconception">
+                <div class="highlight-title">⚠ 常见误区</div>
+                <div class="highlight-content">入门无需纠结选哪门编程语言，掌握编程核心逻辑后可触类旁通</div>
+            </div>
+        </section>
+
+        <!-- Block b6: Summary -->
+        <section class="card">
+            <!-- Visual v6: section_header (placed top of block) -->
+            <img src="http://192.168.16.129:12302/html-pages/ad51fd5e-95f6-4b41-be53-7a0bfc4d96c1/d83daf9c-d0e3-42aa-a78d-1039cdb9cdf3/images/a3c68ebb63eefb8c8fcc78f01fd08d5f.jpg" alt="教学配图" class="visual-block" />
+
+            <h2 class="card-title">本小节核心梳理</h2>
+            <div class="card-content">咱们再把核心逻辑串一遍：
+1. 人和计算机语言不通，需要中间翻译工具
+2. 编程语言就是这个翻译工具，承担沟通桥梁的作用
+3. 不同编程语言适配不同的使用场景，没有绝对的好坏
+4. 入门不用纠结选语言，先掌握核心逻辑最重要</div>
+
+            <!-- Highlight: important -->
+            <div class="highlight-card type-important">
+                <div class="highlight-title">✅ 本节核心结论</div>
+                <div class="highlight-content">编程语言的核心作用是作为人与计算机之间的沟通桥梁</div>
+            </div>
+        </section>
+
+        <!-- Code Block b7 -->
+        <section class="card">
+            <h2 class="card-title">代码演示</h2>
+            <div class="code-explanation">这是C++最简单的入门代码，你只需要写下这几行人类能看懂的字符，C++编译器就会帮你翻译成计算机能识别的0和1指令，最终在屏幕上输出「你好，C++！」这句话。</div>
+            
+            <div class="code-container">
+                <code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "你好，C++！" &lt;&lt; endl;
+    return 0;
+}</code>
+            </div>
+
+            <!-- Visual v7: after_block -->
+            <img src="http://192.168.16.129:12302/html-pages/ad51fd5e-95f6-4b41-be53-7a0bfc4d96c1/d83daf9c-d0e3-42aa-a78d-1039cdb9cdf3/images/490d0f03000748a84ccccbd59829bd74.jpg" alt="教学配图" class="visual-block" />
+
+            <!-- Highlight: memory_tip -->
+            <div class="highlight-card type-memory_tip">
+                <div class="highlight-title">👀 代码观察点</div>
+                <div class="highlight-content">你写的人类可读代码，经过C++编译器转译后变成计算机能执行的指令，最终输出对应结果</div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 底部操作栏 -->
+    <div class="action-bar">
+        <button class="action-btn action-btn--understood" onclick="onAction('markUnderstood')">✅ 理解了</button>
+        <button class="action-btn action-btn--hard"       onclick="onAction('markHard')">🤔 有点难</button>
+        <button class="action-btn action-btn--note"       onclick="onAction('note')">📝 记笔记</button>
+    </div>
+
+    <script>
+        function onAction(action) {
+            if (typeof wx !== 'undefined' && wx.miniProgram) {
+                wx.miniProgram.postMessage({ data: { action: action } });
+            }
+        }
+    </script>
+</body>
+</html>
