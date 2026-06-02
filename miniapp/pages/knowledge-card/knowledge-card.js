@@ -1,5 +1,6 @@
 Page({
   data: {
+    statusBarHeight: 44,
     isFlipped: false,
     isFavorite: false,
     cardTitle: 'CSS Flexbox',
@@ -11,6 +12,8 @@ Page({
   },
 
   onLoad(options) {
+    var sysInfo = wx.getSystemInfoSync();
+    this.setData({ statusBarHeight: sysInfo.statusBarHeight });
     var chapterId = options.chapterId || '';
     var title = options.title ? decodeURIComponent(options.title) : '';
     var currentSection = parseInt(options.currentSection) || 0;
