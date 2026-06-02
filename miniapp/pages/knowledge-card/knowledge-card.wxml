@@ -1,4 +1,4 @@
-<web-view src="{{url}}">
+<web-view wx:if="{{url}}" src="{{url}}" bindmessage="onMessage">
   <cover-view class="section-dots" style="position:fixed; top:{{statusBarHeight}}px;">
     <cover-view wx:for="{{sectionDots}}" wx:key="*this" wx:for-index="idx"
       class="section-dot {{idx === currentSection ? 'active' : idx < currentSection ? 'done' : ''}}">
