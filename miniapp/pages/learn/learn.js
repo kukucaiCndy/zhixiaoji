@@ -63,6 +63,16 @@ Page({
     if (url) wx.navigateTo({ url });
   },
 
+  onSubItemTap(e) {
+    var sub = e.currentTarget.dataset.item;
+    var parent = e.currentTarget.dataset.parent;
+    var chapterId = sub.chapterId || parent.id || '';
+    var title = sub.name || '';
+    wx.navigateTo({
+      url: '/pages/knowledge-card/knowledge-card?chapterId=' + chapterId + '&title=' + encodeURIComponent(title)
+    });
+  },
+
   onTabChange(e) {
     var index = e.detail.index;
   }

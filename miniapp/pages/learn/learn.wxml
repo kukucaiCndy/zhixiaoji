@@ -1,11 +1,12 @@
 <view class="learn-page">
+  <view class="header-section">
   <view class="nav-bar">
       <text class="nav-title">学习</text>
       <view class="search-btn" bindtap="onSearch">
         <text>🔍 搜索</text>
       </view>
     </view>
-
+  </view>
   <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}">
     <view class="scroll-inner">
       <view class="path-tabs">
@@ -84,7 +85,7 @@
             </view>
           </view>
           <view class="knowledge-sub {{item.expanded ? 'show' : ''}}">
-            <view class="sub-item" wx:for="{{item.children}}" wx:key="name" wx:for-item="sub">
+            <view class="sub-item" wx:for="{{item.children}}" wx:key="name" wx:for-item="sub" bindtap="onSubItemTap" data-item="{{sub}}" data-parent="{{item}}">
               <view class="sub-line"></view>
               <text class="sub-name">{{sub.name}}</text>
               <view class="sub-badge sub-badge-{{sub.status}}">
