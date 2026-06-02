@@ -24,7 +24,7 @@
 
       <view class="card-header">
         <view class="section-dots">
-          <view wx:for="{{totalSections}}" wx:key="*this" wx:for-index="idx" class="section-dot-item {{idx === currentSection ? 'active' : idx < currentSection ? 'done' : ''}}">
+          <view wx:for="{{sectionDots}}" wx:key="*this" wx:for-item="dot" wx:for-index="idx" class="section-dot-item {{idx === currentSection ? 'active' : idx < currentSection ? 'done' : ''}}">
           </view>
         </view>
         <view class="header-meta">

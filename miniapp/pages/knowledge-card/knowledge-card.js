@@ -6,6 +6,7 @@ Page({
     chapterId: '',
     currentSection: 0,
     totalSections: 0,
+    sectionDots: [],
     cardData: {}
   },
 
@@ -14,12 +15,17 @@ Page({
     var title = options.title ? decodeURIComponent(options.title) : '';
     var currentSection = parseInt(options.currentSection) || 0;
     var totalSections = parseInt(options.totalSections) || 0;
+    var sectionDots = [];
+    for (var i = 0; i < totalSections; i++) {
+      sectionDots.push(i);
+    }
 
     this.setData({
       chapterId: chapterId,
       cardTitle: title || 'CSS Flexbox',
       currentSection: currentSection,
-      totalSections: totalSections
+      totalSections: totalSections,
+      sectionDots: sectionDots
     });
 
     if (chapterId) {
