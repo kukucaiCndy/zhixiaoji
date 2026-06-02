@@ -51,6 +51,7 @@ var apiClient = createWechatApiClient({
 module.exports = {
   apiClient,
   auth: apiClient.auth,
+  knowledge: apiClient.knowledge,
   setToken: apiClient.setToken,
   clearToken: apiClient.clearToken
 };

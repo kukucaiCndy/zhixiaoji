@@ -1,15 +1,6 @@
 <view class="login-page">
   <!-- 顶部渐变区域 -->
-  <view class="header-section">
-    <view class="status-bar">
-      <text class="time">9:41</text>
-      <view class="signal-icons">
-        <view class="signal-bar"></view>
-        <view class="signal-bar"></view>
-        <view class="signal-bar"></view>
-      </view>
-    </view>
-    <view class="header-content">
+  <view class="header-content">
       <view class="decoration-circle"></view>
       <view class="decoration-grid">
         <view class="grid-dot"></view>
@@ -27,7 +18,6 @@
       </view>
       <view class="decoration-circle-small"></view>
     </view>
-  </view>
 
   <!-- 内容区域 -->
   <view class="content-section">

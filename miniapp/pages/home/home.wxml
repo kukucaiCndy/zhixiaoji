@@ -1,13 +1,5 @@
 <view class="home-page">
   <view class="header-section">
-    <view class="status-bar">
-      <text class="time">9:41</text>
-      <view class="status-icons">
-        <view class="signal-bar"></view>
-        <view class="signal-bar"></view>
-        <view class="signal-bar"></view>
-      </view>
-    </view>
     <view class="nav-bar">
       <text class="nav-title">知小记</text>
       <view class="search-btn" bindtap="onSearch">
@@ -110,41 +102,14 @@
     </view>
 
     <view class="progress-list">
-      <view class="progress-item">
-        <text class="progress-name">HTML</text>
+      <view wx:for="{{progress}}" wx:key="name" class="progress-item">
+        <text class="progress-name">{{item.name}}</text>
         <view class="progress-bar-wrap">
           <view class="progress-track tall">
-            <view class="progress-fill purple" style="width: 85%"></view>
+            <view class="progress-fill {{item.color || 'purple'}}" style="width: {{item.percent}}%"></view>
           </view>
         </view>
-        <text class="progress-percent">85%</text>
-      </view>
-      <view class="progress-item">
-        <text class="progress-name">CSS</text>
-        <view class="progress-bar-wrap">
-          <view class="progress-track tall">
-            <view class="progress-fill cyan" style="width: 60%"></view>
-          </view>
-        </view>
-        <text class="progress-percent">60%</text>
-      </view>
-      <view class="progress-item">
-        <text class="progress-name">JavaScript</text>
-        <view class="progress-bar-wrap">
-          <view class="progress-track tall">
-            <view class="progress-fill orange" style="width: 35%"></view>
-          </view>
-        </view>
-        <text class="progress-percent">35%</text>
-      </view>
-      <view class="progress-item">
-        <text class="progress-name">框架</text>
-        <view class="progress-bar-wrap">
-          <view class="progress-track tall">
-            <view class="progress-fill red" style="width: 20%"></view>
-          </view>
-        </view>
-        <text class="progress-percent">20%</text>
+        <text class="progress-percent">{{item.percent}}%</text>
       </view>
     </view>
 
@@ -155,20 +120,10 @@
 
     <scroll-view class="recommend-scroll" scroll-x enhanced show-scrollbar="{{false}}">
       <view class="recommend-list">
-        <view class="rec-card" bindtap="onRecommendTap" data-id="1">
-          <view class="rec-thumb purple"></view>
-          <text class="rec-title">CSS Flexbox</text>
-          <text class="rec-desc">彻底理解弹性布局</text>
-        </view>
-        <view class="rec-card" bindtap="onRecommendTap" data-id="2">
-          <view class="rec-thumb cyan"></view>
-          <text class="rec-title">闭包详解</text>
-          <text class="rec-desc">JavaScript 核心概念</text>
-        </view>
-        <view class="rec-card" bindtap="onRecommendTap" data-id="3">
-          <view class="rec-thumb orange"></view>
-          <text class="rec-title">原型链</text>
-          <text class="rec-desc">面向对象编程基础</text>
+        <view wx:for="{{recommendations}}" wx:key="id" class="rec-card" bindtap="onRecommendTap" data-id="{{item.id}}">
+          <view class="rec-thumb {{item.gradient || 'purple'}}"></view>
+          <text class="rec-title">{{item.title}}</text>
+          <text class="rec-desc">{{item.desc}}</text>
         </view>
       </view>
     </scroll-view>

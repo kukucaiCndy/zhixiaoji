@@ -1,20 +1,10 @@
 <view class="learn-page">
-  <view class="header-section">
-    <view class="status-bar">
-      <text class="time">9:41</text>
-      <view class="status-icons">
-        <view class="signal-bar"></view>
-        <view class="signal-bar"></view>
-        <view class="signal-bar"></view>
-      </view>
-    </view>
-    <view class="nav-bar">
+  <view class="nav-bar">
       <text class="nav-title">学习</text>
       <view class="search-btn" bindtap="onSearch">
         <text>🔍 搜索</text>
       </view>
     </view>
-  </view>
 
   <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}">
     <view class="scroll-inner">
