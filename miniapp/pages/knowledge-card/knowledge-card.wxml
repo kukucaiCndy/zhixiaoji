@@ -1,4 +1,5 @@
-<web-view src="{{url}}">
+<view class="page">
+  <web-view src="{{url}}"></web-view>
   <cover-view class="section-dots" style="top: {{statusBarHeight}}px;">
     <cover-view wx:for="{{sectionDots}}" wx:key="*this" wx:for-index="idx"
       class="section-dot {{idx === currentSection ? 'active' : idx < currentSection ? 'done' : ''}}">
@@ -21,4 +22,4 @@
       <cover-view class="nav-text">›</cover-view>
     </cover-view>
   </cover-view>
-</web-view>
+</view>
