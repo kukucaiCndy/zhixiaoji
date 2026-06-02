@@ -494,3 +494,18 @@
 .bottom-placeholder {
   height: 160rpx;
 }
+
+.test-btn-float {
+  position: fixed;
+  right: 24rpx;
+  bottom: 160rpx;
+  padding: 16rpx 24rpx;
+  background: #4F46E5;
+  border-radius: 40rpx;
+  z-index: 999;
+}
+.test-btn-float text {
+  font-size: 24rpx;
+  color: #FFFFFF;
+  font-weight: 600;
+}

@@ -132,5 +132,9 @@
     </view>
   </scroll-view>
 
+  <view class="test-btn-float" bindtap="onTestCoverView">
+    <text>🧪 cover</text>
+  </view>
+
   <tab-bar activeIndex="0" bind:change="onTabChange"></tab-bar>
 </view>
