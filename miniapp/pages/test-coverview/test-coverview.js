@@ -14,7 +14,7 @@ Page({
     if (this.data.hasUrl) {
       this.setData({ hasUrl: false, url: '' });
     } else {
-      this.setData({ hasUrl: true, url: 'http://192.168.16.129:12302' });
+      this.setData({ hasUrl: true, url: 'https://www.baidu.com' });
     }
   },
 
