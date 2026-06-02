@@ -2,14 +2,23 @@ var HTML_BASE = 'http://192.168.16.129:12302';
 
 Page({
   data: {
-    url: ''
+    url: '',
+    chapterId: '',
+    currentSection: 0,
+    totalSections: 0
   },
 
   onLoad(options) {
     var htmlId = options.htmlId || '';
     var chapterId = options.chapterId || '';
-    var currentSection = options.currentSection || '0';
-    var totalSections = options.totalSections || '0';
+    var currentSection = parseInt(options.currentSection) || 0;
+    var totalSections = parseInt(options.totalSections) || 0;
+
+    this.setData({
+      chapterId: chapterId,
+      currentSection: currentSection,
+      totalSections: totalSections
+    });
 
     var url = HTML_BASE + '/html-pages/' + htmlId + '.html'
       + '?chapterId=' + chapterId
@@ -17,6 +26,45 @@ Page({
       + '&totalSections=' + totalSections;
 
     this.setData({ url: url });
+  },
+
+  onPrevCard() {
+    if (this.data.currentSection <= 0) {
+      wx.showToast({ title: '已是第一节', icon: 'none' });
+      return;
+    }
+    var idx = this.data.currentSection - 1;
+    this.setData({ currentSection: idx });
+    this.reloadHtml(idx);
+  },
+
+  onNextCard() {
+    if (this.data.currentSection >= this.data.totalSections - 1) {
+      wx.showToast({ title: '已是最后一节', icon: 'none' });
+      return;
+    }
+    var idx = this.data.currentSection + 1;
+    this.setData({ currentSection: idx });
+    this.reloadHtml(idx);
+  },
+
+  reloadHtml(sectionIdx) {
+    var newUrl = this.data.url.replace(/currentSection=\d+/, 'currentSection=' + sectionIdx);
+    this.setData({ url: newUrl });
+  },
+
+  onUnderstood() {
+    wx.showToast({ title: '已标记为理解', icon: 'none' });
+    console.log('[ActionBar] 标记理解:', this.data.chapterId, this.data.currentSection);
+  },
+
+  onHard() {
+    wx.showToast({ title: '已标记为有点难', icon: 'none' });
+    console.log('[ActionBar] 标记困难:', this.data.chapterId, this.data.currentSection);
+  },
+
+  onNote() {
+    wx.navigateTo({ url: '/pages/note/note' });
   },
 
   onMessage(e) {

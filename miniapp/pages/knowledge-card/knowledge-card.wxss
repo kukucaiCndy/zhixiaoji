@@ -2,3 +2,85 @@ web-view {
   width: 100%;
   height: 100%;
 }
+
+.action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 128rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 32rpx 40rpx;
+  box-sizing: border-box;
+  z-index: 999;
+}
+
+.action-nav {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 48rpx;
+  border: 2rpx solid #E2E8F0;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 12rpx;
+}
+
+.action-nav:last-child {
+  margin-right: 0;
+  margin-left: 12rpx;
+}
+
+.nav-text {
+  font-size: 36rpx;
+  color: #64748B;
+  line-height: 36rpx;
+}
+
+.action-btn {
+  flex: 1;
+  height: 96rpx;
+  border-radius: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 12rpx;
+}
+
+.action-btn:last-of-type {
+  margin-right: 0;
+}
+
+.action-btn.understood {
+  background: #4F46E5;
+}
+
+.action-btn.hard {
+  background: #FFFFFF;
+  border: 2rpx solid #F59E0B;
+}
+
+.action-btn.note {
+  background: #FFFFFF;
+  border: 2rpx solid #4F46E5;
+}
+
+.btn-text {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 28rpx;
+}
+
+.action-btn.hard .btn-text {
+  color: #F59E0B;
+}
+
+.action-btn.note .btn-text {
+  color: #4F46E5;
+}

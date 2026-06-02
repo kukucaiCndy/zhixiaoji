@@ -1,1 +1,19 @@
-<web-view src="{{url}}"></web-view>
+<web-view src="{{url}}">
+  <cover-view class="action-bar">
+    <cover-view class="action-nav" bindtap="onPrevCard">
+      <cover-view class="nav-text">‹</cover-view>
+    </cover-view>
+    <cover-view class="action-btn understood" bindtap="onUnderstood">
+      <cover-view class="btn-text">✅ 理解了</cover-view>
+    </cover-view>
+    <cover-view class="action-btn hard" bindtap="onHard">
+      <cover-view class="btn-text">🤔 有点难</cover-view>
+    </cover-view>
+    <cover-view class="action-btn note" bindtap="onNote">
+      <cover-view class="btn-text">📝 记笔记</cover-view>
+    </cover-view>
+    <cover-view class="action-nav" bindtap="onNextCard">
+      <cover-view class="nav-text">›</cover-view>
+    </cover-view>
+  </cover-view>
+</web-view>
