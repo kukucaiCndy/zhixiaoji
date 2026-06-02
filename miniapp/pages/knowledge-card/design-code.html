@@ -1,0 +1,2387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixso HTML</title>
+  <style>
+@font-face {
+	font-family: 'Microsoft YaHei';
+	font-style: normal;
+	font-weight: 400;
+	src: url(http://localhost:3667/assets/1780408270889/MSYH_1.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Microsoft YaHei';
+	font-style: normal;
+	font-weight: 700;
+	src: url(http://localhost:3667/assets/1780408270889/MSYHBD_1.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Noto Sans SC';
+	font-style: normal;
+	font-weight: 400;
+	src: url(http://localhost:3667/assets/1780408270889/NotoSansSC-VariableFont_wght_2.ttf) format('truetype');
+}
+
+
+</style>
+  <script src="js/animation.js"></script>
+  <style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ol,ul,menu {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+ol li::marker, ul li::before {
+  letter-spacing: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body { 
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: white;
+}
+    
+span {
+  word-break: break-word;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.frame-3_3 {
+  width: 1920px;
+  height: 1537px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-3_4 {
+  width: 375px;
+  height: 1487px;
+  position: absolute;
+  left: 773px;
+  top: 0px;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-3_5 {
+  width: 375px;
+  height: 44px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_5 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_6 {
+  width: 29.90999984741211px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_7 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 32px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_8 {
+  width: 60px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_8 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-3_9 {
+  width: 16px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(30, 41, 59, 1);
+  opacity: 0.5;
+}
+
+.rectangle-3_10 {
+  width: 16px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(30, 41, 59, 1);
+  opacity: 0.5;
+}
+
+.rectangle-3_11 {
+  width: 16px;
+  height: 10px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(30, 41, 59, 1);
+  opacity: 0.5;
+}
+
+.frame-3_12 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_12 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px 0px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-3_12 {
+  position: absolute;
+  left: 0px;
+  top: 44px;
+  width: 375px;
+  height: 44px;
+  display: flex;
+  padding: 0px 0px 1px 0px;
+}
+
+.stroke-3_12 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(241, 245, 249, 1);
+}
+
+.frame-3_13 {
+  width: 36px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_14 {
+  font-size: 20px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: 22px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_15 {
+  width: 271px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_16 {
+  font-size: 16px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  text-align: center;
+  color: rgba(30, 41, 59, 1);
+  width: 99px;
+  height: auto;
+  position: absolute;
+  left: 86px;
+  top: 0px;
+}
+
+.frame-3_17 {
+  width: 38px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_18 {
+  font-size: 20px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  text-align: right;
+  color: rgba(239, 68, 68, 1);
+  width: 14px;
+  height: auto;
+  position: absolute;
+  left: 24px;
+  top: 0px;
+}
+
+.frame-3_19 {
+  width: 375px;
+  height: 32px;
+  position: absolute;
+  left: 0px;
+  top: 88px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.frame-content-3_19 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12px 16px 12px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-3_20 {
+  width: 8px;
+  height: 8px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 4px 4px 4px 4px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.rectangle-3_21 {
+  width: 8px;
+  height: 8px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 4px 4px 4px 4px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.rectangle-3_22 {
+  width: 24px;
+  height: 8px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 4px 4px 4px 4px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.rectangle-3_23 {
+  width: 8px;
+  height: 8px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 4px 4px 4px 4px;
+  background-color: rgba(226, 232, 240, 1);
+}
+
+.rectangle-3_24 {
+  width: 8px;
+  height: 8px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 4px 4px 4px 4px;
+  background-color: rgba(226, 232, 240, 1);
+}
+
+.rectangle-3_25 {
+  width: 8px;
+  height: 8px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 4px 4px 4px 4px;
+  background-color: rgba(226, 232, 240, 1);
+}
+
+.frame-3_26 {
+  width: 375px;
+  height: 34px;
+  position: absolute;
+  left: 0px;
+  top: 120px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_26 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  padding: 0px 16px 12px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_27 {
+  width: 72px;
+  height: 22px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(255, 251, 235, 1);
+}
+
+.paragraph-3_28 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(245, 158, 11, 1);
+  width: 50px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 3px;
+}
+
+.frame-3_29 {
+  width: 75.05999755859375px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_30 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_31 {
+  width: 73.44000244140625px;
+  height: 22px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_32 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 51px;
+  height: auto;
+  position: absolute;
+  left: 12px;
+  top: 3px;
+}
+
+.frame-3_33 {
+  width: 375px;
+  height: 376px;
+  position: absolute;
+  left: 0px;
+  top: 154px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_33 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_34 {
+  width: 343px;
+  height: 360px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 360px;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.07999999850404028) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_34 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 360px;
+  padding: 28px 24px 28px 24px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_35 {
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_35 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 16px 0px;
+  width: 100%;
+  position: relative;
+}
+
+.frame-3_36 {
+  width: 295px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_36 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_37 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(79, 70, 229, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.rectangle-3_38 {
+  width: 222.47999572753906px;
+  height: 1px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.frame-3_39 {
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_39 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 12px 0px;
+  width: 100%;
+  position: relative;
+}
+
+.frame-3_40 {
+  width: 295px;
+  height: 62px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_41 {
+  font-size: 20px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  line-height: 30px;
+  color: rgba(30, 41, 59, 1);
+  width: 286px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-3_42 {
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_42 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 20px 0px;
+  width: 100%;
+  position: relative;
+}
+
+.frame-3_43 {
+  width: 296px;
+  height: 46px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_44 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  line-height: 22.399999618530273px;
+  color: rgba(100, 116, 139, 1);
+  width: 296px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 1px;
+}
+
+.frame-3_45 {
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_45 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 96.21880340576172px 0px 0px 0px;
+  width: 100%;
+  position: relative;
+}
+
+.frame-3_46 {
+  width: 193.5800018310547px;
+  height: 39px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.frame-content-3_46 {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  padding: 10px 20px 10px 20px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_47 {
+  width: 133.5800018310547px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_48 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 136px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_49 {
+  width: 14px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_50 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 16px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_51 {
+  width: 375px;
+  height: 629px;
+  position: absolute;
+  left: 0px;
+  top: 530px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_51 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_52 {
+  width: 343px;
+  height: 613px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.07999999850404028) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-3_53 {
+  width: 295px;
+  height: 30px;
+  position: absolute;
+  left: 24px;
+  top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_53 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_54 {
+  width: 295px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_54 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_55 {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(139, 92, 246, 1);
+}
+
+.frame-content-3_55 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_56 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.paragraph-3_57 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_58 {
+  width: 295px;
+  height: 87px;
+  position: absolute;
+  left: 24px;
+  top: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_58 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 16px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_59 {
+  width: 296px;
+  height: 71px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.text-3_60 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: Regular;
+  line-height: 23.799999237060547px;
+  color: rgba(71, 85, 105, 1);
+  width: 268px;
+  height: auto;
+  position: absolute;
+  left: 28px;
+  top: 0px;
+}
+
+.paragraph-3_60_0 {
+  line-height: 23.799999237060547px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-3_60_0_1 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(71, 85, 105, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-3_60_0_2 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(71, 85, 105, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-3_60_0_3 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(71, 85, 105, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_61 {
+  width: 295px;
+  height: 30px;
+  position: absolute;
+  left: 24px;
+  top: 145px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_61 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_62 {
+  width: 295px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_62 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_63 {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(6, 182, 212, 1);
+}
+
+.frame-content-3_63 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_64 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.paragraph-3_65 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_66 {
+  width: 295px;
+  height: 87px;
+  position: absolute;
+  left: 24px;
+  top: 175px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_66 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 16px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_67 {
+  width: 296px;
+  height: 73px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_68 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  line-height: 23.799999237060547px;
+  color: rgba(71, 85, 105, 1);
+  width: 268px;
+  height: auto;
+  position: absolute;
+  left: 28px;
+  top: 2px;
+}
+
+.frame-3_69 {
+  width: 295px;
+  height: 30px;
+  position: absolute;
+  left: 24px;
+  top: 263px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_69 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_70 {
+  width: 295px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_70 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_71 {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-content-3_71 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_72 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.paragraph-3_73 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_74 {
+  width: 295px;
+  height: 106px;
+  position: absolute;
+  left: 24px;
+  top: 293px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_74 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 16px 28px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_75 {
+  width: 267px;
+  height: 90px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(30, 41, 59, 1);
+}
+
+.paragraph-3_76 {
+  font-size: 13px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  line-height: 20.799999237060547px;
+  color: rgba(226, 232, 240, 1);
+  width: 236px;
+  height: auto;
+  position: absolute;
+  left: 16px;
+  top: 17px;
+}
+
+.frame-3_77 {
+  width: 295px;
+  height: 30px;
+  position: absolute;
+  left: 24px;
+  top: 399px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_77 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_78 {
+  width: 295px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-3_78 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_79 {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px 6px 6px 6px;
+  background-color: rgba(139, 92, 246, 1);
+}
+
+.frame-content-3_79 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-3_80 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.paragraph-3_81 {
+  font-size: 15px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_82 {
+  width: 295px;
+  height: 156px;
+  position: absolute;
+  left: 24px;
+  top: 429px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_82 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 16px 28px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_83 {
+  width: 267px;
+  height: 140px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-3_84 {
+  width: 235px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_84 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 4px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.text-3_85 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: Regular;
+  color: rgba(0, 0, 0, 1);
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.paragraph-3_85_0 {
+  line-height: 17.15771484375px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-3_85_0_1 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-3_85_0_2 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(71, 85, 105, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_86 {
+  width: 235px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 41px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_86 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 4px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.text-3_87 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: Regular;
+  color: rgba(0, 0, 0, 1);
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.paragraph-3_87_0 {
+  line-height: 17.15771484375px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-3_87_0_1 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-3_87_0_2 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(71, 85, 105, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_88 {
+  width: 235px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_88 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 4px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.text-3_89 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: Regular;
+  color: rgba(0, 0, 0, 1);
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.paragraph-3_89_0 {
+  line-height: 17.15771484375px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-3_89_0_1 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-3_89_0_2 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(71, 85, 105, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_90 {
+  width: 235px;
+  height: 29px;
+  position: absolute;
+  left: 16px;
+  top: 99px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_90 {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 4px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.text-3_91 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: Regular;
+  color: rgba(0, 0, 0, 1);
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.paragraph-3_91_0 {
+  line-height: 17.15771484375px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-3_91_0_1 {
+  font-size: 12px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-3_91_0_2 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(71, 85, 105, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-3_92 {
+  width: 375px;
+  height: 104px;
+  position: absolute;
+  left: 0px;
+  top: 1159px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.frame-content-3_92 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 0px 16px 40px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_93 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px 24px 24px 24px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_93 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-3_93 {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  flex-shrink: 0;
+  padding: 1px 1px 1px 1px;
+}
+
+.stroke-3_93 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 24px 24px 24px 24px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.paragraph-3_94 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_95 {
+  width: 67.66000366210938px;
+  height: 64px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 22px 22px 22px 22px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.paragraph-3_96 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  width: 38px;
+  height: auto;
+  position: absolute;
+  left: 16px;
+  top: 12px;
+}
+
+.frame-3_97 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 22px 22px 22px 22px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.stroke-wrapper-3_97 {
+  position: relative;
+  width: 69.66999816894531px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.stroke-3_97 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 22px 22px 22px 22px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(245, 158, 11, 1);
+}
+
+.paragraph-3_98 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  text-align: center;
+  color: rgba(245, 158, 11, 1);
+  width: 38px;
+  height: auto;
+  position: absolute;
+  left: 17px;
+  top: 13px;
+}
+
+.frame-3_99 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 22px 22px 22px 22px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.stroke-wrapper-3_99 {
+  position: relative;
+  width: 69.66999816894531px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.stroke-3_99 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 22px 22px 22px 22px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(79, 70, 229, 1);
+}
+
+.paragraph-3_100 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  text-align: center;
+  color: rgba(79, 70, 229, 1);
+  width: 38px;
+  height: auto;
+  position: absolute;
+  left: 17px;
+  top: 13px;
+}
+
+.frame-3_101 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px 24px 24px 24px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-3_101 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-3_101 {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  flex-shrink: 0;
+  padding: 1px 1px 1px 1px;
+}
+
+.stroke-3_101 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 24px 24px 24px 24px;
+  pointer-events: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.paragraph-3_102 {
+  font-size: 18px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(100, 116, 139, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-3_103 {
+  width: 375px;
+  height: 224px;
+  position: absolute;
+  left: 0px;
+  top: 1263px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_103 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 16px 24px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_104 {
+  width: 343px;
+  height: 200px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-3_105 {
+  width: 311px;
+  height: 31px;
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_105 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 12px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_106 {
+  width: 311px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_107 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: 80px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_108 {
+  width: 311px;
+  height: 137px;
+  position: absolute;
+  left: 16px;
+  top: 47px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-3_108 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-3_109 {
+  width: 311px;
+  height: 39px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-content-3_109 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px 10px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-3_110 {
+  width: 6px;
+  height: 6px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-3_111 {
+  width: 223px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_112 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: 152px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_113 {
+  width: 38px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_114 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 24px;
+  height: auto;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+}
+
+.frame-3_115 {
+  width: 311px;
+  height: 39px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-content-3_115 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px 10px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-3_116 {
+  width: 6px;
+  height: 6px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-3_117 {
+  width: 223px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_118 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: 80px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_119 {
+  width: 38px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_120 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 24px;
+  height: auto;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+}
+
+.frame-3_121 {
+  width: 311px;
+  height: 39px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-content-3_121 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px 10px 12px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.rectangle-3_122 {
+  width: 6px;
+  height: 6px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(79, 70, 229, 1);
+}
+
+.frame-3_123 {
+  width: 223px;
+  height: 17px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-3_124 {
+  font-size: 13px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: 135px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-3_125 {
+  width: 38px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 8px 8px 8px 8px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-3_126 {
+  font-size: 11px;
+  font-family: "Microsoft YaHei-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 24px;
+  height: auto;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+}
+
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="3_3" class="frame-3_3">
+    <div id="3_4" class="frame-3_4">
+      <div id="3_5" class="frame-3_5">
+        <div class="frame-content-3_5">
+          <div id="3_6" class="frame-3_6">
+            <p id="3_7" class="paragraph-3_7">9:41</p>
+          </div>
+          <div id="3_8" class="frame-3_8">
+            <div class="frame-content-3_8">
+              <div id="3_9" class="rectangle-3_9"></div>
+              <div id="3_10" class="rectangle-3_10"></div>
+              <div id="3_11" class="rectangle-3_11"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_12" class="stroke-wrapper-3_12">
+        <div class="frame-3_12">
+          <div class="frame-content-3_12">
+            <div id="3_13" class="frame-3_13">
+              <p id="3_14" class="paragraph-3_14">←</p>
+            </div>
+            <div id="3_15" class="frame-3_15">
+              <p id="3_16" class="paragraph-3_16">CSS Flexbox</p>
+            </div>
+            <div id="3_17" class="frame-3_17">
+              <p id="3_18" class="paragraph-3_18">♥</p>
+            </div>
+          </div>
+        </div>
+        <div class="stroke-3_12"></div>
+      </div>
+      <div id="3_19" class="frame-3_19">
+        <div class="frame-content-3_19">
+          <div id="3_20" class="rectangle-3_20"></div>
+          <div id="3_21" class="rectangle-3_21"></div>
+          <div id="3_22" class="rectangle-3_22"></div>
+          <div id="3_23" class="rectangle-3_23"></div>
+          <div id="3_24" class="rectangle-3_24"></div>
+          <div id="3_25" class="rectangle-3_25"></div>
+        </div>
+      </div>
+      <div id="3_26" class="frame-3_26">
+        <div class="frame-content-3_26">
+          <div id="3_27" class="frame-3_27">
+            <p id="3_28" class="paragraph-3_28">中等难度</p>
+          </div>
+          <div id="3_29" class="frame-3_29">
+            <p id="3_30" class="paragraph-3_30">⏱ 预计 5 分钟</p>
+          </div>
+          <div id="3_31" class="frame-3_31">
+            <p id="3_32" class="paragraph-3_32">CSS 布局</p>
+          </div>
+        </div>
+      </div>
+      <div id="3_33" class="frame-3_33">
+        <div class="frame-content-3_33">
+          <div id="3_34" class="frame-3_34">
+            <div class="frame-content-3_34">
+              <div id="3_35" class="frame-3_35">
+                <div class="frame-content-3_35">
+                  <div id="3_36" class="frame-3_36">
+                    <div class="frame-content-3_36">
+                      <p id="3_37" class="paragraph-3_37">📖 概念问题</p>
+                      <div id="3_38" class="rectangle-3_38"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="3_39" class="frame-3_39">
+                <div class="frame-content-3_39">
+                  <div id="3_40" class="frame-3_40">
+                    <p id="3_41" class="paragraph-3_41">什么是 Flexbox？它的核心概念是什么？</p>
+                  </div>
+                </div>
+              </div>
+              <div id="3_42" class="frame-3_42">
+                <div class="frame-content-3_42">
+                  <div id="3_43" class="frame-3_43">
+                    <p id="3_44" class="paragraph-3_44">思考一下：当你需要在一行或一列中排列多个元素时，传统布局方式有什么局限性？</p>
+                  </div>
+                </div>
+              </div>
+              <div id="3_45" class="frame-3_45">
+                <div class="frame-content-3_45">
+                  <div id="3_46" class="frame-3_46">
+                    <div class="frame-content-3_46">
+                      <div id="3_47" class="frame-3_47">
+                        <p id="3_48" class="paragraph-3_48">👆 点击翻转查看解释</p>
+                      </div>
+                      <div id="3_49" class="frame-3_49">
+                        <p id="3_50" class="paragraph-3_50">→</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_51" class="frame-3_51">
+        <div class="frame-content-3_51">
+          <div id="3_52" class="frame-3_52">
+            <div id="3_53" class="frame-3_53">
+              <div class="frame-content-3_53">
+                <div id="3_54" class="frame-3_54">
+                  <div class="frame-content-3_54">
+                    <div id="3_55" class="frame-3_55">
+                      <div class="frame-content-3_55">
+                        <p id="3_56" class="paragraph-3_56">💡</p>
+                      </div>
+                    </div>
+                    <p id="3_57" class="paragraph-3_57">概念解释</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_58" class="frame-3_58">
+              <div class="frame-content-3_58">
+                <div id="3_59" class="frame-3_59">
+                  <div id="3_60" class="text-3_60">
+                    <p id="3_60_0" class="paragraph-3_60_0">
+<span id="3_60_0_1" class="span-3_60_0_1">Flexbox（弹性盒子）是一种</span><span id="3_60_0_2" class="span-3_60_0_2">一维布局模型</span><span id="3_60_0_3" class="span-3_60_0_3">，能够高效地在行或列方向上分配空间和对齐元素。</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_61" class="frame-3_61">
+              <div class="frame-content-3_61">
+                <div id="3_62" class="frame-3_62">
+                  <div class="frame-content-3_62">
+                    <div id="3_63" class="frame-3_63">
+                      <div class="frame-content-3_63">
+                        <p id="3_64" class="paragraph-3_64">🌱</p>
+                      </div>
+                    </div>
+                    <p id="3_65" class="paragraph-3_65">生活类比</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_66" class="frame-3_66">
+              <div class="frame-content-3_66">
+                <div id="3_67" class="frame-3_67">
+                  <p id="3_68" class="paragraph-3_68">想象一个行李箱（容器），里面的物品可以沿着行李箱的长边排列。箱子可以调整大小，物品也可以根据剩余空间自动伸缩。</p>
+                </div>
+              </div>
+            </div>
+            <div id="3_69" class="frame-3_69">
+              <div class="frame-content-3_69">
+                <div id="3_70" class="frame-3_70">
+                  <div class="frame-content-3_70">
+                    <div id="3_71" class="frame-3_71">
+                      <div class="frame-content-3_71">
+                        <p id="3_72" class="paragraph-3_72">💻</p>
+                      </div>
+                    </div>
+                    <p id="3_73" class="paragraph-3_73">代码示例</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_74" class="frame-3_74">
+              <div class="frame-content-3_74">
+                <div id="3_75" class="frame-3_75">
+                  <p id="3_76" class="paragraph-3_76">.container { display: flex; justify-content: center; align-items: center; }</p>
+                </div>
+              </div>
+            </div>
+            <div id="3_77" class="frame-3_77">
+              <div class="frame-content-3_77">
+                <div id="3_78" class="frame-3_78">
+                  <div class="frame-content-3_78">
+                    <div id="3_79" class="frame-3_79">
+                      <div class="frame-content-3_79">
+                        <p id="3_80" class="paragraph-3_80">📌</p>
+                      </div>
+                    </div>
+                    <p id="3_81" class="paragraph-3_81">要点总结</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="3_82" class="frame-3_82">
+              <div class="frame-content-3_82">
+                <div id="3_83" class="frame-3_83">
+                  <div id="3_84" class="frame-3_84">
+                    <div class="frame-content-3_84">
+                      <div id="3_85" class="text-3_85">
+                        <p id="3_85_0" class="paragraph-3_85_0">
+<span id="3_85_0_1" class="span-3_85_0_1">✦</span><span id="3_85_0_2" class="span-3_85_0_2">主轴和交叉轴是 Flexbox 的核心概念</span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="3_86" class="frame-3_86">
+                    <div class="frame-content-3_86">
+                      <div id="3_87" class="text-3_87">
+                        <p id="3_87_0" class="paragraph-3_87_0">
+<span id="3_87_0_1" class="span-3_87_0_1">✦</span><span id="3_87_0_2" class="span-3_87_0_2">justify-content 控制主轴对齐</span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="3_88" class="frame-3_88">
+                    <div class="frame-content-3_88">
+                      <div id="3_89" class="text-3_89">
+                        <p id="3_89_0" class="paragraph-3_89_0">
+<span id="3_89_0_1" class="span-3_89_0_1">✦</span><span id="3_89_0_2" class="span-3_89_0_2">align-items 控制交叉轴对齐</span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="3_90" class="frame-3_90">
+                    <div class="frame-content-3_90">
+                      <div id="3_91" class="text-3_91">
+                        <p id="3_91_0" class="paragraph-3_91_0">
+<span id="3_91_0_1" class="span-3_91_0_1">✦</span><span id="3_91_0_2" class="span-3_91_0_2">flex 属性控制子元素的伸缩比例</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="3_92" class="frame-3_92">
+        <div class="frame-content-3_92">
+          <div id="3_93" class="stroke-wrapper-3_93">
+            <div class="frame-3_93">
+              <div class="frame-content-3_93">
+                <p id="3_94" class="paragraph-3_94">‹</p>
+              </div>
+            </div>
+            <div class="stroke-3_93"></div>
+          </div>
+          <div id="3_95" class="frame-3_95">
+            <p id="3_96" class="paragraph-3_96">✅ 理解了</p>
+          </div>
+          <div id="3_97" class="stroke-wrapper-3_97">
+            <div class="frame-3_97">
+              <p id="3_98" class="paragraph-3_98">🤔 有点难</p>
+            </div>
+            <div class="stroke-3_97"></div>
+          </div>
+          <div id="3_99" class="stroke-wrapper-3_99">
+            <div class="frame-3_99">
+              <p id="3_100" class="paragraph-3_100">📝 记笔记</p>
+            </div>
+            <div class="stroke-3_99"></div>
+          </div>
+          <div id="3_101" class="stroke-wrapper-3_101">
+            <div class="frame-3_101">
+              <div class="frame-content-3_101">
+                <p id="3_102" class="paragraph-3_102">›</p>
+              </div>
+            </div>
+            <div class="stroke-3_101"></div>
+          </div>
+        </div>
+      </div>
+      <div id="3_103" class="frame-3_103">
+        <div class="frame-content-3_103">
+          <div id="3_104" class="frame-3_104">
+            <div id="3_105" class="frame-3_105">
+              <div class="frame-content-3_105">
+                <div id="3_106" class="frame-3_106">
+                  <p id="3_107" class="paragraph-3_107">📚 延伸阅读</p>
+                </div>
+              </div>
+            </div>
+            <div id="3_108" class="frame-3_108">
+              <div class="frame-content-3_108">
+                <div id="3_109" class="frame-3_109">
+                  <div class="frame-content-3_109">
+                    <div id="3_110" class="rectangle-3_110"></div>
+                    <div id="3_111" class="frame-3_111">
+                      <p id="3_112" class="paragraph-3_112">Flexbox vs Grid 布局对比</p>
+                    </div>
+                    <div id="3_113" class="frame-3_113">
+                      <p id="3_114" class="paragraph-3_114">进阶</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="3_115" class="frame-3_115">
+                  <div class="frame-content-3_115">
+                    <div id="3_116" class="rectangle-3_116"></div>
+                    <div id="3_117" class="frame-3_117">
+                      <p id="3_118" class="paragraph-3_118">flex 属性详解</p>
+                    </div>
+                    <div id="3_119" class="frame-3_119">
+                      <p id="3_120" class="paragraph-3_120">必读</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="3_121" class="frame-3_121">
+                  <div class="frame-content-3_121">
+                    <div id="3_122" class="rectangle-3_122"></div>
+                    <div id="3_123" class="frame-3_123">
+                      <p id="3_124" class="paragraph-3_124">常见 Flexbox 布局案例</p>
+                    </div>
+                    <div id="3_125" class="frame-3_125">
+                      <p id="3_126" class="paragraph-3_126">实战</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

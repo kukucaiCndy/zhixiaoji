@@ -10,7 +10,8 @@
     "pages/profile/settings/settings",
     "pages/profile/edit-profile/edit-profile",
     "pages/wrong-questions/wrong-questions",
-    "pages/rank/rank"
+    "pages/rank/rank",
+    "pages/knowledge-card/knowledge-card"
   ],
   "window": {
     "navigationBarTitleText": "智小记",

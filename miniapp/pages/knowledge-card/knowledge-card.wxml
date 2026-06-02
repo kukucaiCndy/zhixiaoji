@@ -1,0 +1,175 @@
+<view class="page">
+  <view class="status-bar">
+    <text class="time-text">9:41</text>
+    <view class="status-icons">
+      <view class="signal-bar"></view>
+      <view class="signal-bar"></view>
+      <view class="signal-bar"></view>
+    </view>
+  </view>
+
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="onBack">
+      <text class="nav-arrow">←</text>
+    </view>
+    <text class="nav-title">CSS Flexbox</text>
+    <view class="nav-favorite" bindtap="onFavorite">
+      <text class="fav-icon">♥</text>
+    </view>
+  </view>
+  <view class="nav-border"></view>
+
+  <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="scroll-inner">
+
+      <view class="card-header">
+        <view class="header-deco">
+          <view class="deco-rect r1"></view>
+          <view class="deco-rect r2"></view>
+          <view class="deco-rect r3"></view>
+          <view class="deco-rect r4"></view>
+          <view class="deco-rect r5"></view>
+          <view class="deco-rect r6"></view>
+        </view>
+        <view class="header-meta">
+          <view class="meta-tag difficulty">
+            <text>中等难度</text>
+          </view>
+          <view class="meta-tag time">
+            <text>⏱ 预计 5 分钟</text>
+          </view>
+          <view class="meta-tag category">
+            <text>CSS 布局</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="card-front">
+        <view class="cf-inner">
+          <view class="cf-type">
+            <text class="cf-type-icon">📖</text>
+            <text class="cf-type-label">概念问题</text>
+          </view>
+          <view class="cf-question">
+            <text>什么是 Flexbox？它的核心概念是什么？</text>
+          </view>
+          <view class="cf-hint">
+            <text>思考一下：当你需要在一行或一列中排列多个元素时，传统布局方式有什么局限性？</text>
+          </view>
+          <view class="cf-flip-hint" bindtap="onFlipCard">
+            <text class="cf-flip-text">👆 点击翻转查看解释</text>
+            <text class="cf-flip-arrow">→</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="card-back">
+        <view class="cb-inner">
+
+          <view class="cb-section">
+            <view class="cb-section-title">
+              <text class="cb-s-icon">💡</text>
+              <text class="cb-s-label">概念解释</text>
+            </view>
+            <view class="cb-section-body">
+              <text class="cb-body-text">Flexbox（弹性盒子）是一种<text class="cb-highlight">一维布局模型</text>，能够高效地在行或列方向上分配空间和对齐元素。</text>
+            </view>
+          </view>
+
+          <view class="cb-section">
+            <view class="cb-section-title">
+              <text class="cb-s-icon">🌱</text>
+              <text class="cb-s-label">生活类比</text>
+            </view>
+            <view class="cb-section-body">
+              <text class="cb-body-text">想象一个行李箱（容器），里面的物品可以沿着行李箱的长边排列。箱子可以调整大小，物品也可以根据剩余空间自动伸缩。</text>
+            </view>
+          </view>
+
+          <view class="cb-section">
+            <view class="cb-section-title">
+              <text class="cb-s-icon">💻</text>
+              <text class="cb-s-label">代码示例</text>
+            </view>
+            <view class="cb-code-block">
+              <text>.container { display: flex; justify-content: center; align-items: center; }</text>
+            </view>
+          </view>
+
+          <view class="cb-section">
+            <view class="cb-section-title">
+              <text class="cb-s-icon">📌</text>
+              <text class="cb-s-label">要点总结</text>
+            </view>
+            <view class="cb-summary-box">
+              <view class="cb-summary-item">
+                <text class="cb-dot">✦</text>
+                <text class="cb-item-text">主轴和交叉轴是 Flexbox 的核心概念</text>
+              </view>
+              <view class="cb-summary-item">
+                <text class="cb-dot">✦</text>
+                <text class="cb-item-text">justify-content 控制主轴对齐</text>
+              </view>
+              <view class="cb-summary-item">
+                <text class="cb-dot">✦</text>
+                <text class="cb-item-text">align-items 控制交叉轴对齐</text>
+              </view>
+              <view class="cb-summary-item">
+                <text class="cb-dot">✦</text>
+                <text class="cb-item-text">flex 属性控制子元素的伸缩比例</text>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+
+      <view class="action-bar">
+        <view class="action-nav" bindtap="onPrevCard">
+          <text class="nav-text">‹</text>
+        </view>
+        <view class="action-btn understood" bindtap="onUnderstood">
+          <text>✅ 理解了</text>
+        </view>
+        <view class="action-btn hard" bindtap="onHard">
+          <text>🤔 有点难</text>
+        </view>
+        <view class="action-btn note" bindtap="onNote">
+          <text>📝 记笔记</text>
+        </view>
+        <view class="action-nav" bindtap="onNextCard">
+          <text class="nav-text">›</text>
+        </view>
+      </view>
+
+      <view class="extend-section">
+        <text class="extend-title">📚 延伸阅读</text>
+        <view class="extend-list">
+          <view class="extend-item" bindtap="onExtendTap" data-id="1">
+            <view class="extend-dot"></view>
+            <text class="extend-name">Flexbox vs Grid 布局对比</text>
+            <view class="extend-tag">
+              <text>进阶</text>
+            </view>
+          </view>
+          <view class="extend-item" bindtap="onExtendTap" data-id="2">
+            <view class="extend-dot"></view>
+            <text class="extend-name">flex 属性详解</text>
+            <view class="extend-tag">
+              <text>必读</text>
+            </view>
+          </view>
+          <view class="extend-item" bindtap="onExtendTap" data-id="3">
+            <view class="extend-dot"></view>
+            <text class="extend-name">常见 Flexbox 布局案例</text>
+            <view class="extend-tag">
+              <text>实战</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="bottom-placeholder"></view>
+    </view>
+  </scroll-view>
+</view>
