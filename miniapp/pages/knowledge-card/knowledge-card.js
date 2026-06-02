@@ -1,3 +1,4 @@
+var { knowledge } = require('../../services/api-client');
 var HTML_BASE = 'http://192.168.16.129:12302';
 
 Page({
@@ -7,35 +8,79 @@ Page({
     currentSection: 0,
     totalSections: 0,
     statusBarHeight: 44,
-    sectionDots: []
+    sectionDots: [],
+    sections: []
   },
 
   onLoad(options) {
     var sysInfo = wx.getSystemInfoSync();
-    var statusBarHeight = sysInfo.statusBarHeight || 44;
-    var htmlId = options.htmlId || '';
     var chapterId = options.chapterId || '';
     var currentSection = parseInt(options.currentSection) || 0;
-    var totalSections = parseInt(options.totalSections) || 0;
-    var sectionDots = [];
-    for (var i = 0; i < totalSections; i++) {
-      sectionDots.push(i);
-    }
 
     this.setData({
       chapterId: chapterId,
       currentSection: currentSection,
-      totalSections: totalSections,
-      statusBarHeight: statusBarHeight,
-      sectionDots: sectionDots
+      statusBarHeight: sysInfo.statusBarHeight || 44
     });
 
-    var url = HTML_BASE + '/html-pages/' + htmlId + '.html'
-      + '?chapterId=' + chapterId
-      + '&currentSection=' + currentSection
-      + '&totalSections=' + totalSections;
+    if (chapterId) {
+      this.loadSections(chapterId, currentSection);
+    }
+  },
 
+  loadSections(chapterId, currentSection) {
+    var self = this;
+    knowledge.listSections({ chapterId: chapterId }).then(function (res) {
+      if (res.code === 0 && res.data && res.data.length > 0) {
+        var sections = res.data;
+        var total = sections.length;
+        var idx = Math.min(currentSection, total - 1);
+        var section = sections[idx];
+        var htmlUrl = section.htmlUrl || '';
+
+        var sectionDots = [];
+        for (var i = 0; i < total; i++) {
+          sectionDots.push(i);
+        }
+
+        self.setData({
+          sections: sections,
+          totalSections: total,
+          currentSection: idx,
+          sectionDots: sectionDots
+        });
+
+        if (htmlUrl) {
+          self.buildUrl(htmlUrl, chapterId, idx, total);
+        }
+      } else {
+        wx.showToast({ title: '暂无内容', icon: 'none' });
+      }
+    }).catch(function (err) {
+      console.error('[KnowledgeCard] 加载章节失败:', err);
+      wx.showToast({ title: '加载失败', icon: 'none' });
+    });
+  },
+
+  buildUrl(htmlUrl, chapterId, sectionIdx, total) {
+    var url = htmlUrl;
+    if (htmlUrl.indexOf('http') !== 0) {
+      url = HTML_BASE + (htmlUrl.indexOf('/') === 0 ? '' : '/') + htmlUrl;
+    }
+    if (url.indexOf('?') === -1) {
+      url += '?chapterId=' + chapterId + '&currentSection=' + sectionIdx + '&totalSections=' + total;
+    }
     this.setData({ url: url });
+  },
+
+  switchSection(idx) {
+    if (!this.data.sections.length) return;
+    var section = this.data.sections[idx];
+    if (!section) return;
+    var htmlUrl = section.htmlUrl || '';
+    if (!htmlUrl) return;
+    this.setData({ currentSection: idx });
+    this.buildUrl(htmlUrl, this.data.chapterId, idx, this.data.totalSections);
   },
 
   onPrevCard() {
@@ -43,9 +88,7 @@ Page({
       wx.showToast({ title: '已是第一节', icon: 'none' });
       return;
     }
-    var idx = this.data.currentSection - 1;
-    this.setData({ currentSection: idx });
-    this.reloadHtml(idx);
+    this.switchSection(this.data.currentSection - 1);
   },
 
   onNextCard() {
@@ -53,14 +96,7 @@ Page({
       wx.showToast({ title: '已是最后一节', icon: 'none' });
       return;
     }
-    var idx = this.data.currentSection + 1;
-    this.setData({ currentSection: idx });
-    this.reloadHtml(idx);
-  },
-
-  reloadHtml(sectionIdx) {
-    var newUrl = this.data.url.replace(/currentSection=\d+/, 'currentSection=' + sectionIdx);
-    this.setData({ url: newUrl });
+    this.switchSection(this.data.currentSection + 1);
   },
 
   onUnderstood() {
