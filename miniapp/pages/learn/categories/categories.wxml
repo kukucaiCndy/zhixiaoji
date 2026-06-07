@@ -1,0 +1,84 @@
+<view class="categories-page">
+  <!-- 导航栏 -->
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="onBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <text class="nav-title">{{categoryName}}</text>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="scroll-inner">
+      <!-- 分类信息横幅 -->
+      <view class="category-banner">
+        <view class="banner-left">
+          <view class="banner-icon-wrap">
+            <text class="banner-icon">{{categoryIcon}}</text>
+          </view>
+        </view>
+        <view class="banner-info">
+          <text class="banner-name">{{categoryName}}</text>
+          <text class="banner-desc">{{categoryDesc}}</text>
+          <view class="banner-stats">
+            <text class="banner-stat">{{chapterCount}}个知识章节</text>
+            <text class="banner-stat">{{sectionCount}}章节</text>
+          </view>
+        </view>
+        <view class="banner-progress" wx:if="{{progressPercent >= 0}}">
+          <text class="banner-progress-text">{{progressPercent}}%</text>
+        </view>
+      </view>
+
+      <!-- 知识章节标题 -->
+      <view class="section-header">
+        <text class="section-title">知识章节</text>
+        <text class="section-count">共{{chapters.length}}个</text>
+      </view>
+
+      <!-- 知识章节列表 -->
+      <view class="chapter-list">
+        <view class="chapter-item" wx:for="{{chapters}}" wx:key="id" bindtap="onChapterTap" data-chapter="{{item}}">
+          <view class="chapter-icon-wrap" style="background-color: {{item.iconBg}};">
+            <text class="chapter-icon">{{item.icon}}</text>
+          </view>
+          <view class="chapter-main">
+            <text class="chapter-name">{{item.title}}</text>
+            <text class="chapter-meta">{{item.sectionCount}}章节</text>
+          </view>
+          <view class="chapter-status" wx:if="{{item.status === 'studying'}}">
+            <text class="status-text studying">学习中</text>
+          </view>
+          <view class="chapter-status" wx:elif="{{item.status === 'locked'}}">
+            <text class="status-text locked">未解锁</text>
+          </view>
+          <view class="chapter-status" wx:elif="{{item.status === 'completed'}}">
+            <text class="status-text completed">已完成</text>
+          </view>
+        </view>
+
+        <!-- 错误状态 -->
+        <view class="error-state" wx:if="{{error}}">
+          <text class="error-icon">⚠️</text>
+          <text class="error-text">{{errorMsg}}</text>
+          <view class="error-retry" bindtap="onRetry">
+            <text>重新加载</text>
+          </view>
+        </view>
+
+        <!-- 空状态 -->
+        <view class="empty-state" wx:elif="{{chapters.length === 0 && !loading}}">
+          <text class="empty-icon">📭</text>
+          <text class="empty-text">暂无知识章节</text>
+        </view>
+
+        <!-- 加载中 -->
+        <view class="loading-state" wx:elif="{{loading}}">
+          <text class="loading-text">加载中...</text>
+        </view>
+      </view>
+
+      <view class="bottom-placeholder"></view>
+    </view>
+  </scroll-view>
+</view>

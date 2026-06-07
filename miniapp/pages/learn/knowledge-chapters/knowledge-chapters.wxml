@@ -1,0 +1,77 @@
+<view class="knowledge-chapters-page">
+  <!-- 导航栏 -->
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="onBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <text class="nav-title">{{chapterTitle}}</text>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="scroll-inner">
+      <!-- 知识章节头部卡片 -->
+      <view class="chapter-header-card">
+        <view class="ch-header-left">
+          <view class="ch-header-icon-wrap" style="background-color: {{chapterIconBg}};">
+            <text class="ch-header-icon">{{chapterIcon}}</text>
+          </view>
+        </view>
+        <view class="ch-header-info">
+          <text class="ch-header-name">{{chapterTitle}}</text>
+          <text class="ch-header-meta">{{sectionCount}}章节 · {{totalCardCount}}卡片 · {{categoryName}}分类</text>
+          <view class="ch-header-progress-bar">
+            <view class="ch-header-progress-fill" style="width: {{progressPercent}}%;"></view>
+          </view>
+        </view>
+        <view class="ch-header-progress-text">
+          <text>{{progressPercent}}%</text>
+        </view>
+      </view>
+
+      <!-- 面包屑导航 -->
+      <view class="breadcrumb">
+        <text class="breadcrumb-parent">{{categoryName}} ></text>
+        <text class="breadcrumb-current">{{chapterTitle}}</text>
+      </view>
+
+      <!-- 学习目标 -->
+      <view class="goal-card" wx:if="{{chapterGoal}}">
+        <text class="goal-label">学习目标</text>
+        <text class="goal-text">{{chapterGoal}}</text>
+      </view>
+
+      <!-- 小节列表 -->
+      <view class="section-list">
+        <view class="section-item {{item.status}}" wx:for="{{sections}}" wx:key="id" bindtap="onSectionTap" data-section="{{item}}" data-index="{{index}}">
+          <view class="section-number-wrap {{item.status}}">
+            <text class="section-number">{{index + 1}}</text>
+          </view>
+          <view class="section-info">
+            <text class="section-title-text">{{item.title}}</text>
+            <text class="section-meta">{{item.cardCount}}卡片 · {{item.statusText}}</text>
+            <view class="section-unlock-hint" wx:if="{{item.status === 'locked' && item.knowledgePoint}}">
+              <text class="unlock-hint-text">🔒 {{item.knowledgePoint}}</text>
+            </view>
+          </view>
+          <view class="section-status-badge {{item.status}}">
+            <text class="status-badge-text">{{item.statusLabel}}</text>
+          </view>
+        </view>
+
+        <!-- 空状态 -->
+        <view class="empty-state" wx:if="{{sections.length === 0 && !loading}}">
+          <text class="empty-icon">📭</text>
+          <text class="empty-text">暂无章节内容</text>
+        </view>
+
+        <!-- 加载中 -->
+        <view class="loading-state" wx:if="{{loading}}">
+          <text class="loading-text">加载中...</text>
+        </view>
+      </view>
+
+      <view class="bottom-placeholder"></view>
+    </view>
+  </scroll-view>
+</view>

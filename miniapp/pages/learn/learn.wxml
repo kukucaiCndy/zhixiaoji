@@ -1,99 +1,81 @@
 <view class="learn-page">
-  <view class="header-section">
+  <!-- 导航栏 -->
   <view class="nav-bar">
-      <text class="nav-title">学习</text>
-      <view class="search-btn" bindtap="onSearch">
-        <text>🔍 搜索</text>
-      </view>
+    <text class="nav-title">学习</text>
+  </view>
+
+  <!-- 搜索栏 -->
+  <view class="search-section">
+    <view class="search-bar" bindtap="onSearch">
+      <text class="search-icon">🔍</text>
+      <text class="search-placeholder">搜索知识卡片</text>
     </view>
   </view>
+
   <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}">
     <view class="scroll-inner">
-      <view class="path-tabs">
-        <view class="path-tab {{currentPath === 'main' ? 'active' : ''}}" bindtap="switchPath" data-path="main">
-          <text>📌 主线路径</text>
-          <view class="active-indicator"></view>
+      <!-- 用户信息卡片 -->
+      <view class="profile-banner">
+        <view class="profile-top">
+          <view class="profile-left">
+            <view class="profile-avatar">
+              <text>😊</text>
+            </view>
+            <view class="profile-info">
+              <text class="profile-name">{{userName}}</text>
+              <text class="profile-level">{{userLevel}}</text>
+            </view>
+          </view>
+          <view class="profile-streak">
+            <text class="streak-icon">🔥</text>
+            <text class="streak-text">{{streakDays}}天</text>
+          </view>
         </view>
-        <view class="path-tab {{currentPath === 'quick' ? 'active' : ''}}" bindtap="switchPath" data-path="quick">
-          <text>⚡ 快速路径</text>
-          <view class="active-indicator"></view>
-        </view>
-        <view class="path-tab {{currentPath === 'interest' ? 'active' : ''}}" bindtap="switchPath" data-path="interest">
-          <text>🎯 兴趣路径</text>
-          <view class="active-indicator"></view>
-        </view>
-        <view class="path-tab {{currentPath === 'weakness' ? 'active' : ''}}" bindtap="switchPath" data-path="weakness">
-          <text>💪 补弱路径</text>
-          <view class="active-indicator"></view>
-        </view>
-      </view>
-
-      <view class="continue-card">
-        <view class="continue-header">
-          <text class="continue-title">继续学习</text>
-          <text class="continue-more" bindtap="onViewAll">查看全部 →</text>
-        </view>
-        <view class="continue-body">
-          <view class="continue-icon">📄</view>
-          <view class="continue-info">
-            <text class="continue-name">CSS Flexbox 布局详解</text>
-            <text class="continue-desc">CSS 基础 → 布局篇 → 第3节</text>
+        <view class="profile-stats">
+          <view class="stat-item">
+            <text class="stat-value">{{learnedCards}}</text>
+            <text class="stat-label">已学卡片</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-value">{{accuracy}}%</text>
+            <text class="stat-label">正确率</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-value">{{points}}</text>
+            <text class="stat-label">积分</text>
           </view>
         </view>
       </view>
 
-      <view class="feature-grid">
-        <view class="feature-item" bindtap="onFeatureTap" data-type="favorite">
-          <view class="feature-icon purple">⭐</view>
-          <text class="feature-label">收藏夹</text>
-        </view>
-        <view class="feature-item" bindtap="onFeatureTap" data-type="wrong">
-          <view class="feature-icon red">❌</view>
-          <text class="feature-label">错题本</text>
-        </view>
-        <view class="feature-item" bindtap="onFeatureTap" data-type="review">
-          <view class="feature-icon green">🔄</view>
-          <text class="feature-label">复习任务</text>
-        </view>
-        <view class="feature-item" bindtap="onFeatureTap" data-type="stats">
-          <view class="feature-icon orange">📊</view>
-          <text class="feature-label">学习统计</text>
-        </view>
-      </view>
-
+      <!-- 知识分类 -->
       <view class="section-header">
-        <text class="section-title">📚 知识体系</text>
-        <text class="section-more" bindtap="onExpandAll">展开全部</text>
+        <text class="section-title">知识分类</text>
       </view>
 
-      <view class="knowledge-list">
-        <view class="knowledge-item" wx:for="{{knowledgeTree}}" wx:key="id" data-id="{{item.id}}" bindtap="toggleExpand">
-          <view class="knowledge-main">
-            <view class="knowledge-left">
-              <view class="knowledge-icon">{{item.icon}}</view>
-              <view class="knowledge-info">
-                <text class="knowledge-name">{{item.name}}</text>
-                <text class="knowledge-progress">{{item.completed}}/{{item.total}} 已完成</text>
-              </view>
-            </view>
-            <view class="knowledge-right">
-              <view class="knowledge-tag knowledge-tag-{{item.status}}">
-                <text>{{item.statusText}}</text>
-              </view>
-              <text class="knowledge-pct">{{item.percent}}%</text>
-              <text class="knowledge-arrow {{item.expanded ? 'expanded' : ''}}">▼</text>
-            </view>
+      <view class="category-grid">
+        <view class="category-card" wx:for="{{categories}}" wx:key="id" bindtap="onCategoryTap" data-category="{{item}}">
+          <view class="category-icon-wrap" style="background-color: {{item.bgColor}};">
+            <text class="category-icon">{{item.icon}}</text>
           </view>
-          <view class="knowledge-sub {{item.expanded ? 'show' : ''}}">
-            <view class="sub-item" wx:for="{{item.children}}" wx:key="name" wx:for-item="sub" wx:for-index="idx" catchtap="onSubItemTap" data-item="{{sub}}" data-parent="{{item}}" data-index="{{idx}}">
-              <view class="sub-line"></view>
-              <text class="sub-name">{{sub.name}}</text>
-              <view class="sub-badge sub-badge-{{sub.status}}">
-                <text>{{sub.badge}}</text>
-              </view>
-            </view>
-          </view>
+          <text class="category-name">{{item.name}}</text>
+          <text class="category-desc">{{item.description}}</text>
         </view>
+      </view>
+
+      <!-- 继续学习 -->
+      <view class="section-header" wx:if="{{continueLearning}}">
+        <text class="section-title">继续学习</text>
+      </view>
+
+      <view class="continue-card" wx:if="{{continueLearning}}" bindtap="onContinueTap">
+        <view class="continue-icon-wrap">
+          <text class="continue-icon">{{continueLearning.icon}}</text>
+        </view>
+        <view class="continue-info">
+          <text class="continue-title">{{continueLearning.title}}</text>
+          <text class="continue-desc">已完成 {{continueLearning.percent}}% · 继续学习第{{continueLearning.nextSection}}章</text>
+        </view>
+        <text class="continue-arrow">→</text>
       </view>
 
       <view class="bottom-placeholder"></view>

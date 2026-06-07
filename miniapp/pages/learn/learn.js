@@ -1,80 +1,96 @@
 var knowledgeApi = require('../../services/knowledge-api');
 
+var CATEGORY_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
+
 Page({
   data: {
-    currentPath: 'main',
-    knowledgeTree: []
+    userName: '小明同学',
+    userLevel: 'Lv.12 编程学徒',
+    streakDays: 15,
+    learnedCards: 128,
+    accuracy: 86,
+    points: 2560,
+    categories: [],
+    continueLearning: null
   },
 
-  onLoad() {
-    this.loadKnowledgeTree();
+  onLoad: function () {
+    this.loadCategories();
   },
 
-  loadKnowledgeTree() {
-    knowledgeApi.buildKnowledgeTree().then(function (tree) {
-      this.setData({ knowledgeTree: tree });
-    }.bind(this)).catch(function (err) {
-      console.error('[Learn] Failed to load knowledge tree:', err);
+  onShow: function () {
+    // 每次显示时刷新数据
+    this.loadCategories();
+  },
+
+  loadCategories: function () {
+    var self = this;
+    knowledgeApi.listCategories({ status: 'published' }).then(function (categories) {
+      var processed = (categories || []).map(function (cat, i) {
+        return {
+          id: cat.id,
+          name: cat.name,
+          icon: cat.icon || '📚',
+          description: cat.difficulty ? (cat.difficulty === 'beginner' ? '入门' : cat.difficulty === 'intermediate' ? '进阶' : '高级') : '',
+          bgColor: CATEGORY_BG_COLORS[i % CATEGORY_BG_COLORS.length],
+          chapterCount: cat.chapterCount || 0,
+          sectionCount: cat.sectionCount || 0,
+          doneCount: 0,
+          progressPercent: 0
+        };
+      });
+      self.setData({ categories: processed });
+      // 加载继续学习数据
+      self.loadContinueLearning();
+    }).catch(function (err) {
+      console.error('[Learn] Failed to load categories:', err);
     });
   },
 
-  switchPath(e) {
-    var path = e.currentTarget.dataset.path;
-    this.setData({ currentPath: path });
-    this.loadKnowledgeTree();
-  },
-
-  toggleExpand(e) {
-    var id = e.currentTarget.dataset.id;
-    var tree = this.data.knowledgeTree.map(function (item) {
-      if (item.id === id) {
-        return Object.assign({}, item, { expanded: !item.expanded });
+  loadContinueLearning: function () {
+    var self = this;
+    knowledgeApi.getRecommendations().then(function (list) {
+      if (list && list.length > 0) {
+        var item = list[0];
+        self.setData({
+          continueLearning: {
+            icon: item.icon || '🐍',
+            title: item.title || 'Python基础 · 变量与数据类型',
+            percent: 60,
+            nextSection: 3,
+            chapterId: item.id || ''
+          }
+        });
       }
-      return item;
+    }).catch(function (err) {
+      console.log('[Learn] Failed to load continue learning:', err);
     });
-    this.setData({ knowledgeTree: tree });
   },
 
-  onExpandAll() {
-    var allExpanded = this.data.knowledgeTree.every(function (item) { return item.expanded; });
-    var tree = this.data.knowledgeTree.map(function (item) {
-      return Object.assign({}, item, { expanded: !allExpanded });
-    });
-    this.setData({ knowledgeTree: tree });
-  },
-
-  onSearch() {
+  onSearch: function () {
     wx.showToast({ title: '搜索功能开发中', icon: 'none' });
   },
 
-  onViewAll() {
-    wx.navigateTo({ url: '/pages/learn/learn' });
-  },
-
-  onFeatureTap(e) {
-    var type = e.currentTarget.dataset.type;
-    var routes = {
-      favorite: '/pages/favorites/favorites',
-      wrong: '/pages/wrong-questions/wrong-questions',
-      review: '/pages/review/review',
-      stats: '/pages/stats/stats'
-    };
-    var url = routes[type];
-    if (url) wx.navigateTo({ url });
-  },
-
-  onSubItemTap(e) {
-    var sub = e.currentTarget.dataset.item;
-    var parent = e.currentTarget.dataset.parent;
-    var idx = e.currentTarget.dataset.index;
-    var chapterId = sub.chapterId || parent.id || '';
+  onCategoryTap: function (e) {
+    var category = e.currentTarget.dataset.category;
+    if (!category || !category.id) return;
     wx.navigateTo({
-      url: '/pages/knowledge-card/knowledge-card?chapterId=' + chapterId
-        + '&currentSection=' + (typeof idx === 'number' ? idx : 0)
+      url: '/pages/learn/categories/categories?id=' + category.id + '&name=' + encodeURIComponent(category.name)
     });
   },
 
-  onTabChange(e) {
-    var index = e.detail.index;
+  onContinueTap: function () {
+    var item = this.data.continueLearning;
+    if (!item) return;
+    // 跳转到知识章节详情页
+    if (item.chapterId) {
+      wx.navigateTo({
+        url: '/pages/learn/knowledge-chapters/knowledge-chapters?id=' + item.chapterId
+      });
+    }
+  },
+
+  onTabChange: function (e) {
+    // tab-bar 组件自动处理切换
   }
 });

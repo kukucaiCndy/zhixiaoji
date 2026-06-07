@@ -5,6 +5,8 @@
     "pages/auth/user-setup/user-setup",
     "pages/home/home",
     "pages/learn/learn",
+    "pages/learn/categories/categories",
+    "pages/learn/knowledge-chapters/knowledge-chapters",
     "pages/note/note",
     "pages/profile/profile",
     "pages/profile/settings/settings",
