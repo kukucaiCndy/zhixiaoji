@@ -1,4 +1,5 @@
 var knowledgeApi = require('../../../services/knowledge-api');
+var { decorateIcon } = require('../../../utils/icon-helper');
 
 var CHAPTER_ICON_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
 
@@ -12,6 +13,7 @@ Page({
     categoryId: '',
     categoryName: '',
     categoryIcon: '',
+    categoryIconType: 'emoji',
     categoryDesc: '',
     subjectCount: 0,
     chapters: [],
@@ -35,7 +37,7 @@ Page({
     self.setData({ loading: true, error: false });
     knowledgeApi.getCategoryDetail(categoryId).then(function (data) {
       var chapters = (data.subjects || []).map(function (subj, i) {
-        return {
+        var item = {
           id: subj.id,
           title: subj.name,
           icon: subj.icon || '📖',
@@ -46,10 +48,15 @@ Page({
           progressPercent: 0,
           status: SUBJECT_STATUS_MAP[subj.status] || 'locked'
         };
+        decorateIcon(item, '📖');
+        return item;
       });
 
+      var bannerIcon = data.icon || '📚';
+
       self.setData({
-        categoryIcon: data.icon || '📚',
+        categoryIcon: bannerIcon,
+        categoryIconType: require('../../../utils/icon-helper').iconType(bannerIcon),
         categoryDesc: data.description || '',
         subjectCount: chapters.length,
         chapters: chapters,

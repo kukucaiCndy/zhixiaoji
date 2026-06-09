@@ -1,4 +1,5 @@
 var knowledgeApi = require('../../../services/knowledge-api');
+var { decorateIcon } = require('../../../utils/icon-helper');
 
 var CHAPTER_ICON_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
 
@@ -7,6 +8,7 @@ Page({
     subjectId: '',
     subjectTitle: '',
     subjectIcon: '📖',
+    subjectIconType: 'emoji',
     subjectIconBg: '#EEF2FF',
     subjectDesc: '',
     subjectGoal: '',
@@ -41,9 +43,13 @@ Page({
         };
       });
 
+      var iconHelper = require('../../../utils/icon-helper');
+      var subjectIcon = data.icon || '📖';
+
       self.setData({
         subjectTitle: data.name || self.data.subjectTitle,
-        subjectIcon: data.icon || '📖',
+        subjectIcon: subjectIcon,
+        subjectIconType: iconHelper.iconType(subjectIcon),
         subjectIconBg: CHAPTER_ICON_BG_COLORS[(data.sortOrder || 0) % CHAPTER_ICON_BG_COLORS.length],
         subjectDesc: data.description || '',
         categoryName: self.data.categoryName || data.categoryId || '',

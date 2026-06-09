@@ -55,7 +55,8 @@
       <view class="category-grid">
         <view class="category-card" wx:for="{{categories}}" wx:key="id" bindtap="onCategoryTap" data-category="{{item}}">
           <view class="category-icon-wrap" style="background-color: {{item.bgColor}};">
-            <text class="category-icon">{{item.icon}}</text>
+            <image wx:if="{{item.iconType === 'image'}}" class="category-icon category-icon-img" src="{{item.icon}}" mode="aspectFit" />
+            <text wx:else class="category-icon">{{item.icon}}</text>
           </view>
           <text class="category-name">{{item.name}}</text>
           <text class="category-desc">{{item.description}}</text>

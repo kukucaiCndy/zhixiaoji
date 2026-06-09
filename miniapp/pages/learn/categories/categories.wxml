@@ -14,7 +14,8 @@
       <view class="category-banner">
         <view class="banner-left">
           <view class="banner-icon-wrap">
-            <text class="banner-icon">{{categoryIcon}}</text>
+            <image wx:if="{{categoryIconType === 'image'}}" class="banner-icon banner-icon-img" src="{{categoryIcon}}" mode="aspectFit" />
+            <text wx:else class="banner-icon">{{categoryIcon}}</text>
           </view>
         </view>
         <view class="banner-info">
@@ -36,7 +37,8 @@
       <view class="chapter-list">
         <view class="chapter-item" wx:for="{{chapters}}" wx:key="id" bindtap="onChapterTap" data-chapter="{{item}}">
           <view class="chapter-icon-wrap" style="background-color: {{item.iconBg}};">
-            <text class="chapter-icon">{{item.icon}}</text>
+            <image wx:if="{{item.iconType === 'image'}}" class="chapter-icon chapter-icon-img" src="{{item.icon}}" mode="aspectFit" />
+            <text wx:else class="chapter-icon">{{item.icon}}</text>
           </view>
           <view class="chapter-main">
             <text class="chapter-name">{{item.title}}</text>

@@ -14,7 +14,8 @@
       <view class="chapter-header-card">
         <view class="ch-header-left">
           <view class="ch-header-icon-wrap" style="background-color: {{subjectIconBg}};">
-            <text class="ch-header-icon">{{subjectIcon}}</text>
+            <image wx:if="{{subjectIconType === 'image'}}" class="ch-header-icon ch-header-icon-img" src="{{subjectIcon}}" mode="aspectFit" />
+            <text wx:else class="ch-header-icon">{{subjectIcon}}</text>
           </view>
         </view>
         <view class="ch-header-info">

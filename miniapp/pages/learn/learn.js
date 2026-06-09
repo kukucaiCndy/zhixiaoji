@@ -1,4 +1,5 @@
 var knowledgeApi = require('../../services/knowledge-api');
+var { decorateIcon } = require('../../utils/icon-helper');
 
 var CATEGORY_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
 
@@ -27,7 +28,7 @@ Page({
     var self = this;
     knowledgeApi.listCategories({ status: 'visible' }).then(function (categories) {
       var processed = (categories || []).map(function (cat, i) {
-        return {
+        var item = {
           id: cat.id,
           name: cat.name,
           icon: cat.icon || '📚',
@@ -38,6 +39,8 @@ Page({
           doneCount: 0,
           progressPercent: 0
         };
+        decorateIcon(item, '📚');
+        return item;
       });
       self.setData({ categories: processed });
       // 加载继续学习数据

@@ -17,15 +17,16 @@
 }
 
 .nav-back {
-  width: 80rpx;
+  width: 48rpx;
   height: 88rpx;
   display: flex;
   align-items: center;
 }
 
 .back-icon {
-  font-size: 40rpx;
-  color: #1E293B;
+  font-size: 36rpx;
+  color: #4F46E5;
+  font-weight: 400;
 }
 
 .nav-title {
@@ -40,7 +41,7 @@
 }
 
 .nav-placeholder {
-  width: 80rpx;
+  width: 48rpx;
 }
 
 /* 滚动区域 */
@@ -52,72 +53,101 @@
   padding: 0 32rpx;
 }
 
-/* 知识章节信息卡片 */
-.chapter-info-card {
+/* 知识章节头部卡片 */
+.chapter-header-card {
   margin-top: 32rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 32rpx;
   border-radius: 32rpx;
-  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  background: #FFFFFF;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.06);
 }
 
-.chapter-info-title {
-  font-size: 36rpx;
-  font-weight: 700;
-  color: #FFFFFF;
-  display: block;
+.ch-header-left {
+  margin-right: 28rpx;
+  flex-shrink: 0;
 }
 
-.chapter-info-desc {
-  font-size: 26rpx;
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 12rpx;
-  display: block;
-  line-height: 1.5;
-}
-
-.chapter-info-tags {
+.ch-header-icon-wrap {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 28rpx;
   display: flex;
-  gap: 16rpx;
-  margin-top: 20rpx;
+  align-items: center;
+  justify-content: center;
 }
 
-.info-tag {
-  padding: 6rpx 20rpx;
-  border-radius: 20rpx;
-  background: rgba(255, 255, 255, 0.2);
+.ch-header-icon {
+  font-size: 48rpx;
 }
 
-.info-tag text {
-  font-size: 22rpx;
-  color: #FFFFFF;
+.ch-header-icon-img {
+  width: 48rpx;
+  height: 48rpx;
 }
 
-.chapter-info-progress {
-  margin-top: 24rpx;
-  padding-top: 24rpx;
-  border-top: 2rpx solid rgba(255, 255, 255, 0.15);
+.ch-header-info {
+  flex: 1;
+  min-width: 0;
 }
 
-.progress-text {
+.ch-header-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1E293B;
+  display: block;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ch-header-meta {
+  font-size: 24rpx;
+  color: #94A3B8;
+  display: block;
   margin-bottom: 12rpx;
 }
 
-.progress-text text {
-  font-size: 24rpx;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.progress-bar {
+.ch-header-progress-bar {
+  width: 100%;
   height: 8rpx;
   border-radius: 4rpx;
-  background: rgba(255, 255, 255, 0.2);
+  background: #F1F5F9;
   overflow: hidden;
 }
 
-.progress-fill {
+.ch-header-progress-fill {
   height: 100%;
   border-radius: 4rpx;
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(90deg, #4F46E5 0%, #06B6D4 100%);
+}
+
+.ch-header-progress-text {
+  flex-shrink: 0;
+  margin-left: 24rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #4F46E5;
+}
+
+/* 面包屑导航 */
+.breadcrumb {
+  margin-top: 24rpx;
+  padding: 0 8rpx;
+}
+
+.breadcrumb-parent {
+  font-size: 24rpx;
+  color: #94A3B8;
+}
+
+.breadcrumb-current {
+  font-size: 24rpx;
+  color: #4F46E5;
+  font-weight: 500;
 }
 
 /* 学习目标卡片 */
@@ -144,31 +174,18 @@
   display: block;
 }
 
-/* 分区标题 */
-.section-header {
-  display: flex;
-  align-items: center;
-  height: 66rpx;
-  margin-top: 32rpx;
-}
-
-.section-title {
-  font-size: 32rpx;
-  font-weight: 600;
-  color: #1E293B;
-}
-
 /* 小节列表 */
 .section-list {
   display: flex;
   flex-direction: column;
   gap: 20rpx;
+  margin-top: 24rpx;
 }
 
 .section-item {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-start;
   padding: 28rpx 32rpx;
   border-radius: 24rpx;
   background: #FFFFFF;
@@ -176,39 +193,42 @@
 }
 
 .section-item.locked {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
-.section-left {
+/* 序号圆圈 */
+.section-number-wrap {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
   display: flex;
   align-items: center;
-  flex: 1;
-  min-width: 0;
-}
-
-.section-status-dot {
-  width: 24rpx;
-  height: 24rpx;
-  border-radius: 12rpx;
+  justify-content: center;
   flex-shrink: 0;
   margin-right: 24rpx;
+  margin-top: 4rpx;
 }
 
-.section-status-dot.completed {
-  background: #10B981;
+.section-number-wrap.completed {
+  background: #D1FAE5;
 }
 
-.section-status-dot.studying {
-  background: #4F46E5;
+.section-number-wrap.studying {
+  background: #EEF2FF;
 }
 
-.section-status-dot.locked {
-  background: #E2E8F0;
+.section-number-wrap.locked {
+  background: #F1F5F9;
+}
+
+.section-number {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #1E293B;
 }
 
 .section-info {
-  display: flex;
-  flex-direction: column;
+  flex: 1;
   min-width: 0;
 }
 
@@ -216,6 +236,8 @@
   font-size: 30rpx;
   font-weight: 600;
   color: #1E293B;
+  display: block;
+  margin-bottom: 6rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -224,26 +246,56 @@
 .section-meta {
   font-size: 24rpx;
   color: #94A3B8;
-  margin-top: 6rpx;
+  display: block;
 }
 
-.section-right {
+.section-unlock-hint {
+  margin-top: 12rpx;
+  padding: 12rpx 16rpx;
+  border-radius: 12rpx;
+  background: #FEF2F2;
+}
+
+.unlock-hint-text {
+  font-size: 22rpx;
+  color: #EF4444;
+  line-height: 1.4;
+}
+
+/* 状态徽章 */
+.section-status-badge {
   flex-shrink: 0;
   margin-left: 16rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 24rpx;
 }
 
-.section-check {
-  font-size: 32rpx;
-  color: #10B981;
-  font-weight: 700;
+.section-status-badge.completed {
+  background: #D1FAE5;
 }
 
-.section-lock {
-  font-size: 28rpx;
+.section-status-badge.studying {
+  background: #EEF2FF;
 }
 
-.section-arrow {
-  font-size: 32rpx;
+.section-status-badge.locked {
+  background: #F1F5F9;
+}
+
+.status-badge-text {
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+.section-status-badge.completed .status-badge-text {
+  color: #059669;
+}
+
+.section-status-badge.studying .status-badge-text {
+  color: #4F46E5;
+}
+
+.section-status-badge.locked .status-badge-text {
   color: #94A3B8;
 }
 
