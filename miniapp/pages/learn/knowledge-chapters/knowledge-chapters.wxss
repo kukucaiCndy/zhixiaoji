@@ -5,13 +5,12 @@
   flex-direction: column;
 }
 
-/* 导航栏容器（适配刘海屏） */
+/* 导航栏 */
 .nav-container {
   background: #FFFFFF;
   border-bottom: 2rpx solid #E2E8F0;
 }
 
-/* 导航栏 */
 .nav-bar {
   display: flex;
   align-items: center;
@@ -57,8 +56,8 @@
   padding: 0 32rpx;
 }
 
-/* 知识章节头部卡片 */
-.chapter-header-card {
+/* ===== 科目头部卡片 ===== */
+.subject-header-card {
   margin-top: 32rpx;
   display: flex;
   flex-direction: row;
@@ -69,12 +68,12 @@
   box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.06);
 }
 
-.ch-header-left {
+.subj-header-left {
   margin-right: 28rpx;
   flex-shrink: 0;
 }
 
-.ch-header-icon-wrap {
+.subj-header-icon-wrap {
   width: 96rpx;
   height: 96rpx;
   border-radius: 28rpx;
@@ -83,21 +82,21 @@
   justify-content: center;
 }
 
-.ch-header-icon {
+.subj-header-icon {
   font-size: 48rpx;
 }
 
-.ch-header-icon-img {
+.subj-header-icon-img {
   width: 48rpx;
   height: 48rpx;
 }
 
-.ch-header-info {
+.subj-header-info {
   flex: 1;
   min-width: 0;
 }
 
-.ch-header-name {
+.subj-header-name {
   font-size: 30rpx;
   font-weight: 600;
   color: #1E293B;
@@ -108,33 +107,10 @@
   white-space: nowrap;
 }
 
-.ch-header-meta {
+.subj-header-meta {
   font-size: 24rpx;
   color: #94A3B8;
   display: block;
-  margin-bottom: 12rpx;
-}
-
-.ch-header-progress-bar {
-  width: 100%;
-  height: 8rpx;
-  border-radius: 4rpx;
-  background: #F1F5F9;
-  overflow: hidden;
-}
-
-.ch-header-progress-fill {
-  height: 100%;
-  border-radius: 4rpx;
-  background: linear-gradient(90deg, #4F46E5 0%, #06B6D4 100%);
-}
-
-.ch-header-progress-text {
-  flex-shrink: 0;
-  margin-left: 24rpx;
-  font-size: 24rpx;
-  font-weight: 600;
-  color: #4F46E5;
 }
 
 /* 面包屑导航 */
@@ -154,156 +130,197 @@
   font-weight: 500;
 }
 
-/* 学习目标卡片 */
-.goal-card {
-  margin-top: 24rpx;
-  padding: 28rpx 32rpx;
-  border-radius: 24rpx;
-  background: #FFFFFF;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
-}
-
-.goal-label {
-  font-size: 26rpx;
-  font-weight: 600;
-  color: #4F46E5;
-  display: block;
-  margin-bottom: 8rpx;
-}
-
-.goal-text {
-  font-size: 28rpx;
-  color: #1E293B;
-  line-height: 1.5;
-  display: block;
-}
-
-/* 小节列表 */
-.section-list {
+/* ===== 可折叠章节列表 ===== */
+.chapter-collapse-list {
   display: flex;
   flex-direction: column;
   gap: 20rpx;
   margin-top: 24rpx;
 }
 
-.section-item {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 28rpx 32rpx;
+.chapter-collapse-item {
   border-radius: 24rpx;
   background: #FFFFFF;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  position: relative;
 }
 
-.section-item.locked {
-  opacity: 0.6;
+/* 进度背景条 */
+.chapter-progress-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(79, 70, 229, 0.06) 0%, rgba(6, 182, 212, 0.04) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* 序号圆圈 */
-.section-number-wrap {
-  width: 56rpx;
-  height: 56rpx;
-  border-radius: 28rpx;
+/* 章节标题头（点击区域） */
+.chapter-header {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-right: 24rpx;
-  margin-top: 4rpx;
+  justify-content: space-between;
+  padding: 28rpx 32rpx;
+  position: relative;
+  z-index: 1;
 }
 
-.section-number-wrap.completed {
-  background: #D1FAE5;
-}
-
-.section-number-wrap.studying {
-  background: #EEF2FF;
-}
-
-.section-number-wrap.locked {
-  background: #F1F5F9;
-}
-
-.section-number {
-  font-size: 28rpx;
-  font-weight: 700;
-  color: #1E293B;
-}
-
-.section-info {
+.chapter-header-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   flex: 1;
   min-width: 0;
 }
 
-.section-title-text {
+.chapter-index-badge {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  background: #EEF2FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #4F46E5;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+.chapter-header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.chapter-title {
   font-size: 30rpx;
   font-weight: 600;
   color: #1E293B;
   display: block;
-  margin-bottom: 6rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.section-meta {
+.chapter-meta {
   font-size: 24rpx;
   color: #94A3B8;
   display: block;
+  margin-top: 4rpx;
 }
 
-.section-unlock-hint {
-  margin-top: 12rpx;
-  padding: 12rpx 16rpx;
-  border-radius: 12rpx;
-  background: #FEF2F2;
-}
-
-.unlock-hint-text {
-  font-size: 22rpx;
-  color: #EF4444;
-  line-height: 1.4;
-}
-
-/* 状态徽章 */
-.section-status-badge {
+.chapter-header-right {
   flex-shrink: 0;
   margin-left: 16rpx;
-  padding: 10rpx 20rpx;
-  border-radius: 24rpx;
 }
 
-.section-status-badge.completed {
-  background: #D1FAE5;
+.chapter-toggle {
+  font-size: 36rpx;
+  color: #94A3B8;
+  font-weight: 300;
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.section-status-badge.studying {
-  background: #EEF2FF;
+/* 展开状态 */
+.chapter-collapse-item.expanded {
+  box-shadow: 0 4rpx 20rpx rgba(79, 70, 229, 0.10);
 }
 
-.section-status-badge.locked {
-  background: #F1F5F9;
+.chapter-collapse-item.expanded .chapter-header {
+  border-bottom: 2rpx solid #F1F5F9;
 }
 
-.status-badge-text {
-  font-size: 24rpx;
-  font-weight: 500;
-}
-
-.section-status-badge.completed .status-badge-text {
-  color: #059669;
-}
-
-.section-status-badge.studying .status-badge-text {
+.chapter-collapse-item.expanded .chapter-toggle {
   color: #4F46E5;
 }
 
-.section-status-badge.locked .status-badge-text {
+/* ===== 课程列表 ===== */
+.lesson-list {
+  padding: 0 0 8rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.lesson-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 24rpx 32rpx 24rpx 40rpx;
+  border-bottom: 2rpx solid #F8FAFC;
+}
+
+.lesson-item:last-child {
+  border-bottom: none;
+}
+
+.lesson-number-wrap {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  background: #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+.lesson-number {
+  font-size: 22rpx;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.lesson-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.lesson-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #334155;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lesson-meta {
+  font-size: 22rpx;
+  color: #94A3B8;
+  display: block;
+  margin-top: 4rpx;
+}
+
+.lesson-arrow {
+  font-size: 32rpx;
+  color: #CBD5E1;
+  flex-shrink: 0;
+  margin-left: 16rpx;
+}
+
+.lesson-loading,
+.lesson-empty {
+  padding: 32rpx 0;
+  text-align: center;
+}
+
+.lesson-loading-text,
+.lesson-empty-text {
+  font-size: 26rpx;
   color: #94A3B8;
 }
 
-/* 空状态 */
+/* ===== 空状态 ===== */
 .empty-state {
   display: flex;
   flex-direction: column;
