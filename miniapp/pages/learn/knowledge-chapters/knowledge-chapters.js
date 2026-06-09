@@ -2,83 +2,53 @@ var knowledgeApi = require('../../../services/knowledge-api');
 
 var CHAPTER_ICON_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
 
-var STATUS_LABEL_MAP = {
-  'completed': '✅ 已完成',
-  'studying': '🔄 学习中',
-  'locked': '🔒 未解锁'
-};
-
-var STATUS_TEXT_MAP = {
-  'completed': '已完成',
-  'studying': '学习中',
-  'locked': '需解锁'
-};
-
 Page({
   data: {
-    chapterId: '',
-    chapterTitle: '',
-    chapterIcon: '📖',
-    chapterIconBg: '#EEF2FF',
-    chapterDesc: '',
-    chapterGoal: '',
+    subjectId: '',
+    subjectTitle: '',
+    subjectIcon: '📖',
+    subjectIconBg: '#EEF2FF',
+    subjectDesc: '',
+    subjectGoal: '',
     categoryName: '',
-    sectionCount: 0,
-    totalCardCount: 0,
-    sectionDoneCount: 0,
-    progressPercent: 0,
-    sections: [],
+    chapterCount: 0,
+    chapters: [],
     loading: true
   },
 
   onLoad: function (options) {
-    var chapterId = options.id || '';
-    var chapterTitle = options.title ? decodeURIComponent(options.title) : '知识章节';
+    var subjectId = options.id || '';
+    var subjectTitle = options.title ? decodeURIComponent(options.title) : '科目';
     var categoryName = options.categoryName ? decodeURIComponent(options.categoryName) : '';
     this.setData({
-      chapterId: chapterId,
-      chapterTitle: chapterTitle,
+      subjectId: subjectId,
+      subjectTitle: subjectTitle,
       categoryName: categoryName
     });
-    this.loadChapterDetail(chapterId);
+    this.loadSubjectDetail(subjectId);
   },
 
-  loadChapterDetail: function (chapterId) {
+  loadSubjectDetail: function (subjectId) {
     var self = this;
     self.setData({ loading: true });
-    knowledgeApi.getKnowledgeChapterDetail(chapterId).then(function (data) {
-      var sections = (data.sections || []).map(function (sec) {
-        var status = sec.status || 'locked';
+    knowledgeApi.getKnowledgeChapterDetail(subjectId).then(function (data) {
+      var chapters = (data.chapters || []).map(function (ch, i) {
         return {
-          id: sec.id,
-          title: sec.title,
-          sortOrder: sec.sortOrder,
-          cardCount: sec.cardCount || 0,
-          status: status,
-          statusText: STATUS_TEXT_MAP[status] || '未知',
-          statusLabel: STATUS_LABEL_MAP[status] || status,
-          knowledgePoint: sec.knowledgePoint || ''
+          id: ch.id,
+          title: ch.title,
+          sortOrder: ch.sortOrder,
+          unlockPoints: ch.unlockPoints || 0
         };
       });
 
-      var doneCount = sections.filter(function (s) { return s.status === 'completed'; }).length;
-      var total = sections.length;
-      var totalCardCount = sections.reduce(function (sum, s) {
-        return sum + (s.cardCount || 0);
-      }, 0);
-
       self.setData({
-        chapterTitle: data.title || self.data.chapterTitle,
-        chapterIcon: data.icon || '📖',
-        chapterIconBg: CHAPTER_ICON_BG_COLORS[(data.sortOrder || 0) % CHAPTER_ICON_BG_COLORS.length],
-        chapterDesc: data.description || '',
-        chapterGoal: data.goal || '',
-        categoryName: self.data.categoryName || data.knowledgeSystemId || '',
-        sectionCount: data.sectionCount || total,
-        totalCardCount: totalCardCount,
-        sectionDoneCount: data.sectionDoneCount || doneCount,
-        progressPercent: total > 0 ? Math.round(doneCount / total * 100) : 0,
-        sections: sections,
+        subjectTitle: data.name || self.data.subjectTitle,
+        subjectIcon: data.icon || '📖',
+        subjectIconBg: CHAPTER_ICON_BG_COLORS[(data.sortOrder || 0) % CHAPTER_ICON_BG_COLORS.length],
+        subjectDesc: data.description || '',
+        categoryName: self.data.categoryName || data.categoryId || '',
+        chapterCount: data.chapters ? data.chapters.length : chapters.length,
+        chapters: chapters,
         loading: false
       });
     }).catch(function (err) {
@@ -91,17 +61,14 @@ Page({
     wx.navigateBack();
   },
 
-  onSectionTap: function (e) {
-    var section = e.currentTarget.dataset.section;
+  onChapterTap: function (e) {
+    var chapter = e.currentTarget.dataset.chapter;
     var index = e.currentTarget.dataset.index;
-    if (!section || !section.id) return;
-    if (section.status === 'locked') {
-      wx.showToast({ title: '请先完成前面的章节', icon: 'none' });
-      return;
-    }
+    if (!chapter || !chapter.id) return;
+    // 跳转到课程页面（暂用知识卡片页占位）
     wx.navigateTo({
-      url: '/pages/knowledge-card/knowledge-card?chapterId=' + this.data.chapterId
-        + '&currentSection=' + (typeof index === 'number' ? index : 0)
+      url: '/pages/knowledge-card/knowledge-card?subjectId=' + this.data.subjectId
+        + '&currentChapter=' + (typeof index === 'number' ? index : 0)
     });
   }
 });

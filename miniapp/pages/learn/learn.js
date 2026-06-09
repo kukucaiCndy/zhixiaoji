@@ -25,16 +25,16 @@ Page({
 
   loadCategories: function () {
     var self = this;
-    knowledgeApi.listCategories({ status: 'published' }).then(function (categories) {
+    knowledgeApi.listCategories({ status: 'visible' }).then(function (categories) {
       var processed = (categories || []).map(function (cat, i) {
         return {
           id: cat.id,
           name: cat.name,
           icon: cat.icon || '📚',
-          description: cat.difficulty ? (cat.difficulty === 'beginner' ? '入门' : cat.difficulty === 'intermediate' ? '进阶' : '高级') : '',
+          description: cat.description || '',
           bgColor: CATEGORY_BG_COLORS[i % CATEGORY_BG_COLORS.length],
-          chapterCount: cat.chapterCount || 0,
-          sectionCount: cat.sectionCount || 0,
+          chapterCount: 0,
+          sectionCount: 0,
           doneCount: 0,
           progressPercent: 0
         };

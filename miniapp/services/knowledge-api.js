@@ -4,41 +4,68 @@ var client = apiClient.client;
 var CATEGORY_ICONS = ['💻', '🖥️', '🔌', '📦', '🌐', '🎨', '⚡', '🛠️', '🔧', '🚀'];
 var CATEGORY_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
 
-// ========== 知识体系（分类）API ==========
+// ========== 分类 API (SDK v0.13.1) ==========
 
 /**
- * 获取知识体系列表
- * SDK: knowledge.listKnowledgeSystems(params)
- * 返回: KnowledgeSystem[] { id, name, icon, difficulty, sortOrder, chapterCount, sectionCount, status }
+ * 获取分类列表
+ * SDK: knowledge.listCategories(params)
+ * 返回: Category[] { id, name, icon, description, sortOrder, status }
  */
 function listCategories(params) {
-  return knowledge.listKnowledgeSystems(params).then(function (res) {
+  return knowledge.listCategories(params).then(function (res) {
     if (res.code === 0 && res.data) return res.data;
     throw new Error('Invalid response: ' + JSON.stringify(res));
   });
 }
 
 /**
- * 获取知识体系详情（含知识章节列表）
- * SDK: knowledge.getKnowledgeSystem(id)
- * 返回: KnowledgeSystemDetail { ...KnowledgeSystem, chapters: ChapterSummary[] }
- * ChapterSummary: { id, title, sortOrder, difficulty, sectionCount, status }
+ * 获取分类详情（含科目列表）
+ * SDK: knowledge.getCategory(id)
+ * 返回: CategoryDetail { ...Category, subjects: SubjectSummary[] }
+ * SubjectSummary: { id, name, icon, difficulty, sortOrder, status }
  */
 function getCategoryDetail(id) {
-  return knowledge.getKnowledgeSystem(id).then(function (res) {
+  return knowledge.getCategory(id).then(function (res) {
     if (res.code === 0 && res.data) return res.data;
     throw new Error('Invalid response: ' + JSON.stringify(res));
   });
 }
 
-// ========== 知识章节 API ==========
+// ========== 科目 API（原知识章节）==========
 
 /**
- * 获取知识章节列表（按知识体系筛选）
- * SDK: knowledge.listChapters({ knowledgeSystemId })
- * 返回: Chapter[] { id, title, description, goal, knowledgeSystemId, difficulty, sortOrder, status, sectionCount }
+ * 获取科目列表（按分类筛选）
+ * SDK: knowledge.listSubjects({ categoryId })
+ * 返回: Subject[] { id, name, icon, description, categoryId, difficulty, sortOrder, status }
  */
 function listKnowledgeChapters(params) {
+  return knowledge.listSubjects(params).then(function (res) {
+    if (res.code === 0 && res.data) return res.data;
+    throw new Error('Invalid response: ' + JSON.stringify(res));
+  });
+}
+
+/**
+ * 获取科目详情（含章节列表）
+ * SDK: knowledge.getSubject(id)
+ * 返回: SubjectDetail { ...Subject, chapters: ChapterSummary[] }
+ * ChapterSummary: { id, title, sortOrder, unlockPoints }
+ */
+function getKnowledgeChapterDetail(id) {
+  return knowledge.getSubject(id).then(function (res) {
+    if (res.code === 0 && res.data) return res.data;
+    throw new Error('Invalid response: ' + JSON.stringify(res));
+  });
+}
+
+// ========== 章节 API（原小节）==========
+
+/**
+ * 获取章节列表（按科目筛选）
+ * SDK: knowledge.listChapters({ subjectId })
+ * 返回: Chapter[] { id, title, description, subjectId, goal, content, sortOrder, unlockPoints }
+ */
+function listSections(params) {
   return knowledge.listChapters(params).then(function (res) {
     if (res.code === 0 && res.data) return res.data;
     throw new Error('Invalid response: ' + JSON.stringify(res));
@@ -46,39 +73,13 @@ function listKnowledgeChapters(params) {
 }
 
 /**
- * 获取知识章节详情（含小节列表）
+ * 获取章节详情（含课程列表）
  * SDK: knowledge.getChapter(id)
- * 返回: ChapterDetail { ...Chapter, sections: SectionSummary[] }
- * SectionSummary: { id, title, sortOrder, difficulty, knowledgePoint, cardCount, status }
- */
-function getKnowledgeChapterDetail(id) {
-  return knowledge.getChapter(id).then(function (res) {
-    if (res.code === 0 && res.data) return res.data;
-    throw new Error('Invalid response: ' + JSON.stringify(res));
-  });
-}
-
-// ========== 小节 API ==========
-
-/**
- * 获取小节列表
- * SDK: knowledge.listSections({ chapterId })
- * 返回: Section[] { id, title, chapterId, difficulty, sortOrder, prerequisiteSectionIds, unlockPoints, htmlUrl, knowledgePoint, status }
- */
-function listSections(params) {
-  return knowledge.listSections(params).then(function (res) {
-    if (res.code === 0 && res.data) return res.data;
-    throw new Error('Invalid response: ' + JSON.stringify(res));
-  });
-}
-
-/**
- * 获取小节详情
- * SDK: knowledge.getSection(id)
- * 返回: Section { id, title, chapterId, difficulty, sortOrder, prerequisiteSectionIds, unlockPoints, htmlUrl, latestHtmlContent, knowledgePoint, status }
+ * 返回: ChapterDetail { ...Chapter, lessons: LessonSummary[] }
+ * LessonSummary: { id, title, number, sortOrder, unlockPoints }
  */
 function getSectionDetail(id) {
-  return knowledge.getSection(id).then(function (res) {
+  return knowledge.getChapter(id).then(function (res) {
     if (res.code === 0 && res.data) return res.data;
     throw new Error('Invalid response: ' + JSON.stringify(res));
   });

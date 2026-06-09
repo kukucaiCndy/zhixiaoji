@@ -2,10 +2,9 @@ var knowledgeApi = require('../../../services/knowledge-api');
 
 var CHAPTER_ICON_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
 
-var CHAPTER_STATUS_MAP = {
-  'studying': 'studying',
-  'completed': 'completed',
-  'locked': 'locked'
+var SUBJECT_STATUS_MAP = {
+  'published': 'studying',
+  'draft': 'locked'
 };
 
 Page({
@@ -14,10 +13,7 @@ Page({
     categoryName: '',
     categoryIcon: '',
     categoryDesc: '',
-    chapterCount: 0,
-    sectionCount: 0,
-    totalSummaryCount: 0,
-    progressPercent: -1,
+    subjectCount: 0,
     chapters: [],
     loading: true,
     error: false,
@@ -38,33 +34,24 @@ Page({
     var self = this;
     self.setData({ loading: true, error: false });
     knowledgeApi.getCategoryDetail(categoryId).then(function (data) {
-      var chapters = (data.chapters || []).map(function (ch, i) {
-        var total = ch.sectionCount || 0;
-        var status = ch.status || 'studying';
+      var chapters = (data.subjects || []).map(function (subj, i) {
         return {
-          id: ch.id,
-          title: ch.title,
-          icon: '📖',
+          id: subj.id,
+          title: subj.name,
+          icon: subj.icon || '📖',
           iconBg: CHAPTER_ICON_BG_COLORS[i % CHAPTER_ICON_BG_COLORS.length],
-          sortOrder: ch.sortOrder,
-          sectionCount: total,
-          sectionDoneCount: 0,
+          sortOrder: subj.sortOrder,
+          sectionCount: 0,
           summaryCount: 0,
           progressPercent: 0,
-          status: status
+          status: SUBJECT_STATUS_MAP[subj.status] || 'locked'
         };
       });
 
-      var chapterCount = data.chapterCount || chapters.length;
-      var sectionCount = data.sectionCount || 0;
-
       self.setData({
         categoryIcon: data.icon || '📚',
-        categoryDesc: data.difficulty ? (data.difficulty === 'beginner' ? '入门' : data.difficulty === 'intermediate' ? '进阶' : '高级') : '',
-        chapterCount: chapterCount,
-        sectionCount: sectionCount,
-        totalSummaryCount: 0,
-        progressPercent: -1,
+        categoryDesc: data.description || '',
+        subjectCount: chapters.length,
         chapters: chapters,
         loading: false
       });
