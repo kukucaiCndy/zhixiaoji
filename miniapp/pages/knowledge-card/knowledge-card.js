@@ -9,7 +9,8 @@ Page({
     totalLessons: 0,
     statusBarHeight: 44,
     lessonDots: [],
-    lessons: []
+    lessons: [],
+    loading: true
   },
 
   onLoad(options) {
@@ -46,7 +47,8 @@ Page({
           lessons: lessons,
           totalLessons: total,
           currentLesson: idx,
-          lessonDots: lessonDots
+          lessonDots: lessonDots,
+          loading: false
         });
 
         if (htmlUrl) {
@@ -54,10 +56,12 @@ Page({
         }
       } else {
         wx.showToast({ title: '暂无内容', icon: 'none' });
+        self.setData({ loading: false });
       }
     }).catch(function (err) {
       console.error('[KnowledgeCard] 加载课程失败:', err);
       wx.showToast({ title: '加载失败', icon: 'none' });
+      self.setData({ loading: false });
     });
   },
 
