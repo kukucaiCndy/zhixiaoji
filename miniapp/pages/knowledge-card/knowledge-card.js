@@ -37,6 +37,7 @@ Page({
         var idx = Math.min(currentLesson, total - 1);
         var lesson = lessons[idx];
         var htmlUrl = lesson.htmlUrl || '';
+        console.log('[KnowledgeCard] lesson loaded:', idx, htmlUrl);
 
         var lessonDots = [];
         for (var i = 0; i < total; i++) {
@@ -53,6 +54,15 @@ Page({
 
         if (htmlUrl) {
           self.buildUrl(htmlUrl, chapterId, idx, total);
+        } else {
+          console.log('[KnowledgeCard] htmlUrl is empty for lesson:', lesson);
+          // 尝试使用 latestHtmlContent 的 fallback
+          var latestContent = lesson.latestHtmlContent || '';
+          if (latestContent) {
+            // web-view 不支持直接渲染 HTML 内容，需要通过临时文件或 data URI
+            // 此处先提示没有可加载的页面
+            wx.showToast({ title: '该课程暂无可访问的页面', icon: 'none' });
+          }
         }
       } else {
         wx.showToast({ title: '暂无内容', icon: 'none' });

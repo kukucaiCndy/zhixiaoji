@@ -54,7 +54,7 @@
 
           <!-- 课程列表（展开时显示） -->
           <view class="lesson-list" wx:if="{{item.expanded}}">
-            <view class="lesson-item" wx:for="{{item.lessons}}" wx:for-item="lesson" wx:for-index="lessonIdx" wx:key="id" bindtap="onLessonTap" data-chapter-id="{{item.id}}" data-lesson-index="{{index}}">
+            <view class="lesson-item" wx:for="{{item.lessons}}" wx:for-item="lesson" wx:for-index="lessonIdx" wx:key="id" bindtap="onLessonTap" data-chapter-id="{{item.id}}" data-lesson-index="{{lessonIdx}}">
               <view class="lesson-number-wrap">
                 <text class="lesson-number">{{lesson.number || (lessonIdx + 1)}}</text>
               </view>
