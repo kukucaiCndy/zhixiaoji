@@ -1,5 +1,3 @@
-var knowledgeApi = require('../../services/knowledge-api');
-
 Page({
   data: {
     username: '',
@@ -37,24 +35,6 @@ Page({
         this.setUserInfo(user);
       }
     }.bind(this));
-
-    knowledgeApi.getStudyStats().then(function (stats) {
-      this.setData({ stats: stats });
-    }.bind(this)).catch(function (err) {
-      console.error('[Home] Failed to load stats:', err);
-    });
-
-    knowledgeApi.getStudyProgress().then(function (progress) {
-      this.setData({ progress: progress });
-    }.bind(this)).catch(function (err) {
-      console.error('[Home] Failed to load progress:', err);
-    });
-
-    knowledgeApi.getRecommendations().then(function (recommendations) {
-      this.setData({ recommendations: recommendations });
-    }.bind(this)).catch(function (err) {
-      console.error('[Home] Failed to load recommendations:', err);
-    });
   },
 
   setUserInfo(user) {

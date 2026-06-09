@@ -63,22 +63,6 @@
         </view>
       </view>
 
-      <!-- 继续学习 -->
-      <view class="section-header" wx:if="{{continueLearning}}">
-        <text class="section-title">继续学习</text>
-      </view>
-
-      <view class="continue-card" wx:if="{{continueLearning}}" bindtap="onContinueTap">
-        <view class="continue-icon-wrap">
-          <text class="continue-icon">{{continueLearning.icon}}</text>
-        </view>
-        <view class="continue-info">
-          <text class="continue-title">{{continueLearning.title}}</text>
-          <text class="continue-desc">已完成 {{continueLearning.percent}}% · 继续学习第{{continueLearning.nextSection}}章</text>
-        </view>
-        <text class="continue-arrow">→</text>
-      </view>
-
       <view class="bottom-placeholder"></view>
     </view>
   </scroll-view>

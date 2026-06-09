@@ -1,5 +1,3 @@
-var knowledgeApi = require('../../services/knowledge-api');
-
 Page({
   data: {
     currentFilter: 'all',
@@ -10,20 +8,7 @@ Page({
   _allQuestions: [],
 
   onLoad() {
-    this.loadWrongQuestions();
-  },
-
-  loadWrongQuestions() {
-    knowledgeApi.getWrongQuestions().then(function (questions) {
-      var list = Array.isArray(questions) ? questions : (questions.list || []);
-      this._allQuestions = list;
-      this.setData({
-        totalWrong: list.length
-      });
-      this.applyFilter('all');
-    }.bind(this)).catch(function (err) {
-      console.error('[WrongQuestions] Failed to load:', err);
-    });
+    wx.showToast({ title: '错题本功能开发中', icon: 'none' });
   },
 
   applyFilter(filter) {

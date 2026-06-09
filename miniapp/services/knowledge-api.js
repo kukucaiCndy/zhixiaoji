@@ -1,8 +1,4 @@
-var { knowledge, apiClient } = require('./api-client');
-var client = apiClient.client;
-
-var CATEGORY_ICONS = ['💻', '🖥️', '🔌', '📦', '🌐', '🎨', '⚡', '🛠️', '🔧', '🚀'];
-var CATEGORY_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
+var { knowledge } = require('./api-client');
 
 // ========== 分类 API (SDK v0.13.1) ==========
 
@@ -111,36 +107,6 @@ function getLessonDetail(id) {
   });
 }
 
-// ========== 其他 API ==========
-
-function getStudyStats() {
-  return client.get('/knowledge/stats').then(function (res) {
-    if (res.code === 0 && res.data) return res.data;
-    throw new Error('Invalid response');
-  });
-}
-
-function getStudyProgress() {
-  return client.get('/knowledge/progress').then(function (res) {
-    if (res.code === 0 && res.data) return res.data;
-    throw new Error('Invalid response');
-  });
-}
-
-function getRecommendations() {
-  return client.get('/knowledge/recommendations').then(function (res) {
-    if (res.code === 0 && res.data && res.data.list) return res.data.list;
-    throw new Error('Invalid response');
-  });
-}
-
-function getWrongQuestions(params) {
-  return client.get('/knowledge/wrong-questions', params).then(function (res) {
-    if (res.code === 0 && res.data) return res.data;
-    throw new Error('Invalid response');
-  });
-}
-
 module.exports = {
   listCategories: listCategories,
   getCategoryDetail: getCategoryDetail,
@@ -149,9 +115,5 @@ module.exports = {
   listSections: listSections,
   getSectionDetail: getSectionDetail,
   listLessons: listLessons,
-  getLessonDetail: getLessonDetail,
-  getStudyStats: getStudyStats,
-  getStudyProgress: getStudyProgress,
-  getRecommendations: getRecommendations,
-  getWrongQuestions: getWrongQuestions
+  getLessonDetail: getLessonDetail
 };
