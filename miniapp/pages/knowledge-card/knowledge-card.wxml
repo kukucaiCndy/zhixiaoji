@@ -1,7 +1,7 @@
 <web-view wx:if="{{url}}" src="{{url}}" bindmessage="onMessage"></web-view>
 
-<!-- 加载中 / 空状态 -->
-<view wx:elif="{{!loading}}" class="empty-state">
+<!-- 空状态（无 URL 且非加载中） -->
+<view wx:if="{{!url && !loading}}" class="empty-state">
   <text class="empty-icon">📭</text>
   <text class="empty-text">暂无内容</text>
 </view>
