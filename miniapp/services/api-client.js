@@ -34,21 +34,27 @@ var CURRENT_ENV = 'development';
 var config = ENV_CONFIG[CURRENT_ENV];
 
 // 创建 API 客户端（SDK 自动拼接 host + /api/v1）
+var _refreshing = false;
+
 var apiClient = createWechatApiClient({
   host: config.host,
   timeout: config.timeout,
   onAuthError: function () {
+    // 防止并发刷新
+    if (_refreshing) return;
+    _refreshing = true;
+
     console.log('[Auth] Token 过期，尝试刷新...');
     var refreshTokenVal = storage.getRefreshToken();
     if (!refreshTokenVal) {
       console.log('[Auth] 无刷新令牌，跳转登录页');
-      wx.reLaunch({
-        url: '/pages/auth/login-guide/login-guide'
-      });
+      _refreshing = false;
+      wx.reLaunch({ url: '/pages/auth/login-guide/login-guide' });
       return;
     }
-    // 尝试刷新 Token
+
     apiClient.auth.refreshToken({ refreshToken: refreshTokenVal }).then(function (res) {
+      _refreshing = false;
       if (res.code === 0 && res.data) {
         var newToken = res.data.accessToken;
         var newRefreshToken = res.data.refreshToken;
@@ -59,15 +65,12 @@ var apiClient = createWechatApiClient({
         }
       } else {
         console.log('[Auth] 刷新失败，跳转登录页');
-        wx.reLaunch({
-          url: '/pages/auth/login-guide/login-guide'
-        });
+        wx.reLaunch({ url: '/pages/auth/login-guide/login-guide' });
       }
     }).catch(function (err) {
+      _refreshing = false;
       console.error('[Auth] 刷新异常:', err);
-      wx.reLaunch({
-        url: '/pages/auth/login-guide/login-guide'
-      });
+      wx.reLaunch({ url: '/pages/auth/login-guide/login-guide' });
     });
   }
 });
