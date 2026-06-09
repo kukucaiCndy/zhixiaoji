@@ -2,6 +2,9 @@
  * API 客户端配置
  * 使用 @zhixiaoji/api-sdk-wechat 创建微信小程序专用客户端
  * 需先在开发者工具中执行: 工具 → 构建 npm
+ *
+ * SDK v0.13.3 使用 host 参数指向 core-service（12302），
+ * 所有 API 请求统一由 core-service 代理转发到对应微服务。
  */
 
 const { createWechatApiClient, setLoggerEnabled } = require('@zhixiaoji/api-sdk-wechat');
@@ -9,18 +12,18 @@ const { createWechatApiClient, setLoggerEnabled } = require('@zhixiaoji/api-sdk-
 // 调试阶段开启 SDK 日志
 setLoggerEnabled(true);
 
-// 环境配置
+// 环境配置（host 指向 core-service，SDK 自动拼接 /api/v1）
 var ENV_CONFIG = {
   development: {
-    baseURL: 'http://192.168.16.129:12301/api/v1',
+    host: 'http://192.168.16.129:12302',
     timeout: 10000
   },
   test: {
-    baseURL: 'https://api-test.zhixiaoji.com/api/v1',
+    host: 'https://api-test.zhixiaoji.com',
     timeout: 10000
   },
   production: {
-    baseURL: 'https://api.zhixiaoji.com/api/v1',
+    host: 'https://api.zhixiaoji.com',
     timeout: 10000
   }
 };
@@ -29,17 +32,10 @@ var ENV_CONFIG = {
 var CURRENT_ENV = 'development';
 var config = ENV_CONFIG[CURRENT_ENV];
 
-var services = {
-  auth: config.baseURL,
-  core: 'http://192.168.16.129:12302/api/v1',
-  knowledge: 'http://192.168.16.129:12303/api/v1'
-};
-
-// 创建 API 客户端
+// 创建 API 客户端（SDK 自动拼接 host + /api/v1）
 var apiClient = createWechatApiClient({
-  baseURL: config.baseURL,
+  host: config.host,
   timeout: config.timeout,
-  services: services,
   onAuthError: function () {
     console.log('认证失败，跳转登录页');
     wx.reLaunch({
