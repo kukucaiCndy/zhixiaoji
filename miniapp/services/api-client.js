@@ -48,6 +48,7 @@ module.exports = {
   apiClient,
   auth: apiClient.auth,
   knowledge: apiClient.knowledge,
+  learning: apiClient.learning,
   setToken: apiClient.setToken,
   clearToken: apiClient.clearToken
 };
