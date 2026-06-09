@@ -8,6 +8,7 @@
  */
 
 const { createWechatApiClient, setLoggerEnabled } = require('@zhixiaoji/api-sdk-wechat');
+var storage = require('../utils/storage');
 
 // 调试阶段开启 SDK 日志
 setLoggerEnabled(true);
@@ -37,9 +38,36 @@ var apiClient = createWechatApiClient({
   host: config.host,
   timeout: config.timeout,
   onAuthError: function () {
-    console.log('认证失败，跳转登录页');
-    wx.reLaunch({
-      url: '/pages/auth/login-guide/login-guide'
+    console.log('[Auth] Token 过期，尝试刷新...');
+    var refreshTokenVal = storage.getRefreshToken();
+    if (!refreshTokenVal) {
+      console.log('[Auth] 无刷新令牌，跳转登录页');
+      wx.reLaunch({
+        url: '/pages/auth/login-guide/login-guide'
+      });
+      return;
+    }
+    // 尝试刷新 Token
+    apiClient.auth.refreshToken({ refreshToken: refreshTokenVal }).then(function (res) {
+      if (res.code === 0 && res.data) {
+        var newToken = res.data.accessToken;
+        var newRefreshToken = res.data.refreshToken;
+        if (newToken) {
+          apiClient.setToken(newToken);
+          storage.setRefreshToken(newRefreshToken || refreshTokenVal);
+          console.log('[Auth] Token 刷新成功');
+        }
+      } else {
+        console.log('[Auth] 刷新失败，跳转登录页');
+        wx.reLaunch({
+          url: '/pages/auth/login-guide/login-guide'
+        });
+      }
+    }).catch(function (err) {
+      console.error('[Auth] 刷新异常:', err);
+      wx.reLaunch({
+        url: '/pages/auth/login-guide/login-guide'
+      });
     });
   }
 });
