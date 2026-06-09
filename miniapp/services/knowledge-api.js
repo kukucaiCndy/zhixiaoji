@@ -85,6 +85,32 @@ function getSectionDetail(id) {
   });
 }
 
+// ========== 课程 API（原小节/新增）==========
+
+/**
+ * 获取课程列表（按章节筛选）
+ * SDK: knowledge.listLessons({ chapterId })
+ * 返回: Lesson[] { id, title, number, chapterId, knowledgePoint, sortOrder, unlockPoints, htmlUrl, latestHtmlContent }
+ */
+function listLessons(params) {
+  return knowledge.listLessons(params).then(function (res) {
+    if (res.code === 0 && res.data) return res.data;
+    throw new Error('Invalid response: ' + JSON.stringify(res));
+  });
+}
+
+/**
+ * 获取课程详情
+ * SDK: knowledge.getLesson(id)
+ * 返回: Lesson { id, title, number, chapterId, knowledgePoint, sortOrder, unlockPoints, htmlUrl, latestHtmlContent }
+ */
+function getLessonDetail(id) {
+  return knowledge.getLesson(id).then(function (res) {
+    if (res.code === 0 && res.data) return res.data;
+    throw new Error('Invalid response: ' + JSON.stringify(res));
+  });
+}
+
 // ========== 其他 API ==========
 
 function getStudyStats() {
@@ -122,6 +148,8 @@ module.exports = {
   getKnowledgeChapterDetail: getKnowledgeChapterDetail,
   listSections: listSections,
   getSectionDetail: getSectionDetail,
+  listLessons: listLessons,
+  getLessonDetail: getLessonDetail,
   getStudyStats: getStudyStats,
   getStudyProgress: getStudyProgress,
   getRecommendations: getRecommendations,

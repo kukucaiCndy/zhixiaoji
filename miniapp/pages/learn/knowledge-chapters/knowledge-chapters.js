@@ -76,10 +76,10 @@ Page({
     var chapter = e.currentTarget.dataset.chapter;
     var index = e.currentTarget.dataset.index;
     if (!chapter || !chapter.id) return;
-    // 跳转到课程页面（暂用知识卡片页占位）
+    // 跳转到课程学习页面
     wx.navigateTo({
-      url: '/pages/knowledge-card/knowledge-card?subjectId=' + this.data.subjectId
-        + '&currentChapter=' + (typeof index === 'number' ? index : 0)
+      url: '/pages/knowledge-card/knowledge-card?chapterId=' + chapter.id
+        + '&currentLesson=' + (typeof index === 'number' ? index : 0)
     });
   }
 });
