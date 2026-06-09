@@ -23,11 +23,13 @@ Page({
   },
 
   onLoad: function (options) {
+    var sysInfo = wx.getSystemInfoSync();
     var categoryId = options.id || '';
     var categoryName = options.name ? decodeURIComponent(options.name) : '分类详情';
     this.setData({
       categoryId: categoryId,
-      categoryName: categoryName
+      categoryName: categoryName,
+      statusBarHeight: sysInfo.statusBarHeight || 44
     });
     this.loadCategoryDetail(categoryId);
   },

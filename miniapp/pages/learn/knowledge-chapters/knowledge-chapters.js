@@ -19,13 +19,15 @@ Page({
   },
 
   onLoad: function (options) {
+    var sysInfo = wx.getSystemInfoSync();
     var subjectId = options.id || '';
     var subjectTitle = options.title ? decodeURIComponent(options.title) : '科目';
     var categoryName = options.categoryName ? decodeURIComponent(options.categoryName) : '';
     this.setData({
       subjectId: subjectId,
       subjectTitle: subjectTitle,
-      categoryName: categoryName
+      categoryName: categoryName,
+      statusBarHeight: sysInfo.statusBarHeight || 44
     });
     this.loadSubjectDetail(subjectId);
   },
