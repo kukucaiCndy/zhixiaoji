@@ -52,11 +52,17 @@ Page({
         return item;
       });
 
+      var iconHelper = require('../../../utils/icon-helper');
       var bannerIcon = data.icon || '📚';
+      var bannerType = iconHelper.iconType(bannerIcon);
+      if (bannerType === 'svg') {
+        bannerIcon = iconHelper.svgToDataUri(bannerIcon);
+        bannerType = 'image';
+      }
 
       self.setData({
         categoryIcon: bannerIcon,
-        categoryIconType: require('../../../utils/icon-helper').iconType(bannerIcon),
+        categoryIconType: bannerType,
         categoryDesc: data.description || '',
         subjectCount: chapters.length,
         chapters: chapters,

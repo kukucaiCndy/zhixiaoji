@@ -45,11 +45,16 @@ Page({
 
       var iconHelper = require('../../../utils/icon-helper');
       var subjectIcon = data.icon || '📖';
+      var subjectIconType = iconHelper.iconType(subjectIcon);
+      if (subjectIconType === 'svg') {
+        subjectIcon = iconHelper.svgToDataUri(subjectIcon);
+        subjectIconType = 'image';
+      }
 
       self.setData({
         subjectTitle: data.name || self.data.subjectTitle,
         subjectIcon: subjectIcon,
-        subjectIconType: iconHelper.iconType(subjectIcon),
+        subjectIconType: subjectIconType,
         subjectIconBg: CHAPTER_ICON_BG_COLORS[(data.sortOrder || 0) % CHAPTER_ICON_BG_COLORS.length],
         subjectDesc: data.description || '',
         categoryName: self.data.categoryName || data.categoryId || '',
