@@ -40,6 +40,8 @@ Page({
         return {
           id: ch.id,
           title: ch.title,
+          description: ch.description || '',
+          goal: ch.goal || '',
           sortOrder: ch.sortOrder,
           unlockPoints: ch.unlockPoints || 0,
           expanded: false,
@@ -62,8 +64,6 @@ Page({
       if (chapters.length > 0) {
         chapters[0].expanded = true;
         lastStudiedChapterId = chapters[0].id;
-        // 加载第一个章节的课程列表
-        self.loadLessonsForChapter(chapters[0], 0);
       }
 
       self.setData({
@@ -78,6 +78,11 @@ Page({
         lastStudiedChapterId: lastStudiedChapterId,
         loading: false
       });
+
+      // 数据设置完成后加载第一个章节的课程
+      if (lastStudiedChapterId) {
+        self.loadLessonsForChapter(chapters[0], 0);
+      }
     }).catch(function (err) {
       console.error('[KnowledgeChapters] Failed to load:', err);
       self.setData({ loading: false });
@@ -86,12 +91,12 @@ Page({
 
   loadLessonsForChapter: function (chapter, index) {
     var self = this;
-    var chapters = this.data.chapters;
-    chapters[index].lessonsLoading = true;
-    self.setData({ chapters: chapters });
+    self.setData({
+      ['chapters[' + index + '].lessonsLoading']: true
+    });
 
     knowledgeApi.listLessons({ chapterId: chapter.id }).then(function (lessons) {
-      chapters[index].lessons = (lessons || []).map(function (ls, li) {
+      var lessonsData = (lessons || []).map(function (ls, li) {
         return {
           id: ls.id,
           title: ls.title,
@@ -100,13 +105,16 @@ Page({
           unlockPoints: ls.unlockPoints || 0
         };
       });
-      chapters[index].lessonsLoading = false;
-      chapters[index].progressPercent = 100;
-      self.setData({ chapters: chapters });
+      self.setData({
+        ['chapters[' + index + '].lessons']: lessonsData,
+        ['chapters[' + index + '].lessonsLoading']: false,
+        ['chapters[' + index + '].progressPercent']: 100
+      });
     }).catch(function (err) {
       console.error('[KnowledgeChapters] Failed to load lessons:', err);
-      chapters[index].lessonsLoading = false;
-      self.setData({ chapters: chapters });
+      self.setData({
+        ['chapters[' + index + '].lessonsLoading']: false
+      });
     });
   },
 
@@ -116,7 +124,6 @@ Page({
     var chapter = chapters[index];
     if (!chapter) return;
 
-    // 如果已展开则折叠，否则展开
     var willExpand = !chapter.expanded;
 
     // 折叠所有其他章节
@@ -125,15 +132,14 @@ Page({
         chapters[i].expanded = false;
       }
     }
-
     chapter.expanded = willExpand;
+
+    this.setData({ chapters: chapters });
 
     // 如果展开且未加载过课程，则加载
     if (willExpand && chapter.lessons.length === 0) {
       this.loadLessonsForChapter(chapter, index);
     }
-
-    this.setData({ chapters: chapters });
   },
 
   onLessonTap: function (e) {
