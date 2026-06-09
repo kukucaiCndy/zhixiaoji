@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixso HTML</title>
+  <style>
+@font-face {
+	font-family: 'Noto Sans SC';
+	font-style: normal;
+	font-weight: 700;
+	src: url(http://localhost:3667/assets/1780764454851/NotoSansSC-VariableFont_wght_2.ttf) format('truetype');
+}
+
+
+</style>
+  <script src="js/animation.js"></script>
+  <style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ol,ul,menu {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+ol li::marker, ul li::before {
+  letter-spacing: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body { 
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: white;
+}
+    
+span {
+  word-break: break-word;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.frame-31_242 {
+  width: 1920px;
+  height: 812px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-31_243 {
+  width: 1920px;
+  height: auto;
+  position: absolute;
+  left: 0.5px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_243 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 772.5px 0px 772.5px;
+  width: 100%;
+  position: relative;
+}
+
+.frame-31_244 {
+  width: 375px;
+  height: 812px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-31_245 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_245 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px 0px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-31_245 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 375px;
+  height: 44px;
+  display: flex;
+  padding: 0px 0px 1px 0px;
+}
+
+.stroke-31_245 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.frame-31_246 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 12px 0px 0px;
+}
+
+.frame-31_247 {
+  width: 24px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_248 {
+  font-size: 18px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 8px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-31_249 {
+  width: 307px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_250 {
+  font-size: 17px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 94px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.frame-31_251 {
+  width: 375px;
+  height: 140px;
+  position: absolute;
+  left: 0px;
+  top: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_251 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_252 {
+  width: 343px;
+  height: 108px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_252 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px 20px 20px 20px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_253 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px 0px 0px;
+}
+
+.frame-31_254 {
+  width: 56px;
+  height: 56px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.frame-content-31_254 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_255 {
+  font-size: 28px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_256 {
+  width: 231px;
+  height: 68px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_257 {
+  width: 231px;
+  height: 28px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_257 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_258 {
+  width: 231px;
+  height: 29px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_259 {
+  font-size: 18px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(30, 41, 59, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_260 {
+  width: 231px;
+  height: 25px;
+  position: absolute;
+  left: 0px;
+  top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_260 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_261 {
+  width: 231px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_262 {
+  font-size: 13px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_263 {
+  width: 231px;
+  height: 15px;
+  position: absolute;
+  left: 0px;
+  top: 53px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-31_263 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_264 {
+  width: 194.97000122070312px;
+  height: 6px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 3px 3px 3px 3px;
+  background-color: rgba(241, 245, 249, 1);
+}
+
+.rectangle-31_265 {
+  width: 116.97000122070312px;
+  height: 6px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 3px 3px 3px 3px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%20116.97000122070312%206'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%200.0000%2C%200.0000%2C%203.3333%2C%200.0000%2C%20-1.1667)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(79%2C70%2C229%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(6%2C182%2C212%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-31_266 {
+  width: 28px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_267 {
+  font-size: 13px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(79, 70, 229, 1);
+  width: 28px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-31_268 {
+  width: 375px;
+  height: 28px;
+  position: absolute;
+  left: 0px;
+  top: 184px;
+}
+
+.text-31_269 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: Regular;
+  color: rgba(0, 0, 0, 1);
+  width: 100px;
+  height: auto;
+  position: absolute;
+  left: 16px;
+  top: 2px;
+}
+
+.paragraph-31_269_0 {
+  line-height: 17.375999450683594px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-31_269_0_1 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.span-31_269_0_2 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_270 {
+  width: 375px;
+  height: 447px;
+  position: absolute;
+  left: 0px;
+  top: 212px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_270 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 0px 16px 20px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_271 {
+  width: 343px;
+  height: 72px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_271 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_272 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 14px 0px 0px;
+}
+
+.frame-31_273 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(220, 252, 231, 1);
+}
+
+.frame-content-31_273 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_274 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(16, 185, 129, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_275 {
+  width: 195.25px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_276 {
+  width: 195.25px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_276 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_277 {
+  width: 195.25px;
+  height: 23px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_278 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 107px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_279 {
+  width: 195.25px;
+  height: 19px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+}
+
+.paragraph-31_280 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_281 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 12px;
+}
+
+.frame-31_282 {
+  width: 56px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_283 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(16, 185, 129, 1);
+  width: 56px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_284 {
+  width: 343px;
+  height: 72px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_284 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_285 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 14px 0px 0px;
+}
+
+.frame-31_286 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.frame-content-31_286 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_287 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(79, 70, 229, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_288 {
+  width: 195.25px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_289 {
+  width: 195.25px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_289 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_290 {
+  width: 195.25px;
+  height: 23px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_291 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 47px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_292 {
+  width: 195.25px;
+  height: 19px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+}
+
+.paragraph-31_293 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_294 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 12px;
+}
+
+.frame-31_295 {
+  width: 56px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_296 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(79, 70, 229, 1);
+  width: 56px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_297 {
+  width: 343px;
+  height: 72px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_297 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_298 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 14px 0px 0px;
+}
+
+.frame-31_299 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.frame-content-31_299 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_300 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(79, 70, 229, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_301 {
+  width: 195.25px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_302 {
+  width: 195.25px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_302 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_303 {
+  width: 195.25px;
+  height: 23px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_304 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 77px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_305 {
+  width: 195.25px;
+  height: 19px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+}
+
+.paragraph-31_306 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_307 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 12px;
+}
+
+.frame-31_308 {
+  width: 56px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_309 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(79, 70, 229, 1);
+  width: 56px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_310 {
+  width: 343px;
+  height: 91px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_310 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_311 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 14px 0px 0px;
+}
+
+.frame-31_312 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(241, 245, 249, 1);
+}
+
+.frame-content-31_312 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_313 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_314 {
+  width: 195.25px;
+  height: 59px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_315 {
+  width: 195.25px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_315 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_316 {
+  width: 195.25px;
+  height: 23px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_317 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 92px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_318 {
+  width: 195.25px;
+  height: 19px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+}
+
+.paragraph-31_319 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_320 {
+  width: 195.25px;
+  height: 19px;
+  position: absolute;
+  left: 0px;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_320 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 0px 0px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_321 {
+  width: 195.25px;
+  height: 15px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.frame-content-31_321 {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_322 {
+  font-size: 11px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(245, 158, 11, 1);
+  width: 100%;
+  height: auto;
+  position: relative;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.frame-31_323 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 12px;
+}
+
+.frame-31_324 {
+  width: 56px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_325 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(148, 163, 184, 1);
+  width: 56px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_326 {
+  width: 343px;
+  height: 72px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_326 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_327 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 14px 0px 0px;
+}
+
+.frame-31_328 {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgba(241, 245, 249, 1);
+}
+
+.frame-content-31_328 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_329 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_330 {
+  width: 195.25px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_331 {
+  width: 195.25px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_331 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_332 {
+  width: 195.25px;
+  height: 23px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_333 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 62px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_334 {
+  width: 195.25px;
+  height: 19px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+}
+
+.paragraph-31_335 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_336 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 12px;
+}
+
+.frame-31_337 {
+  width: 56px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_338 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(148, 163, 184, 1);
+  width: 56px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="31_242" class="frame-31_242">
+    <div id="31_243" class="frame-31_243">
+      <div class="frame-content-31_243">
+        <div id="31_244" class="frame-31_244">
+          <div id="31_245" class="stroke-wrapper-31_245">
+            <div class="frame-31_245">
+              <div class="frame-content-31_245">
+                <div id="31_246" class="frame-31_246">
+                  <div id="31_247" class="frame-31_247">
+                    <p id="31_248" class="paragraph-31_248">‹</p>
+                  </div>
+                </div>
+                <div id="31_249" class="frame-31_249">
+                  <p id="31_250" class="paragraph-31_250">Python基础</p>
+                </div>
+              </div>
+            </div>
+            <div class="stroke-31_245"></div>
+          </div>
+          <div id="31_251" class="frame-31_251">
+            <div class="frame-content-31_251">
+              <div id="31_252" class="frame-31_252">
+                <div class="frame-content-31_252">
+                  <div id="31_253" class="frame-31_253">
+                    <div id="31_254" class="frame-31_254">
+                      <div class="frame-content-31_254">
+                        <p id="31_255" class="paragraph-31_255">🐍</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_256" class="frame-31_256">
+                    <div id="31_257" class="frame-31_257">
+                      <div class="frame-content-31_257">
+                        <div id="31_258" class="frame-31_258">
+                          <p id="31_259" class="paragraph-31_259">Python基础</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_260" class="frame-31_260">
+                      <div class="frame-content-31_260">
+                        <div id="31_261" class="frame-31_261">
+                          <p id="31_262" class="paragraph-31_262">12章节 · 48小结 · 编程分类</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_263" class="frame-31_263">
+                      <div class="frame-content-31_263">
+                        <div id="31_264" class="frame-31_264">
+                          <div id="31_265" class="rectangle-31_265"></div>
+                        </div>
+                        <div id="31_266" class="frame-31_266">
+                          <p id="31_267" class="paragraph-31_267">60%</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="31_268" class="frame-31_268">
+            <div id="31_269" class="text-31_269">
+              <p id="31_269_0" class="paragraph-31_269_0">
+<span id="31_269_0_1" class="span-31_269_0_1">编程 ></span><span id="31_269_0_2" class="span-31_269_0_2">Python基础</span></p>
+            </div>
+          </div>
+          <div id="31_270" class="frame-31_270">
+            <div class="frame-content-31_270">
+              <div id="31_271" class="frame-31_271">
+                <div class="frame-content-31_271">
+                  <div id="31_272" class="frame-31_272">
+                    <div id="31_273" class="frame-31_273">
+                      <div class="frame-content-31_273">
+                        <p id="31_274" class="paragraph-31_274">1</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_275" class="frame-31_275">
+                    <div id="31_276" class="frame-31_276">
+                      <div class="frame-content-31_276">
+                        <div id="31_277" class="frame-31_277">
+                          <p id="31_278" class="paragraph-31_278">变量与数据类型</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_279" class="frame-31_279">
+                      <p id="31_280" class="paragraph-31_280">4小结 · 已完成</p>
+                    </div>
+                  </div>
+                  <div id="31_281" class="frame-31_281">
+                    <div id="31_282" class="frame-31_282">
+                      <p id="31_283" class="paragraph-31_283">✅ 已完成</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="31_284" class="frame-31_284">
+                <div class="frame-content-31_284">
+                  <div id="31_285" class="frame-31_285">
+                    <div id="31_286" class="frame-31_286">
+                      <div class="frame-content-31_286">
+                        <p id="31_287" class="paragraph-31_287">2</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_288" class="frame-31_288">
+                    <div id="31_289" class="frame-31_289">
+                      <div class="frame-content-31_289">
+                        <div id="31_290" class="frame-31_290">
+                          <p id="31_291" class="paragraph-31_291">控制流</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_292" class="frame-31_292">
+                      <p id="31_293" class="paragraph-31_293">5小结 · 进度60%</p>
+                    </div>
+                  </div>
+                  <div id="31_294" class="frame-31_294">
+                    <div id="31_295" class="frame-31_295">
+                      <p id="31_296" class="paragraph-31_296">🔄 学习中</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="31_297" class="frame-31_297">
+                <div class="frame-content-31_297">
+                  <div id="31_298" class="frame-31_298">
+                    <div id="31_299" class="frame-31_299">
+                      <div class="frame-content-31_299">
+                        <p id="31_300" class="paragraph-31_300">3</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_301" class="frame-31_301">
+                    <div id="31_302" class="frame-31_302">
+                      <div class="frame-content-31_302">
+                        <div id="31_303" class="frame-31_303">
+                          <p id="31_304" class="paragraph-31_304">函数与模块</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_305" class="frame-31_305">
+                      <p id="31_306" class="paragraph-31_306">6小结 · 进度30%</p>
+                    </div>
+                  </div>
+                  <div id="31_307" class="frame-31_307">
+                    <div id="31_308" class="frame-31_308">
+                      <p id="31_309" class="paragraph-31_309">🔄 学习中</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="31_310" class="frame-31_310">
+                <div class="frame-content-31_310">
+                  <div id="31_311" class="frame-31_311">
+                    <div id="31_312" class="frame-31_312">
+                      <div class="frame-content-31_312">
+                        <p id="31_313" class="paragraph-31_313">4</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_314" class="frame-31_314">
+                    <div id="31_315" class="frame-31_315">
+                      <div class="frame-content-31_315">
+                        <div id="31_316" class="frame-31_316">
+                          <p id="31_317" class="paragraph-31_317">面向对象编程</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_318" class="frame-31_318">
+                      <p id="31_319" class="paragraph-31_319">5小结 · 需解锁</p>
+                    </div>
+                    <div id="31_320" class="frame-31_320">
+                      <div class="frame-content-31_320">
+                        <div id="31_321" class="frame-31_321">
+                          <div class="frame-content-31_321">
+                            <p id="31_322" class="paragraph-31_322">🔒 完成前3章或消耗50积分解锁</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_323" class="frame-31_323">
+                    <div id="31_324" class="frame-31_324">
+                      <p id="31_325" class="paragraph-31_325">🔒 未解锁</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="31_326" class="frame-31_326">
+                <div class="frame-content-31_326">
+                  <div id="31_327" class="frame-31_327">
+                    <div id="31_328" class="frame-31_328">
+                      <div class="frame-content-31_328">
+                        <p id="31_329" class="paragraph-31_329">5</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_330" class="frame-31_330">
+                    <div id="31_331" class="frame-31_331">
+                      <div class="frame-content-31_331">
+                        <div id="31_332" class="frame-31_332">
+                          <p id="31_333" class="paragraph-31_333">文件操作</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_334" class="frame-31_334">
+                      <p id="31_335" class="paragraph-31_335">4小结 · 需解锁</p>
+                    </div>
+                  </div>
+                  <div id="31_336" class="frame-31_336">
+                    <div id="31_337" class="frame-31_337">
+                      <p id="31_338" class="paragraph-31_338">🔒 未解锁</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>

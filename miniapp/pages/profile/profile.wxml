@@ -1,13 +1,4 @@
 <view class="profile-page">
-  <view class="status-bar">
-    <text class="time">9:41</text>
-    <view class="status-icons">
-      <view class="signal-bar"></view>
-      <view class="signal-bar"></view>
-      <view class="signal-bar"></view>
-    </view>
-  </view>
-
   <view class="nav-bar">
     <text class="nav-title">我的</text>
     <view class="nav-setting" bindtap="onSetting" data-action="settings">

@@ -13,8 +13,7 @@
     "pages/profile/edit-profile/edit-profile",
     "pages/wrong-questions/wrong-questions",
     "pages/rank/rank",
-    "pages/knowledge-card/knowledge-card",
-    "pages/test-coverview2/test-coverview2"
+    "pages/knowledge-card/knowledge-card"
   ],
   "window": {
     "navigationBarTitleText": "智小记",

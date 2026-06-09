@@ -85,7 +85,7 @@ Page({
   },
 
   onAddNote() {
-    wx.navigateTo({ url: '/pages/note-edit/note-edit' });
+    wx.showToast({ title: '笔记编辑功能开发中', icon: 'none' });
   },
 
   onCardFab(e) {
@@ -98,8 +98,7 @@ Page({
   },
 
   openNote(e) {
-    const id = e.currentTarget.dataset.id;
-    wx.navigateTo({ url: `/pages/note-detail/note-detail?id=${id}` });
+    wx.showToast({ title: '笔记详情功能开发中', icon: 'none' });
   },
 
   onTabChange(e) {

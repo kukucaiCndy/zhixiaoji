@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixso HTML</title>
+  <style>
+@font-face {
+	font-family: 'Noto Sans SC';
+	font-style: normal;
+	font-weight: 700;
+	src: url(http://localhost:3667/assets/1780764258451/NotoSansSC-VariableFont_wght_2.ttf) format('truetype');
+}
+
+
+</style>
+  <script src="js/animation.js"></script>
+  <style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ol,ul,menu {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+ol li::marker, ul li::before {
+  letter-spacing: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body { 
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: white;
+}
+    
+span {
+  word-break: break-word;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.frame-31_139 {
+  width: 1920px;
+  height: 812px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-31_140 {
+  width: 1920px;
+  height: auto;
+  position: absolute;
+  left: 0.5px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_140 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 772.5px 0px 772.5px;
+  width: 100%;
+  position: relative;
+}
+
+.frame-31_141 {
+  width: 375px;
+  height: 812px;
+  position: relative;
+  flex-shrink: 0;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.frame-31_142 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_142 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px 0px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.stroke-wrapper-31_142 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 375px;
+  height: 44px;
+  display: flex;
+  padding: 0px 0px 1px 0px;
+}
+
+.stroke-31_142 {
+  position: absolute;
+  inset: 0px;
+  border-radius: 0px 0px 0px 0px;
+  pointer-events: none;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(226, 232, 240, 1);
+}
+
+.frame-31_143 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 12px 0px 0px;
+}
+
+.frame-31_144 {
+  width: 24px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_145 {
+  font-size: 18px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(79, 70, 229, 1);
+  width: 8px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-31_146 {
+  width: 307px;
+  height: 28px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_147 {
+  font-size: 17px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 36px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.frame-31_148 {
+  width: 375px;
+  height: 186px;
+  position: absolute;
+  left: 0px;
+  top: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_148 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_149 {
+  width: 343px;
+  height: 154px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%20343%20154'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(0.7245%2C%201.6136%2C%20-0.0412%2C%200.0918%2C%200.1584%2C%20-0.3527)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(79%2C70%2C229%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(6%2C182%2C212%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-content-31_149 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 24px 24px 24px 24px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_150 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px 0px 0px;
+}
+
+.frame-31_151 {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 20px 20px;
+  background-color: rgba(255, 255, 255, 0.20000000298023224);
+}
+
+.frame-content-31_151 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_152 {
+  font-size: 32px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_153 {
+  width: 151px;
+  height: 106px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_154 {
+  width: 151px;
+  height: 30px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_154 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_155 {
+  width: 151px;
+  height: 32px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_156 {
+  font-size: 20px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: 42px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.frame-31_157 {
+  width: 151px;
+  height: 44px;
+  position: absolute;
+  left: 0px;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_157 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 10px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_158 {
+  width: 151px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0.8500000238418579;
+}
+
+.paragraph-31_159 {
+  font-size: 13px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: 145px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_160 {
+  width: 151px;
+  height: 32px;
+  position: absolute;
+  left: 0px;
+  top: 74px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  opacity: 0.800000011920929;
+}
+
+.frame-content-31_160 {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_161 {
+  width: 53.59000015258789px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_162 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: 45px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_163 {
+  width: 30.020000457763672px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_164 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: 27px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_165 {
+  width: 35.38999938964844px;
+  height: 36px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_166 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  width: 34px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_167 {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.vector-31_168 {
+  width: 64px;
+  height: 64px;
+  background-image: url("http://localhost:3667/assets/1780764258451/svg.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.frame-31_171 {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame-content-31_171 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_172 {
+  font-size: 14px;
+  font-family: "Noto Sans SC-Bold";
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_173 {
+  width: 375px;
+  height: 33px;
+  position: absolute;
+  left: 0px;
+  top: 230px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame-content-31_173 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 16px 12px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_174 {
+  width: 66px;
+  height: 27px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_175 {
+  font-size: 16px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 66px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 3px;
+}
+
+.frame-31_176 {
+  width: 35px;
+  height: 21px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_177 {
+  font-size: 13px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: 35px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_178 {
+  width: 375px;
+  height: 372px;
+  position: absolute;
+  left: 0px;
+  top: 263px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_178 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 0px 16px 0px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_179 {
+  width: 343px;
+  height: 84px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_179 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_180 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 14px 0px 0px;
+}
+
+.frame-31_181 {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.frame-content-31_181 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_182 {
+  font-size: 24px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_183 {
+  width: 181px;
+  height: 52px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_184 {
+  width: 181px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_184 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_185 {
+  width: 181px;
+  height: 23px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_186 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 83px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_187 {
+  width: 181px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_187 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_188 {
+  width: 181px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_189 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_190 {
+  width: 181px;
+  height: 4px;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 48px;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(241, 245, 249, 1);
+}
+
+.rectangle-31_191 {
+  width: 108.58999633789062px;
+  height: 4px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 2px 2px 2px 2px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%20108.58999633789062%204'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%200.0000%2C%200.0000%2C%205.0000%2C%200.0000%2C%20-2.0000)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(79%2C70%2C229%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(6%2C182%2C212%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-31_192 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 12px;
+}
+
+.frame-31_193 {
+  width: 56px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-31_194 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(79, 70, 229, 1);
+  width: 38px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 6px;
+}
+
+.frame-31_195 {
+  width: 343px;
+  height: 84px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_195 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_196 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 14px 0px 0px;
+}
+
+.frame-31_197 {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  background-color: rgba(236, 254, 255, 1);
+}
+
+.frame-content-31_197 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_198 {
+  font-size: 24px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_199 {
+  width: 181px;
+  height: 52px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_200 {
+  width: 181px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_200 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_201 {
+  width: 181px;
+  height: 23px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_202 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 60px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_203 {
+  width: 181px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_203 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_204 {
+  width: 181px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_205 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_206 {
+  width: 181px;
+  height: 4px;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 48px;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(241, 245, 249, 1);
+}
+
+.rectangle-31_207 {
+  width: 72.38999938964844px;
+  height: 4px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 2px 2px 2px 2px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2072.38999938964844%204'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%200.0000%2C%200.0000%2C%205.0000%2C%200.0000%2C%20-2.0000)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(79%2C70%2C229%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(6%2C182%2C212%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-31_208 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 12px;
+}
+
+.frame-31_209 {
+  width: 56px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-31_210 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(79, 70, 229, 1);
+  width: 38px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 6px;
+}
+
+.frame-31_211 {
+  width: 343px;
+  height: 84px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_211 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_212 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 14px 0px 0px;
+}
+
+.frame-31_213 {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  background-color: rgba(254, 243, 199, 1);
+}
+
+.frame-content-31_213 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_214 {
+  font-size: 24px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_215 {
+  width: 181px;
+  height: 52px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_216 {
+  width: 181px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_216 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_217 {
+  width: 181px;
+  height: 23px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_218 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 62px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_219 {
+  width: 181px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_219 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_220 {
+  width: 181px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_221 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_222 {
+  width: 181px;
+  height: 4px;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  top: 48px;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(241, 245, 249, 1);
+}
+
+.rectangle-31_223 {
+  width: 36.189998626708984px;
+  height: 4px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 2px 2px 2px 2px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D'0%200%2036.189998626708984%204'%20preserveAspectRatio%3D'none'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'objectBoundingBox'%20x1%3D'0'%20y1%3D'0.5'%20x2%3D'1'%20y2%3D'0.5'%20gradientTransform%3D'matrix(1.0000%2C%200.0000%2C%200.0000%2C%205.0000%2C%200.0000%2C%20-2.0000)'%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cstop%20stop-color%3D'rgba(79%2C70%2C229%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(6%2C182%2C212%2C1)'%20offset%3D'1'%2F%3E%0A%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'url(%23grad)'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+}
+
+.frame-31_224 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 12px;
+}
+
+.frame-31_225 {
+  width: 56px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(238, 242, 255, 1);
+}
+
+.paragraph-31_226 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(79, 70, 229, 1);
+  width: 38px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 6px;
+}
+
+.frame-31_227 {
+  width: 343px;
+  height: 84px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.060000000747979856) ;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-content-31_227 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 16px 16px 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_228 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 14px 0px 0px;
+}
+
+.frame-31_229 {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px 14px 14px 14px;
+  background-color: rgba(255, 247, 237, 1);
+}
+
+.frame-content-31_229 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.paragraph-31_230 {
+  font-size: 24px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(30, 41, 59, 1);
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.frame-31_231 {
+  width: 181px;
+  height: 52px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.frame-31_232 {
+  width: 181px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_232 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 4px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_233 {
+  width: 181px;
+  height: 23px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_234 {
+  font-size: 15px;
+  font-family: "Noto Sans SC-SemiBold";
+  font-weight: 600;
+  color: rgba(30, 41, 59, 1);
+  width: 65px;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.frame-31_235 {
+  width: 181px;
+  height: 24px;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frame-content-31_235 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 8px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.frame-31_236 {
+  width: 181px;
+  height: 19px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.paragraph-31_237 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Regular";
+  font-weight: 400;
+  color: rgba(148, 163, 184, 1);
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+  white-space: pre;
+  flex-grow: 0;
+}
+
+.rectangle-31_238 {
+  width: 181px;
+  height: 4px;
+  position: absolute;
+  left: 0px;
+  top: 48px;
+  border-radius: 2px 2px 2px 2px;
+  background-color: rgba(241, 245, 249, 1);
+}
+
+.frame-31_239 {
+  width: auto;
+  height: auto;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 0px 0px 12px;
+}
+
+.frame-31_240 {
+  width: 56px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 12px 12px 12px 12px;
+  background-color: rgba(241, 245, 249, 1);
+}
+
+.paragraph-31_241 {
+  font-size: 12px;
+  font-family: "Noto Sans SC-Medium";
+  font-weight: 500;
+  color: rgba(148, 163, 184, 1);
+  width: 38px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 6px;
+}
+
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="31_139" class="frame-31_139">
+    <div id="31_140" class="frame-31_140">
+      <div class="frame-content-31_140">
+        <div id="31_141" class="frame-31_141">
+          <div id="31_142" class="stroke-wrapper-31_142">
+            <div class="frame-31_142">
+              <div class="frame-content-31_142">
+                <div id="31_143" class="frame-31_143">
+                  <div id="31_144" class="frame-31_144">
+                    <p id="31_145" class="paragraph-31_145">‹</p>
+                  </div>
+                </div>
+                <div id="31_146" class="frame-31_146">
+                  <p id="31_147" class="paragraph-31_147">编程</p>
+                </div>
+              </div>
+            </div>
+            <div class="stroke-31_142"></div>
+          </div>
+          <div id="31_148" class="frame-31_148">
+            <div class="frame-content-31_148">
+              <div id="31_149" class="frame-31_149">
+                <div class="frame-content-31_149">
+                  <div id="31_150" class="frame-31_150">
+                    <div id="31_151" class="frame-31_151">
+                      <div class="frame-content-31_151">
+                        <p id="31_152" class="paragraph-31_152">💻</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_153" class="frame-31_153">
+                    <div id="31_154" class="frame-31_154">
+                      <div class="frame-content-31_154">
+                        <div id="31_155" class="frame-31_155">
+                          <p id="31_156" class="paragraph-31_156">编程</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_157" class="frame-31_157">
+                      <div class="frame-content-31_157">
+                        <div id="31_158" class="frame-31_158">
+                          <p id="31_159" class="paragraph-31_159">掌握编程语言，开启编程之旅</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_160" class="frame-31_160">
+                      <div class="frame-content-31_160">
+                        <div id="31_161" class="frame-31_161">
+                          <p id="31_162" class="paragraph-31_162">4个知识章节</p>
+                        </div>
+                        <div id="31_163" class="frame-31_163">
+                          <p id="31_164" class="paragraph-31_164">42章节</p>
+                        </div>
+                        <div id="31_165" class="frame-31_165">
+                          <p id="31_166" class="paragraph-31_166">150小结</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_167" class="frame-31_167">
+                    <div id="31_168" class="vector-31_168"></div>
+                    <div id="31_171" class="frame-31_171">
+                      <div class="frame-content-31_171">
+                        <p id="31_172" class="paragraph-31_172">65%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="31_173" class="frame-31_173">
+            <div class="frame-content-31_173">
+              <div id="31_174" class="frame-31_174">
+                <p id="31_175" class="paragraph-31_175">知识章节</p>
+              </div>
+              <div id="31_176" class="frame-31_176">
+                <p id="31_177" class="paragraph-31_177">共4个</p>
+              </div>
+            </div>
+          </div>
+          <div id="31_178" class="frame-31_178">
+            <div class="frame-content-31_178">
+              <div id="31_179" class="frame-31_179">
+                <div class="frame-content-31_179">
+                  <div id="31_180" class="frame-31_180">
+                    <div id="31_181" class="frame-31_181">
+                      <div class="frame-content-31_181">
+                        <p id="31_182" class="paragraph-31_182">🐍</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_183" class="frame-31_183">
+                    <div id="31_184" class="frame-31_184">
+                      <div class="frame-content-31_184">
+                        <div id="31_185" class="frame-31_185">
+                          <p id="31_186" class="paragraph-31_186">Python基础</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_187" class="frame-31_187">
+                      <div class="frame-content-31_187">
+                        <div id="31_188" class="frame-31_188">
+                          <p id="31_189" class="paragraph-31_189">12章节 · 48小结</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_190" class="frame-31_190">
+                      <div id="31_191" class="rectangle-31_191"></div>
+                    </div>
+                  </div>
+                  <div id="31_192" class="frame-31_192">
+                    <div id="31_193" class="frame-31_193">
+                      <p id="31_194" class="paragraph-31_194">学习中</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="31_195" class="frame-31_195">
+                <div class="frame-content-31_195">
+                  <div id="31_196" class="frame-31_196">
+                    <div id="31_197" class="frame-31_197">
+                      <div class="frame-content-31_197">
+                        <p id="31_198" class="paragraph-31_198">⚡</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_199" class="frame-31_199">
+                    <div id="31_200" class="frame-31_200">
+                      <div class="frame-content-31_200">
+                        <div id="31_201" class="frame-31_201">
+                          <p id="31_202" class="paragraph-31_202">C++入门</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_203" class="frame-31_203">
+                      <div class="frame-content-31_203">
+                        <div id="31_204" class="frame-31_204">
+                          <p id="31_205" class="paragraph-31_205">10章节 · 35小结</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_206" class="frame-31_206">
+                      <div id="31_207" class="rectangle-31_207"></div>
+                    </div>
+                  </div>
+                  <div id="31_208" class="frame-31_208">
+                    <div id="31_209" class="frame-31_209">
+                      <p id="31_210" class="paragraph-31_210">学习中</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="31_211" class="frame-31_211">
+                <div class="frame-content-31_211">
+                  <div id="31_212" class="frame-31_212">
+                    <div id="31_213" class="frame-31_213">
+                      <div class="frame-content-31_213">
+                        <p id="31_214" class="paragraph-31_214">🔧</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_215" class="frame-31_215">
+                    <div id="31_216" class="frame-31_216">
+                      <div class="frame-content-31_216">
+                        <div id="31_217" class="frame-31_217">
+                          <p id="31_218" class="paragraph-31_218">算法入门</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_219" class="frame-31_219">
+                      <div class="frame-content-31_219">
+                        <div id="31_220" class="frame-31_220">
+                          <p id="31_221" class="paragraph-31_221">8章节 · 28小结</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_222" class="frame-31_222">
+                      <div id="31_223" class="rectangle-31_223"></div>
+                    </div>
+                  </div>
+                  <div id="31_224" class="frame-31_224">
+                    <div id="31_225" class="frame-31_225">
+                      <p id="31_226" class="paragraph-31_226">学习中</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="31_227" class="frame-31_227">
+                <div class="frame-content-31_227">
+                  <div id="31_228" class="frame-31_228">
+                    <div id="31_229" class="frame-31_229">
+                      <div class="frame-content-31_229">
+                        <p id="31_230" class="paragraph-31_230">☕</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="31_231" class="frame-31_231">
+                    <div id="31_232" class="frame-31_232">
+                      <div class="frame-content-31_232">
+                        <div id="31_233" class="frame-31_233">
+                          <p id="31_234" class="paragraph-31_234">Java进阶</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_235" class="frame-31_235">
+                      <div class="frame-content-31_235">
+                        <div id="31_236" class="frame-31_236">
+                          <p id="31_237" class="paragraph-31_237">12章节 · 39小结</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="31_238" class="rectangle-31_238"></div>
+                  </div>
+                  <div id="31_239" class="frame-31_239">
+                    <div id="31_240" class="frame-31_240">
+                      <p id="31_241" class="paragraph-31_241">未解锁</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>

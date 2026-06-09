@@ -157,7 +157,7 @@ Page({
   // 跳转到首页
   goHome() {
     wx.switchTab({
-      url: '/pages/index/index'
+      url: '/pages/home/home'
     });
   }
 });

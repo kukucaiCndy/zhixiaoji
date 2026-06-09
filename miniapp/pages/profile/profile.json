@@ -1,5 +1,5 @@
 {
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "我的",
   "usingComponents": {
     "tab-bar": "/components/tab-bar/tab-bar"
   }

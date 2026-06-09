@@ -83,11 +83,5 @@ Page({
     wx.switchTab({
       url: '/pages/learn/learn'
     });
-  },
-
-  onTestCoverView() {
-    wx.navigateTo({
-      url: '/pages/test-coverview2/test-coverview2'
-    });
   }
 });
