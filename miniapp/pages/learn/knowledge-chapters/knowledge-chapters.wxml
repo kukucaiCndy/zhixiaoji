@@ -34,18 +34,20 @@
 
       <!-- 可折叠章节列表 -->
       <view class="chapter-collapse-list">
-        <view class="chapter-collapse-item {{item.expanded ? 'expanded' : ''}}" wx:for="{{chapters}}" wx:key="id" id="chapter-{{item.id}}">
+        <view class="chapter-collapse-item {{item.expanded ? 'expanded' : ''}} {{item.locked ? 'locked' : ''}}" wx:for="{{chapters}}" wx:key="id" id="chapter-{{item.id}}">
           <!-- 章节标题（点击切换折叠） -->
           <view class="chapter-header" bindtap="onChapterTap" data-index="{{index}}">
             <view class="chapter-header-left">
-              <view class="chapter-index-badge">{{index + 1}}</view>
+              <view class="chapter-index-badge {{item.locked ? 'locked' : ''}}">{{index + 1}}</view>
               <view class="chapter-header-text">
                 <text class="chapter-title">{{item.title}}</text>
-                <text class="chapter-meta" wx:if="{{item.unlockPoints > 0}}">需 {{item.unlockPoints}} 积分解锁</text>
+                <text class="chapter-meta" wx:if="{{item.locked}}">🔒 完成上一章后解锁</text>
+                <text class="chapter-meta" wx:elif="{{item.unlockPoints > 0}}">需 {{item.unlockPoints}} 积分解锁</text>
               </view>
             </view>
             <view class="chapter-header-right">
-              <text class="chapter-toggle">{{item.expanded ? '−' : '+'}}</text>
+              <text class="chapter-toggle" wx:if="{{!item.locked}}">{{item.expanded ? '−' : '+'}}</text>
+              <text class="chapter-toggle locked" wx:else>🔒</text>
             </view>
           </view>
 
@@ -54,15 +56,16 @@
 
           <!-- 课程列表（展开时显示） -->
           <view class="lesson-list" wx:if="{{item.expanded}}">
-            <view class="lesson-item" wx:for="{{item.lessons}}" wx:for-item="lesson" wx:for-index="lessonIdx" wx:key="id" bindtap="onLessonTap" data-chapter-id="{{item.id}}" data-lesson-index="{{lessonIdx}}">
-              <view class="lesson-number-wrap">
+            <view class="lesson-item {{lesson.locked ? 'locked' : ''}}" wx:for="{{item.lessons}}" wx:for-item="lesson" wx:for-index="lessonIdx" wx:key="id" bindtap="onLessonTap" data-chapter-id="{{item.id}}" data-lesson-index="{{lessonIdx}}" data-chapter-index="{{index}}">
+              <view class="lesson-number-wrap {{lesson.locked ? 'locked' : ''}}">
                 <text class="lesson-number">{{lesson.number || (lessonIdx + 1)}}</text>
               </view>
               <view class="lesson-info">
                 <text class="lesson-title">{{lesson.title}}</text>
-                <text class="lesson-meta" wx:if="{{lesson.unlockPoints > 0}}">需 {{lesson.unlockPoints}} 积分解锁</text>
+                <text class="lesson-meta" wx:if="{{lesson.locked}}">🔒 完成前一节后解锁</text>
+                <text class="lesson-meta" wx:elif="{{lesson.unlockPoints > 0}}">需 {{lesson.unlockPoints}} 积分解锁</text>
               </view>
-              <text class="lesson-arrow">›</text>
+              <text class="lesson-arrow">{{lesson.locked ? '🔒' : '›'}}</text>
             </view>
 
             <!-- 加载中 -->

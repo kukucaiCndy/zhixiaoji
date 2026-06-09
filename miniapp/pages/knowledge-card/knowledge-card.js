@@ -1,5 +1,6 @@
 var knowledgeApi = require('../../services/knowledge-api');
 var learningApi = require('../../services/learning-api');
+var progressStore = require('../../utils/progress-store');
 var HTML_BASE = 'http://192.168.16.129:12302';
 
 var STUDY_THRESHOLD_SECONDS = 90; // 学习完成阈值（秒）
@@ -132,6 +133,9 @@ Page({
     var minutes = Math.ceil(this.data.studySeconds / 60) || 1;
     this.setData({ lessonLearned: true });
 
+    // 本地标记完成（解锁下一课）
+    progressStore.markLessonCompleted(lessonId);
+
     learningApi.markLearned(lessonId, minutes).then(function () {
       console.log('[KnowledgeCard] 学习已上报:', lessonId, minutes + '分钟');
       wx.showToast({ title: '学习完成 ✓', icon: 'success', duration: 1500 });
@@ -202,6 +206,9 @@ Page({
     var minutes = Math.max(Math.ceil(this.data.studySeconds / 60), 1);
 
     this.setData({ lessonLearned: true });
+
+    // 本地标记完成
+    progressStore.markLessonCompleted(lessonId);
 
     learningApi.markLearned(lessonId, minutes).then(function () {
       console.log('[KnowledgeCard] 标记理解已上报:', lessonId, minutes + '分钟');

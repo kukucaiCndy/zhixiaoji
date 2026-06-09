@@ -146,6 +146,13 @@
   position: relative;
 }
 
+/* 锁定状态 */
+.chapter-collapse-item.locked {
+  opacity: 0.65;
+  background: #F8FAFC;
+  box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.04);
+}
+
 /* 进度背景条 */
 .chapter-progress-bg {
   position: absolute;
@@ -191,6 +198,11 @@
   margin-right: 20rpx;
 }
 
+.chapter-index-badge.locked {
+  background: #F1F5F9;
+  color: #94A3B8;
+}
+
 .chapter-header-text {
   flex: 1;
   min-width: 0;
@@ -229,6 +241,11 @@
   justify-content: center;
 }
 
+.chapter-toggle.locked {
+  font-size: 28rpx;
+  color: #CBD5E1;
+}
+
 /* 展开状态 */
 .chapter-collapse-item.expanded {
   box-shadow: 0 4rpx 20rpx rgba(79, 70, 229, 0.10);
@@ -261,6 +278,10 @@
   border-bottom: none;
 }
 
+.lesson-item.locked {
+  opacity: 0.55;
+}
+
 .lesson-number-wrap {
   width: 40rpx;
   height: 40rpx;
@@ -271,6 +292,10 @@
   justify-content: center;
   flex-shrink: 0;
   margin-right: 20rpx;
+}
+
+.lesson-number-wrap.locked {
+  background: #F8FAFC;
 }
 
 .lesson-number {

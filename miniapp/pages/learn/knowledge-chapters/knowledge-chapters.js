@@ -1,6 +1,8 @@
 var knowledgeApi = require('../../../services/knowledge-api');
+var progressStore = require('../../../utils/progress-store');
 
 var CHAPTER_ICON_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
+var CHAPTER_LOCKED_BG = '#F1F5F9';
 
 Page({
   data: {
@@ -47,7 +49,8 @@ Page({
           expanded: false,
           lessons: [],
           lessonsLoading: false,
-          progressPercent: 0
+          progressPercent: 0,
+          locked: false
         };
       });
 
@@ -59,11 +62,14 @@ Page({
         subjectIconType = 'image';
       }
 
-      // 默认展开第一个章节
+      // 默认展开第一个未锁定的章节
       var lastStudiedChapterId = '';
-      if (chapters.length > 0) {
-        chapters[0].expanded = true;
-        lastStudiedChapterId = chapters[0].id;
+      for (var i = 0; i < chapters.length; i++) {
+        if (!chapters[i].locked) {
+          chapters[i].expanded = true;
+          lastStudiedChapterId = chapters[i].id;
+          break;
+        }
       }
 
       self.setData({
@@ -79,9 +85,16 @@ Page({
         loading: false
       });
 
-      // 数据设置完成后加载第一个章节的课程
+      // 加载第一个未锁定章节的课程
       if (lastStudiedChapterId) {
-        self.loadLessonsForChapter(chapters[0], 0);
+        var firstUnlockedIdx = 0;
+        for (i = 0; i < chapters.length; i++) {
+          if (!chapters[i].locked) {
+            firstUnlockedIdx = i;
+            break;
+          }
+        }
+        self.loadLessonsForChapter(chapters[firstUnlockedIdx], firstUnlockedIdx);
       }
     }).catch(function (err) {
       console.error('[KnowledgeChapters] Failed to load:', err);
@@ -102,14 +115,33 @@ Page({
           title: ls.title,
           number: ls.number || (li + 1),
           sortOrder: ls.sortOrder,
-          unlockPoints: ls.unlockPoints || 0
+          unlockPoints: ls.unlockPoints || 0,
+          locked: false
         };
       });
+
+      // 计算课程锁定状态
+      lessonsData = progressStore.computeLessonLocks(lessonsData);
+
+      // 计算章节进度（完成课程数 / 总课程数）
+      var completedCount = 0;
+      for (var i = 0; i < lessonsData.length; i++) {
+        if (progressStore.isLessonCompleted(lessonsData[i].id)) {
+          completedCount++;
+        }
+      }
+      var progressPercent = lessonsData.length > 0 ? Math.round(completedCount / lessonsData.length * 100) : 0;
+
       self.setData({
         ['chapters[' + index + '].lessons']: lessonsData,
         ['chapters[' + index + '].lessonsLoading']: false,
-        ['chapters[' + index + '].progressPercent']: 100
+        ['chapters[' + index + '].progressPercent']: progressPercent
       });
+
+      // 重新计算所有章节的锁定状态并回写
+      var chapters = self.data.chapters;
+      progressStore.computeChapterLocks(chapters);
+      self.setData({ chapters: chapters });
     }).catch(function (err) {
       console.error('[KnowledgeChapters] Failed to load lessons:', err);
       self.setData({
@@ -123,6 +155,12 @@ Page({
     var chapters = this.data.chapters;
     var chapter = chapters[index];
     if (!chapter) return;
+
+    // 锁定的章节不可展开
+    if (chapter.locked) {
+      wx.showToast({ title: '请先完成上一章', icon: 'none' });
+      return;
+    }
 
     var willExpand = !chapter.expanded;
 
@@ -145,7 +183,19 @@ Page({
   onLessonTap: function (e) {
     var chapterId = e.currentTarget.dataset.chapterId;
     var lessonIndex = e.currentTarget.dataset.lessonIndex;
+    var chapterIndex = e.currentTarget.dataset.chapterIndex;
     if (!chapterId) return;
+
+    var chapters = this.data.chapters;
+    var chapter = chapters[chapterIndex];
+    if (!chapter || !chapter.lessons || !chapter.lessons[lessonIndex]) return;
+
+    var lesson = chapter.lessons[lessonIndex];
+    if (lesson.locked) {
+      wx.showToast({ title: '请先完成前一节', icon: 'none' });
+      return;
+    }
+
     wx.navigateTo({
       url: '/pages/knowledge-card/knowledge-card?chapterId=' + chapterId
         + '&currentLesson=' + (typeof lessonIndex === 'number' ? lessonIndex : 0)
