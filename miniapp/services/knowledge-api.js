@@ -107,6 +107,53 @@ function getLessonDetail(id) {
   });
 }
 
+// ========== 学习统计 / 推荐 / 错题 API (SDK v0.13.4 新增) ==========
+
+/**
+ * 获取学习统计
+ * SDK: knowledge.getStudyStats()
+ * 返回: { toLearn, toReview, mastered, accuracy }
+ */
+function getStudyStats() {
+  return knowledge.getStudyStats().then(function (res) {
+    if (res.code === 0 && res.data) return res.data;
+    throw new Error('Invalid response: ' + JSON.stringify(res));
+  });
+}
+
+/**
+ * 获取学习进度
+ * SDK: knowledge.getStudyProgress()
+ */
+function getStudyProgress() {
+  return knowledge.getStudyProgress().then(function (res) {
+    if (res.code === 0 && res.data) return res.data;
+    throw new Error('Invalid response: ' + JSON.stringify(res));
+  });
+}
+
+/**
+ * 获取推荐内容
+ * SDK: knowledge.getRecommendations()
+ */
+function getRecommendations() {
+  return knowledge.getRecommendations().then(function (res) {
+    if (res.code === 0 && res.data) return res.data;
+    throw new Error('Invalid response: ' + JSON.stringify(res));
+  });
+}
+
+/**
+ * 获取错题列表
+ * SDK: knowledge.getWrongQuestions(params)
+ */
+function getWrongQuestions(params) {
+  return knowledge.getWrongQuestions(params).then(function (res) {
+    if (res.code === 0 && res.data) return res.data;
+    throw new Error('Invalid response: ' + JSON.stringify(res));
+  });
+}
+
 module.exports = {
   listCategories: listCategories,
   getCategoryDetail: getCategoryDetail,
@@ -115,5 +162,9 @@ module.exports = {
   listSections: listSections,
   getSectionDetail: getSectionDetail,
   listLessons: listLessons,
-  getLessonDetail: getLessonDetail
+  getLessonDetail: getLessonDetail,
+  getStudyStats: getStudyStats,
+  getStudyProgress: getStudyProgress,
+  getRecommendations: getRecommendations,
+  getWrongQuestions: getWrongQuestions
 };

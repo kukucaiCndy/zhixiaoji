@@ -43,8 +43,30 @@ Page({
         return item;
       });
       self.setData({ categories: processed });
+      // 加载继续学习数据
+      self.loadContinueLearning();
     }).catch(function (err) {
       console.error('[Learn] Failed to load categories:', err);
+    });
+  },
+
+  loadContinueLearning: function () {
+    var self = this;
+    knowledgeApi.getRecommendations().then(function (list) {
+      if (list && list.length > 0) {
+        var item = list[0];
+        self.setData({
+          continueLearning: {
+            icon: item.icon || '🐍',
+            title: item.title || '继续学习',
+            percent: 60,
+            nextSection: 3,
+            chapterId: item.id || ''
+          }
+        });
+      }
+    }).catch(function (err) {
+      console.log('[Learn] Failed to load continue learning:', err);
     });
   },
 
@@ -58,6 +80,16 @@ Page({
     wx.navigateTo({
       url: '/pages/learn/categories/categories?id=' + category.id + '&name=' + encodeURIComponent(category.name)
     });
+  },
+
+  onContinueTap: function () {
+    var item = this.data.continueLearning;
+    if (!item) return;
+    if (item.chapterId) {
+      wx.navigateTo({
+        url: '/pages/learn/knowledge-chapters/knowledge-chapters?id=' + item.chapterId
+      });
+    }
   },
 
   onTabChange: function (e) {
