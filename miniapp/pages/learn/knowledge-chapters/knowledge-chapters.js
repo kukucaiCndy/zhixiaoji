@@ -31,7 +31,38 @@ Page({
       categoryName: categoryName,
       statusBarHeight: sysInfo.statusBarHeight || 44
     });
+    this._loaded = false;
     this.loadSubjectDetail(subjectId);
+  },
+
+  onShow: function () {
+    // 首次加载由 onLoad 处理
+    if (!this._loaded) return;
+    // 从 webview 返回后，刷新锁定状态和进度
+    this.refreshLocksAndProgress();
+  },
+
+  refreshLocksAndProgress: function () {
+    var chapters = this.data.chapters;
+    if (!chapters || chapters.length === 0) return;
+
+    // 重新计算章节锁定
+    chapters = progressStore.computeChapterLocks(chapters);
+
+    // 对每个已加载课程的章节，重新计算课程锁定和进度
+    for (var i = 0; i < chapters.length; i++) {
+      var ch = chapters[i];
+      if (ch.lessons && ch.lessons.length > 0 && !ch.lessonsLoading) {
+        ch.lessons = progressStore.computeLessonLocks(ch.lessons);
+        var completedCount = 0;
+        for (var j = 0; j < ch.lessons.length; j++) {
+          if (progressStore.isLessonCompleted(ch.lessons[j].id)) completedCount++;
+        }
+        ch.progressPercent = Math.round(completedCount / ch.lessons.length * 100);
+      }
+    }
+
+    this.setData({ chapters: chapters });
   },
 
   loadSubjectDetail: function (subjectId) {
@@ -84,6 +115,8 @@ Page({
         lastStudiedChapterId: lastStudiedChapterId,
         loading: false
       });
+
+      self._loaded = true;
 
       // 加载第一个未锁定章节的课程
       if (lastStudiedChapterId) {
