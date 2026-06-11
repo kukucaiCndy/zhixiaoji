@@ -1,4 +1,5 @@
 <view class="tab-bar">
+  <image class="bg-image" src="/assets/images/bg/bg_tabbar.png" mode="aspectFill" />
   <view class="tab-item {{activeIndex === 0 ? 'active' : ''}}" bindtap="onTabTap" data-index="0">
     <view class="tab-icon">🏠</view>
     <text class="tab-label">首页</text>

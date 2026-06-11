@@ -13,76 +13,93 @@
 
       <!-- Hero Card -->
       <view class="hero-card" bindtap="onContinueLearn">
-        <view class="hero-tag">
-          <text>今日续学</text>
-        </view>
-        <text class="hero-title">{{continueTitle || 'Python 基础 · 第3章'}}</text>
-        <text class="hero-progress">已完成 {{overallPercent || 68}}%</text>
-        <view class="hero-btn">
-          <text>继续学习</text>
+        <image class="bg-image" src="/assets/images/bg/bg_hero_card.png" mode="aspectFill" />
+        <view class="card-content">
+          <view class="hero-tag">
+            <text>今日续学</text>
+          </view>
+          <text class="hero-title">{{continueTitle || 'Python 基础 · 第3章'}}</text>
+          <text class="hero-progress">已完成 {{overallPercent || 68}}%</text>
+          <view class="hero-btn">
+            <text>继续学习</text>
+          </view>
         </view>
       </view>
 
       <!-- Quick Actions -->
       <view class="quick-actions">
         <view class="action-item" bindtap="onChallenge">
-          <image class="action-icon" src="/assets/images/deco/deco_star.png" mode="aspectFit" />
+          <view class="action-icon-wrap">
+            <image class="action-icon" src="/assets/images/deco/deco_star.png" mode="aspectFit" />
+          </view>
           <text class="action-label">挑战</text>
         </view>
         <view class="action-item" bindtap="onStartReview">
-          <image class="action-icon" src="/assets/images/deco/deco_spiral.png" mode="aspectFit" />
+          <view class="action-icon-wrap">
+            <image class="action-icon" src="/assets/images/deco/deco_spiral.png" mode="aspectFit" />
+          </view>
           <text class="action-label">复习</text>
         </view>
         <view class="action-item" bindtap="onRankTap">
-          <image class="action-icon" src="/assets/images/deco/deco_circle.png" mode="aspectFit" />
+          <view class="action-icon-wrap">
+            <image class="action-icon" src="/assets/images/deco/deco_circle.png" mode="aspectFit" />
+          </view>
           <text class="action-label">排行</text>
         </view>
         <view class="action-item" bindtap="onAchievementTap">
-          <image class="action-icon" src="/assets/images/deco/deco_star.png" mode="aspectFit" />
+          <view class="action-icon-wrap">
+            <image class="action-icon" src="/assets/images/deco/deco_star.png" mode="aspectFit" />
+          </view>
           <text class="action-label">成就</text>
         </view>
       </view>
 
       <!-- Progress Section -->
       <view class="progress-section">
-        <view class="prog-header">
-          <text class="prog-title">我的学习进度</text>
-          <text class="prog-detail" bindtap="onViewDetail">详情 ›</text>
-        </view>
-        <view class="prog-bar-track">
-          <view class="prog-bar-fill" style="width: {{overallPercent || 68}}%"></view>
-        </view>
-        <text class="prog-label">已完成 {{overallPercent || 68}}%</text>
-        <view class="stats-row">
-          <view class="stat-item">
-            <text class="stat-val">{{stats.toLearn || 12}}</text>
-            <text class="stat-lab">待学习</text>
+        <image class="bg-image" src="/assets/images/bg/bg_progress_card.png" mode="aspectFill" />
+        <view class="section-content">
+          <view class="prog-header">
+            <text class="prog-title">我的学习进度</text>
+            <text class="prog-detail" bindtap="onViewDetail">详情 ›</text>
           </view>
-          <view class="stat-item">
-            <text class="stat-val">{{stats.mastered || 45}}</text>
-            <text class="stat-lab">已掌握</text>
+          <view class="prog-bar-track">
+            <view class="prog-bar-fill" style="width: {{overallPercent || 68}}%"></view>
           </view>
-          <view class="stat-item">
-            <text class="stat-val">{{stats.accuracy || 86}}%</text>
-            <text class="stat-lab">正确率</text>
+          <text class="prog-label">已完成 {{overallPercent || 68}}%</text>
+          <view class="stats-row">
+            <view class="stat-item">
+              <text class="stat-val">{{stats.toLearn || 12}}</text>
+              <text class="stat-lab">待学习</text>
+            </view>
+            <view class="stat-item">
+              <text class="stat-val">{{stats.mastered || 45}}</text>
+              <text class="stat-lab">已掌握</text>
+            </view>
+            <view class="stat-item">
+              <text class="stat-val">{{stats.accuracy || 86}}%</text>
+              <text class="stat-lab">正确率</text>
+            </view>
           </view>
         </view>
       </view>
 
       <!-- Recommend Section -->
-      <view class="recommend-section" wx:if="{{recommendations.length > 0}}">
+      <view class="recommend-section">
         <view class="rec-header">
           <text class="rec-title">为你推荐</text>
           <text class="rec-more" bindtap="onMore">更多 ›</text>
         </view>
         <view class="rec-cards">
           <view wx:for="{{recommendations}}" wx:key="id" class="rec-card" bindtap="onRecommendTap" data-id="{{item.id}}">
-            <view class="rec-thumb">
-              <image wx:if="{{item.iconType === 'image'}}" class="rec-thumb-img" src="{{item.icon}}" mode="aspectFit" />
-              <text wx:else class="rec-thumb-icon">{{item.icon || '📘'}}</text>
+            <image class="bg-image" src="/assets/images/bg/bg_rec_card.png" mode="aspectFill" />
+            <view class="card-content">
+              <view class="rec-thumb">
+                <image wx:if="{{item.iconType === 'image'}}" class="rec-thumb-img" src="{{item.icon}}" mode="aspectFit" />
+                <text wx:else class="rec-thumb-icon">{{item.icon || '📘'}}</text>
+              </view>
+              <text class="rec-card-title">{{item.title}}</text>
+              <text class="rec-card-desc">{{item.desc}}</text>
             </view>
-            <text class="rec-card-title">{{item.title}}</text>
-            <text class="rec-card-desc">{{item.desc}}</text>
           </view>
         </view>
       </view>

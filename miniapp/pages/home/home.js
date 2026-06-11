@@ -83,9 +83,23 @@ Page({
     });
 
     knowledgeApi.getRecommendations().then(function (recommendations) {
-      this.setData({ recommendations: recommendations });
+      if (recommendations && recommendations.length > 0) {
+        this.setData({ recommendations: recommendations });
+      } else {
+        this.setDefaultRecommendations();
+      }
     }.bind(this)).catch(function (err) {
       console.error('[Home] Failed to load recommendations:', err);
+      this.setDefaultRecommendations();
+    }.bind(this));
+  },
+
+  setDefaultRecommendations() {
+    this.setData({
+      recommendations: [
+        { id: 'python', title: 'Python', desc: '12 个知识点', icon: '🐍', iconType: 'emoji' },
+        { id: 'javascript', title: 'JavaScript', desc: '18 个知识点', icon: '📜', iconType: 'emoji' }
+      ]
     });
   },
 
