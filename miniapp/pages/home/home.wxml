@@ -1,140 +1,104 @@
 <view class="home-page">
-  <view class="header-section">
-    <view class="nav-bar">
-      <text class="nav-title">知小记</text>
-      <view class="search-btn" bindtap="onSearch">
-        <text>🔍 搜索知识点</text>
-      </view>
-    </view>
-  </view>
-
-  <view class="user-section">
-    <view class="user-info">
-      <view class="avatar">
-        <image wx:if="{{avatarUrl}}" class="avatar-img" src="{{avatarUrl}}" mode="aspectFill" />
-        <text wx:else class="avatar-letter">{{username[0] || '?'}}</text>
-      </view>
-      <view class="user-meta">
-        <text class="username">{{username || '未登录'}}</text>
-        <text class="streak-text">🔥 连续学习<text class="streak-highlight">{{streak}}天</text></text>
-      </view>
-    </view>
-    <view class="points-card">
-      <text class="points-value">{{points}}</text>
-      <text class="points-label">积分</text>
+  <!-- Header -->
+  <view class="header">
+    <text class="title">知小记</text>
+    <text class="subtitle">准备好继续学习了吗？</text>
+    <view class="score-badge">
+      <text class="score-text">{{points || '1,280'}}</text>
     </view>
   </view>
 
   <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}">
     <view class="scroll-inner">
-    <view class="challenge-card">
-      <view class="challenge-deco-bg">
-        <view class="deco-circle c1"></view>
-        <view class="deco-circle c2"></view>
-      </view>
-      <text class="challenge-title">每日挑战</text>
-      <text class="challenge-desc">每天10题，巩固知识不忘记</text>
-      <view class="challenge-btn" bindtap="onChallenge">
-        <text>立即挑战 →</text>
-      </view>
-    </view>
 
-    <view class="section-header">
-      <text class="section-title">今日学习</text>
-      <text class="section-more" bindtap="onViewAll">查看全部</text>
-    </view>
+      <!-- Hero Card -->
+      <view class="hero-card" bindtap="onContinueLearn">
+        <view class="hero-tag">
+          <text>今日续学</text>
+        </view>
+        <text class="hero-title">{{continueTitle || 'Python 基础 · 第3章'}}</text>
+        <text class="hero-progress">已完成 {{overallPercent || 68}}%</text>
+        <view class="hero-btn">
+          <text>继续学习</text>
+        </view>
+      </view>
 
-    <view class="stats-grid">
-      <view class="stat-item">
-        <view class="stat-icon purple">📖</view>
-        <text class="stat-number">{{stats.toLearn}}</text>
-        <text class="stat-label">待学习卡片</text>
-        <view class="stat-progress">
-          <view class="progress-track">
-            <view class="progress-fill purple" style="width: 0%"></view>
+      <!-- Quick Actions -->
+      <view class="quick-actions">
+        <view class="action-item" bindtap="onChallenge">
+          <image class="action-icon" src="/assets/images/deco/deco_star.png" mode="aspectFit" />
+          <text class="action-label">挑战</text>
+        </view>
+        <view class="action-item" bindtap="onStartReview">
+          <image class="action-icon" src="/assets/images/deco/deco_spiral.png" mode="aspectFit" />
+          <text class="action-label">复习</text>
+        </view>
+        <view class="action-item" bindtap="onRankTap">
+          <image class="action-icon" src="/assets/images/deco/deco_circle.png" mode="aspectFit" />
+          <text class="action-label">排行</text>
+        </view>
+        <view class="action-item" bindtap="onAchievementTap">
+          <image class="action-icon" src="/assets/images/deco/deco_star.png" mode="aspectFit" />
+          <text class="action-label">成就</text>
+        </view>
+      </view>
+
+      <!-- Progress Section -->
+      <view class="progress-section">
+        <view class="prog-header">
+          <text class="prog-title">我的学习进度</text>
+          <text class="prog-detail" bindtap="onViewDetail">详情 ›</text>
+        </view>
+        <view class="prog-bar-track">
+          <view class="prog-bar-fill" style="width: {{overallPercent || 68}}%"></view>
+        </view>
+        <text class="prog-label">已完成 {{overallPercent || 68}}%</text>
+        <view class="stats-row">
+          <view class="stat-item">
+            <text class="stat-val">{{stats.toLearn || 12}}</text>
+            <text class="stat-lab">待学习</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-val">{{stats.mastered || 45}}</text>
+            <text class="stat-lab">已掌握</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-val">{{stats.accuracy || 86}}%</text>
+            <text class="stat-lab">正确率</text>
           </view>
         </view>
       </view>
-      <view class="stat-item">
-        <view class="stat-icon green">🔄</view>
-        <text class="stat-number">{{stats.toReview}}</text>
-        <text class="stat-label">待复习</text>
-        <view class="stat-progress">
-          <view class="progress-track">
-            <view class="progress-fill green" style="width: 0%"></view>
+
+      <!-- Recommend Section -->
+      <view class="recommend-section" wx:if="{{recommendations.length > 0}}">
+        <view class="rec-header">
+          <text class="rec-title">为你推荐</text>
+          <text class="rec-more" bindtap="onMore">更多 ›</text>
+        </view>
+        <view class="rec-cards">
+          <view wx:for="{{recommendations}}" wx:key="id" class="rec-card" bindtap="onRecommendTap" data-id="{{item.id}}">
+            <view class="rec-thumb">
+              <image wx:if="{{item.iconType === 'image'}}" class="rec-thumb-img" src="{{item.icon}}" mode="aspectFit" />
+              <text wx:else class="rec-thumb-icon">{{item.icon || '📘'}}</text>
+            </view>
+            <text class="rec-card-title">{{item.title}}</text>
+            <text class="rec-card-desc">{{item.desc}}</text>
           </view>
         </view>
       </view>
-      <view class="stat-item">
-        <view class="stat-icon orange">⭐</view>
-        <text class="stat-number">{{stats.mastered}}</text>
-        <text class="stat-label">已掌握</text>
-        <view class="stat-progress">
-          <view class="progress-track">
-            <view class="progress-fill orange" style="width: 0%"></view>
-          </view>
-        </view>
-      </view>
-      <view class="stat-item">
-        <view class="stat-icon red">📊</view>
-        <text class="stat-number">{{stats.accuracy}}%</text>
-        <text class="stat-label">正确率</text>
-        <view class="stat-progress">
-          <view class="progress-track">
-            <view class="progress-fill purple" style="width: 0%"></view>
-          </view>
-        </view>
-      </view>
-    </view>
 
-    <view class="challenge-entry" bindtap="onChallenge">
-      <view class="entry-icon">🏆</view>
-      <view class="entry-content">
-        <text class="entry-title">每日挑战</text>
-        <text class="entry-desc">今日剩余 3 次机会</text>
-      </view>
-      <view class="entry-arrow">›</view>
-    </view>
+      <!-- 装饰元素 -->
+      <image class="deco deco-wave-header" src="/assets/images/deco/deco_wave.png" mode="aspectFit" />
+      <image class="deco deco-circle-hero" src="/assets/images/deco/deco_circle.png" mode="aspectFit" />
+      <image class="deco deco-x-qa" src="/assets/images/deco/deco_sparkle.png" mode="aspectFit" />
+      <image class="deco deco-star-qa" src="/assets/images/deco/deco_star.png" mode="aspectFit" />
+      <image class="deco deco-dot-progress" src="/assets/images/deco/deco_dot.png" mode="aspectFit" />
+      <image class="deco deco-dot-qa" src="/assets/images/deco/deco_dot.png" mode="aspectFit" />
+      <image class="deco deco-wave-tab" src="/assets/images/deco/deco_wave.png" mode="aspectFit" />
 
-    <view class="section-header">
-      <text class="section-title">学习进度</text>
-      <text class="section-more" bindtap="onViewDetail">详情</text>
-    </view>
-
-    <view class="progress-list">
-      <view wx:for="{{progress}}" wx:key="name" class="progress-item">
-        <text class="progress-name">{{item.name}}</text>
-        <view class="progress-bar-wrap">
-          <view class="progress-track tall">
-            <view class="progress-fill {{item.color || 'purple'}}" style="width: {{item.percent}}%"></view>
-          </view>
-        </view>
-        <text class="progress-percent">{{item.percent}}%</text>
-      </view>
-    </view>
-
-    <view class="section-header">
-      <text class="section-title">推荐内容</text>
-      <text class="section-more" bindtap="onMore">更多</text>
-    </view>
-
-    <scroll-view class="recommend-scroll" scroll-x enhanced show-scrollbar="{{false}}">
-      <view class="recommend-list">
-        <view wx:for="{{recommendations}}" wx:key="id" class="rec-card" bindtap="onRecommendTap" data-id="{{item.id}}">
-          <view class="rec-thumb {{item.gradient || 'purple'}}"></view>
-          <text class="rec-title">{{item.title}}</text>
-          <text class="rec-desc">{{item.desc}}</text>
-        </view>
-      </view>
-    </scroll-view>
-
-    <view class="bottom-placeholder"></view>
+      <view class="bottom-placeholder"></view>
     </view>
   </scroll-view>
-
-  <view class="test-btn-float" bindtap="onTestCoverView">
-    <text>🧪 cover</text>
-  </view>
 
   <tab-bar activeIndex="0" bind:change="onTabChange"></tab-bar>
 </view>
