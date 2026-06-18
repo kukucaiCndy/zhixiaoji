@@ -88,9 +88,11 @@
 ## 四、私有依赖说明
 
 - 私有 npm 仓库：`http://192.168.16.129:4873`，scope `@zhixiaoji`
-- Web 端 SDK：`@zhixiaoji/api-sdk-web@0.1.1`（管理后台 API 客户端）
+- Web 端 SDK：`@zhixiaoji/api-sdk-web@0.7.3`（管理后台 API 客户端）
 - 小程序 SDK：`@zhixiaoji/api-sdk-wechat@0.7.1`（微信小程序 API 客户端）
-- SDK 初始化：[src/api/sdk-client.ts](src/api/sdk-client.ts)，baseURL `http://192.168.16.129:12301/api/v1`（auth-service），Token key `accessToken`
+- SDK 初始化：[src/api/sdk-client.ts](src/api/sdk-client.ts)，使用 `createVue3ApiClient` 多服务路由模式：
+  - `baseURL`: `http://192.168.16.129:12302/api/v1`（core-service，默认路由）
+  - `authBaseURL`: `http://192.168.16.129:12301/api/v1`（auth-service，`/auth/*` 路径匹配）
 
 **后端服务端口**：
 

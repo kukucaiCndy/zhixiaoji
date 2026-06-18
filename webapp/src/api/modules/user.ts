@@ -1,4 +1,5 @@
-import { authApi as sdkAuth } from '@/api/sdk-client'
+import { authApi as sdkAuth, sdk, checkAuthAndRedirect } from '@/api/sdk-client'
+import type { AdminUserItem } from '@zhixiaoji/api-sdk-web'
 import { userMock } from '@/mock/user'
 import { noteMock } from '@/mock/note'
 
@@ -45,19 +46,106 @@ export const userApi = {
         }
       }
       return res
-    } catch {
+    } catch (ex) {
+      checkAuthAndRedirect(ex)
       return userMock.getUsers(params)
     }
   },
 
-  getUserDetail: (id: number | string) => userMock.getUserDetail(Number(id)),
+  async getUserDetail(id: number | string) {
+    try {
+      const res = await sdk.client.get<AdminUserItem>(`/auth/admin/users/${id}`)
+      if (res.code === 0 && res.data) {
+        return {
+          code: 0,
+          data: {
+            id: res.data.id,
+            nickname: res.data.nickname || '',
+            avatar: res.data.avatarUrl || '',
+            level: res.data.level,
+            levelTitle: '',
+            registerTime: res.data.registeredAt,
+            lastActiveTime: res.data.lastActiveAt || '',
+            cardCount: res.data.learnedCards,
+            points: res.data.points,
+            stationeryCount: 0,
+            status: res.data.status === 'normal' ? '正常' : '已禁用',
+            studyDays: 0,
+            totalAnswers: 0,
+            correctRate: 0,
+            streakDays: 0,
+            inviteCount: 0,
+            deviceInfo: ''
+          },
+          message: 'ok'
+        }
+      }
+    } catch (ex) {
+      checkAuthAndRedirect(ex)
+      // fall through to mock
+    }
+    return userMock.getUserDetail(Number(id))
+  },
+
+  async getStudyRecords(userId: number | string, params?: { startDate?: string; endDate?: string }) {
+    try {
+      const res = await sdk.client.get(`/core/admin/users/${userId}/study-records`, params)
+      if (res.code === 0 && res.data) {
+        return res
+      }
+    } catch (ex) {
+      checkAuthAndRedirect(ex)
+      // fall through to mock
+    }
+    return userMock.getStudyRecords(Number(userId), params)
+  },
+
+  async getPointsRecords(userId: number | string, params?: { startDate?: string; endDate?: string; action?: string }) {
+    try {
+      const res = await sdk.client.get(`/core/admin/users/${userId}/points-records`, params)
+      if (res.code === 0 && res.data) {
+        return res
+      }
+    } catch (ex) {
+      checkAuthAndRedirect(ex)
+      // fall through to mock
+    }
+    return userMock.getPointsRecords(Number(userId), params)
+  },
+
+  async getStationeryItems(userId: number | string) {
+    try {
+      const res = await sdk.client.get(`/core/admin/users/${userId}/stationeries`)
+      if (res.code === 0 && res.data) {
+        return res
+      }
+    } catch (ex) {
+      checkAuthAndRedirect(ex)
+      // fall through to mock
+    }
+    return userMock.getStationeryItems(Number(userId))
+  },
+
+  async getLevelRecords(userId: number | string) {
+    try {
+      const res = await sdk.client.get(`/core/admin/users/${userId}/level-records`)
+      if (res.code === 0 && res.data) {
+        return res
+      }
+    } catch (ex) {
+      checkAuthAndRedirect(ex)
+      // fall through to mock
+    }
+    return userMock.getLevelRecords(Number(userId))
+  },
 
   async updateUserStatus(id: number | string, status: string) {
     try {
       const mappedStatus = status === '正常' ? 'normal' : 'disabled'
       const res = await sdkAuth.updateUserStatus(String(id), { status: mappedStatus as 'normal' | 'disabled' })
       return res
-    } catch {
+    } catch (ex) {
+      checkAuthAndRedirect(ex)
       return userMock.updateUserStatus(Number(id), status)
     }
   },

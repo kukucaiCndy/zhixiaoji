@@ -24,55 +24,49 @@ const router = createRouter({
           path: 'content/knowledge',
           name: 'Knowledge',
           component: () => import('@/pages/content/KnowledgePage.vue'),
-          meta: { title: '知识体系', parent: '内容管理' }
+          meta: { title: '分类管理', parent: '内容管理' }
         },
         {
-          path: 'content/cards',
-          name: 'CardList',
-          component: () => import('@/pages/content/CardListPage.vue'),
-          meta: { title: '知识卡片', parent: '内容管理' }
+          path: 'content/knowledge/create',
+          name: 'KnowledgeCreate',
+          component: () => import('@/pages/content/KnowledgeEditPage.vue'),
+          meta: { title: '新增分类', parent: '内容管理' }
         },
         {
-          path: 'content/cards/create',
-          name: 'CardCreate',
-          component: () => import('@/pages/content/CardEditPage.vue'),
-          meta: { title: '新增卡片', parent: '内容管理' }
+          path: 'content/knowledge/:id/detail',
+          name: 'KnowledgeDetail',
+          component: () => import('@/pages/content/KnowledgeDetailPage.vue'),
+          meta: { title: '分类详情', parent: '内容管理', keepAlive: true }
         },
         {
-          path: 'content/cards/:id/edit',
-          name: 'CardEdit',
-          component: () => import('@/pages/content/CardEditPage.vue'),
-          meta: { title: '编辑卡片', parent: '内容管理' }
+          path: 'content/knowledge/:id/edit',
+          name: 'KnowledgeEdit',
+          component: () => import('@/pages/content/KnowledgeEditPage.vue'),
+          meta: { title: '编辑分类', parent: '内容管理' }
         },
         {
-          path: 'content/questions',
-          name: 'QuestionList',
-          component: () => import('@/pages/content/QuestionListPage.vue'),
+          path: 'content/knowledge/:categoryId/subjects/:subjectId/detail',
+          name: 'SubjectDetail',
+          component: () => import('@/pages/content/SubjectDetailPage.vue'),
+          meta: { title: '学科详情', parent: '内容管理', keepAlive: true }
+        },
+        {
+          path: 'content/knowledge/:categoryId/subjects/:subjectId/edit',
+          name: 'SubjectEdit',
+          component: () => import('@/pages/content/SubjectEditPage.vue'),
+          meta: { title: '编辑学科', parent: '内容管理' }
+        },
+        {
+          path: 'content/knowledge/:categoryId/subjects/:subjectId/chapters/:chapterId/sections/:sectionId/edit',
+          name: 'SectionEdit',
+          component: () => import('@/pages/content/SectionEditPage.vue'),
+          meta: { title: '编辑章节内容', parent: '内容管理' }
+        },
+        {
+          path: 'content/knowledge/questions/:sectionId',
+          name: 'LessonQuestions',
+          component: () => import('@/pages/content/LessonQuestionsPage.vue'),
           meta: { title: '题目管理', parent: '内容管理' }
-        },
-        {
-          path: 'content/questions/create',
-          name: 'QuestionCreate',
-          component: () => import('@/pages/content/QuestionEditPage.vue'),
-          meta: { title: '新增题目', parent: '内容管理' }
-        },
-        {
-          path: 'content/questions/:id/edit',
-          name: 'QuestionEdit',
-          component: () => import('@/pages/content/QuestionEditPage.vue'),
-          meta: { title: '编辑题目', parent: '内容管理' }
-        },
-        {
-          path: 'content/questions/import',
-          name: 'QuestionImport',
-          component: () => import('@/pages/content/QuestionImportPage.vue'),
-          meta: { title: '批量导入', parent: '内容管理' }
-        },
-        {
-          path: 'content/ai-generate',
-          name: 'AIGenerate',
-          component: () => import('@/pages/content/AIGeneratePage.vue'),
-          meta: { title: 'AI内容生成', parent: '内容管理' }
         },
         {
           path: 'user/list',
@@ -229,6 +223,24 @@ const router = createRouter({
           name: 'AuditLogs',
           component: () => import('@/pages/system/AuditLogsPage.vue'),
           meta: { title: '日志审计', parent: '系统配置' }
+        },
+        {
+          path: 'system/llm-providers',
+          name: 'LlmProviders',
+          component: () => import('@/pages/system/LLMProviderPage.vue'),
+          meta: { title: '大模型供应商', parent: '系统配置' }
+        },
+        {
+          path: 'system/model-configs',
+          name: 'ModelConfigs',
+          component: () => import('@/pages/system/ModelConfigPage.vue'),
+          meta: { title: '大模型配置', parent: '系统配置' }
+        },
+        {
+          path: 'system/workflow-configs',
+          name: 'WorkflowConfigs',
+          component: () => import('@/pages/system/WorkflowConfigPage.vue'),
+          meta: { title: '工作流配置', parent: '系统配置' }
         }
       ]
     },

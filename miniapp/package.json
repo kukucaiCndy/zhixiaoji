@@ -15,5 +15,9 @@
   "type": "commonjs",
   "dependencies": {
     "@zhixiaoji/api-sdk-wechat": "^0.13.5"
+  },
+  "devDependencies": {
+    "lucide": "^1.17.0",
+    "sharp": "^0.35.0"
   }
 }

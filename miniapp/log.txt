@@ -1,0 +1,744 @@
+[SDK Request] GET http://192.168.16.129:12302/api/v1/auth/me
+index.js? [sm]:73 [SDK Headers] {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5MTZhMTBjMy02MTUzLTRiNzYtYjMzOC01ZTBmNjA3NmY2ZjUiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc4MTAxMjg3MywiZXhwIjoxNzgxMDIwMDczfQ.FVHsOFM9TDbyLBo5O632EpF-7QSmh8Urt9dp76WtyOs"
+}
+Wed Jun 10 2026 00:35:02 GMT+0800 (中国标准时间) 配置中关闭合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书检查
+index.js? [sm]:648 工具未校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书。
+(anonymous) @ index.js? [sm]:648
+wechatRequest @ index.js? [sm]:647
+_callee$ @ index.js? [sm]:150
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee11$ @ index.js? [sm]:380
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getProfile @ index.js? [sm]:379
+_callee3$ @ auth-service.js? [sm]:96
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+asyncGeneratorStep @ asyncToGenerator.js?forceSync=true:1
+c @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+_getCurrentUser @ auth-service.js? [sm]:109
+getCurrentUser @ auth-service.js? [sm]:94
+loadUserInfo @ app.js? [sm]:27
+onLaunch @ app.js? [sm]:21
+(anonymous) @ app.js? [sm]:4
+index.js? [sm]:648 GET http://192.168.16.129:12302/api/v1/auth/me 401 (Unauthorized)(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+(anonymous) @ index.js? [sm]:648
+wechatRequest @ index.js? [sm]:647
+_callee$ @ index.js? [sm]:150
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee11$ @ index.js? [sm]:380
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getProfile @ index.js? [sm]:379
+_callee3$ @ auth-service.js? [sm]:96
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+asyncGeneratorStep @ asyncToGenerator.js?forceSync=true:1
+c @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+_getCurrentUser @ auth-service.js? [sm]:109
+getCurrentUser @ auth-service.js? [sm]:94
+loadUserInfo @ app.js? [sm]:27
+onLaunch @ app.js? [sm]:21
+(anonymous) @ app.js? [sm]:4
+index.js? [sm]:85 [SDK Error] GET http://192.168.16.129:12302/api/v1/auth/me(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+logApiError @ index.js? [sm]:85
+_callee$ @ index.js? [sm]:165
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+rejected @ index.js? [sm]:30
+Promise.then (async)
+step @ index.js? [sm]:35
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee11$ @ index.js? [sm]:380
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getProfile @ index.js? [sm]:379
+_callee3$ @ auth-service.js? [sm]:96
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+asyncGeneratorStep @ asyncToGenerator.js?forceSync=true:1
+c @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+_getCurrentUser @ auth-service.js? [sm]:109
+getCurrentUser @ auth-service.js? [sm]:94
+loadUserInfo @ app.js? [sm]:27
+onLaunch @ app.js? [sm]:21
+(anonymous) @ app.js? [sm]:4
+index.js? [sm]:86 [SDK Error Detail] Error: 请求失败：401
+    at success (index.js? [sm]:658)
+    at Object.success (VM59 WASubContext.js:1)
+    at Object.success (VM59 WASubContext.js:1)
+    at Function.forEach.h.<computed> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1
+    at u (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at Function.<anonymous> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+logApiError @ index.js? [sm]:86
+_callee$ @ index.js? [sm]:165
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+rejected @ index.js? [sm]:30
+Promise.then (async)
+step @ index.js? [sm]:35
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee11$ @ index.js? [sm]:380
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getProfile @ index.js? [sm]:379
+_callee3$ @ auth-service.js? [sm]:96
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+asyncGeneratorStep @ asyncToGenerator.js?forceSync=true:1
+c @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+_getCurrentUser @ auth-service.js? [sm]:109
+getCurrentUser @ auth-service.js? [sm]:94
+loadUserInfo @ app.js? [sm]:27
+onLaunch @ app.js? [sm]:21
+(anonymous) @ app.js? [sm]:4
+auth-service.js? [sm]:106 获取用户信息失败: Error: 请求失败：401
+    at success (index.js? [sm]:658)
+    at Object.success (VM59 WASubContext.js:1)
+    at Object.success (VM59 WASubContext.js:1)
+    at Function.forEach.h.<computed> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1
+    at u (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at Function.<anonymous> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+_callee3$ @ auth-service.js? [sm]:106
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+asyncGeneratorStep @ asyncToGenerator.js?forceSync=true:1
+i @ asyncToGenerator.js?forceSync=true:1
+Promise.then (async)
+asyncGeneratorStep @ asyncToGenerator.js?forceSync=true:1
+c @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+_getCurrentUser @ auth-service.js? [sm]:109
+getCurrentUser @ auth-service.js? [sm]:94
+loadUserInfo @ app.js? [sm]:27
+onLaunch @ app.js? [sm]:21
+(anonymous) @ app.js? [sm]:4
+[system] Launch Time: 972 ms
+[自动热重载] 已开启代码文件保存后自动热重载
+index.js? [sm]:72 [SDK Request] GET http://192.168.16.129:12302/api/v1/auth/me
+index.js? [sm]:73 [SDK Headers] {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5MTZhMTBjMy02MTUzLTRiNzYtYjMzOC01ZTBmNjA3NmY2ZjUiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc4MTAxMjg3MywiZXhwIjoxNzgxMDIwMDczfQ.FVHsOFM9TDbyLBo5O632EpF-7QSmh8Urt9dp76WtyOs"
+}
+index.js? [sm]:72 [SDK Request] GET http://192.168.16.129:12302/api/v1/knowledge/stats
+index.js? [sm]:73 [SDK Headers] {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5MTZhMTBjMy02MTUzLTRiNzYtYjMzOC01ZTBmNjA3NmY2ZjUiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc4MTAxMjg3MywiZXhwIjoxNzgxMDIwMDczfQ.FVHsOFM9TDbyLBo5O632EpF-7QSmh8Urt9dp76WtyOs"
+}
+index.js? [sm]:72 [SDK Request] GET http://192.168.16.129:12302/api/v1/knowledge/progress
+index.js? [sm]:73 [SDK Headers] {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5MTZhMTBjMy02MTUzLTRiNzYtYjMzOC01ZTBmNjA3NmY2ZjUiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc4MTAxMjg3MywiZXhwIjoxNzgxMDIwMDczfQ.FVHsOFM9TDbyLBo5O632EpF-7QSmh8Urt9dp76WtyOs"
+}
+index.js? [sm]:72 [SDK Request] GET http://192.168.16.129:12302/api/v1/knowledge/recommendations
+index.js? [sm]:73 [SDK Headers] {
+  "Content-Type": "application/json",
+  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5MTZhMTBjMy02MTUzLTRiNzYtYjMzOC01ZTBmNjA3NmY2ZjUiLCJ0eXBlIjoidXNlciIsImlhdCI6MTc4MTAxMjg3MywiZXhwIjoxNzgxMDIwMDczfQ.FVHsOFM9TDbyLBo5O632EpF-7QSmh8Urt9dp76WtyOs"
+}
+index.js? [sm]:648 GET http://192.168.16.129:12302/api/v1/auth/me 401 (Unauthorized)(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+(anonymous) @ index.js? [sm]:648
+wechatRequest @ index.js? [sm]:647
+_callee$ @ index.js? [sm]:150
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee11$ @ index.js? [sm]:380
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getProfile @ index.js? [sm]:379
+_callee3$ @ auth-service.js? [sm]:96
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+asyncGeneratorStep @ asyncToGenerator.js?forceSync=true:1
+c @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+getCurrentUser @ auth-service.js? [sm]:94
+loadUserInfo @ app.js? [sm]:27
+loadHomeData @ home.js? [sm]:35
+onLoad @ home.js? [sm]:20
+index.js? [sm]:85 [SDK Error] GET http://192.168.16.129:12302/api/v1/auth/me(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+logApiError @ index.js? [sm]:85
+_callee$ @ index.js? [sm]:165
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+rejected @ index.js? [sm]:30
+Promise.then (async)
+step @ index.js? [sm]:35
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee11$ @ index.js? [sm]:380
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getProfile @ index.js? [sm]:379
+_callee3$ @ auth-service.js? [sm]:96
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+asyncGeneratorStep @ asyncToGenerator.js?forceSync=true:1
+c @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+getCurrentUser @ auth-service.js? [sm]:94
+loadUserInfo @ app.js? [sm]:27
+loadHomeData @ home.js? [sm]:35
+onLoad @ home.js? [sm]:20
+index.js? [sm]:86 [SDK Error Detail] Error: 请求失败：401
+    at success (index.js? [sm]:658)
+    at Object.success (VM59 WASubContext.js:1)
+    at Object.success (VM59 WASubContext.js:1)
+    at Function.forEach.h.<computed> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1
+    at u (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at Function.<anonymous> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+logApiError @ index.js? [sm]:86
+_callee$ @ index.js? [sm]:165
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+rejected @ index.js? [sm]:30
+Promise.then (async)
+step @ index.js? [sm]:35
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee11$ @ index.js? [sm]:380
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getProfile @ index.js? [sm]:379
+_callee3$ @ auth-service.js? [sm]:96
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+asyncGeneratorStep @ asyncToGenerator.js?forceSync=true:1
+c @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+getCurrentUser @ auth-service.js? [sm]:94
+loadUserInfo @ app.js? [sm]:27
+loadHomeData @ home.js? [sm]:35
+onLoad @ home.js? [sm]:20
+auth-service.js? [sm]:106 获取用户信息失败: Error: 请求失败：401
+    at success (index.js? [sm]:658)
+    at Object.success (VM59 WASubContext.js:1)
+    at Object.success (VM59 WASubContext.js:1)
+    at Function.forEach.h.<computed> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1
+    at u (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at Function.<anonymous> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+_callee3$ @ auth-service.js? [sm]:106
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+asyncGeneratorStep @ asyncToGenerator.js?forceSync=true:1
+i @ asyncToGenerator.js?forceSync=true:1
+Promise.then (async)
+asyncGeneratorStep @ asyncToGenerator.js?forceSync=true:1
+c @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+(anonymous) @ asyncToGenerator.js?forceSync=true:1
+getCurrentUser @ auth-service.js? [sm]:94
+loadUserInfo @ app.js? [sm]:27
+loadHomeData @ home.js? [sm]:35
+onLoad @ home.js? [sm]:20
+index.js? [sm]:648 GET http://192.168.16.129:12302/api/v1/knowledge/stats 401 (Unauthorized)(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+(anonymous) @ index.js? [sm]:648
+wechatRequest @ index.js? [sm]:647
+_callee$ @ index.js? [sm]:150
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee30$ @ index.js? [sm]:541
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getStudyStats @ index.js? [sm]:540
+getStudyStats @ knowledge-api.js? [sm]:118
+loadHomeData @ home.js? [sm]:41
+onLoad @ home.js? [sm]:20
+index.js? [sm]:648 GET http://192.168.16.129:12302/api/v1/knowledge/progress 401 (Unauthorized)(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+(anonymous) @ index.js? [sm]:648
+wechatRequest @ index.js? [sm]:647
+_callee$ @ index.js? [sm]:150
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee31$ @ index.js? [sm]:546
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getStudyProgress @ index.js? [sm]:545
+getStudyProgress @ knowledge-api.js? [sm]:129
+loadHomeData @ home.js? [sm]:47
+onLoad @ home.js? [sm]:20
+index.js? [sm]:648 GET http://192.168.16.129:12302/api/v1/knowledge/recommendations 401 (Unauthorized)(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+(anonymous) @ index.js? [sm]:648
+wechatRequest @ index.js? [sm]:647
+_callee$ @ index.js? [sm]:150
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee32$ @ index.js? [sm]:551
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getRecommendations @ index.js? [sm]:550
+getRecommendations @ knowledge-api.js? [sm]:140
+loadHomeData @ home.js? [sm]:53
+onLoad @ home.js? [sm]:20
+index.js? [sm]:85 [SDK Error] GET http://192.168.16.129:12302/api/v1/knowledge/stats(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+logApiError @ index.js? [sm]:85
+_callee$ @ index.js? [sm]:165
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+rejected @ index.js? [sm]:30
+Promise.then (async)
+step @ index.js? [sm]:35
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee30$ @ index.js? [sm]:541
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getStudyStats @ index.js? [sm]:540
+getStudyStats @ knowledge-api.js? [sm]:118
+loadHomeData @ home.js? [sm]:41
+onLoad @ home.js? [sm]:20
+index.js? [sm]:86 [SDK Error Detail] Error: 请求失败：401
+    at success (index.js? [sm]:658)
+    at Object.success (VM59 WASubContext.js:1)
+    at Object.success (VM59 WASubContext.js:1)
+    at Function.forEach.h.<computed> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1
+    at u (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at Function.<anonymous> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+logApiError @ index.js? [sm]:86
+_callee$ @ index.js? [sm]:165
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+rejected @ index.js? [sm]:30
+Promise.then (async)
+step @ index.js? [sm]:35
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee30$ @ index.js? [sm]:541
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getStudyStats @ index.js? [sm]:540
+getStudyStats @ knowledge-api.js? [sm]:118
+loadHomeData @ home.js? [sm]:41
+onLoad @ home.js? [sm]:20
+home.js? [sm]:44 [Home] Failed to load stats: Error: 请求失败：401
+    at success (index.js? [sm]:658)
+    at Object.success (VM59 WASubContext.js:1)
+    at Object.success (VM59 WASubContext.js:1)
+    at Function.forEach.h.<computed> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1
+    at u (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at Function.<anonymous> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+(anonymous) @ home.js? [sm]:44
+Promise.catch (async)
+loadHomeData @ home.js? [sm]:43
+onLoad @ home.js? [sm]:20
+index.js? [sm]:85 [SDK Error] GET http://192.168.16.129:12302/api/v1/knowledge/progress(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+logApiError @ index.js? [sm]:85
+_callee$ @ index.js? [sm]:165
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+rejected @ index.js? [sm]:30
+Promise.then (async)
+step @ index.js? [sm]:35
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee31$ @ index.js? [sm]:546
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getStudyProgress @ index.js? [sm]:545
+getStudyProgress @ knowledge-api.js? [sm]:129
+loadHomeData @ home.js? [sm]:47
+onLoad @ home.js? [sm]:20
+index.js? [sm]:86 [SDK Error Detail] Error: 请求失败：401
+    at success (index.js? [sm]:658)
+    at Object.success (VM59 WASubContext.js:1)
+    at Object.success (VM59 WASubContext.js:1)
+    at Function.forEach.h.<computed> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1
+    at u (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at Function.<anonymous> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+logApiError @ index.js? [sm]:86
+_callee$ @ index.js? [sm]:165
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+rejected @ index.js? [sm]:30
+Promise.then (async)
+step @ index.js? [sm]:35
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee31$ @ index.js? [sm]:546
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getStudyProgress @ index.js? [sm]:545
+getStudyProgress @ knowledge-api.js? [sm]:129
+loadHomeData @ home.js? [sm]:47
+onLoad @ home.js? [sm]:20
+home.js? [sm]:50 [Home] Failed to load progress: Error: 请求失败：401
+    at success (index.js? [sm]:658)
+    at Object.success (VM59 WASubContext.js:1)
+    at Object.success (VM59 WASubContext.js:1)
+    at Function.forEach.h.<computed> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1
+    at u (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at Function.<anonymous> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+(anonymous) @ home.js? [sm]:50
+Promise.catch (async)
+loadHomeData @ home.js? [sm]:49
+onLoad @ home.js? [sm]:20
+index.js? [sm]:85 [SDK Error] GET http://192.168.16.129:12302/api/v1/knowledge/recommendations(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+logApiError @ index.js? [sm]:85
+_callee$ @ index.js? [sm]:165
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+rejected @ index.js? [sm]:30
+Promise.then (async)
+step @ index.js? [sm]:35
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee32$ @ index.js? [sm]:551
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getRecommendations @ index.js? [sm]:550
+getRecommendations @ knowledge-api.js? [sm]:140
+loadHomeData @ home.js? [sm]:53
+onLoad @ home.js? [sm]:20
+index.js? [sm]:86 [SDK Error Detail] Error: 请求失败：401
+    at success (index.js? [sm]:658)
+    at Object.success (VM59 WASubContext.js:1)
+    at Object.success (VM59 WASubContext.js:1)
+    at Function.forEach.h.<computed> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1
+    at u (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at Function.<anonymous> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+logApiError @ index.js? [sm]:86
+_callee$ @ index.js? [sm]:165
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+rejected @ index.js? [sm]:30
+Promise.then (async)
+step @ index.js? [sm]:35
+fulfilled @ index.js? [sm]:23
+Promise.then (async)
+step @ index.js? [sm]:35
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+request @ index.js? [sm]:115
+_callee2$ @ index.js? [sm]:178
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+get @ index.js? [sm]:177
+_callee32$ @ index.js? [sm]:551
+s @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ regeneratorRuntime.js?forceSync=true:1
+(anonymous) @ index.js? [sm]:36
+__async @ index.js? [sm]:20
+getRecommendations @ index.js? [sm]:550
+getRecommendations @ knowledge-api.js? [sm]:140
+loadHomeData @ home.js? [sm]:53
+onLoad @ home.js? [sm]:20
+home.js? [sm]:56 [Home] Failed to load recommendations: Error: 请求失败：401
+    at success (index.js? [sm]:658)
+    at Object.success (VM59 WASubContext.js:1)
+    at Object.success (VM59 WASubContext.js:1)
+    at Function.forEach.h.<computed> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1
+    at u (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at Function.<anonymous> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at p (WAServiceMainContext.js?t=wechat&v=3.15.2:1)
+    at WAServiceMainContext.js?t=wechat&v=3.15.2:1(env: Windows,mp,2.01.2510260; lib: 3.15.2)
+(anonymous) @ home.js? [sm]:56
+Promise.catch (async)
+loadHomeData @ home.js? [sm]:55
+onLoad @ home.js? [sm]:20
+[pages/home/home] [Component] <wx-image>: 图片链接 http://192.168.16.129:12302/uploads/916a10c3-6153-4b76-b338-5e0f6076f6f5/avatars/84ec5a62-e01f-4dc9-a0f3-819af134a72f.jpeg 不再支持 HTTP 协议，请升级到 HTTPS

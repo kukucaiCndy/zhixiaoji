@@ -24,10 +24,7 @@ const menuItems: IMenuItem[] = [
     path: '/content',
     title: '内容管理',
     children: [
-      { path: '/content/knowledge', title: '知识体系' },
-      { path: '/content/cards', title: '知识卡片' },
-      { path: '/content/questions', title: '题目管理' },
-      { path: '/content/ai-generate', title: 'AI内容生成' }
+      { path: '/content/knowledge', title: '分类管理' },
     ]
   },
   {
@@ -59,7 +56,10 @@ const menuItems: IMenuItem[] = [
     children: [
       { path: '/system/account/password', title: '账号设置' },
       { path: '/system/review-rules', title: '复习规则配置' },
-      { path: '/system/audit-logs', title: '日志审计' }
+      { path: '/system/audit-logs', title: '日志审计' },
+      { path: '/system/llm-providers', title: '大模型供应商' },
+      { path: '/system/model-configs', title: '大模型配置' },
+      { path: '/system/workflow-configs', title: '工作流配置' }
     ]
   }
 ]
@@ -151,7 +151,11 @@ function handleLogout() {
       </aside>
 
       <main class="app-layout__content">
-        <router-view />
+        <router-view v-slot="{ Component, route }">
+          <keep-alive>
+            <component :is="Component" :key="route.path" />
+          </keep-alive>
+        </router-view>
       </main>
     </div>
   </div>

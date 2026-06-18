@@ -1,62 +1,101 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
-import { ElMessage } from 'element-plus'
-import { operationApi } from '@/api/modules/operation'
-
-interface IThemeConfig {
-  primaryColor: string
-  accentColor: string
-  navbarBgColor: string
-  navbarTextColor: string
-}
+import { ref, computed, onMounted } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { Plus } from '@element-plus/icons-vue'
+import { knowledgeApi } from '@/api/modules/content'
+import type { ColorScheme, ColorRef } from '@/mock/knowledge'
 
 const loading = ref(false)
 const saving = ref(false)
+const schemes = ref<ColorScheme[]>([])
+const activeScheme = ref<ColorScheme | null>(null)
+const showCreateDialog = ref(false)
+const newSchemeName = ref('')
 
-const defaultTheme: IThemeConfig = {
-  primaryColor: '#D4916E',
-  accentColor: '#4A90D9',
-  navbarBgColor: '#FAF7F2',
-  navbarTextColor: '#1A1A1A'
-}
+// Pick editable color fields from the scheme
+const editableColorFields = computed(() => {
+  const s = activeScheme.value
+  if (!s) return []
+  const fields: { group: string; key: string; color: ColorRef }[] = []
+  for (const [key, color] of Object.entries(s.colors)) {
+    fields.push({ group: 'colors', key, color })
+  }
+  for (const [key, color] of Object.entries(s.neutrals)) {
+    fields.push({ group: 'neutrals', key, color })
+  }
+  return fields
+})
 
-const form = reactive<IThemeConfig>({ ...defaultTheme })
-
-const colorFields = [
-  { key: 'primaryColor' as keyof IThemeConfig, label: '主题色', desc: '按钮、标签、高亮等主色调' },
-  { key: 'accentColor' as keyof IThemeConfig, label: '强调色', desc: '链接、图标、进度条等强调色' },
-  { key: 'navbarBgColor' as keyof IThemeConfig, label: '导航栏背景色', desc: '小程序顶部导航栏背景' },
-  { key: 'navbarTextColor' as keyof IThemeConfig, label: '导航栏文字色', desc: '小程序顶部导航栏文字' }
-]
-
-async function fetchConfig() {
+async function fetchSchemes() {
   loading.value = true
   try {
-    const res = await operationApi.getThemeConfig()
-    const data = res.data as IThemeConfig
-    form.primaryColor = data.primaryColor
-    form.accentColor = data.accentColor
-    form.navbarBgColor = data.navbarBgColor
-    form.navbarTextColor = data.navbarTextColor
+    const res = await knowledgeApi.listColorSchemes()
+    if (res.code === 0 && res.data) {
+      schemes.value = res.data as ColorScheme[]
+      const defaultRes = await knowledgeApi.getDefaultColorScheme()
+      if (defaultRes.code === 0 && defaultRes.data) {
+        activeScheme.value = defaultRes.data as ColorScheme
+        applyColors(activeScheme.value)
+        return
+      }
+      if (schemes.value.length > 0) {
+        activeScheme.value = schemes.value[0]
+        applyColors(schemes.value[0])
+      }
+    }
   } catch {
-    ElMessage.error('获取主题配置失败')
+    ElMessage.error('获取配色方案失败')
   } finally {
     loading.value = false
   }
 }
 
-function resetDefault() {
-  form.primaryColor = defaultTheme.primaryColor
-  form.accentColor = defaultTheme.accentColor
-  form.navbarBgColor = defaultTheme.navbarBgColor
-  form.navbarTextColor = defaultTheme.navbarTextColor
+function applyColors(scheme: ColorScheme) {
+  const root = document.documentElement
+  for (const [key, ref] of Object.entries(scheme.colors)) {
+    root.style.setProperty(`--preview-${key}`, ref.hex)
+  }
+  for (const [key, ref] of Object.entries(scheme.neutrals)) {
+    root.style.setProperty(`--preview-${key}`, ref.hex)
+  }
+  for (const [, val] of Object.entries(scheme.gradients)) {
+    if (val && typeof val === 'object' && 'css' in val) {
+      root.style.setProperty(`--preview-${val.name}`, val.css)
+    }
+  }
+}
+
+function selectScheme(scheme: ColorScheme) {
+  activeScheme.value = scheme
+  applyColors(scheme)
+}
+
+function updateColor(group: string, key: string, hex: string | null) {
+  if (!activeScheme.value || !hex) return
+  if (group === 'colors') {
+    activeScheme.value.colors[key] = { ...activeScheme.value.colors[key], hex }
+  } else {
+    activeScheme.value.neutrals[key] = { ...activeScheme.value.neutrals[key], hex }
+  }
+  applyColors(activeScheme.value)
 }
 
 async function handleSave() {
+  if (!activeScheme.value) return
   saving.value = true
   try {
-    await operationApi.updateThemeConfig({ ...form })
-    ElMessage.success('主题色配置已保存')
+    const res = await knowledgeApi.updateColorScheme(activeScheme.value.id, {
+        colors: activeScheme.value.colors,
+        neutrals: activeScheme.value.neutrals,
+        gradients: activeScheme.value.gradients,
+        shadows: activeScheme.value.shadows,
+        workflowInput: activeScheme.value.workflowInput,
+      })
+    if (res.code === 0) {
+      ElMessage.success('主题色配置已保存')
+    } else {
+      ElMessage.error(res.message || '保存失败')
+    }
   } catch {
     ElMessage.error('保存失败')
   } finally {
@@ -64,7 +103,63 @@ async function handleSave() {
   }
 }
 
-// 判断文字颜色（深色背景用白色，浅色背景用深色）
+async function handleCreateScheme() {
+  if (!newSchemeName.value.trim()) {
+    ElMessage.warning('请输入方案名称')
+    return
+  }
+  try {
+    const defaultScheme = activeScheme.value || schemes.value[0]
+    if (!defaultScheme) {
+      ElMessage.warning('暂无参考方案')
+      return
+    }
+    const res = await knowledgeApi.createColorScheme({
+      schema: newSchemeName.value.trim(),
+      theme: 'light',
+      description: '',
+      colors: defaultScheme.colors,
+      neutrals: defaultScheme.neutrals,
+      gradients: defaultScheme.gradients,
+      shadows: defaultScheme.shadows,
+      isDefault: false,
+    })
+    if (res.code === 0) {
+      ElMessage.success('配色方案已创建')
+      showCreateDialog.value = false
+      newSchemeName.value = ''
+      await fetchSchemes()
+    } else {
+      ElMessage.error(res.message || '创建失败')
+    }
+  } catch {
+    ElMessage.error('创建失败')
+  }
+}
+
+async function handleDeleteScheme(scheme: ColorScheme) {
+  if (scheme.isDefault) {
+    ElMessage.warning('默认方案不能删除')
+    return
+  }
+  try {
+    await ElMessageBox.confirm(`确定要删除配色方案「${scheme.schema}」吗？`, '删除确认', {
+      confirmButtonText: '确定删除',
+      cancelButtonText: '取消',
+      type: 'warning',
+    })
+    const res = await knowledgeApi.deleteColorScheme(scheme.id)
+    if (res.code === 0) {
+      ElMessage.success('已删除')
+      await fetchSchemes()
+    } else {
+      ElMessage.error(res.message || '删除失败')
+    }
+  } catch {
+    // cancelled
+  }
+}
+
 function textColorFor(bgColor: string): string {
   if (!bgColor || bgColor.length < 7) return '#333'
   const r = parseInt(bgColor.slice(1, 3), 16)
@@ -75,101 +170,124 @@ function textColorFor(bgColor: string): string {
 }
 
 onMounted(() => {
-  fetchConfig()
+  fetchSchemes()
 })
 </script>
 
 <template>
   <div class="theme-config-page" v-loading="loading">
-    <!-- 面包屑 -->
     <el-breadcrumb class="theme-config-page__breadcrumb" separator="/">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>运营管理</el-breadcrumb-item>
-      <el-breadcrumb-item>页面装饰</el-breadcrumb-item>
       <el-breadcrumb-item>主题色配置</el-breadcrumb-item>
     </el-breadcrumb>
 
     <div class="theme-config-page__header">
       <h2 class="theme-config-page__title">主题色配置</h2>
+      <div class="theme-config-page__header-actions">
+        <el-button :icon="Plus" @click="showCreateDialog = true">新建方案</el-button>
+      </div>
     </div>
 
-    <div class="theme-config-page__content">
-      <!-- 左侧：颜色配置 -->
+    <!-- Scheme Tabs -->
+    <div v-if="schemes.length > 0" class="theme-config-page__tabs">
+      <div
+        v-for="scheme in schemes"
+        :key="scheme.id"
+        class="theme-config-page__tab"
+        :class="{ 'theme-config-page__tab--active': activeScheme?.id === scheme.id }"
+        @click="selectScheme(scheme)"
+      >
+        <span class="theme-config-page__tab-name">{{ scheme.schema }}</span>
+        <el-tag v-if="scheme.isDefault" size="small" type="success">默认</el-tag>
+        <el-button
+          v-if="!scheme.isDefault && activeScheme?.id === scheme.id"
+          text
+          type="danger"
+          size="small"
+          @click.stop="handleDeleteScheme(scheme)"
+        >
+          删除
+        </el-button>
+      </div>
+    </div>
+
+    <div v-if="activeScheme" class="theme-config-page__content">
+      <!-- Left: Color Settings -->
       <div class="theme-config-page__panel">
         <div class="theme-config-page__panel-title">颜色设置</div>
-        <div
-          v-for="field in colorFields"
-          :key="field.key"
-          class="theme-config-page__color-row"
-        >
-          <div class="theme-config-page__color-info">
-            <span class="theme-config-page__color-label">{{ field.label }}</span>
-            <span class="theme-config-page__color-desc">{{ field.desc }}</span>
-          </div>
-          <div class="theme-config-page__color-picker">
-            <el-color-picker
-              v-model="form[field.key]"
-              show-alpha
-              :predefine="['#D4916E', '#4A90D9', '#7BA87F', '#C4726F', '#8B7BA8', '#FAF7F2', '#1A1A1A', '#FFFFFF']"
-            />
-            <span class="theme-config-page__color-value">{{ form[field.key] }}</span>
+        <div class="theme-config-page__color-group" v-for="group in ['colors', 'neutrals']" :key="group">
+          <div class="theme-config-page__group-label">{{ group === 'colors' ? '主题色' : '中性色' }}</div>
+          <div
+            v-for="field in editableColorFields.filter(f => f.group === group)"
+            :key="field.key"
+            class="theme-config-page__color-row"
+          >
+            <div class="theme-config-page__color-info">
+              <span class="theme-config-page__color-label">{{ field.color.name }}</span>
+              <span class="theme-config-page__color-desc">{{ field.color.usage }}</span>
+            </div>
+            <div class="theme-config-page__color-picker">
+              <el-color-picker
+                :model-value="field.color.hex"
+                show-alpha
+                @update:model-value="updateColor(field.group, field.key, $event)"
+                :predefine="['#D4916E', '#4A90D9', '#7BA87F', '#C4726F', '#8B7BA8', '#FAF7F2', '#1A1A1A', '#FFFFFF']"
+              />
+              <span class="theme-config-page__color-value">{{ field.color.hex }}</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 右侧：预览区域 -->
+      <!-- Right: Preview -->
       <div class="theme-config-page__panel theme-config-page__panel--preview">
         <div class="theme-config-page__panel-title">预览效果</div>
         <div class="theme-config-page__preview-wrap">
-          <!-- 模拟小程序手机框 -->
           <div class="theme-config-page__phone">
-            <!-- 手机状态栏 -->
             <div
               class="theme-config-page__phone-status"
-              :style="{ backgroundColor: form.navbarBgColor }"
+              :style="{ backgroundColor: activeScheme.neutrals.background?.hex || '#F8FAFC' }"
             >
               <span
                 class="theme-config-page__phone-time"
-                :style="{ color: form.navbarTextColor }"
+                :style="{ color: activeScheme.neutrals.textPrimary?.hex || '#1A1A1A' }"
               >9:41</span>
             </div>
-            <!-- 手机导航栏 -->
             <div
               class="theme-config-page__phone-navbar"
               :style="{
-                backgroundColor: form.navbarBgColor,
-                color: form.navbarTextColor
+                backgroundColor: activeScheme.neutrals.background?.hex || '#F8FAFC',
+                color: activeScheme.neutrals.textPrimary?.hex || '#1A1A1A'
               }"
             >
               <span class="theme-config-page__phone-nav-title">知晓记</span>
             </div>
-            <!-- 手机内容区 -->
-            <div class="theme-config-page__phone-body">
-              <!-- 轮播Banner占位 -->
+            <div class="theme-config-page__phone-body" :style="{ backgroundColor: activeScheme.neutrals.card?.hex || '#FFFFFF' }">
               <div
                 class="theme-config-page__phone-banner"
-                :style="{ backgroundColor: form.accentColor + '20' }"
+                :style="{ backgroundColor: (activeScheme.colors.secondary?.hex || '#F97316') + '20' }"
               >
-                <span :style="{ color: form.accentColor }">Banner 区域</span>
+                <span :style="{ color: activeScheme.colors.secondary?.hex || '#F97316' }">Banner 区域</span>
               </div>
-              <!-- 快捷入口 -->
               <div class="theme-config-page__phone-shortcuts">
                 <div
-                  v-for="n in 4"
-                  :key="n"
+                  v-for="n in 4" :key="n"
                   class="theme-config-page__phone-shortcut"
-                  :style="{ backgroundColor: form.primaryColor + '15', color: form.primaryColor }"
+                  :style="{
+                    backgroundColor: (activeScheme.colors.primary?.hex || '#D4916E') + '15',
+                    color: activeScheme.colors.primary?.hex || '#D4916E'
+                  }"
                 >
                   入口{{ n }}
                 </div>
               </div>
-              <!-- 按钮 -->
               <div class="theme-config-page__phone-buttons">
                 <div
                   class="theme-config-page__phone-btn theme-config-page__phone-btn--primary"
                   :style="{
-                    backgroundColor: form.primaryColor,
-                    color: textColorFor(form.primaryColor)
+                    backgroundColor: activeScheme.colors.primary?.hex || '#D4916E',
+                    color: textColorFor(activeScheme.colors.primary?.hex || '#D4916E')
                   }"
                 >
                   开始学习
@@ -177,17 +295,16 @@ onMounted(() => {
                 <div
                   class="theme-config-page__phone-btn theme-config-page__phone-btn--outline"
                   :style="{
-                    borderColor: form.primaryColor,
-                    color: form.primaryColor
+                    borderColor: activeScheme.colors.primary?.hex || '#D4916E',
+                    color: activeScheme.colors.primary?.hex || '#D4916E'
                   }"
                 >
                   查看详情
                 </div>
               </div>
-              <!-- 链接 -->
               <div
                 class="theme-config-page__phone-link"
-                :style="{ color: form.accentColor }"
+                :style="{ color: activeScheme.colors.accent?.hex || '#4A90D9' }"
               >
                 查看更多内容 &rarr;
               </div>
@@ -197,13 +314,25 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- 底部按钮 -->
-    <div class="theme-config-page__footer">
-      <el-button @click="resetDefault">重置默认</el-button>
+    <!-- Footer -->
+    <div v-if="activeScheme" class="theme-config-page__footer">
       <el-button type="primary" :loading="saving" @click="handleSave">
-        保存配置
+        保存方案
       </el-button>
     </div>
+
+    <!-- Create Scheme Dialog -->
+    <el-dialog v-model="showCreateDialog" title="新建配色方案" width="400px">
+      <el-form>
+        <el-form-item label="方案名称">
+          <el-input v-model="newSchemeName" placeholder="请输入方案名称" maxlength="20" />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <el-button @click="showCreateDialog = false">取消</el-button>
+        <el-button type="primary" @click="handleCreateScheme">创建</el-button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -237,6 +366,59 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     gap: 4px;
+  }
+
+  &__header-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--app-border-color);
+    background: var(--app-bg-card);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 14px;
+
+    &:hover {
+      border-color: var(--app-primary-color);
+    }
+
+    &--active {
+      border-color: var(--app-primary-color);
+      background: var(--app-primary-color) + '08';
+    }
+  }
+
+  &__tab-name {
+    font-weight: 500;
+    color: var(--app-text-primary);
+  }
+
+  &__color-group {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__group-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--app-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
   }
 
   &__title {

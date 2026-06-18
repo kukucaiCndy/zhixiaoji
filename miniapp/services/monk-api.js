@@ -5,7 +5,6 @@
  * 架构：
  *   userService       → /users          (用户资料、统计)
  *   studyService      → /study          (学习进度、卡片)
- *   noteService       → /notes          (笔记 CRUD)
  *   pointsService     → /points         (积分、商城)
  *   rankService       → /rank           (排行榜)
  *   achievementService → /achievements  (成就系统)
@@ -42,9 +41,6 @@ const studyService = {
   }
 };
 
-// ==================== 笔记服务 ====================
-const noteService = createService('/notes');
-
 // ==================== 积分服务 ====================
 const pointsService = createService('/points');
 
@@ -73,8 +69,6 @@ module.exports = {
 
   // 学习
   study: studyService,
-  // 笔记
-  notes: noteService,
   // 积分
   points: pointsService,
   // 排行榜

@@ -1,0 +1,608 @@
+{
+  "schema": "知小记设计系统 · 配色方案 V1.0",
+  "theme": "清新蓝绿（默认主题）",
+  "description": "清新、专注、知性，适合知识学习场景。以靛蓝为主色调，搭配青色为辅助色，营造安静、专业的沉浸式学习氛围。",
+
+  "colors": {
+    "primary": {
+      "hex": "#4F46E5",
+      "rgba": "rgba(79, 70, 229, 1)",
+      "name": "Primary · 主色",
+      "usage": "按钮、选中状态、重点标记"
+    },
+    "secondary": {
+      "hex": "#06B6D4",
+      "rgba": "rgba(6, 182, 212, 1)",
+      "name": "Secondary · 辅助色",
+      "usage": "次级按钮、标签、图标"
+    },
+    "success": {
+      "hex": "#10B981",
+      "rgba": "rgba(16, 185, 129, 1)",
+      "name": "Success · 成功色",
+      "usage": "成功状态、通过标识"
+    },
+    "warning": {
+      "hex": "#F59E0B",
+      "rgba": "rgba(245, 158, 11, 1)",
+      "name": "Warning · 警告色",
+      "usage": "警告提示、待办事项"
+    },
+    "error": {
+      "hex": "#EF4444",
+      "rgba": "rgba(239, 68, 68, 1)",
+      "name": "Error · 错误色",
+      "usage": "错误状态、删除操作"
+    }
+  },
+
+  "neutrals": {
+    "background": {
+      "hex": "#F8FAFC",
+      "rgba": "rgba(248, 250, 252, 1)",
+      "name": "Background · 背景色",
+      "usage": "页面背景"
+    },
+    "card": {
+      "hex": "#FFFFFF",
+      "rgba": "rgba(255, 255, 255, 1)",
+      "name": "Card · 卡片色",
+      "usage": "卡片背景"
+    },
+    "textPrimary": {
+      "hex": "#1E293B",
+      "rgba": "rgba(30, 41, 59, 1)",
+      "name": "Text Primary · 文字主色",
+      "usage": "标题、正文"
+    },
+    "textSecondary": {
+      "hex": "#64748B",
+      "rgba": "rgba(100, 116, 139, 1)",
+      "name": "Text Secondary · 文字次色",
+      "usage": "辅助文字、描述"
+    },
+    "divider": {
+      "hex": "#E2E8F0",
+      "rgba": "rgba(226, 232, 240, 1)",
+      "name": "Divider · 分割线",
+      "usage": "分割线、边框"
+    },
+    "purpleLight": {
+      "hex": "#EEF2FF",
+      "rgba": "rgba(238, 242, 255, 1)",
+      "name": "Purple Light · 紫色浅底",
+      "usage": "背景渐变浅色端"
+    }
+  },
+
+  "gradients": {
+    "primaryGradient": {
+      "name": "主渐变",
+      "css": "linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%)"
+    },
+    "backgroundGradient": {
+      "name": "背景渐变",
+      "css": "linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 100%)"
+    }
+  },
+
+  "applicationExamples": {
+    "buttons": {
+      "primary": { "bg": "#4F46E5", "text": "#FFFFFF", "label": "主要按钮" },
+      "success": { "bg": "#10B981", "text": "#FFFFFF", "label": "成功按钮" },
+      "warning": { "bg": "#F59E0B", "text": "#FFFFFF", "label": "警告按钮" }
+    },
+    "tags": {
+      "secondaryTag": { "bg": "#06B6D4", "text": "#FFFFFF", "label": "编程语言" },
+      "primaryTag": { "bg": "#4F46E5", "text": "#FFFFFF", "label": "JavaScript" },
+      "successTag": { "bg": "#10B981", "text": "#FFFFFF", "label": "已完成" },
+      "warningTag": { "bg": "#F59E0B", "text": "#FFFFFF", "label": "待复习" }
+    },
+    "textHierarchy": {
+      "title": { "color": "#1E293B", "text": "这是标题文字" },
+      "description": { "color": "#64748B", "text": "这是辅助说明文字" },
+      "divider": { "color": "#E2E8F0", "text": "分割线" }
+    }
+  },
+
+  "shadows": {
+    "cardShadow": "0px 2px 8px rgba(0, 0, 0, 0.06)"
+  },
+
+  "meta": {
+    "footer": "知小记设计系统 · 配色方案 V1.0 · 清新蓝绿",
+    "totalColors": 11,
+    "totalGradients": 2
+  }
+}
+
+
+
+{
+  "schema": "知小记设计系统 · 配色方案 V1.0",
+  "theme": "深邃紫靛（深色主题）",
+  "description": "深邃、专业、沉浸，适合夜间学习和专注模式。以淡紫为明亮主色，搭配紫罗兰辅助色，在暗色背景上营造静谧专注的沉浸式学习体验。",
+
+  "colors": {
+    "primary": {
+      "hex": "#818CF8",
+      "rgba": "rgba(129, 140, 248, 1)",
+      "name": "Primary · 主色",
+      "usage": "按钮、选中状态、重点标记"
+    },
+    "secondary": {
+      "hex": "#C084FC",
+      "rgba": "rgba(192, 132, 252, 1)",
+      "name": "Secondary · 辅助色",
+      "usage": "次级按钮、标签、图标"
+    },
+    "success": {
+      "hex": "#34D399",
+      "rgba": "rgba(52, 211, 153, 1)",
+      "name": "Success · 成功色",
+      "usage": "成功状态、通过标识"
+    },
+    "warning": {
+      "hex": "#FBBF24",
+      "rgba": "rgba(251, 191, 36, 1)",
+      "name": "Warning · 警告色",
+      "usage": "警告提示、待办事项"
+    },
+    "error": {
+      "hex": "#F87171",
+      "rgba": "rgba(248, 113, 113, 1)",
+      "name": "Error · 错误色",
+      "usage": "错误状态、删除操作"
+    }
+  },
+
+  "neutrals": {
+    "background": {
+      "hex": "#0F172A",
+      "rgba": "rgba(15, 23, 42, 1)",
+      "name": "Background · 背景色",
+      "usage": "页面背景"
+    },
+    "card": {
+      "hex": "#1E293B",
+      "rgba": "rgba(30, 41, 59, 1)",
+      "name": "Card · 卡片色",
+      "usage": "卡片背景"
+    },
+    "textPrimary": {
+      "hex": "#F1F5F9",
+      "rgba": "rgba(241, 245, 249, 1)",
+      "name": "Text Primary · 文字主色",
+      "usage": "标题、正文"
+    },
+    "textSecondary": {
+      "hex": "#94A3B8",
+      "rgba": "rgba(148, 163, 184, 1)",
+      "name": "Text Secondary · 文字次色",
+      "usage": "辅助文字、描述"
+    },
+    "divider": {
+      "hex": "#334155",
+      "rgba": "rgba(51, 65, 85, 1)",
+      "name": "Divider · 分割线",
+      "usage": "分割线、边框"
+    },
+    "deepPurple": {
+      "hex": "#1E1B4B",
+      "rgba": "rgba(30, 27, 75, 1)",
+      "name": "Deep Purple · 深紫底",
+      "usage": "背景渐变深色端"
+    }
+  },
+
+  "gradients": {
+    "primaryGradient": {
+      "name": "主渐变",
+      "css": "linear-gradient(135deg, #818CF8 0%, #C084FC 100%)"
+    },
+    "backgroundGradient": {
+      "name": "背景渐变",
+      "css": "linear-gradient(180deg, #0F172A 0%, #1E1B4B 100%)"
+    }
+  },
+
+  "applicationExamples": {
+    "buttons": {
+      "primary": { "bg": "#818CF8", "text": "#0F172A", "label": "主要按钮" },
+      "success": { "bg": "#34D399", "text": "#0F172A", "label": "成功按钮" },
+      "warning": { "bg": "#FBBF24", "text": "#0F172A", "label": "警告按钮" }
+    },
+    "tags": {
+      "secondaryTag": { "bg": "#C084FC", "text": "#0F172A", "label": "编程语言" },
+      "primaryTag": { "bg": "#818CF8", "text": "#0F172A", "label": "JavaScript" },
+      "successTag": { "bg": "#34D399", "text": "#0F172A", "label": "已完成" },
+      "warningTag": { "bg": "#FBBF24", "text": "#0F172A", "label": "待复习" }
+    },
+    "textHierarchy": {
+      "title": { "color": "#F1F5F9", "text": "这是标题文字" },
+      "description": { "color": "#94A3B8", "text": "这是辅助说明文字" },
+      "divider": { "color": "#334155", "text": "分割线" }
+    }
+  },
+
+  "shadows": {
+    "cardShadow": "0px 2px 8px rgba(0, 0, 0, 0.2)"
+  },
+
+  "meta": {
+    "footer": "知小记设计系统 · 配色方案 V1.0 · 深邃紫靛（深色主题）",
+    "totalColors": 11,
+    "totalGradients": 2
+  }
+}
+
+{
+  "schema": "知小记设计系统 · 配色方案 V1.0",
+  "theme": "温暖橙黄（活力主题）",
+  "description": "温暖、活力、亲和，适合轻松学习氛围。以橙红色为主色调，搭配明黄为辅助色，营造温暖积极的学习氛围，激发学习动力。",
+
+  "colors": {
+    "primary": {
+      "hex": "#F97316",
+      "rgba": "rgba(249, 115, 22, 1)",
+      "name": "Primary · 主色",
+      "usage": "按钮、选中状态、重点标记"
+    },
+    "secondary": {
+      "hex": "#FBBF24",
+      "rgba": "rgba(251, 191, 36, 1)",
+      "name": "Secondary · 辅助色",
+      "usage": "次级按钮、标签、图标"
+    },
+    "success": {
+      "hex": "#22C55E",
+      "rgba": "rgba(34, 197, 94, 1)",
+      "name": "Success · 成功色",
+      "usage": "成功状态、通过标识"
+    },
+    "warning": {
+      "hex": "#EAB308",
+      "rgba": "rgba(234, 179, 8, 1)",
+      "name": "Warning · 警告色",
+      "usage": "警告提示、待办事项"
+    },
+    "error": {
+      "hex": "#DC2626",
+      "rgba": "rgba(220, 38, 38, 1)",
+      "name": "Error · 错误色",
+      "usage": "错误状态、删除操作"
+    }
+  },
+
+  "neutrals": {
+    "background": {
+      "hex": "#FFFBEB",
+      "rgba": "rgba(255, 251, 235, 1)",
+      "name": "Background · 背景色",
+      "usage": "页面背景"
+    },
+    "card": {
+      "hex": "#FFFFFF",
+      "rgba": "rgba(255, 255, 255, 1)",
+      "name": "Card · 卡片色",
+      "usage": "卡片背景"
+    },
+    "textPrimary": {
+      "hex": "#292524",
+      "rgba": "rgba(41, 37, 36, 1)",
+      "name": "Text Primary · 文字主色",
+      "usage": "标题、正文"
+    },
+    "textSecondary": {
+      "hex": "#78716C",
+      "rgba": "rgba(120, 113, 108, 1)",
+      "name": "Text Secondary · 文字次色",
+      "usage": "辅助文字、描述"
+    },
+    "divider": {
+      "hex": "#E7E5E4",
+      "rgba": "rgba(231, 229, 228, 1)",
+      "name": "Divider · 分割线",
+      "usage": "分割线、边框"
+    },
+    "warmLight": {
+      "hex": "#FEF3C7",
+      "rgba": "rgba(254, 243, 199, 1)",
+      "name": "Warm Yellow · 暖黄底",
+      "usage": "背景渐变浅色端"
+    }
+  },
+
+  "gradients": {
+    "primaryGradient": {
+      "name": "主渐变",
+      "css": "linear-gradient(135deg, #F97316 0%, #FBBF24 100%)"
+    },
+    "backgroundGradient": {
+      "name": "背景渐变",
+      "css": "linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%)"
+    }
+  },
+
+  "applicationExamples": {
+    "buttons": {
+      "primary": { "bg": "#F97316", "text": "#FFFFFF", "label": "主要按钮" },
+      "success": { "bg": "#22C55E", "text": "#FFFFFF", "label": "成功按钮" },
+      "warning": { "bg": "#EAB308", "text": "#FFFFFF", "label": "警告按钮" }
+    },
+    "tags": {
+      "secondaryTag": { "bg": "#FBBF24", "text": "#292524", "label": "编程语言" },
+      "primaryTag": { "bg": "#F97316", "text": "#FFFFFF", "label": "JavaScript" },
+      "successTag": { "bg": "#22C55E", "text": "#FFFFFF", "label": "已完成" },
+      "warningTag": { "bg": "#EAB308", "text": "#292524", "label": "待复习" }
+    },
+    "textHierarchy": {
+      "title": { "color": "#292524", "text": "这是标题文字" },
+      "description": { "color": "#78716C", "text": "这是辅助说明文字" },
+      "divider": { "color": "#E7E5E4", "text": "分割线" }
+    }
+  },
+
+  "shadows": {
+    "cardShadow": "0px 2px 8px rgba(0, 0, 0, 0.06)"
+  },
+
+  "meta": {
+    "footer": "知小记设计系统 · 配色方案 V1.0 · 温暖橙黄",
+    "totalColors": 11,
+    "totalGradients": 2
+  }
+}
+
+
+
+{
+  "schema": "知小记设计系统 · 排版规范 V1.0",
+  "theme": "基于清新蓝绿主题",
+  "framework": "微信小程序",
+
+  "typeface": {
+    "family": "Microsoft YaHei",
+    "fallback": "PingFang SC, Helvetica Neue, Arial, sans-serif"
+  },
+
+  "fontHierarchy": [
+    {
+      "name": "页面标题 H1",
+      "fontSize": 28,
+      "fontSizeRpx": 56,
+      "fontWeight": 700,
+      "weightName": "Bold",
+      "color": "#1E293B",
+      "usage": "大标题/空状态标题"
+    },
+    {
+      "name": "模块标题 H2",
+      "fontSize": 22,
+      "fontSizeRpx": 44,
+      "fontWeight": 700,
+      "weightName": "Bold",
+      "color": "#1E293B",
+      "usage": "页面模块标题"
+    },
+    {
+      "name": "卡片标题 H3",
+      "fontSize": 18,
+      "fontSizeRpx": 36,
+      "fontWeight": 600,
+      "weightName": "SemiBold",
+      "color": "#1E293B",
+      "usage": "卡片/列表项标题"
+    },
+    {
+      "name": "正文内容 Body",
+      "fontSize": 16,
+      "fontSizeRpx": 32,
+      "fontWeight": 400,
+      "weightName": "Regular",
+      "color": "#1E293B",
+      "usage": "主要正文/说明文字"
+    },
+    {
+      "name": "辅助正文 Body-Sm",
+      "fontSize": 14,
+      "fontSizeRpx": 28,
+      "fontWeight": 400,
+      "weightName": "Regular",
+      "color": "#1E293B",
+      "usage": "辅助说明/表单输入"
+    },
+    {
+      "name": "辅助说明 Caption",
+      "fontSize": 12,
+      "fontSizeRpx": 24,
+      "fontWeight": 400,
+      "weightName": "Regular",
+      "color": "#64748B",
+      "usage": "时间/标签/辅助信息"
+    },
+    {
+      "name": "小字 Small",
+      "fontSize": 10,
+      "fontSizeRpx": 20,
+      "fontWeight": 400,
+      "weightName": "Regular",
+      "color": "#94A3B8",
+      "usage": "徽章数值/角标"
+    },
+    {
+      "name": "极小字 Tiny",
+      "fontSize": 8,
+      "fontSizeRpx": 16,
+      "fontWeight": 400,
+      "weightName": "Regular",
+      "color": "#94A3B8",
+      "usage": "版权/版本号"
+    }
+  ],
+
+  "lineHeight": [
+    {
+      "name": "行高 1.4",
+      "value": 1.4,
+      "pixels": 19.6,
+      "baseFontSize": 14,
+      "usage": "标题和短文本，紧凑排布",
+      "scene": "标题"
+    },
+    {
+      "name": "行高 1.6",
+      "value": 1.6,
+      "pixels": 22.4,
+      "baseFontSize": 14,
+      "usage": "正文和长文本阅读，标准行距",
+      "scene": "正文"
+    },
+    {
+      "name": "行高 1.8",
+      "value": 1.8,
+      "pixels": 25.2,
+      "baseFontSize": 14,
+      "usage": "笔记和多行内容，宽松排版更易读",
+      "scene": "笔记"
+    },
+    {
+      "name": "行高 2.0",
+      "value": 2.0,
+      "pixels": 28,
+      "baseFontSize": 14,
+      "usage": "学习资料和说明文档，最大行距便于批注",
+      "scene": "资料"
+    }
+  ],
+
+  "fontWeight": [
+    {
+      "name": "Regular",
+      "value": 400,
+      "scene": "正文",
+      "example": "Aa"
+    },
+    {
+      "name": "Medium",
+      "value": 500,
+      "scene": "强调正文",
+      "example": "Aa"
+    },
+    {
+      "name": "SemiBold",
+      "value": 600,
+      "scene": "小标题",
+      "example": "Aa"
+    },
+    {
+      "name": "Bold",
+      "value": 700,
+      "scene": "大标题",
+      "example": "Aa"
+    }
+  ],
+
+  "meta": {
+    "footer": "知小记设计系统 · 排版规范 V1.0 · 基于清新蓝绿主题",
+    "totalFontLevels": 8,
+    "totalLineHeights": 4,
+    "totalFontWeights": 4
+  }
+}
+
+{
+  "schema": "知小记设计系统 · 间距系统 V1.0",
+  "theme": "基于清新蓝绿主题",
+  "description": "基于 4rpx 的基线网格体系，所有间距均为 4rpx 的整数倍。遵循"8点网格"原则（即间距主要为 4/8/12/16/24/32/48/64 的倍数），确保视觉节奏一致。",
+
+  "spacingTokens": [
+    {
+      "name": "XXS",
+      "valueRpx": 4,
+      "valuePx": 2,
+      "usage": "图标间距、角标偏移"
+    },
+    {
+      "name": "XS",
+      "valueRpx": 8,
+      "valuePx": 4,
+      "usage": "标签间距、内联元素"
+    },
+    {
+      "name": "SM",
+      "valueRpx": 12,
+      "valuePx": 6,
+      "usage": "表单元素间距、按钮内边距"
+    },
+    {
+      "name": "MD",
+      "valueRpx": 16,
+      "valuePx": 8,
+      "usage": "卡片内边距、列表项间距"
+    },
+    {
+      "name": "LG",
+      "valueRpx": 24,
+      "valuePx": 12,
+      "usage": "模块间距、段落间距"
+    },
+    {
+      "name": "XL",
+      "valueRpx": 32,
+      "valuePx": 16,
+      "usage": "区块间距、页面左右边距"
+    },
+    {
+      "name": "2XL",
+      "valueRpx": 48,
+      "valuePx": 24,
+      "usage": "大区块间距、弹窗内边距"
+    },
+    {
+      "name": "3XL",
+      "valueRpx": 64,
+      "valuePx": 32,
+      "usage": "页面顶部间距、大模块间距"
+    }
+  ],
+
+  "applicationScenarios": {
+    "pageLayout": {
+      "name": "页面布局",
+      "cardGap": "16rpx",
+      "description": "卡片间距 16rpx（MD）"
+    },
+    "cardPadding": {
+      "name": "卡片内边距",
+      "innerPadding": "16rpx",
+      "dividerGap": "12rpx",
+      "description": "卡片内容内边距 16rpx（MD），分割线上下间距 12rpx（SM）"
+    },
+    "listItemSpacing": {
+      "name": "列表项间距",
+      "itemHeight": "48rpx",
+      "dividerIndent": "32rpx",
+      "description": "列表项高度 48rpx（2XL），分割线缩进 32rpx（XL）"
+    },
+    "buttonPadding": {
+      "name": "按钮内边距",
+      "largeButton": {
+        "horizontal": "24rpx",
+        "vertical": "12rpx"
+      },
+      "smallButton": {
+        "horizontal": "16rpx",
+        "vertical": "8rpx"
+      },
+      "description": "主要按钮：水平 24rpx（LG）× 垂直 12rpx（SM）；小号按钮：水平 16rpx（MD）× 垂直 8rpx（XS）"
+    }
+  },
+
+  "meta": {
+    "footer": "知小记设计系统 · 间距系统 V1.0 · 基于清新蓝绿主题",
+    "gridBaseline": "4rpx",
+    "gridPrinciple": "8点网格",
+    "totalTokens": 8
+  }
+}

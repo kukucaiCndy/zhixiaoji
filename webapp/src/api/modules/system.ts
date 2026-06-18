@@ -1,4 +1,5 @@
 import { systemMock } from '@/mock/system'
+import { workflowApi } from '@/api/modules/workflow'
 
 export const systemApi = {
   changePassword: (data: { oldPassword: string; newPassword: string }) => systemMock.changePassword(data),
@@ -9,5 +10,23 @@ export const systemApi = {
   updateReviewParams: (data: Record<string, number>) => systemMock.updateReviewParams(data),
   resetReviewRules: () => systemMock.resetReviewRules(),
   previewReview: () => systemMock.previewReview(),
-  getAuditLogs: (params: { page: number; pageSize: number; module?: string; type?: string; operator?: string }) => systemMock.getAuditLogs(params)
+  getAuditLogs: (params: { page: number; pageSize: number; module?: string; type?: string; operator?: string }) => systemMock.getAuditLogs(params),
+  getProviderCount: () => workflowApi.getProviderCount(),
+  listProviders: (params: { page: number; pageSize: number; status?: string; keyword?: string }) => workflowApi.listProviders(params),
+  getProvider: (id: number | string) => workflowApi.getProvider(String(id)),
+  createProvider: (data: { name: string; description?: string; endpointUrl: string; authType: 'api_key' | 'oauth2' | 'bearer_token' | 'custom'; authConfig?: Record<string, string>; status?: string }) => workflowApi.createProvider(data),
+  updateProvider: (id: number | string, data: { name?: string; description?: string; endpointUrl?: string; authType?: 'api_key' | 'oauth2' | 'bearer_token' | 'custom'; authConfig?: Record<string, string>; status?: string }) => workflowApi.updateProvider(String(id), data),
+  deleteProvider: (id: number | string) => workflowApi.deleteProvider(String(id)),
+  listModelConfigs: (params: { page: number; pageSize: number; llmProvider?: string; status?: string; keyword?: string }) => workflowApi.listModelConfigs(params),
+  getModelConfig: (id: number | string) => workflowApi.getModelConfig(String(id)),
+  createModelConfig: (data: { name: string; llmProvider: string; baseUrl: string; model: string; apiKey: string; inputMaxTokens?: number; outputMaxTokens?: number; thinkingLevel?: '' | 'low' | 'medium' | 'high'; status?: string }) => workflowApi.createModelConfig(data),
+  updateModelConfig: (id: number | string, data: { name?: string; llmProvider?: string; baseUrl?: string; model?: string; apiKey?: string; inputMaxTokens?: number; outputMaxTokens?: number; thinkingLevel?: '' | 'low' | 'medium' | 'high'; status?: string }) => workflowApi.updateModelConfig(String(id), data),
+  deleteModelConfig: (id: number | string) => workflowApi.deleteModelConfig(String(id)),
+  listConfigs: (params: { page: number; pageSize: number; providerType?: string; type?: string; status?: string; keyword?: string }) => workflowApi.listConfigs(params),
+  getConfig: (id: number | string) => workflowApi.getConfig(String(id)),
+  createConfig: (data: { providerType: 'coze' | 'private'; providerId: number | null; type: 'chapter_generation' | 'section_content_generation' | 'image_generation' | 'video_generation' | 'questions_generation'; name: string; remoteWorkflowId?: string; outputMode?: string; nodeCount: number; nodesConfig: { nodeIndex: number; nodeName: string; modelConfigId: string; systemPrompt?: string; userPrompt?: string }[]; status?: string }) => workflowApi.createConfig(data),
+  updateConfig: (id: number | string, data: { providerType?: 'coze' | 'private'; providerId?: number | null; type?: 'chapter_generation' | 'section_content_generation' | 'image_generation' | 'video_generation' | 'questions_generation'; name?: string; remoteWorkflowId?: string; outputMode?: 'streaming' | 'non_streaming'; nodeCount?: number; nodesConfig?: { nodeIndex: number; nodeName: string; modelConfigId: string; systemPrompt?: string; userPrompt?: string }[]; status?: string }) => workflowApi.updateConfig(String(id), data),
+  deleteConfig: (id: number | string) => workflowApi.deleteConfig(String(id)),
+  getModelsByProvider: (provider: string) => workflowApi.getModelsByProvider(provider),
+  getModelProviderOptions: () => workflowApi.getModelProviderOptions(),
 }

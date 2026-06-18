@@ -16144,6 +16144,3562 @@
           ]
         }
       }
+    },
+    {
+      "id": "CD1EH",
+      "type": "ref",
+      "ref": "GC5Lb",
+      "name": "P2-New-知识体系-大类列表",
+      "x": 36480,
+      "y": -10793,
+      "descendants": {
+        "iD3QE": {
+          "type": "frame",
+          "id": "rAenX",
+          "name": "Body",
+          "fill": "#FAF7F2",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": 28,
+          "children": [
+            {
+              "type": "frame",
+              "id": "z7UuAK",
+              "name": "Breadcrumb",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Kx4kb",
+                  "name": "bc1",
+                  "fill": "#A89880",
+                  "content": "首页",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "Medium"
+                },
+                {
+                  "type": "text",
+                  "id": "KElBM",
+                  "name": "bc2",
+                  "fill": "#A89880",
+                  "content": "/",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "Medium"
+                },
+                {
+                  "type": "text",
+                  "id": "AcDiN",
+                  "name": "bc3",
+                  "fill": "#A89880",
+                  "content": "内容管理",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "Medium"
+                },
+                {
+                  "type": "text",
+                  "id": "yzOSN",
+                  "name": "bc4",
+                  "fill": "#A89880",
+                  "content": "/",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "Medium"
+                },
+                {
+                  "type": "text",
+                  "id": "oNkEX",
+                  "name": "bc5",
+                  "fill": "#1A1A1A",
+                  "content": "知识体系",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "Medium"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "imAso",
+              "name": "TopBar",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "w9QFgt",
+                  "name": "tb",
+                  "fill": "#1A1A1A",
+                  "content": "知识体系管理",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": "Bold"
+                },
+                {
+                  "type": "frame",
+                  "id": "lkUZG",
+                  "name": "TopBtns",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "mJZtf",
+                      "type": "ref",
+                      "ref": "saBCI",
+                      "name": "AIBtn",
+                      "descendants": {
+                        "hZyF2": {
+                          "content": "✨ AI 生成大类"
+                        }
+                      }
+                    },
+                    {
+                      "id": "xBdA0",
+                      "type": "ref",
+                      "ref": "p9YDZ",
+                      "name": "AddBtn",
+                      "descendants": {
+                        "dsAUA": {
+                          "content": "+ 新增大类"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lhhjA",
+              "name": "CardGrid",
+              "width": "fill_container",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JcBJT",
+                  "name": "Row1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "biEyH",
+                      "name": "CatCard1-计算机基础知识",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bmSL6",
+                          "name": "cc1icon",
+                          "content": "📖",
+                          "fontFamily": "Geist",
+                          "fontSize": 32,
+                          "fontWeight": "normal",
+                          "fontStyle": "Regular"
+                        },
+                        {
+                          "type": "text",
+                          "id": "shbZO",
+                          "name": "cc1name",
+                          "fill": "#1A1A1A",
+                          "content": "计算机基础知识",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "SemiBold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "pCjo5",
+                          "name": "cc1desc",
+                          "fill": "#A89880",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "计算机发展史、硬件组成、软件系统、操作系统等基础概念",
+                          "fontFamily": "Geist",
+                          "fontSize": 13,
+                          "fontWeight": "Regular"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "J2djM",
+                          "name": "Cat1Meta",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "PGC1Q",
+                              "name": "cc1chap",
+                              "fill": "#3D3D3D",
+                              "content": "10 个章节",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "id": "lihrh",
+                              "type": "ref",
+                              "ref": "P1mqX1",
+                              "name": "Cat1Tag"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "UWVJh",
+                          "name": "Cat1Acts",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Mnyc9",
+                              "name": "cc1edit",
+                              "fill": "#D4916E",
+                              "content": "✏️ 编辑",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "type": "text",
+                              "id": "MFsUA",
+                              "name": "cc1del",
+                              "fill": "#C4726F",
+                              "content": "🗑 删除",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RRL09",
+                      "name": "CatCard2-计算机编程语言",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ahbjd",
+                          "name": "cc2icon",
+                          "content": "💻",
+                          "fontFamily": "Geist",
+                          "fontSize": 32,
+                          "fontWeight": "normal",
+                          "fontStyle": "Regular"
+                        },
+                        {
+                          "type": "text",
+                          "id": "LfV4r",
+                          "name": "cc2name",
+                          "fill": "#1A1A1A",
+                          "content": "计算机编程语言",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "SemiBold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Svffi",
+                          "name": "cc2desc",
+                          "fill": "#A89880",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Python、JavaScript、Java等主流编程语言入门与进阶",
+                          "fontFamily": "Geist",
+                          "fontSize": 13,
+                          "fontWeight": "Regular"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "VMVYx",
+                          "name": "Cat2Meta",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "y86ki",
+                              "name": "cc2chap",
+                              "fill": "#3D3D3D",
+                              "content": "8 个章节",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "id": "EYYNa",
+                              "type": "ref",
+                              "ref": "P1mqX1",
+                              "name": "Cat2Tag"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "sPlp1",
+                          "name": "Cat2Acts",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "D6EU4Y",
+                              "name": "cc2edit",
+                              "fill": "#D4916E",
+                              "content": "✏️ 编辑",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "type": "text",
+                              "id": "R7vGZ",
+                              "name": "cc2del",
+                              "fill": "#C4726F",
+                              "content": "🗑 删除",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WdA7T",
+                  "name": "Row2",
+                  "width": "fill_container",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "JCOZQ",
+                      "name": "CatCard3-编程入门",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YAu8b",
+                          "name": "cc3icon",
+                          "content": "🚀",
+                          "fontFamily": "Geist",
+                          "fontSize": 32,
+                          "fontWeight": "normal",
+                          "fontStyle": "Regular"
+                        },
+                        {
+                          "type": "text",
+                          "id": "gKTLl",
+                          "name": "cc3name",
+                          "fill": "#1A1A1A",
+                          "content": "编程入门",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "SemiBold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "efj9D",
+                          "name": "cc3desc",
+                          "fill": "#A89880",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "从零开始学习编程，掌握编程思维与基础语法",
+                          "fontFamily": "Geist",
+                          "fontSize": 13,
+                          "fontWeight": "Regular"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Ju6Y1",
+                          "name": "Cat3Meta",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "p7eXs7",
+                              "name": "cc3chap",
+                              "fill": "#3D3D3D",
+                              "content": "6 个章节",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "id": "NWxy5",
+                              "type": "ref",
+                              "ref": "P1mqX1",
+                              "name": "Cat3Tag"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "AsQtx",
+                          "name": "Cat3Acts",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "g1fBJi",
+                              "name": "cc3edit",
+                              "fill": "#D4916E",
+                              "content": "✏️ 编辑",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "type": "text",
+                              "id": "QMGh0",
+                              "name": "cc3del",
+                              "fill": "#C4726F",
+                              "content": "🗑 删除",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "IRphc",
+                      "name": "CatCard4-Web开发基础",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Qg0vx",
+                          "name": "cc4icon",
+                          "content": "🌐",
+                          "fontFamily": "Geist",
+                          "fontSize": 32,
+                          "fontWeight": "normal",
+                          "fontStyle": "Regular"
+                        },
+                        {
+                          "type": "text",
+                          "id": "tkflR",
+                          "name": "cc4name",
+                          "fill": "#1A1A1A",
+                          "content": "Web开发基础",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "SemiBold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "DRyqX",
+                          "name": "cc4desc",
+                          "fill": "#A89880",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "HTML、CSS、JavaScript前端三大件全面入门",
+                          "fontFamily": "Geist",
+                          "fontSize": 13,
+                          "fontWeight": "Regular"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "J5kH4",
+                          "name": "Cat4Meta",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "a0kHB6",
+                              "name": "cc4chap",
+                              "fill": "#3D3D3D",
+                              "content": "5 个章节",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "id": "E0yBE",
+                              "type": "ref",
+                              "ref": "x21Db",
+                              "name": "Cat4Tag"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QJtdv",
+                          "name": "Cat4Acts",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "vfACR",
+                              "name": "cc4edit",
+                              "fill": "#D4916E",
+                              "content": "✏️ 编辑",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "type": "text",
+                              "id": "t4R9J",
+                              "name": "cc4del",
+                              "fill": "#C4726F",
+                              "content": "🗑 删除",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xAqTj",
+                      "name": "CatCard5-算法与数据结构",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "GtGVx",
+                          "name": "cc5icon",
+                          "content": "⚡",
+                          "fontFamily": "Geist",
+                          "fontSize": 32,
+                          "fontWeight": "normal",
+                          "fontStyle": "Regular"
+                        },
+                        {
+                          "type": "text",
+                          "id": "m1cyTI",
+                          "name": "cc5name",
+                          "fill": "#1A1A1A",
+                          "content": "算法与数据结构",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "SemiBold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "EPbyl",
+                          "name": "cc5desc",
+                          "fill": "#A89880",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "排序算法、搜索算法、链表、树等核心数据结构",
+                          "fontFamily": "Geist",
+                          "fontSize": 13,
+                          "fontWeight": "Regular"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "K7GoTb",
+                          "name": "Cat5Meta",
+                          "gap": 12,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "j9I8Pk",
+                              "name": "cc5chap",
+                              "fill": "#3D3D3D",
+                              "content": "4 个章节",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "id": "CrOPp",
+                              "type": "ref",
+                              "ref": "P1mqX1",
+                              "name": "Cat5Tag"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "h5GFmw",
+                          "name": "Cat5Acts",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "cogBz",
+                              "name": "cc5edit",
+                              "fill": "#D4916E",
+                              "content": "✏️ 编辑",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            },
+                            {
+                              "type": "text",
+                              "id": "jIZkz",
+                              "name": "cc5del",
+                              "fill": "#C4726F",
+                              "content": "🗑 删除",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Medium"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nGeqi",
+              "name": "ExpandedView-计算机基础",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "gap": 16,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BZ75l",
+                  "name": "expTitle",
+                  "fill": "#1A1A1A",
+                  "content": "📖 计算机基础知识 — 章节与小节",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "SemiBold"
+                },
+                {
+                  "type": "frame",
+                  "id": "SHIxo",
+                  "name": "Chapter1-计算机概述",
+                  "width": "fill_container",
+                  "fill": "#FDFBF7",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "P1QCd",
+                      "name": "Ch1Header",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YRGr6",
+                          "name": "ch1Name",
+                          "fill": "#1A1A1A",
+                          "content": "第1章 · 计算机概述",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "SemiBold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "lnR9t",
+                          "name": "ch1Count",
+                          "fill": "#A89880",
+                          "content": "3 个小节",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "Medium"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zgGrQ",
+                      "name": "SectionRow",
+                      "width": "fill_container",
+                      "gap": 16,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "bvswe",
+                          "name": "Sec1-计算机发展史",
+                          "width": 260,
+                          "fill": "#FFFFFF",
+                          "cornerRadius": 8,
+                          "layout": "vertical",
+                          "gap": 8,
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "qUNOf",
+                              "name": "Sec1Cover",
+                              "fill": "#F5F0EB",
+                              "width": "fill_container",
+                              "height": 100
+                            },
+                            {
+                              "type": "text",
+                              "id": "unmTT",
+                              "name": "sc1Title",
+                              "fill": "#1A1A1A",
+                              "content": "第一节：计算机发展史",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "SemiBold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "t2u3x",
+                              "name": "sc1Sum",
+                              "fill": "#A89880",
+                              "textGrowth": "fixed-width",
+                              "width": 260,
+                              "content": "从ENIAC到现代PC，回顾计算机的发展历程",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Regular"
+                            },
+                            {
+                              "id": "NoszE",
+                              "type": "ref",
+                              "ref": "P1mqX1",
+                              "name": "Sec1Tag"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "BhFAp",
+                          "name": "Sec2-硬件组成",
+                          "width": 260,
+                          "fill": "#FFFFFF",
+                          "cornerRadius": 8,
+                          "layout": "vertical",
+                          "gap": 8,
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "i8HppO",
+                              "name": "Sec2Cover",
+                              "fill": "#F5F0EB",
+                              "width": "fill_container",
+                              "height": 100
+                            },
+                            {
+                              "type": "text",
+                              "id": "mCKeW",
+                              "name": "sc2Title",
+                              "fill": "#1A1A1A",
+                              "content": "第二节：硬件组成",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "SemiBold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "pmVW7",
+                              "name": "sc2Sum",
+                              "fill": "#A89880",
+                              "textGrowth": "fixed-width",
+                              "width": 260,
+                              "content": "CPU、内存、硬盘核心硬件工作原理",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Regular"
+                            },
+                            {
+                              "id": "Jtff9",
+                              "type": "ref",
+                              "ref": "P1mqX1",
+                              "name": "Sec2Tag"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "sxfme",
+                          "name": "Sec3-软件系统",
+                          "width": 260,
+                          "fill": "#FFFFFF",
+                          "cornerRadius": 8,
+                          "layout": "vertical",
+                          "gap": 8,
+                          "padding": 12,
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "V2JCUr",
+                              "name": "Sec3Cover",
+                              "fill": "#F5F0EB",
+                              "width": "fill_container",
+                              "height": 100
+                            },
+                            {
+                              "type": "text",
+                              "id": "bWy4f",
+                              "name": "sc3Title",
+                              "fill": "#1A1A1A",
+                              "content": "第三节：软件系统",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "SemiBold"
+                            },
+                            {
+                              "type": "text",
+                              "id": "fufRC",
+                              "name": "sc3Sum",
+                              "fill": "#A89880",
+                              "textGrowth": "fixed-width",
+                              "width": 260,
+                              "content": "系统软件与应用软件的分类与功能",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "Regular"
+                            },
+                            {
+                              "id": "Nl0em",
+                              "type": "ref",
+                              "ref": "P1mqX1",
+                              "name": "Sec3Tag"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "rectangle",
+      "id": "sLQmy",
+      "x": 36500,
+      "y": -10793,
+      "name": "AIModalOverlay",
+      "fill": "#1A1A1A",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "type": "frame",
+      "id": "DyGG5",
+      "x": 36820,
+      "y": -10500,
+      "name": "AIDialog-生成大类",
+      "width": 800,
+      "fill": "#FFFFFF",
+      "cornerRadius": 16,
+      "layout": "vertical",
+      "gap": 20,
+      "padding": 32,
+      "children": [
+        {
+          "type": "text",
+          "id": "G5n2Jf",
+          "name": "diagTitle",
+          "fill": "#1A1A1A",
+          "content": "✨ AI 智能生成知识体系",
+          "fontFamily": "Inter",
+          "fontSize": 20,
+          "fontWeight": "Bold"
+        },
+        {
+          "type": "text",
+          "id": "Q1soI",
+          "name": "diagDesc",
+          "fill": "#A89880",
+          "content": "输入一个大类名称，AI 将自动为您生成对应的章节和内容",
+          "fontFamily": "Geist",
+          "fontSize": 13,
+          "fontWeight": "Regular"
+        },
+        {
+          "type": "frame",
+          "id": "BTY4S",
+          "name": "InputRow",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "children": [
+            {
+              "type": "text",
+              "id": "usOCV",
+              "name": "inpLabel",
+              "fill": "#3D3D3D",
+              "content": "大类名称",
+              "fontFamily": "Geist",
+              "fontSize": 13,
+              "fontWeight": "Medium"
+            },
+            {
+              "type": "frame",
+              "id": "h84eSN",
+              "name": "InputField",
+              "width": "fill_container",
+              "fill": "#F5F0EB",
+              "cornerRadius": 8,
+              "gap": 10,
+              "padding": [
+                14,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "orVvt",
+                  "name": "inpText",
+                  "fill": "#999",
+                  "content": "例如：计算机基础知识",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "Regular"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "snZdW",
+          "name": "ProgressSection",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "T0FTWY",
+              "name": "progTitle",
+              "fill": "#1A1A1A",
+              "content": "🔄 生成进度",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "SemiBold"
+            },
+            {
+              "type": "frame",
+              "id": "T4JiD",
+              "name": "ProgBar1",
+              "width": "fill_container",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "vI3n0",
+                  "name": "ProgDot1",
+                  "fill": "#7BA87F",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "twDEy",
+                  "name": "progLabel1",
+                  "fill": "#3D3D3D",
+                  "content": "✅ 正在分析知识领域...",
+                  "fontFamily": "Geist",
+                  "fontSize": 12,
+                  "fontWeight": "Medium"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OUDgG",
+              "name": "ProgBar2",
+              "width": "fill_container",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "IaQr7",
+                  "name": "ProgDot2",
+                  "fill": "#7BA87F",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "uERJM",
+                  "name": "progLabel2",
+                  "fill": "#3D3D3D",
+                  "content": "✅ 正在规划章节结构...",
+                  "fontFamily": "Geist",
+                  "fontSize": 12,
+                  "fontWeight": "Medium"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ZFHFA",
+              "name": "ProgBar3",
+              "width": "fill_container",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 4,
+                  "id": "eQnAC",
+                  "name": "ProgDot3",
+                  "fill": "#D4916E",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "H7nG0K",
+                  "name": "progLabel3",
+                  "fill": "#D4916E",
+                  "content": "🔄 正在生成章节内容...",
+                  "fontFamily": "Geist",
+                  "fontSize": 12,
+                  "fontWeight": "Medium"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "sRn7S",
+          "name": "DiagBtns",
+          "width": "fill_container",
+          "gap": 12,
+          "justifyContent": "end",
+          "children": [
+            {
+              "id": "L7T96",
+              "type": "ref",
+              "ref": "saBCI",
+              "name": "GenBtn",
+              "descendants": {
+                "hZyF2": {
+                  "content": "开始生成"
+                }
+              }
+            },
+            {
+              "id": "VQjvV",
+              "type": "ref",
+              "ref": "p9YDZ",
+              "name": "CancelGenBtn",
+              "descendants": {
+                "dsAUA": {
+                  "content": "取消"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "yToaB",
+      "x": 0,
+      "y": 0,
+      "name": "TagPendingDelete",
+      "reusable": true,
+      "fill": "#F5F0EB",
+      "cornerRadius": 4,
+      "padding": [
+        10,
+        6
+      ],
+      "children": [
+        {
+          "type": "text",
+          "id": "rluEz",
+          "fill": "#8B7BA8",
+          "content": "删除等待中",
+          "fontFamily": "Geist",
+          "fontSize": 12,
+          "fontWeight": "Medium"
+        }
+      ]
+    },
+    {
+      "id": "FH8ue",
+      "type": "ref",
+      "ref": "GC5Lb",
+      "name": "L1-内容管理-知识体系列表",
+      "x": 3720,
+      "y": -10793,
+      "descendants": {
+        "iD3QE": {
+          "type": "frame",
+          "id": "8sXZc",
+          "name": "PageContent",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FAF7F2",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": 24,
+          "children": [
+            {
+              "type": "text",
+              "id": "CAJji",
+              "name": "breadcrumb",
+              "fill": "#A89880",
+              "content": "内容管理",
+              "fontFamily": "Geist",
+              "fontSize": 12,
+              "fontWeight": "Medium"
+            },
+            {
+              "type": "frame",
+              "id": "rFJ8G",
+              "name": "titleRow",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "AGVsI",
+                  "name": "pageTitle",
+                  "fill": "#1A1A1A",
+                  "content": "知识体系",
+                  "fontFamily": "Inter",
+                  "fontSize": 24,
+                  "fontWeight": "Bold"
+                },
+                {
+                  "id": "D9nUK",
+                  "type": "ref",
+                  "ref": "saBCI",
+                  "name": "addBtn",
+                  "descendants": {
+                    "hZyF2": {
+                      "content": "+ 添加知识体系"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YbhaE",
+              "name": "filterRow",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "evBO3",
+                  "type": "ref",
+                  "ref": "CVuay",
+                  "width": 320,
+                  "name": "searchBar",
+                  "descendants": {
+                    "t2uCo": {
+                      "content": "搜索知识体系..."
+                    }
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "8dH67",
+                  "name": "filterAll",
+                  "fill": "#D4916E",
+                  "cornerRadius": 6,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "4lNch",
+                      "fill": "#FFFFFF",
+                      "content": "全部",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "otfka",
+                  "name": "filterOnline",
+                  "fill": "#F3EBE2",
+                  "cornerRadius": 6,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "m30Ar",
+                      "fill": "#3D3D3D",
+                      "content": "已上架",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "4PDP0",
+                  "name": "filterOffline",
+                  "fill": "#F3EBE2",
+                  "cornerRadius": 6,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "FsNOB",
+                      "fill": "#3D3D3D",
+                      "content": "已下架",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Cd15m",
+                  "name": "filterDeleting",
+                  "fill": "#F3EBE2",
+                  "cornerRadius": 6,
+                  "padding": [
+                    6,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "iduLG",
+                      "fill": "#3D3D3D",
+                      "content": "删除等待中",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nFnjy",
+              "name": "table",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DdNU7",
+                  "name": "customHeader",
+                  "width": "fill_container",
+                  "height": 36,
+                  "fill": "#F3EBE2",
+                  "cornerRadius": [
+                    8,
+                    8,
+                    0,
+                    0
+                  ],
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "aJJoB",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 180,
+                      "content": "知识体系名称",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "SemiBold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ntWcD",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "章节",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "SemiBold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "LjODR",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "小节",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "SemiBold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "qj8pv",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "难度",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "SemiBold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "NZ7qw",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 85,
+                      "content": "状态",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "SemiBold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "eVriH",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 100,
+                      "content": "创建时间",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "SemiBold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rVdfn",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 80,
+                      "content": "操作",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "SemiBold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LlecC",
+                  "name": "r1",
+                  "width": "fill_container",
+                  "height": 40,
+                  "fill": "#FFFFFF",
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TPw3M",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": 180,
+                      "content": "Python入门",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "C6vwB",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "10",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "8IwYt",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "42",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cUkEg",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "入门",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "id": "rCBsH",
+                      "type": "ref",
+                      "ref": "P1mqX1",
+                      "name": "tag1",
+                      "descendants": {
+                        "NE2m0": {
+                          "content": "已上架"
+                        }
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "iNx7n",
+                      "name": "op1",
+                      "fill": "#4A90D9",
+                      "textGrowth": "fixed-width",
+                      "width": 80,
+                      "content": "查看",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QzotR",
+                      "name": "time1",
+                      "fill": "#A89880",
+                      "textGrowth": "fixed-width",
+                      "width": 100,
+                      "content": "2026-05-15",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "Regular"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pX4fP",
+                  "name": "r2",
+                  "width": "fill_container",
+                  "height": 40,
+                  "fill": "#FAFAFA",
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "feiJ5",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": 180,
+                      "content": "计算机基础",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ywKzS",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "8",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Fxb9a",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "35",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "EblIG",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "基础",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "id": "E5WWi",
+                      "type": "ref",
+                      "ref": "P1mqX1",
+                      "name": "tag2",
+                      "descendants": {
+                        "NE2m0": {
+                          "content": "已上架"
+                        }
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "T1EXS",
+                      "name": "op2",
+                      "fill": "#4A90D9",
+                      "textGrowth": "fixed-width",
+                      "width": 80,
+                      "content": "查看",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fNCCX",
+                      "name": "time2",
+                      "fill": "#A89880",
+                      "textGrowth": "fixed-width",
+                      "width": 100,
+                      "content": "2026-05-12",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "Regular"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YCfF8",
+                  "name": "r3",
+                  "width": "fill_container",
+                  "height": 40,
+                  "fill": "#FFFFFF",
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "f3YjK",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": 180,
+                      "content": "数据结构与算法",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rjmK6",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "12",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "v9Eap",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "58",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "T2gWZ",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "进阶",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "id": "j6jRG",
+                      "type": "ref",
+                      "ref": "jYt3F",
+                      "name": "tag3",
+                      "descendants": {
+                        "Y1JUO": {
+                          "content": "已下架"
+                        }
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "dKNAa",
+                      "name": "op3",
+                      "fill": "#4A90D9",
+                      "textGrowth": "fixed-width",
+                      "width": 80,
+                      "content": "编辑",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "tNJEs",
+                      "name": "time3",
+                      "fill": "#A89880",
+                      "textGrowth": "fixed-width",
+                      "width": 100,
+                      "content": "2026-05-11",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "Regular"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "zS6AU",
+                  "name": "r4",
+                  "width": "fill_container",
+                  "height": 40,
+                  "fill": "#FAFAFA",
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Atbgz",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": 180,
+                      "content": "Web开发基础",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BFekD",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "6",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "JDQTp",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "20",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "7Iggl",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "入门",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "id": "HSLU6",
+                      "type": "ref",
+                      "ref": "x21Db",
+                      "name": "tag4",
+                      "descendants": {
+                        "Gau4u": {
+                          "content": "草稿"
+                        }
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "5rhl9",
+                      "name": "op4",
+                      "fill": "#4A90D9",
+                      "textGrowth": "fixed-width",
+                      "width": 80,
+                      "content": "编辑",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "S97vl",
+                      "name": "time4",
+                      "fill": "#A89880",
+                      "textGrowth": "fixed-width",
+                      "width": 100,
+                      "content": "2026-05-10",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "Regular"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SL8kQ",
+                  "name": "r5",
+                  "width": "fill_container",
+                  "height": 40,
+                  "fill": "#FFFFFF",
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZrNef",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": 180,
+                      "content": "人工智能导论",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "5k0GY",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "5",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "pXIly",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "15",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rAhlb",
+                      "fill": "#3D3D3D",
+                      "textGrowth": "fixed-width",
+                      "width": 60,
+                      "content": "进阶",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "id": "ykuwz",
+                      "type": "ref",
+                      "ref": "yToaB",
+                      "name": "tag5"
+                    },
+                    {
+                      "type": "text",
+                      "id": "nI5BH",
+                      "name": "op5",
+                      "fill": "#4A90D9",
+                      "textGrowth": "fixed-width",
+                      "width": 80,
+                      "content": "查看",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "Regular"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MIdQw",
+                      "name": "time5",
+                      "fill": "#A89880",
+                      "textGrowth": "fixed-width",
+                      "width": 100,
+                      "content": "2026-05-08",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "Regular"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "mpudU",
+              "name": "pagination",
+              "width": "fill_container",
+              "gap": 8,
+              "justifyContent": "end",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "uToRv",
+                  "fill": "#A89880",
+                  "content": "共 5 条",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "5qB5X",
+                  "fill": "#3D3D3D",
+                  "content": "< 1  >",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "Medium"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "wqJfw",
+      "type": "ref",
+      "ref": "GC5Lb",
+      "name": "L2-知识体系详情页(只读)",
+      "x": 5240,
+      "y": -10793,
+      "descendants": {
+        "iD3QE": {
+          "type": "frame",
+          "id": "ucEdE",
+          "name": "PageContent",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FAF7F2",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 24,
+          "children": [
+            {
+              "type": "text",
+              "id": "cmCy0",
+              "name": "bc2",
+              "fill": "#A89880",
+              "content": "内容管理 > Python入门",
+              "fontFamily": "Geist",
+              "fontSize": 12,
+              "fontWeight": "Medium"
+            },
+            {
+              "type": "frame",
+              "id": "6TkwX",
+              "name": "topRow",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "k2yjj",
+                  "name": "backBtn",
+                  "fill": "#4A90D9",
+                  "content": "← 返回列表",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "Medium"
+                },
+                {
+                  "id": "7cqRm",
+                  "type": "ref",
+                  "ref": "A4Ahn",
+                  "name": "offlineBtn",
+                  "descendants": {
+                    "ulF6q": {
+                      "content": "下架"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nA8eI",
+              "name": "infoCard",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "8KXWo",
+                  "name": "infoRow1",
+                  "gap": 40,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "MnPXv",
+                      "name": "nameAndStatus",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "jquw1",
+                          "name": "infoName",
+                          "fill": "#1A1A1A",
+                          "content": "Python入门",
+                          "fontFamily": "Inter",
+                          "fontSize": 20,
+                          "fontWeight": "Bold"
+                        },
+                        {
+                          "id": "K6yCy",
+                          "type": "ref",
+                          "ref": "P1mqX1",
+                          "name": "infoTag",
+                          "descendants": {
+                            "NE2m0": {
+                              "content": "已上架"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "21GUj",
+                      "name": "infoStats",
+                      "gap": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "8ZZbk",
+                          "name": "infoDiff",
+                          "fill": "#3D3D3D",
+                          "content": "难度: 入门",
+                          "fontFamily": "Geist",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "uBl5x",
+                          "name": "infoChap",
+                          "fill": "#3D3D3D",
+                          "content": "章节: 10",
+                          "fontFamily": "Geist",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "CJaKc",
+                          "name": "infoSec",
+                          "fill": "#3D3D3D",
+                          "content": "小节: 42",
+                          "fontFamily": "Geist",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "ZZFsn",
+                  "name": "infoTime",
+                  "fill": "#A89880",
+                  "content": "创建时间: 2026-05-01",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "CK9jy",
+              "name": "toggleRow",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "pB1hz",
+                  "name": "toggleAll",
+                  "fill": "#4A90D9",
+                  "content": "全部展开",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "Medium"
+                },
+                {
+                  "type": "text",
+                  "id": "rQHaT",
+                  "name": "toggleSep",
+                  "fill": "#E8DED0",
+                  "content": "|",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "kOjUE",
+                  "name": "toggleCollapse",
+                  "fill": "#4A90D9",
+                  "content": "全部折叠",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WOkTM",
+              "name": "ch1",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vlCd7",
+                  "name": "ch1Header",
+                  "width": "fill_container",
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "xJt0v",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "6w5Hk",
+                          "fill": "#3D3D3D",
+                          "content": "▼",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "8ONTK",
+                          "fill": "#1A1A1A",
+                          "content": "第1章 Python初识与环境搭建",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "SemiBold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "t5I5Z",
+                      "fill": "#A89880",
+                      "content": "5 小节",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "jrbON",
+                  "name": "ch1Divider",
+                  "fill": "#F3EBE2",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "5bXQC",
+                  "name": "ch1Goal",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pcUh1",
+                      "fill": "#A89880",
+                      "content": "目标:",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Se0mz",
+                      "fill": "#3D3D3D",
+                      "content": "了解Python语言的基本概念并成功搭建开发环境",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "aGQwQ",
+                  "name": "s11",
+                  "width": "fill_container",
+                  "padding": [
+                    10,
+                    20,
+                    10,
+                    48
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rhmNl",
+                      "fill": "#1A1A1A",
+                      "content": "1.1 Python语言简介",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ijJ58",
+                      "fill": "#4A90D9",
+                      "content": "预览小节",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "0iC2r",
+                  "name": "s12",
+                  "width": "fill_container",
+                  "padding": [
+                    10,
+                    20,
+                    10,
+                    48
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OURQF",
+                      "fill": "#1A1A1A",
+                      "content": "1.2 安装Python解释器",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cqlNc",
+                      "fill": "#4A90D9",
+                      "content": "预览小节",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "rxWPZ",
+                  "name": "s13",
+                  "width": "fill_container",
+                  "padding": [
+                    10,
+                    20,
+                    10,
+                    48
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "edzMU",
+                      "fill": "#1A1A1A",
+                      "content": "1.3 选择开发工具",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BsLyc",
+                      "fill": "#4A90D9",
+                      "content": "预览小节",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "6fAIi",
+                  "name": "s14",
+                  "width": "fill_container",
+                  "padding": [
+                    10,
+                    20,
+                    10,
+                    48
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "9a2vW",
+                      "fill": "#1A1A1A",
+                      "content": "1.4 编写并运行第一个程序",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "j0OR5",
+                      "fill": "#4A90D9",
+                      "content": "预览小节",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "p9uYo",
+              "name": "ch2",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Aq9w9",
+                  "name": "ch2Header",
+                  "width": "fill_container",
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GCwgj",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LNmbh",
+                          "fill": "#3D3D3D",
+                          "content": "▶",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "uI8TL",
+                          "fill": "#1A1A1A",
+                          "content": "第2章 Python基础语法与数据类型",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "SemiBold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "dyBgD",
+                      "fill": "#A89880",
+                      "content": "5 小节",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YHG1q",
+              "name": "ch3",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "UPAJZ",
+                  "name": "ch3Header",
+                  "width": "fill_container",
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "UW4yf",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "E9N92",
+                          "fill": "#3D3D3D",
+                          "content": "▶",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "0sGuJ",
+                          "fill": "#1A1A1A",
+                          "content": "第3章 程序控制结构",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "SemiBold"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Gghua",
+                      "fill": "#A89880",
+                      "content": "5 小节",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "RjUwT",
+      "type": "ref",
+      "ref": "GC5Lb",
+      "name": "L2-知识体系编辑页",
+      "x": 6760,
+      "y": -10793,
+      "descendants": {
+        "iD3QE": {
+          "type": "frame",
+          "id": "lBn82",
+          "name": "EditContent",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FAF7F2",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": 24,
+          "children": [
+            {
+              "type": "text",
+              "id": "gxVkb",
+              "name": "bc",
+              "fill": "#A89880",
+              "content": "内容管理 > 编辑知识体系",
+              "fontFamily": "Geist",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "fZ8dd",
+              "name": "topRow",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bBipF",
+                  "name": "backBtn",
+                  "fill": "#4A90D9",
+                  "content": "← 返回列表",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "Medium"
+                },
+                {
+                  "type": "frame",
+                  "id": "p69Zp",
+                  "name": "btnGroup",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "37ZIy",
+                      "type": "ref",
+                      "ref": "p9YDZ",
+                      "name": "saveDraft",
+                      "descendants": {
+                        "dsAUA": {
+                          "content": "保存草稿"
+                        }
+                      }
+                    },
+                    {
+                      "id": "vjtuP",
+                      "type": "ref",
+                      "ref": "saBCI",
+                      "name": "publish",
+                      "descendants": {
+                        "hZyF2": {
+                          "content": "上架发布"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "E0lIt",
+              "name": "infoCard",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ECAqU",
+                  "name": "infoTitle",
+                  "fill": "#1A1A1A",
+                  "content": "基本信息",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "SemiBold"
+                },
+                {
+                  "type": "frame",
+                  "id": "TTeap",
+                  "name": "nameRow",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "I9a07",
+                      "fill": "#3D3D3D",
+                      "content": "知识体系名称:",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "uRhBA",
+                      "type": "ref",
+                      "ref": "SSJt6",
+                      "width": 300
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "QARuG",
+                  "name": "diffRow",
+                  "gap": 40,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "erY0K",
+                      "fill": "#3D3D3D",
+                      "content": "难度:",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "izLb4",
+                      "gap": 16,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "SQap3",
+                          "fill": "#D4916E",
+                          "cornerRadius": 6,
+                          "padding": [
+                            6,
+                            14
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "PuRZh",
+                              "fill": "#FFFFFF",
+                              "content": "入门",
+                              "fontFamily": "Geist",
+                              "fontSize": 13,
+                              "fontWeight": "Medium"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "3QAfj",
+                          "fill": "#F3EBE2",
+                          "cornerRadius": 6,
+                          "padding": [
+                            6,
+                            14
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "6tNiZ",
+                              "fill": "#3D3D3D",
+                              "content": "基础",
+                              "fontFamily": "Geist",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "l2ieZ",
+                          "fill": "#F3EBE2",
+                          "cornerRadius": 6,
+                          "padding": [
+                            6,
+                            14
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "L95Bf",
+                              "fill": "#3D3D3D",
+                              "content": "进阶",
+                              "fontFamily": "Geist",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "8duGj",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "9CJY6",
+                          "fill": "#3D3D3D",
+                          "content": "显示图标:",
+                          "fontFamily": "Geist",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "SyOUb",
+                          "fill": "#4A90D9",
+                          "content": "📁 选择图标",
+                          "fontFamily": "Geist",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "N1p1o",
+              "name": "chMgrHeader",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "C5UEg",
+                  "name": "chTitle",
+                  "fill": "#1A1A1A",
+                  "content": "章节管理",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "SemiBold"
+                },
+                {
+                  "type": "frame",
+                  "id": "cdLiE",
+                  "name": "chBtns",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "CPKVR",
+                      "name": "addCh",
+                      "fill": "#4A90D9",
+                      "content": "+ 添加章节",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "oTO8t",
+                      "type": "ref",
+                      "ref": "p9YDZ",
+                      "name": "aiBtn",
+                      "descendants": {
+                        "dsAUA": {
+                          "content": "AI 生成大纲"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lnIeR",
+              "name": "ch1",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DF1ii",
+                  "name": "ch1H",
+                  "width": "fill_container",
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "SRd0g",
+                      "name": "ch1Left",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "YxFWF",
+                          "name": "ch1Drag",
+                          "fill": "#A89880",
+                          "content": "≡",
+                          "fontFamily": "Geist",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "id": "q4NRZ",
+                          "type": "ref",
+                          "ref": "DDSAS",
+                          "width": 340,
+                          "name": "ch1Name",
+                          "descendants": {
+                            "igHma": {
+                              "content": "第1章 Python初识与环境搭建"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "qqM7a",
+                      "name": "ch1Btns",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "v0Vlv",
+                          "name": "ch1Exp",
+                          "fill": "#A89880",
+                          "content": "▼",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "l1fNs",
+                          "name": "ch1Edit",
+                          "fill": "#4A90D9",
+                          "content": "编辑",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "EIAzS",
+                          "name": "ch1Del",
+                          "fill": "#C4726F",
+                          "content": "删除",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "S5lCn",
+                  "name": "ch1D",
+                  "fill": "#F3EBE2",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "icUJK",
+                  "name": "ch1Goal",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    12,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "7L1vE",
+                      "fill": "#3D3D3D",
+                      "content": "学习目标",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "Medium"
+                    },
+                    {
+                      "id": "613Zy",
+                      "type": "ref",
+                      "ref": "SSJt6",
+                      "width": "fill_container"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "4ZkQ6",
+                  "name": "ch1Desc",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    4,
+                    20,
+                    12,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Zs04e",
+                      "fill": "#3D3D3D",
+                      "content": "章节概述",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "Medium"
+                    },
+                    {
+                      "id": "c2KVu",
+                      "type": "ref",
+                      "ref": "SSJt6",
+                      "width": "fill_container"
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "vS2Rm",
+                  "name": "ch1D2",
+                  "fill": "#F3EBE2",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "UVJsW",
+                  "name": "ch1SectionLabel",
+                  "width": "fill_container",
+                  "padding": [
+                    12,
+                    20,
+                    4,
+                    20
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "I0Dk4",
+                      "fill": "#3D3D3D",
+                      "content": "小节列表",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "Medium"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cMv6l",
+                      "fill": "#4A90D9",
+                      "content": "+ 添加小节",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "4gSTl",
+                  "name": "s1",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    20,
+                    8,
+                    32
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "WoXCn",
+                      "name": "s1drag",
+                      "fill": "#A89880",
+                      "content": "≡",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "MK8wu",
+                      "type": "ref",
+                      "ref": "SSJt6",
+                      "width": 220,
+                      "name": "s1title",
+                      "descendants": {
+                        "liRi1": {
+                          "content": "1.1 Python语言简介"
+                        }
+                      }
+                    },
+                    {
+                      "id": "4Afaz",
+                      "type": "ref",
+                      "ref": "SSJt6",
+                      "width": 280,
+                      "name": "s1kp",
+                      "descendants": {
+                        "liRi1": {
+                          "content": "知识点描述..."
+                        }
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "XCqlY",
+                      "name": "s1editBtn",
+                      "fill": "#4A90D9",
+                      "content": "编辑内容",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Kbi5N",
+                      "name": "s1delBtn",
+                      "fill": "#C4726F",
+                      "content": "删除",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "IcUgY",
+                  "name": "s2",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    20,
+                    8,
+                    32
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "B2owa",
+                      "name": "s2drag",
+                      "fill": "#A89880",
+                      "content": "≡",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "iAUu1",
+                      "type": "ref",
+                      "ref": "SSJt6",
+                      "width": 220,
+                      "name": "s2title",
+                      "descendants": {
+                        "liRi1": {
+                          "content": "1.2 安装Python解释器"
+                        }
+                      }
+                    },
+                    {
+                      "id": "1FkGs",
+                      "type": "ref",
+                      "ref": "SSJt6",
+                      "width": 280,
+                      "name": "s2kp",
+                      "descendants": {
+                        "liRi1": {
+                          "content": "知识点描述..."
+                        }
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "R8yao",
+                      "name": "s2editBtn",
+                      "fill": "#4A90D9",
+                      "content": "编辑内容",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zZWJa",
+                      "name": "s2delBtn",
+                      "fill": "#C4726F",
+                      "content": "删除",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "4LilV",
+                  "name": "s3",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    20,
+                    8,
+                    32
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "V8ode",
+                      "name": "s3drag",
+                      "fill": "#A89880",
+                      "content": "≡",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "rytbv",
+                      "type": "ref",
+                      "ref": "SSJt6",
+                      "width": 220,
+                      "name": "s3title",
+                      "descendants": {
+                        "liRi1": {
+                          "content": "1.3 选择开发工具"
+                        }
+                      }
+                    },
+                    {
+                      "id": "G1Gb2",
+                      "type": "ref",
+                      "ref": "SSJt6",
+                      "width": 280,
+                      "name": "s3kp",
+                      "descendants": {
+                        "liRi1": {
+                          "content": "知识点描述..."
+                        }
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZAGjb",
+                      "name": "s3editBtn",
+                      "fill": "#4A90D9",
+                      "content": "编辑内容",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DdoEt",
+                      "name": "s3delBtn",
+                      "fill": "#C4726F",
+                      "content": "删除",
+                      "fontFamily": "Geist",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eXU0A",
+              "name": "ch2",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "7nikN",
+                  "name": "ch2H",
+                  "width": "fill_container",
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "q1DGk",
+                      "name": "ch2L",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LLcxR",
+                          "name": "ch2Drag",
+                          "fill": "#A89880",
+                          "content": "≡",
+                          "fontFamily": "Geist",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "id": "t1MtU",
+                          "type": "ref",
+                          "ref": "DDSAS",
+                          "width": 340,
+                          "name": "ch2Name",
+                          "descendants": {
+                            "igHma": {
+                              "content": "第2章 Python基础语法与数据类型"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Z3RGS",
+                      "name": "ch2Btns",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "lXt1o",
+                          "name": "ch2Exp",
+                          "fill": "#A89880",
+                          "content": "▶",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "t1wGE",
+                          "name": "ch2Edit",
+                          "fill": "#4A90D9",
+                          "content": "编辑",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "R9fQY",
+                          "name": "ch2Del",
+                          "fill": "#C4726F",
+                          "content": "删除",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "HKw3v",
+                  "name": "emptyHint",
+                  "width": "fill_container",
+                  "padding": 20,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SofeL",
+                      "fill": "#A89880",
+                      "content": "空章节，请添加小节",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cQZcD",
+              "name": "bottomBar",
+              "width": "fill_container",
+              "gap": 12,
+              "padding": [
+                0,
+                12
+              ],
+              "justifyContent": "end",
+              "children": [
+                {
+                  "id": "hOHL8",
+                  "type": "ref",
+                  "ref": "p9YDZ",
+                  "name": "saveBottom",
+                  "descendants": {
+                    "dsAUA": {
+                      "content": "保存草稿"
+                    }
+                  }
+                },
+                {
+                  "id": "fhcFy",
+                  "type": "ref",
+                  "ref": "saBCI",
+                  "name": "publishBottom",
+                  "descendants": {
+                    "hZyF2": {
+                      "content": "上架发布"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "z2qGQ",
+      "type": "ref",
+      "ref": "GC5Lb",
+      "name": "L3-小节内容编辑预览页",
+      "x": 8280,
+      "y": -10793,
+      "descendants": {
+        "iD3QE": {
+          "type": "frame",
+          "id": "lHa5q",
+          "name": "L3Content",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FAF7F2",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": 24,
+          "children": [
+            {
+              "type": "text",
+              "id": "RxmFm",
+              "name": "bc3",
+              "fill": "#A89880",
+              "content": "内容管理 > Python入门 > 第1章 > 1.3 选择开发工具",
+              "fontFamily": "Geist",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "M1iyV",
+              "name": "topRow3",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cnLIV",
+                  "name": "backBtn3",
+                  "fill": "#4A90D9",
+                  "content": "← 返回章节列表",
+                  "fontFamily": "Geist",
+                  "fontSize": 13,
+                  "fontWeight": "Medium"
+                },
+                {
+                  "type": "text",
+                  "id": "TAHjv",
+                  "name": "s3Title",
+                  "fill": "#1A1A1A",
+                  "content": "小节编辑: 1.3 选择开发工具",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "SemiBold"
+                },
+                {
+                  "id": "HuMX3",
+                  "type": "ref",
+                  "ref": "saBCI",
+                  "name": "saveBtn3",
+                  "descendants": {
+                    "hZyF2": {
+                      "content": "保存"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "p0iIh",
+              "name": "splitArea",
+              "width": "fill_container",
+              "height": "fill_container",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "rwz7A",
+                  "name": "leftPanel",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#1A1A1A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XBYmC",
+                      "name": "leftLabel",
+                      "fill": "#7BA87F",
+                      "content": "HTML 源码编辑器",
+                      "fontFamily": "Geist",
+                      "fontSize": 11,
+                      "fontWeight": "Medium"
+                    },
+                    {
+                      "type": "text",
+                      "id": "61QB1",
+                      "name": "htmlCode",
+                      "fill": "#D4D4D4",
+                      "content": "<div class=\"section\">\n  <h1>选择开发工具</h1>\n  <p>对于初学者来说，选择\n  合适的开发工具非常重要。\n  </p>\n  <img src=\"...\">\n  <ul>\n    <li>Thonny</li>\n    <li>PyCharm</li>\n  </ul>\n</div>",
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OqheL",
+                  "name": "rightPanel",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "dXvRu",
+                      "name": "previewBar",
+                      "width": "fill_container",
+                      "height": 32,
+                      "fill": "#F3EBE2",
+                      "cornerRadius": [
+                        8,
+                        8,
+                        0,
+                        0
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "eiAGt",
+                          "name": "previewLabel",
+                          "fill": "#A89880",
+                          "content": "预览 (小程序 WebView)",
+                          "fontFamily": "Geist",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dION0",
+                      "name": "previewArea",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "#FFFBEB",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "KLI9k",
+                          "name": "pTitle",
+                          "fill": "#292524",
+                          "content": "选择开发工具",
+                          "fontFamily": "Inter",
+                          "fontSize": 22,
+                          "fontWeight": "Bold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "NKe4P",
+                          "name": "pBody",
+                          "fill": "#78716C",
+                          "content": "对于初学者来说，选择合适的开发工具非常\n重要。好的编辑器能让代码编写事半功倍。\n\n推荐以下几个入门工具：\n• Thonny - 专为初学者设计的Python IDE\n• PyCharm - 功能强大的专业IDE\n• VS Code - 轻量级多语言编辑器",
+                          "fontFamily": "Geist",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "btVWX",
+                          "name": "pImg",
+                          "width": "fill_container",
+                          "height": 160,
+                          "fill": "#FEF3C7",
+                          "cornerRadius": 8,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "DnMzJ",
+                              "name": "pImgPlaceholder",
+                              "fill": "#D4916E",
+                              "content": "[图片展示区域]",
+                              "fontFamily": "Geist",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "yqhQJ",
+                          "name": "pRegenBtn",
+                          "fill": "#F3EBE2",
+                          "cornerRadius": 6,
+                          "padding": [
+                            6,
+                            12
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "3wiKR",
+                              "fill": "#3D3D3D",
+                              "content": "🔄 重新生成图片",
+                              "fontFamily": "Geist",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
     }
   ]
 }

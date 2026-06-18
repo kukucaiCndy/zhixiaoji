@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/msys64/home/Administrator/.claude/skills/pencil-to-miniprogram//**)",
+      "Bash(python3 -c ' *)",
+      "Read(//c/msys64/home/Administrator/.claude/skills/**)",
+      "Bash(head -6 __TRACKED_VAR__/SKILL.md)",
+      "Bash(claude --version)",
+      "Skill(pencil-to-miniprogram)",
+      "Bash(cp \"F:/work/software/zhixiaoji/miniapp/assets/images/icons/n9ezp.png\" \"F:/work/software/zhixiaoji/miniapp/assets/images/icons/tab_home.png\")",
+      "Bash(cp \"F:/work/software/zhixiaoji/miniapp/assets/images/icons/nGVRT.png\" \"F:/work/software/zhixiaoji/miniapp/assets/images/icons/tab_study.png\")",
+      "Bash(cp \"F:/work/software/zhixiaoji/miniapp/assets/images/icons/BRjP8.png\" \"F:/work/software/zhixiaoji/miniapp/assets/images/icons/tab_me.png\")",
+      "Skill(pencil-design)",
+      "Bash(base64 -w0)",
+      "Bash(openssl base64 *)"
+    ]
+  }
+}

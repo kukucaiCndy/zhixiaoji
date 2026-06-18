@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>1.1 什么是C++？编程语言简介</title>
+    <style>
+        :root {
+            --bg-color: #F5F7FA;
+            --card-bg: #FFFFFF;
+            --text-primary: #1F2937;
+            --text-secondary: #6B7280;
+            --primary: #3B82F6;
+            --primary-light: #DBEAFE;
+            --secondary: #6366F1;
+            --warning: #F59E0B;
+            --warning-bg: #FEF3C7;
+            --danger: #EF4444;
+            --danger-bg: #FEE2E2;
+            --success: #10B981;
+            --success-bg: #D1FAE5;
+            --gray: #9CA3AF;
+            --gray-bg: #F3F4F6;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+        }
+
+        /* Section Header */
+        .section-header {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .chapter-tag {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .meta-info {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* Card Component */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            overflow: hidden;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        .card-content {
+            font-size: 15px;
+            color: var(--text-primary);
+            white-space: pre-wrap;
+        }
+
+        /* Images */
+        .visual-container {
+            width: 100%;
+            margin: var(--spacing-md) 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #F9FAFB;
+        }
+
+        .visual-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Highlight Blocks */
+        .highlight-block {
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            margin-bottom: var(--spacing-md);
+            font-size: 14px;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .highlight-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+        }
+
+        .highlight-content {
+            flex: 1;
+        }
+
+        .highlight-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        /* Mapping Types to Styles */
+        .type-important {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning);
+            color: #92400E;
+        }
+
+        .type-warning {
+            background-color: var(--danger-bg);
+            border-left: 4px solid var(--danger);
+            color: #991B1B;
+        }
+
+        .type-misconception {
+            background-color: var(--gray-bg);
+            border-left: 4px solid var(--gray);
+            color: #374151;
+        }
+
+        .type-memory_tip {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            color: #1E40AF;
+        }
+
+        /* Code Block */
+        .code-card {
+            background-color: #1E293B;
+            border-radius: var(--radius);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            color: #E2E8F0;
+        }
+
+        .code-header {
+            font-size: 12px;
+            color: #94A3B8;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        pre {
+            background-color: #0F172A;
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: var(--spacing-md);
+        }
+
+        code {
+            color: #A5B4FC;
+        }
+
+        .code-explanation {
+            font-size: 14px;
+            color: #CBD5E1;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #334155;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Section Header -->
+    <header class="section-header">
+        <span class="chapter-tag">第1章 C++编程初体验与环境搭建</span>
+        <h1 class="section-title">1.1 什么是C++？编程语言简介</h1>
+        <div class="meta-info">
+            <span>难度: easy</span>
+            <span>预计阅读: 5分钟</span>
+        </div>
+    </header>
+
+    <!-- Block b1: Intro -->
+    <section class="card" id="b1">
+        <!-- Visual: before_block -->
+        <div class="visual-container">
+            <img src="https://s.coze.cn/t/Q3V63B0VQz4/" alt="教学配图" />
+        </div>
+        
+        <!-- Highlight: important -->
+        <div class="highlight-block type-important">
+            <span class="highlight-icon">💡</span>
+            <div class="highlight-content">
+                <span class="highlight-title">本节学习提示</span>
+                本节为C++入门基础，预计5分钟即可掌握，无复杂操作
+            </div>
+        </div>
+
+        <h2 class="card-title">开篇小提问</h2>
+        <div class="card-content">你有没有想过：我们平时用的APP、游戏、电脑软件，都是怎么让计算机乖乖干活的？
+
+这就要靠编程语言了。今天我们就来认识编程界的「老牌常青树」——C++。</div>
+    </section>
+
+    <!-- Block b2: Analogy -->
+    <section class="card" id="b2">
+        <h2 class="card-title">编程语言到底是什么？</h2>
+        
+        <!-- Visual: middle_of_block -->
+        <div class="visual-container">
+            <img src="https://s.coze.cn/t/OjLyDuK1pHo/" alt="教学配图" />
+        </div>
+
+        <!-- Highlight: memory_tip -->
+        <div class="highlight-block type-memory_tip">
+            <span class="highlight-icon">💬</span>
+            <div class="highlight-content">
+                <span class="highlight-title">类比记忆法</span>
+                编程语言 = 人和计算机之间的翻译官
+            </div>
+        </div>
+
+        <div class="card-content">你可以把编程语言理解成：你和计算机之间的翻译官。
+
+计算机本身只懂0和1的二进制，根本听不懂人类的语言。
+
+而编程语言就是一套双方都能理解的「中间语言」：
+你用它写好要做的事，它翻译成计算机懂的二进制，再把计算机的结果翻译回你能看懂的内容。
+
+C++就是编程语言里非常经典、应用极广的一种。</div>
+    </section>
+
+    <!-- Block b3: Explanation -->
+    <section class="card" id="b3">
+        <h2 class="card-title">C++的诞生故事</h2>
+        <div class="card-content">C++的前身是C语言，1972年由贝尔实验室开发，主打高效、贴近硬件，但对复杂项目的开发支持不够。
+
+1979年，同样来自贝尔实验室的本贾尼·斯特劳斯特鲁普（Bjarne Stroustrup），在C语言的基础上增加了「面向对象」等新特性，最开始叫「带类的C」，1983年正式改名为C++。
+
+名字里的++，就是C语言里的「自增」运算符，意思是「C的增强版」。</div>
+
+        <!-- Highlight: important -->
+        <div class="highlight-block type-important">
+            <span class="highlight-icon">➕</span>
+            <div class="highlight-content">
+                <span class="highlight-title">命名小知识点</span>
+                C++名称中的「++」是C语言的自增运算符，直接体现了它是C语言的增强版
+            </div>
+            <style>.type-important { border-top: 2px solid var(--primary); }</style>
+        </div>
+
+        <!-- Visual: after_block -->
+        <div class="visual-container">
+            <img src="https://s.coze.cn/t/f02IMh5bBnc/" alt="教学配图" />
+        </div>
+    </section>
+
+    <!-- Block b4: Misconception -->
+    <section class="card" id="b4">
+        <h2 class="card-title">很多初学者的第一个误会</h2>
+
+        <!-- Highlight: misconception -->
+        <div class="highlight-block type-misconception">
+            <span class="highlight-icon">⚠️</span>
+            <div class="highlight-content">
+                <span class="highlight-title">常见误区纠正</span>
+                ❌ 错误：C++比C高级，C已经没用了
+✅ 正确：C是C++的基础，二者各有适用场景
+            </div>
+        </div>
+
+        <!-- Visual: middle_of_block -->
+        <div class="visual-container">
+            <img src="https://s.coze.cn/t/rRxajVIev88/" alt="教学配图" />
+        </div>
+
+        <div class="card-content">不少人刚接触的时候会问：是不是C++比C高级，所以C语言已经没用了？
+
+完全不是！C是C++的基础，两者各有适用场景：C更适合操作系统、驱动等底层开发，C++在游戏引擎、桌面软件、高性能服务等场景更常用，不存在谁取代谁的关系。</div>
+    </section>
+
+    <!-- Block b5: Summary -->
+    <section class="card" id="b5">
+        <!-- Visual: before_block -->
+        <div class="visual-container">
+            <img src="https://s.coze.cn/t/NN-O0k_kfYM/" alt="教学配图" />
+        </div>
+
+        <!-- Highlight: memory_tip -->
+        <div class="highlight-block type-memory_tip">
+            <span class="highlight-icon">✅</span>
+            <div class="highlight-content">
+                <span class="highlight-title">本节核心记忆点</span>
+                3个核心点1句话总结：C++是C的增强版，作为翻译官帮人和计算机沟通，和C各有适用场景
+            </div>
+            <style>.type-memory_tip { border: 1px solid var(--success); background-color: var(--success-bg); color: #065F46; }</style>
+        </div>
+
+        <h2 class="card-title">本小节核心梳理</h2>
+        <div class="card-content">我们刚才讲了3个核心点：
+1. 编程语言是人和计算机的翻译官
+2. C++是C语言的增强版，诞生于贝尔实验室
+3. C和C++各有适用场景，没有谁取代谁</div>
+    </section>
+
+    <!-- Block b6: Code Example -->
+    <section class="code-card" id="b6">
+        <!-- Highlight: important -->
+        <div class="highlight-block type-important" style="background-color: rgba(255,255,255,0.1); border-left: 2px solid var(--primary); color: #E2E8F0;">
+            <span class="highlight-icon">💻</span>
+            <div class="highlight-content">
+                <span class="highlight-title">观察提示</span>
+                无需理解每一行代码的含义，重点观察代码中的字符串和输出内容的对应关系
+            </div>
+        </div>
+
+        <div class="code-header">C++ Code Example</div>
+        <pre><code>#include <iostream>
+int main() {
+    std::cout << "Hello C++!" << std::endl;
+    return 0;
+}</code></pre>
+        
+        <div class="code-explanation">
+            这是所有C++学习者写的第一个程序，作用就是在屏幕上输出「Hello C++!」这句话，不用着急弄懂每一行的意思，后面我们会逐行拆解。
+        </div>
+
+        <!-- Visual: after_block -->
+        <div class="visual-container" style="background-color: #000;">
+            <img src="https://s.coze.cn/t/YseiJ6FW4Is/" alt="代码运行效果" />
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>

@@ -162,14 +162,10 @@ function handleTabChange(tabName: string | number) {
 async function fetchStudyRecords() {
   tabLoading.value = true
   try {
-    await new Promise((resolve) => setTimeout(resolve, 300))
-    studyRecords.value = [
-      { id: 1, studyTime: '2026-05-13 10:30', cardName: 'Python变量与数据类型', chapterName: 'Python基础', status: '已完成', duration: 15 },
-      { id: 2, studyTime: '2026-05-13 09:15', cardName: 'Python条件判断', chapterName: 'Python基础', status: '已完成', duration: 12 },
-      { id: 3, studyTime: '2026-05-12 20:00', cardName: '数组排序算法', chapterName: '算法入门', status: '学习中', duration: 8 },
-      { id: 4, studyTime: '2026-05-12 16:30', cardName: 'JavaScript变量作用域', chapterName: 'JavaScript基础', status: '已完成', duration: 10 },
-      { id: 5, studyTime: '2026-05-11 14:00', cardName: '循环结构深入', chapterName: 'Python基础', status: '已完成', duration: 20 }
-    ]
+    const res = await userApi.getStudyRecords(userId)
+    if (res.code === 0 && res.data) {
+      studyRecords.value = res.data as IStudyRecord[]
+    }
   } finally {
     tabLoading.value = false
   }
@@ -178,14 +174,10 @@ async function fetchStudyRecords() {
 async function fetchPointsRecords() {
   tabLoading.value = true
   try {
-    await new Promise((resolve) => setTimeout(resolve, 300))
-    pointsRecords.value = [
-      { id: 1, time: '2026-05-13 10:30', action: '完成学习', pointsChange: 10, balance: 1580 },
-      { id: 2, time: '2026-05-13 09:15', action: '完成答题', pointsChange: 5, balance: 1570 },
-      { id: 3, time: '2026-05-12 20:00', action: '连续打卡', pointsChange: 20, balance: 1565 },
-      { id: 4, time: '2026-05-12 16:30', action: '兑换文具', pointsChange: -50, balance: 1545 },
-      { id: 5, time: '2026-05-11 14:00', action: '完成学习', pointsChange: 10, balance: 1595 }
-    ]
+    const res = await userApi.getPointsRecords(userId)
+    if (res.code === 0 && res.data) {
+      pointsRecords.value = res.data as IPointsRecord[]
+    }
   } finally {
     tabLoading.value = false
   }
@@ -194,16 +186,10 @@ async function fetchPointsRecords() {
 async function fetchStationeryItems() {
   tabLoading.value = true
   try {
-    await new Promise((resolve) => setTimeout(resolve, 300))
-    stationeryItems.value = [
-      { id: 1, name: '代码笔记本', icon: '📓', rarity: 1, quantity: 3 },
-      { id: 2, name: '金色钢笔', icon: '🖊️', rarity: 3, quantity: 1 },
-      { id: 3, name: '橡皮擦', icon: '🧹', rarity: 1, quantity: 5 },
-      { id: 4, name: '键盘贴纸', icon: '⌨️', rarity: 2, quantity: 2 },
-      { id: 5, name: '程序员马克杯', icon: '☕', rarity: 4, quantity: 1 },
-      { id: 6, name: '书签', icon: '🔖', rarity: 1, quantity: 8 },
-      { id: 7, name: '限定鼠标垫', icon: '🖱️', rarity: 5, quantity: 0 }
-    ]
+    const res = await userApi.getStationeryItems(userId)
+    if (res.code === 0 && res.data) {
+      stationeryItems.value = res.data as IStationeryItem[]
+    }
   } finally {
     tabLoading.value = false
   }
@@ -212,13 +198,10 @@ async function fetchStationeryItems() {
 async function fetchLevelRecords() {
   tabLoading.value = true
   try {
-    await new Promise((resolve) => setTimeout(resolve, 300))
-    levelRecords.value = [
-      { id: 1, time: '2026-05-10', fromLevel: 4, fromTitle: '算法新手', toLevel: 5, toTitle: '程序达人', reason: '累计学习卡片数达到200张' },
-      { id: 2, time: '2026-04-20', fromLevel: 3, fromTitle: '逻辑思考者', toLevel: 4, toTitle: '算法新手', reason: '累计积分达到1000分' },
-      { id: 3, time: '2026-04-05', fromLevel: 2, fromTitle: '代码学徒', toLevel: 3, toTitle: '逻辑思考者', reason: '连续打卡30天' },
-      { id: 4, time: '2026-03-20', fromLevel: 1, fromTitle: '编程小白', toLevel: 2, toTitle: '代码学徒', reason: '完成新手引导' }
-    ]
+    const res = await userApi.getLevelRecords(userId)
+    if (res.code === 0 && res.data) {
+      levelRecords.value = res.data as ILevelRecord[]
+    }
   } finally {
     tabLoading.value = false
   }
