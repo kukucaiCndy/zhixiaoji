@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--color-mask);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@
 
 .modal-container {
   width: 311px;
-  background: #ffffff;
+  background: var(--color-card);
   border-radius: 20px;
   padding: 32px 24px 24px;
   display: flex;
@@ -31,7 +31,7 @@
 .modal-title {
   font-size: 18px;
   font-weight: 700;
-  color: #1C1C1E;
+  color: var(--color-text);
   margin-bottom: 8px;
   text-align: center;
 }
@@ -39,7 +39,7 @@
 .modal-subtitle {
   font-size: 12px;
   font-weight: 400;
-  color: #8E8E93;
+  color: var(--color-text-secondary);
   text-align: center;
   margin-bottom: 24px;
   line-height: 1.5;
@@ -73,37 +73,37 @@
 }
 
 .btn-primary {
-  background: #4F46E5;
+  background: var(--color-primary);
   color: #ffffff;
 }
 
 .btn-secondary {
-  background: #ffffff;
-  color: #4F46E5;
-  border: 1.5px solid #4F46E5;
+  background: var(--color-card);
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
 }
 
 .btn-warning {
-  background: #F59E0B;
+  background: var(--color-warning);
   color: #ffffff;
 }
 
 .btn-danger {
-  background: #EF4444;
+  background: var(--color-danger);
   color: #ffffff;
 }
 
 .modal-score {
   font-size: 36px;
   font-weight: 800;
-  color: #F59E0B;
+  color: var(--color-score);
   line-height: 1.2;
   margin-bottom: 8px;
 }
 
 .modal-score-text {
   font-size: 12px;
-  color: #8E8E93;
+  color: var(--color-text-secondary);
   margin-bottom: 24px;
   text-align: center;
   line-height: 1.5;
@@ -111,7 +111,7 @@
 
 .modal-desc {
   font-size: 14px;
-  color: #3A3A3C;
+  color: var(--color-text-secondary);
   text-align: center;
   margin-bottom: 24px;
   line-height: 1.6;
@@ -150,7 +150,7 @@
 
 .modal-count-label {
   font-size: 12px;
-  color: #8E8E93;
+  color: var(--color-text-secondary);
   margin-bottom: 24px;
   text-align: center;
 }

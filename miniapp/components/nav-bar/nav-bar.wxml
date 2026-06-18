@@ -1,0 +1,14 @@
+<view class="nav-bar">
+  <image class="nav-bg" src="/assets/images/bg/bg_navbar.png" mode="aspectFill" />
+  <image
+    wx:if="{{showBack}}"
+    class="nav-arrow"
+    src="/assets/images/deco/deco_back_arrow.png"
+    mode="aspectFit"
+    bindtap="onBackTap"
+  />
+  <text class="nav-title">{{title}}</text>
+  <view class="nav-right">
+    <slot name="right"></slot>
+  </view>
+</view>

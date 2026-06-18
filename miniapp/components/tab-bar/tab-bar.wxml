@@ -1,23 +1,18 @@
 <view class="tab-bar">
-  <image class="bg-image" src="/assets/images/bg/bg_tabbar.png" mode="aspectFill" />
+  <image class="bg-image" src="/assets/images/{{theme}}/bg/bg_tabbar.png" mode="aspectFill" />
   <view class="tab-item {{activeIndex === 0 ? 'active' : ''}}" bindtap="onTabTap" data-index="0">
-    <view class="tab-icon">🏠</view>
+    <image class="tab-icon" src="/assets/images/icons/tab_home.png" mode="aspectFit" />
     <text class="tab-label">首页</text>
     <view class="tab-indicator" wx:if="{{activeIndex === 0}}"></view>
   </view>
   <view class="tab-item {{activeIndex === 1 ? 'active' : ''}}" bindtap="onTabTap" data-index="1">
-    <view class="tab-icon">📚</view>
+    <image class="tab-icon" src="/assets/images/icons/tab_study.png" mode="aspectFit" />
     <text class="tab-label">学习</text>
     <view class="tab-indicator" wx:if="{{activeIndex === 1}}"></view>
   </view>
   <view class="tab-item {{activeIndex === 2 ? 'active' : ''}}" bindtap="onTabTap" data-index="2">
-    <view class="tab-icon">📝</view>
-    <text class="tab-label">笔记</text>
-    <view class="tab-indicator" wx:if="{{activeIndex === 2}}"></view>
-  </view>
-  <view class="tab-item {{activeIndex === 3 ? 'active' : ''}}" bindtap="onTabTap" data-index="3">
-    <view class="tab-icon">👤</view>
+    <image class="tab-icon" src="/assets/images/icons/tab_me.png" mode="aspectFit" />
     <text class="tab-label">我的</text>
-    <view class="tab-indicator" wx:if="{{activeIndex === 3}}"></view>
+    <view class="tab-indicator" wx:if="{{activeIndex === 2}}"></view>
   </view>
 </view>

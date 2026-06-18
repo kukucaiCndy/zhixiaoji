@@ -1,0 +1,49 @@
+.nav-bar {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 192rpx;
+  overflow: hidden;
+}
+
+.nav-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.nav-arrow {
+  position: absolute;
+  left: 28rpx;
+  top: 70rpx;
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 1;
+}
+
+.nav-title {
+  position: absolute;
+  left: 278rpx;
+  top: 100rpx;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1A1A1A;
+  line-height: 48rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.nav-right {
+  position: absolute;
+  right: 32rpx;
+  top: 104rpx;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
