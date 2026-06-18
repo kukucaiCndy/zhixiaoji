@@ -1,229 +1,215 @@
+/* ============================================
+   知小记 · 编辑资料 — Pencil aV3zb 1:1 像素级复刻
+   设计稿 375px → 小程序 750rpx (×2)
+   颜色: 全部走 CSS 变量，支持 light/dark 切换
+   ============================================ */
+
 .edit-page {
+  position: relative;
   width: 100vw;
   min-height: 100vh;
-  background: #FFFFFF;
-  overflow-x: hidden;
 }
 
-.nav-header {
-  background: #FFFFFF;
-  border-bottom: 2rpx solid rgba(0, 0, 0, 0.05);
-}
-
-.nav-bar {
-  display: flex;
-  align-items: center;
-  padding: 0 0 0 32rpx;
-  background: #FFFFFF;
-}
-
-.back-btn {
-  width: 80rpx;
-  flex-shrink: 0;
-}
-
-.back-icon {
-  font-size: 34rpx;
-  color: #1C1C1E;
-}
-
-.nav-title {
-  flex: 1;
-  font-size: 30rpx;
-  font-weight: 600;
-  text-align: center;
-  color: #1C1C1E;
-}
-
-.nav-placeholder {
-  width: 80rpx;
-  flex-shrink: 0;
-}
-
-.bottom-action {
-  display: flex;
-  justify-content: center;
-  padding: 48rpx 32rpx;
-  padding-bottom: calc(48rpx + env(safe-area-inset-bottom));
-}
-
-.bottom-save-btn {
-  width: 600rpx;
-  height: 96rpx;
-  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
-  border-radius: 48rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bottom-save-text {
-  font-size: 32rpx;
-  font-weight: 600;
-  color: #FFFFFF;
-}
-
-.bottom-save-loading {
-  display: flex;
-  align-items: center;
-  gap: 8rpx;
-}
-
-.bottom-save-loading-dot {
-  width: 12rpx;
-  height: 12rpx;
-  background: #FFFFFF;
-  border-radius: 50%;
-  animation: dot-pulse 0.8s ease-in-out infinite;
-}
-
-.bottom-save-loading-dot:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.bottom-save-loading-dot:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes dot-pulse {
-  0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
-  40% { opacity: 1; transform: scale(1); }
-}
-
-.avatar-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 48rpx 0 32rpx;
-  gap: 16rpx;
-}
-
-.avatar {
-  width: 128rpx;
-  height: 128rpx;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.avatar-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-.avatar-mask {
+.bg-page {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 0;
 }
 
-.avatar-spinner {
-  width: 48rpx;
-  height: 48rpx;
-  border: 4rpx solid rgba(255, 255, 255, 0.3);
-  border-top-color: #FFFFFF;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+/* ===== 装饰元素 ===== */
+.deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+.deco-star { top: 150rpx; right: 46rpx; width: 24rpx; height: 24rpx; }
+.deco-dot  { top: 1200rpx; left: 60rpx; width: 10rpx; height: 10rpx; }
 
-.avatar-text {
-  font-size: 52rpx;
-  font-weight: 600;
-  color: #FFFFFF;
-}
-
-.avatar-hint {
-  font-size: 22rpx;
-  color: #8E8E93;
-}
-
-.section-title {
-  font-size: 28rpx;
-  font-weight: 600;
-  color: #8E8E93;
-  letter-spacing: 0.6rpx;
-  padding: 0 32rpx;
-  height: 106rpx;
-  line-height: 106rpx;
-}
-
-.setting-group {
-  border-top: 2rpx solid rgba(0, 0, 0, 0.05);
-  border-bottom: 2rpx solid rgba(0, 0, 0, 0.05);
-}
-
-.setting-item {
-  display: flex;
-  align-items: center;
-  padding: 28rpx 32rpx;
-  gap: 28rpx;
-}
-
-.setting-item:not(:last-child) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.setting-icon {
-  width: 72rpx;
-  height: 72rpx;
-  border-radius: 20rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.setting-icon text {
-  font-size: 32rpx;
-}
-
-.gray-bg { background: #F0F2F5; }
-.yellow-bg { background: #FFF4E5; }
-.purple-bg { background: #F5F3FF; }
-.cyan-bg { background: #ECFEFF; }
-.green-bg { background: #E8F8EF; }
-
-.setting-info {
-  flex: 1;
+/* ===== 头像区域 ===== */
+.avatar-section {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 4rpx;
+  align-items: center;
+  margin-top: 48rpx;
 }
 
-.setting-name {
-  font-size: 28rpx;
+.avatar-wrap {
+  position: relative;
+  width: 192rpx;
+  height: 192rpx;
+  border-radius: 96rpx;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 96rpx;
+}
+
+.avatar-placeholder {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-icon {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-icon-head {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+
+.user-icon-body {
+  width: 44rpx;
+  height: 26rpx;
+  border-radius: 22rpx 22rpx 0 0;
+  background: #FFFFFF;
+  margin-top: 6rpx;
+}
+
+/* ===== 相机徽章 ===== */
+.camera-badge {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-body {
+  width: 28rpx;
+  height: 20rpx;
+  border: 3rpx solid #FFFFFF;
+  border-radius: 5rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.camera-body::before {
+  content: '';
+  position: absolute;
+  top: -8rpx;
+  left: 9rpx;
+  width: 8rpx;
+  height: 4rpx;
+  background: var(--color-primary);
+  border: 2rpx solid #FFFFFF;
+  border-bottom: none;
+  border-radius: 2rpx 2rpx 0 0;
+}
+
+.camera-lens {
+  width: 10rpx;
+  height: 10rpx;
+  border: 2rpx solid #FFFFFF;
+  border-radius: 50%;
+}
+
+/* ===== 头像提示文字 ===== */
+.avatar-hint {
+  display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 24rpx;
+  color: var(--color-text-tertiary);
+  text-align: center;
+  width: 310rpx;
+  margin-top: 16rpx;
+}
+
+/* ===== 分区标题 ===== */
+.section-title {
+  display: block;
+  position: relative;
+  z-index: 1;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 24rpx;
   font-weight: 500;
-  color: #1C1C1E;
+  color: var(--color-text-secondary);
+  margin-top: 32rpx;
+  margin-left: 48rpx;
 }
 
-.setting-value {
-  font-size: 22rpx;
-  color: #8E8E93;
-  flex-shrink: 0;
-  max-width: 200rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+/* ===== 表单 ===== */
+.form {
+  position: relative;
+  z-index: 1;
+  margin: 16rpx 48rpx 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
 }
 
-.arrow {
-  font-size: 32rpx;
-  color: #C7C7CC;
-  flex-shrink: 0;
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  padding: 32rpx;
+  border-radius: 24rpx;
+  background: var(--color-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-label {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+}
+
+.form-value {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 30rpx;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+/* ===== 保存按钮 ===== */
+.save-btn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 96rpx;
+  margin: 50rpx 48rpx 48rpx;
+  border-radius: 24rpx;
+  background: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.save-btn-text {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #FFFFFF;
 }

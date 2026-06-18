@@ -1,11 +1,13 @@
 var knowledgeApi = require('../../../services/knowledge-api');
 var progressStore = require('../../../utils/progress-store');
+var theme = require('../../../utils/theme');
 
 var CHAPTER_ICON_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
 var CHAPTER_LOCKED_BG = '#F1F5F9';
 
 Page({
   data: {
+    theme: 'light',
     subjectId: '',
     subjectTitle: '',
     subjectIcon: '📖',
@@ -21,6 +23,7 @@ Page({
   },
 
   onLoad: function (options) {
+    this.setData({ theme: theme.getEffectiveTheme() });
     var sysInfo = wx.getSystemInfoSync();
     var subjectId = options.id || '';
     var subjectTitle = options.title ? decodeURIComponent(options.title) : '科目';
@@ -36,10 +39,15 @@ Page({
   },
 
   onShow: function () {
+    this.setData({ theme: theme.getEffectiveTheme() });
     // 首次加载由 onLoad 处理
     if (!this._loaded) return;
     // 从 webview 返回后，刷新锁定状态和进度
     this.refreshLocksAndProgress();
+  },
+
+  onThemeChange: function (effective) {
+    this.setData({ theme: effective });
   },
 
   refreshLocksAndProgress: function () {

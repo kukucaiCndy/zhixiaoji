@@ -1,98 +1,71 @@
-<view class="login-page">
-  <!-- 顶部渐变区域 -->
-  <view class="header-content">
-      <view class="decoration-circle"></view>
-      <view class="decoration-grid">
-        <view class="grid-dot"></view>
-        <view class="grid-dot"></view>
-        <view class="grid-dot"></view>
-        <view class="grid-dot"></view>
-        <view class="grid-dot"></view>
-        <view class="grid-dot"></view>
-        <view class="grid-dot"></view>
-        <view class="grid-dot"></view>
-        <view class="grid-dot"></view>
-      </view>
-      <view class="header-icon">
-        <text class="book-icon">📚</text>
-      </view>
-      <view class="decoration-circle-small"></view>
-    </view>
+<view class="login-page" data-theme="{{theme}}">
+  <!-- 页面背景 -->
+  <image class="bg-page" src="/assets/images/{{theme}}/bg/bg_page.png" mode="aspectFill" />
 
-  <!-- 内容区域 -->
-  <view class="content-section">
-    <!-- Logo -->
-    <view class="logo-wrap">
-      <view class="logo-box">
-        <text class="logo-text">知</text>
-      </view>
-    </view>
-
-    <!-- 标题 -->
-    <view class="title-wrap">
-      <text class="title">欢迎来到知小记</text>
-    </view>
-
-    <!-- 副标题 -->
-    <view class="subtitle-wrap">
-      <text class="subtitle">AI 驱动的编程学习助手</text>
-      <text class="subtitle">让知识真正属于你</text>
-    </view>
-
-    <!-- 功能列表 -->
-    <view class="features-list">
-      <view class="feature-item">
-        <view class="feature-icon blue">
-          <text>🧠</text>
-        </view>
-        <view class="feature-text">
-          <text class="feature-title">艾宾浩斯智能复习</text>
-          <text class="feature-desc">科学记忆曲线，拒绝遗忘</text>
-        </view>
-      </view>
-      <view class="feature-item">
-        <view class="feature-icon green">
-          <text>📝</text>
-        </view>
-        <view class="feature-text">
-          <text class="feature-title">手写笔记</text>
-          <text class="feature-desc">像纸笔一样自然</text>
-        </view>
-      </view>
-      <view class="feature-item">
-        <view class="feature-icon orange">
-          <text>🎮</text>
-        </view>
-        <view class="feature-text">
-          <text class="feature-title">趣味刷题 + 文具收集</text>
-          <text class="feature-desc">学习也能像玩游戏一样有趣</text>
-        </view>
-      </view>
-    </view>
-
-    <!-- 登录按钮 - 使用微信原生能力获取头像昵称 -->
-    <button class="wechat-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-      <text class="wx-icon">💬</text>
-      <text class="wx-text">微信一键登录</text>
-    </button>
-
-    <!-- 游客按钮 -->
-    <view class="guest-btn-wrap">
-      <view class="guest-btn" bindtap="onGuestLogin">
-        <text class="guest-text">先逛逛（游客模式）</text>
-      </view>
-    </view>
-
-    <!-- 协议 -->
-    <view class="agreement">
-      <text class="agreement-text">登录即表示同意</text>
-      <text class="agreement-link" bindtap="onTapAgreement">用户协议</text>
-      <text class="agreement-text">和</text>
-      <text class="agreement-link" bindtap="onTapPrivacy">隐私政策</text>
+  <!-- Hero 区域 -->
+  <view class="hero-card">
+    <image class="bg-hero" src="/assets/images/{{theme}}/bg/bg_hero_card.png" mode="aspectFill" />
+    <view class="hero-content">
+      <image class="hero-logo" src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
+      <text class="hero-title">知小记</text>
+      <text class="hero-subtitle">知识学习伴侣</text>
     </view>
   </view>
 
-  <!-- 授权弹窗 - 使用微信原生头像昵称填写能力 -->
+  <!-- 功能特性列表 -->
+  <view class="feature-list">
+    <view class="feature-card">
+      <image class="feature-bg" src="/assets/images/{{theme}}/bg/bg_progress_card.png" mode="aspectFill" />
+      <view class="feature-icon feature-icon-1">
+        <image src="/assets/images/{{theme}}/deco/deco_check.png" mode="aspectFit" />
+      </view>
+      <view class="feature-text">
+        <text>系统化知识卡片</text>
+        <text>碎片化时间高效学习</text>
+      </view>
+    </view>
+    <view class="feature-card">
+      <image class="feature-bg" src="/assets/images/{{theme}}/bg/bg_progress_card.png" mode="aspectFill" />
+      <view class="feature-icon feature-icon-2">
+        <image src="/assets/images/{{theme}}/deco/deco_sparkle.png" mode="aspectFit" />
+      </view>
+      <view class="feature-text">
+        <text>智能复习提醒</text>
+        <text>基于遗忘曲线科学规划</text>
+      </view>
+    </view>
+    <view class="feature-card">
+      <image class="feature-bg" src="/assets/images/{{theme}}/bg/bg_progress_card.png" mode="aspectFill" />
+      <view class="feature-icon feature-icon-3">
+        <image src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
+      </view>
+      <view class="feature-text">
+        <text>学习社区互动</text>
+        <text>与志同道合的伙伴共同进步</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 微信登录按钮 -->
+  <button class="login-btn {{logging ? 'login-btn--loading' : ''}}" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+    <text wx:if="{{!logging}}">微信一键登录</text>
+    <text wx:else>登录中...</text>
+  </button>
+
+  <!-- 游客模式 -->
+  <view class="guest-btn" bindtap="onGuestLogin">
+    <text>先逛逛（游客模式）</text>
+  </view>
+
+  <!-- 协议文本 -->
+  <view class="terms-text">
+    <text>登录即代表同意</text>
+    <text class="terms-link" bindtap="onTapAgreement">《用户协议》</text>
+    <text>和</text>
+    <text class="terms-link" bindtap="onTapPrivacy">《隐私政策》</text>
+  </view>
+
+  <!-- 授权弹窗 -->
   <view wx:if="{{showAuthModal}}" class="auth-modal">
     <view class="auth-mask" bindtap="onCloseAuth"></view>
     <view class="auth-content">
@@ -100,34 +73,32 @@
         <text class="auth-title">完善个人信息</text>
         <text class="auth-subtitle">授权获取微信头像和昵称</text>
       </view>
-      
-      <!-- 头像选择 - 微信原生组件 -->
       <view class="avatar-wrap">
-        <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onAvatarChange">
+        <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onAvatarChange">
           <image wx:if="{{avatarUrl}}" class="avatar-img" src="{{avatarUrl}}" mode="aspectFill"/>
           <view wx:else class="avatar-placeholder">
-            <text class="avatar-icon">📷</text>
-            <text class="avatar-text">点击选择头像</text>
+            <image class="avatar-placeholder-icon" src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
+            <text>点击选择头像</text>
           </view>
         </button>
       </view>
-
-      <!-- 昵称输入 - 微信原生组件 -->
       <view class="nickname-wrap">
         <text class="nickname-label">昵称</text>
-        <input 
+        <input
           type="nickname"
           class="nickname-input"
           placeholder="请输入昵称"
           value="{{nickname}}"
-          bind:input="onNicknameInput"
+          bindinput="onNicknameInput"
         />
       </view>
-
-      <!-- 按钮 -->
       <view class="auth-btns">
-        <button class="confirm-btn {{canConfirm ? 'active' : ''}}" bindtap="onConfirmAuth">确认</button>
-        <button class="skip-btn" bindtap="onSkipAuth">跳过</button>
+        <view class="confirm-btn {{canConfirm ? 'active' : ''}}" bindtap="onConfirmAuth">
+          <text>确认</text>
+        </view>
+        <view class="skip-btn" bindtap="onSkipAuth">
+          <text>跳过</text>
+        </view>
       </view>
     </view>
   </view>

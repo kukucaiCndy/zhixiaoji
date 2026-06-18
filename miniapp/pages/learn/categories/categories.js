@@ -1,7 +1,8 @@
 var knowledgeApi = require('../../../services/knowledge-api');
 var { decorateIcon } = require('../../../utils/icon-helper');
+var theme = require('../../../utils/theme');
 
-var CHAPTER_ICON_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
+var CHAPTER_ICON_BG_COLORS = ['#2D3E5F', '#B45309', '#4B5563', '#7C3AED', '#059669', '#DC2626', '#C8B496', '#2563EB', '#D97706', '#0891B2'];
 
 var SUBJECT_STATUS_MAP = {
   'published': 'studying',
@@ -10,6 +11,7 @@ var SUBJECT_STATUS_MAP = {
 
 Page({
   data: {
+    theme: 'light',
     categoryId: '',
     categoryName: '',
     categoryIcon: '',
@@ -23,15 +25,23 @@ Page({
   },
 
   onLoad: function (options) {
-    var sysInfo = wx.getSystemInfoSync();
+    this.setData({ theme: theme.getEffectiveTheme() });
     var categoryId = options.id || '';
     var categoryName = options.name ? decodeURIComponent(options.name) : '分类详情';
+
     this.setData({
       categoryId: categoryId,
-      categoryName: categoryName,
-      statusBarHeight: sysInfo.statusBarHeight || 44
+      categoryName: categoryName
     });
     this.loadCategoryDetail(categoryId);
+  },
+
+  onShow: function () {
+    this.setData({ theme: theme.getEffectiveTheme() });
+  },
+
+  onThemeChange: function (effective) {
+    this.setData({ theme: effective });
   },
 
   loadCategoryDetail: function (categoryId) {

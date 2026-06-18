@@ -1,38 +1,44 @@
-<web-view wx:if="{{url}}" src="{{url}}" bindmessage="onMessage"></web-view>
+<view class="card-page" data-theme="{{theme}}">
+  <image class="bg-page" src="/assets/images/{{theme}}/bg/bg_page.png" mode="aspectFill" />
 
-<!-- 空状态（无 URL 且非加载中） -->
-<view wx:if="{{!url && !loading}}" class="empty-state">
-  <text class="empty-icon">📭</text>
-  <text class="empty-text">暂无内容</text>
+  <!-- Nav -->
+  <nav-bar title="{{cardTitle || '变量与数据类型'}}"></nav-bar>
+
+  <scroll-view class="card-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+    <!-- Progress -->
+    <view class="card-progress">
+      <text class="cp-text">{{currentIndex || 3}} / {{totalCount || 12}}</text>
+      <view class="cp-bar">
+        <view class="cp-bar-fill" style="width: {{(currentIndex / totalCount * 100) || 25}}%;"></view>
+      </view>
+    </view>
+
+    <!-- Card -->
+    <view class="card-main">
+      <image class="card-bg" src="/assets/images/{{theme}}/bg/bg_rec_card.png" mode="aspectFill" />
+      <view class="card-inner">
+        <view class="card-tag">
+          <text>{{cardTag || '核心概念'}}</text>
+        </view>
+        <text class="card-title">{{cardQuestion || 'let 与 const 的区别'}}</text>
+        <text class="card-desc">{{cardDescription || '在 JavaScript 中，let 和 const 都是 ES6 引入的块级作用域变量声明方式。let 允许重新赋值，而 const 声明的变量不能重新赋值（但如果是对象或数组，其内容可以修改）。'}}</text>
+        <view class="card-code">
+          <text>{{cardCode || 'let count = 0;\ncount = 1; // OK\n\nconst PI = 3.14;\nPI = 3.15; // Error!'}}</text>
+        </view>
+        <text class="card-hint">👈 向左滑动查看详细解析</text>
+      </view>
+    </view>
+
+    <view class="bottom-placeholder"></view>
+  </scroll-view>
+
+  <!-- Bottom Navigation -->
+  <view class="card-bottom">
+    <view class="cb-btn cb-btn--prev" bindtap="onPrevCard">
+      <image src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
+    </view>
+    <view class="cb-btn cb-btn--next" bindtap="onNextCard">
+      <text>下一个知识点</text>
+    </view>
+  </view>
 </view>
-
-<!-- 顶部课程圆点 -->
-<cover-view style="position:fixed; top:{{statusBarHeight}}px; left:0; width:100%; height:64rpx; display:flex; align-items:center; justify-content:center; z-index:9999;">
-  <cover-view wx:for="{{lessonDots}}" wx:key="*this" wx:for-index="idx"
-    style="width:{{idx === currentLesson ? '48rpx' : '16rpx'}}; height:16rpx; border-radius:8rpx; background:{{idx < currentLesson ? '#4F46E5' : idx === currentLesson ? '#4F46E5' : '#E2E8F0'}}; margin:0 6rpx;">
-  </cover-view>
-</cover-view>
-
-<!-- 底部操作栏 -->
-<cover-view style="position:fixed; bottom:0; left:0; right:0; height:128rpx; background:rgba(255,255,255,0.97); display:flex; align-items:center; padding:0 32rpx 40rpx; z-index:9999; box-shadow:0 -2px 8px rgba(0,0,0,0.1);">
-  <cover-view bindtap="onPrevLesson"
-    style="width:96rpx; height:96rpx; border-radius:48rpx; border:2rpx solid #E2E8F0; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-right:12rpx;">
-    <cover-view style="font-size:36rpx; color:#64748B;">‹</cover-view>
-  </cover-view>
-  <cover-view bindtap="onUnderstood"
-    style="flex:1; height:96rpx; border-radius:48rpx; background:#4F46E5; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-right:12rpx;">
-    <cover-view style="font-size:28rpx; font-weight:700; color:#FFFFFF;">✅ 理解了</cover-view>
-  </cover-view>
-  <cover-view bindtap="onHard"
-    style="flex:1; height:96rpx; border-radius:48rpx; background:#FFFFFF; border:2rpx solid #F59E0B; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-right:12rpx;">
-    <cover-view style="font-size:28rpx; font-weight:700; color:#F59E0B;">🤔 有点难</cover-view>
-  </cover-view>
-  <cover-view bindtap="onNote"
-    style="flex:1; height:96rpx; border-radius:48rpx; background:#FFFFFF; border:2rpx solid #4F46E5; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-right:12rpx;">
-    <cover-view style="font-size:28rpx; font-weight:700; color:#4F46E5;">📝 记笔记</cover-view>
-  </cover-view>
-  <cover-view bindtap="onNextLesson"
-    style="width:96rpx; height:96rpx; border-radius:48rpx; border:2rpx solid #E2E8F0; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-    <cover-view style="font-size:36rpx; color:#64748B;">›</cover-view>
-  </cover-view>
-</cover-view>

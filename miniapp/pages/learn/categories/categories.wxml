@@ -1,80 +1,44 @@
-<view class="categories-page">
-  <!-- 导航栏（适配刘海屏） -->
-  <view class="nav-container" style="padding-top: {{statusBarHeight}}px;">
-    <view class="nav-bar">
-      <view class="nav-back" bindtap="onBack">
-        <text class="back-icon">‹</text>
+<view class="cat-page" data-theme="{{theme}}">
+  <image class="bg-page" src="/assets/images/{{theme}}/bg/bg_page.png" mode="aspectFill" />
+
+  <!-- 装饰元素 -->
+  <image class="deco deco-star" src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
+  <image class="deco deco-dot" src="/assets/images/{{theme}}/deco/deco_dot.png" mode="aspectFit" />
+  <image class="deco deco-wave" src="/assets/images/{{theme}}/deco/deco_wave.png" mode="aspectFit" />
+
+  <!-- 导航栏 -->
+  <nav-bar title="全部内容"></nav-bar>
+
+  <!-- 搜索 Hero -->
+  <view class="search-hero">
+    <image class="search-hero-bg" src="/assets/images/{{theme}}/bg/bg_hero_card.png" mode="aspectFill" />
+    <view class="search-hero-inner">
+      <text class="search-hero-title">探索知识库</text>
+      <view class="search-box">
+        <text class="search-box-icon">🔍</text>
+        <text class="search-box-hint">搜索知识内容...</text>
       </view>
-      <text class="nav-title">{{categoryName}}</text>
-      <view class="nav-placeholder"></view>
     </view>
   </view>
 
-  <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}">
-    <view class="scroll-inner">
-      <!-- 分类信息横幅 -->
-      <view class="category-banner">
-        <view class="banner-left">
-          <view class="banner-icon-wrap">
-            <image wx:if="{{categoryIconType === 'image'}}" class="banner-icon banner-icon-img" src="{{categoryIcon}}" mode="aspectFit" />
-            <text wx:else class="banner-icon">{{categoryIcon}}</text>
-          </view>
+  <!-- 分类区域标题 -->
+  <view class="section-header">
+    <text class="section-title">知识分类</text>
+    <text class="section-count">{{chapters.length}} 个分类</text>
+  </view>
+
+  <!-- 分类卡片网格 -->
+  <scroll-view class="cat-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="cat-grid">
+      <view class="cat-card" wx:for="{{chapters}}" wx:key="id" bindtap="onChapterTap" data-chapter="{{item}}">
+        <view class="cat-card-icon" style="background-color: {{item.iconBg}};">
+          <image wx:if="{{item.iconType === 'image'}}" class="cat-card-icon-img" src="{{item.icon}}" mode="aspectFit" />
+          <text wx:else class="cat-card-icon-emoji">{{item.icon}}</text>
         </view>
-        <view class="banner-info">
-          <text class="banner-name">{{categoryName}}</text>
-          <text class="banner-desc">{{categoryDesc}}</text>
-          <view class="banner-stats">
-            <text class="banner-stat">{{subjectCount}}个科目</text>
-          </view>
-        </view>
+        <text class="cat-card-name">{{item.title}}</text>
+        <text class="cat-card-meta">{{item.knowledgeCount || item.sectionCount || 0}} 个知识点</text>
       </view>
-
-      <!-- 科目标题 -->
-      <view class="section-header">
-        <text class="section-title">科目</text>
-        <text class="section-count">共{{chapters.length}}个</text>
-      </view>
-
-      <!-- 科目列表 -->
-      <view class="chapter-list">
-        <view class="chapter-item" wx:for="{{chapters}}" wx:key="id" bindtap="onChapterTap" data-chapter="{{item}}">
-          <view class="chapter-icon-wrap" style="background-color: {{item.iconBg}};">
-            <image wx:if="{{item.iconType === 'image'}}" class="chapter-icon chapter-icon-img" src="{{item.icon}}" mode="aspectFit" />
-            <text wx:else class="chapter-icon">{{item.icon}}</text>
-          </view>
-          <view class="chapter-main">
-            <text class="chapter-name">{{item.title}}</text>
-          </view>
-          <view class="chapter-status" wx:if="{{item.status === 'studying'}}">
-            <text class="status-text studying">可学习</text>
-          </view>
-          <view class="chapter-status" wx:elif="{{item.status === 'locked'}}">
-            <text class="status-text locked">未发布</text>
-          </view>
-        </view>
-
-        <!-- 错误状态 -->
-        <view class="error-state" wx:if="{{error}}">
-          <text class="error-icon">⚠️</text>
-          <text class="error-text">{{errorMsg}}</text>
-          <view class="error-retry" bindtap="onRetry">
-            <text>重新加载</text>
-          </view>
-        </view>
-
-        <!-- 空状态 -->
-        <view class="empty-state" wx:elif="{{chapters.length === 0 && !loading}}">
-          <text class="empty-icon">📭</text>
-          <text class="empty-text">暂无知识章节</text>
-        </view>
-
-        <!-- 加载中 -->
-        <view class="loading-state" wx:elif="{{loading}}">
-          <text class="loading-text">加载中...</text>
-        </view>
-      </view>
-
-      <view class="bottom-placeholder"></view>
     </view>
+    <view class="bottom-placeholder"></view>
   </scroll-view>
 </view>

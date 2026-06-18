@@ -1,9 +1,11 @@
 var authService = require('../../../services/auth-service');
 var storage = require('../../../utils/storage');
 var STORAGE_KEYS = require('../../../utils/constants').STORAGE_KEYS;
+var theme = require('../../../utils/theme');
 
 Page({
   data: {
+    theme: 'light',
     current: 0,
     logging: false,
     // 授权弹窗相关
@@ -15,10 +17,19 @@ Page({
   },
 
   onLoad() {
+    this.setData({ theme: theme.getEffectiveTheme() });
     var guideShown = wx.getStorageSync(STORAGE_KEYS.GUIDE_SHOWN);
     if (guideShown) {
       this.goHome();
     }
+  },
+
+  onShow() {
+    this.setData({ theme: theme.getEffectiveTheme() });
+  },
+
+  onThemeChange(effective) {
+    this.setData({ theme: effective });
   },
 
   // 点击微信登录按钮 - 触发 chooseAvatar

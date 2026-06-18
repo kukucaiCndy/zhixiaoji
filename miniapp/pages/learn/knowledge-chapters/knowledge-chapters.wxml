@@ -1,98 +1,58 @@
-<view class="knowledge-chapters-page">
-  <!-- 导航栏（适配刘海屏） -->
-  <view class="nav-container" style="padding-top: {{statusBarHeight}}px;">
-    <view class="nav-bar">
-      <view class="nav-back" bindtap="onBack">
-        <text class="back-icon">‹</text>
+<view class="kc-page" data-theme="{{theme}}">
+  <image class="bg-page" src="/assets/images/{{theme}}/bg/bg_page.png" mode="aspectFill" />
+
+  <!-- Nav -->
+  <nav-bar title="{{subjectTitle}}"></nav-bar>
+
+  <scroll-view class="kc-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+    <!-- Header Card -->
+    <view class="kc-header-card">
+      <image class="card-bg" src="/assets/images/{{theme}}/bg/bg_rec_card.png" mode="aspectFill" />
+      <view class="kc-hc-inner">
+        <view class="kc-hc-icon" style="background-color: {{subjectIconBg}};">
+          <image wx:if="{{subjectIconType === 'image'}}" class="kc-hc-icon-img" src="{{subjectIcon}}" mode="aspectFit" />
+          <text wx:else class="kc-hc-emoji">{{subjectIcon}}</text>
+        </view>
+        <view class="kc-hc-info">
+          <text class="kc-hc-name">{{subjectTitle}}</text>
+          <text class="kc-hc-meta">{{chapterCount}}章节 · {{categoryName}}分类</text>
+        </view>
       </view>
-      <text class="nav-title">{{subjectTitle}}</text>
-      <view class="nav-placeholder"></view>
     </view>
-  </view>
 
-  <scroll-view class="scroll-content" scroll-y enhanced show-scrollbar="{{false}}" scroll-into-view="chapter-{{lastStudiedChapterId}}">
-    <view class="scroll-inner">
-      <!-- 科目头部卡片 -->
-      <view class="subject-header-card">
-        <view class="subj-header-left">
-          <view class="subj-header-icon-wrap" style="background-color: {{subjectIconBg}};">
-            <image wx:if="{{subjectIconType === 'image'}}" class="subj-header-icon subj-header-icon-img" src="{{subjectIcon}}" mode="aspectFit" />
-            <text wx:else class="subj-header-icon">{{subjectIcon}}</text>
-          </view>
-        </view>
-        <view class="subj-header-info">
-          <text class="subj-header-name">{{subjectTitle}}</text>
-          <text class="subj-header-meta">{{chapterCount}}章节 · {{categoryName}}分类</text>
-        </view>
-      </view>
-
-      <!-- 面包屑导航 -->
-      <view class="breadcrumb">
-        <text class="breadcrumb-parent">{{categoryName}} ></text>
-        <text class="breadcrumb-current">{{subjectTitle}}</text>
-      </view>
-
-      <!-- 可折叠章节列表 -->
-      <view class="chapter-collapse-list">
-        <view class="chapter-collapse-item {{item.expanded ? 'expanded' : ''}} {{item.locked ? 'locked' : ''}}" wx:for="{{chapters}}" wx:key="id" id="chapter-{{item.id}}">
-          <!-- 章节标题（点击切换折叠） -->
-          <view class="chapter-header" bindtap="onChapterTap" data-index="{{index}}">
-            <view class="chapter-header-left">
-              <view class="chapter-index-badge {{item.locked ? 'locked' : ''}}">{{index + 1}}</view>
-              <view class="chapter-header-text">
-                <text class="chapter-title">{{item.title}}</text>
-                <text class="chapter-meta" wx:if="{{item.locked}}">🔒 完成上一章后解锁</text>
-                <text class="chapter-meta" wx:elif="{{item.unlockPoints > 0}}">需 {{item.unlockPoints}} 积分解锁</text>
-              </view>
-            </view>
-            <view class="chapter-header-right">
-              <text class="chapter-toggle" wx:if="{{!item.locked}}">{{item.expanded ? '−' : '+'}}</text>
-              <text class="chapter-toggle locked" wx:else>🔒</text>
-            </view>
-          </view>
-
-          <!-- 进度背景指示（展开时显示） -->
-          <view class="chapter-progress-bg" wx:if="{{item.expanded}}" style="width: {{item.progressPercent}}%;"></view>
-
-          <!-- 课程列表（展开时显示） -->
-          <view class="lesson-list" wx:if="{{item.expanded}}">
-            <view class="lesson-item {{lesson.locked ? 'locked' : ''}}" wx:for="{{item.lessons}}" wx:for-item="lesson" wx:for-index="lessonIdx" wx:key="id" bindtap="onLessonTap" data-chapter-id="{{item.id}}" data-lesson-index="{{lessonIdx}}" data-chapter-index="{{index}}">
-              <view class="lesson-number-wrap {{lesson.locked ? 'locked' : ''}}">
-                <text class="lesson-number">{{lesson.number || (lessonIdx + 1)}}</text>
-              </view>
-              <view class="lesson-info">
-                <text class="lesson-title">{{lesson.title}}</text>
-                <text class="lesson-meta" wx:if="{{lesson.locked}}">🔒 完成前一节后解锁</text>
-                <text class="lesson-meta" wx:elif="{{lesson.unlockPoints > 0}}">需 {{lesson.unlockPoints}} 积分解锁</text>
-              </view>
-              <text class="lesson-arrow">{{lesson.locked ? '🔒' : '›'}}</text>
-            </view>
-
-            <!-- 加载中 -->
-            <view class="lesson-loading" wx:if="{{item.lessonsLoading}}">
-              <text class="lesson-loading-text">加载中...</text>
-            </view>
-
-            <!-- 空课程 -->
-            <view class="lesson-empty" wx:elif="{{item.lessons.length === 0 && !item.lessonsLoading}}">
-              <text class="lesson-empty-text">暂无课程</text>
-            </view>
-          </view>
-        </view>
-
-        <!-- 空状态 -->
-        <view class="empty-state" wx:if="{{chapters.length === 0 && !loading}}">
-          <text class="empty-icon">📭</text>
-          <text class="empty-text">暂无章节内容</text>
-        </view>
-
-        <!-- 加载中 -->
-        <view class="loading-state" wx:if="{{loading}}">
-          <text class="loading-text">加载中...</text>
-        </view>
-      </view>
-
-      <view class="bottom-placeholder"></view>
+    <!-- Breadcrumb -->
+    <view class="kc-breadcrumb">
+      <image class="kc-bc-icon" src="/assets/images/{{theme}}/deco/deco_check.png" mode="aspectFit" />
+      <text>{{categoryName}}  >  {{subjectTitle}}</text>
     </view>
+
+    <!-- Chapters -->
+    <view class="kc-chapters">
+      <view class="kc-chapter {{item.expanded ? 'kc-chapter--open' : ''}} {{item.locked ? 'kc-chapter--locked' : ''}}" wx:for="{{chapters}}" wx:key="id">
+        <image class="card-bg" src="/assets/images/{{theme}}/bg/bg_rec_card.png" mode="aspectFill" />
+        <view class="kc-ch-inner">
+          <view class="kc-ch-header" bindtap="onChapterTap" data-index="{{index}}">
+            <view class="kc-ch-num">{{index + 1}}</view>
+            <view class="kc-ch-info">
+              <text class="kc-ch-title">{{item.title}}</text>
+              <text class="kc-ch-meta" wx:if="{{item.locked}}">完成上一章后解锁</text>
+              <text class="kc-ch-meta" wx:else>{{item.lessonCount || 0}} 节</text>
+            </view>
+            <text class="kc-ch-toggle">{{item.expanded ? '−' : '+'}}</text>
+          </view>
+
+          <!-- Lessons -->
+          <view class="kc-lessons" wx:if="{{item.expanded}}">
+            <view class="kc-lesson {{lesson.locked ? 'kc-lesson--locked' : ''}}" wx:for="{{item.lessons}}" wx:for-item="lesson" wx:key="id" bindtap="onLessonTap" data-chapter-index="{{index}}" data-lesson-id="{{lesson.id}}">
+              <text class="kc-l-num">{{lesson.number || (lessonIdx + 1)}}</text>
+              <text class="kc-l-title">{{lesson.title}}</text>
+              <text class="kc-l-arrow">›</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="bottom-placeholder"></view>
   </scroll-view>
 </view>

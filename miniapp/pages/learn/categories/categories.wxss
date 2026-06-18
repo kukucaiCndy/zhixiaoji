@@ -1,298 +1,174 @@
-.categories-page {
+.cat-page {
+  position: relative;
   min-height: 100vh;
-  background: #F8FAFC;
   display: flex;
   flex-direction: column;
 }
 
-/* 导航栏容器（适配刘海屏） */
-.nav-container {
-  background: #FFFFFF;
-  border-bottom: 2rpx solid #E2E8F0;
+.bg-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-/* 导航栏 */
-.nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 88rpx;
-  padding: 0 32rpx;
+/* ===== 装饰元素 ===== */
+.deco {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
 }
+.deco-star { top: 150rpx; right: 56rpx; width: 24rpx; height: 24rpx; }
+.deco-dot  { top: 1020rpx; left: 60rpx; width: 10rpx; height: 10rpx; }
+.deco-wave { top: 800rpx; right: 56rpx; width: 36rpx; height: 12rpx; }
 
-.nav-back {
-  width: 48rpx;
-  height: 88rpx;
-  display: flex;
-  align-items: center;
-}
-
-.back-icon {
-  font-size: 36rpx;
-  color: #4F46E5;
-  font-weight: 400;
-}
-
-.nav-title {
-  font-size: 34rpx;
-  font-weight: 600;
-  color: #1E293B;
-  flex: 1;
-  text-align: center;
-}
-
-.nav-placeholder {
-  width: 48rpx;
-}
-
-/* 滚动区域 */
-.scroll-content {
-  flex: 1;
-}
-
-.scroll-inner {
-  padding: 32rpx 32rpx 0;
-}
-
-/* 分类信息横幅 — 渐变背景 */
-.category-banner {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 48rpx;
+/* ===== 搜索 Hero ===== */
+.search-hero {
+  position: relative;
+  z-index: 1;
+  margin: 32rpx 48rpx 0;
+  height: 176rpx;
   border-radius: 32rpx;
-  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
-}
-
-.banner-left {
-  margin-right: 32rpx;
-  flex-shrink: 0;
-}
-
-.banner-icon-wrap {
-  width: 128rpx;
-  height: 128rpx;
-  border-radius: 40rpx;
-  background: rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.banner-icon {
-  font-size: 64rpx;
-}
-
-.banner-icon-img {
-  width: 64rpx;
-  height: 64rpx;
-}
-
-.banner-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.banner-name {
-  font-size: 40rpx;
-  font-weight: 700;
-  color: #FFFFFF;
-  display: block;
-  margin-bottom: 8rpx;
-}
-
-.banner-desc {
-  font-size: 26rpx;
-  color: rgba(255, 255, 255, 0.85);
-  display: block;
-  margin-bottom: 16rpx;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
 }
 
-.banner-stats {
-  display: flex;
-  flex-direction: row;
-  gap: 32rpx;
-  opacity: 0.8;
+.search-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-.banner-stat {
-  font-size: 24rpx;
-  color: #FFFFFF;
+.search-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 28rpx 40rpx;
 }
 
-.banner-progress {
-  width: 128rpx;
-  height: 128rpx;
-  border-radius: 50%;
-  border: 4rpx solid rgba(255, 255, 255, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-left: 32rpx;
-}
-
-.banner-progress-text {
-  font-size: 28rpx;
+.search-hero-title {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 32rpx;
   font-weight: 700;
   color: #FFFFFF;
 }
 
-/* 分区标题 */
-.section-header {
+.search-box {
+  margin-top: 24rpx;
+  width: 574rpx;
+  height: 64rpx;
+  border-radius: 16rpx;
+  background: rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.search-box-icon {
+  font-size: 28rpx;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.search-box-hint {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 16rpx;
+}
+
+/* ===== 分类区域标题 ===== */
+.section-header {
+  position: relative;
+  z-index: 1;
+  margin: 36rpx 48rpx 24rpx;
+  display: flex;
   justify-content: space-between;
-  height: 66rpx;
-  padding: 0 0 24rpx;
+  align-items: baseline;
 }
 
 .section-title {
-  font-size: 32rpx;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 30rpx;
   font-weight: 600;
-  color: #1E293B;
+  color: var(--color-text);
 }
 
 .section-count {
-  font-size: 26rpx;
-  color: #94A3B8;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
 }
 
-/* 知识章节列表 */
-.chapter-list {
+/* ===== 滚动区域 ===== */
+.cat-scroll {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 0 48rpx;
+}
+
+.cat-grid {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 24rpx;
 }
 
-.chapter-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 32rpx;
-  border-radius: 32rpx;
-  background: #FFFFFF;
-  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.06);
+.bottom-placeholder {
+  height: 40rpx;
 }
 
-.chapter-icon-wrap {
-  width: 96rpx;
-  height: 96rpx;
+/* ===== 分类卡片 ===== */
+.cat-card {
+  width: 314rpx;
+  height: 240rpx;
   border-radius: 28rpx;
+  background: var(--color-card);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32rpx 0 0;
+  box-sizing: border-box;
+}
+
+.cat-card-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 24rpx;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-right: 28rpx;
 }
 
-.chapter-icon {
-  font-size: 48rpx;
-}
-
-.chapter-icon-img {
+.cat-card-icon-img {
   width: 48rpx;
   height: 48rpx;
 }
 
-.chapter-main {
-  flex: 1;
-  min-width: 0;
+.cat-card-icon-emoji {
+  font-size: 40rpx;
+  line-height: 1;
+  color: #FFFFFF;
 }
 
-.chapter-name {
-  font-size: 30rpx;
+.cat-card-name {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 28rpx;
   font-weight: 600;
-  color: #1E293B;
-  display: block;
-  margin-bottom: 8rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  color: var(--color-text);
+  margin-top: 24rpx;
 }
 
-.chapter-meta {
+.cat-card-meta {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 24rpx;
-  color: #94A3B8;
-  display: block;
-  margin-bottom: 12rpx;
-}
-
-.chapter-progress-bar {
-  width: 100%;
-  height: 8rpx;
-  border-radius: 4rpx;
-  background: #F1F5F9;
-  overflow: hidden;
-}
-
-.chapter-progress-fill {
-  height: 100%;
-  border-radius: 4rpx;
-  background: linear-gradient(90deg, #4F46E5 0%, #06B6D4 100%);
-}
-
-.chapter-status {
-  flex-shrink: 0;
-  margin-left: 24rpx;
-}
-
-.status-text {
-  font-size: 24rpx;
-  font-weight: 500;
-  padding: 12rpx 20rpx;
-  border-radius: 24rpx;
-}
-
-.status-text.studying {
-  color: #4F46E5;
-  background: #EEF2FF;
-}
-
-.status-text.locked {
-  color: #94A3B8;
-  background: #F1F5F9;
-}
-
-.status-text.completed {
-  color: #10B981;
-  background: #D1FAE5;
-}
-
-/* 空状态 */
-.empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 80rpx 0;
-}
-
-.empty-icon {
-  font-size: 80rpx;
-  margin-bottom: 24rpx;
-}
-
-.empty-text {
-  font-size: 28rpx;
-  color: #94A3B8;
-}
-
-/* 加载中 */
-.loading-state {
-  display: flex;
-  justify-content: center;
-  padding: 80rpx 0;
-}
-
-.loading-text {
-  font-size: 28rpx;
-  color: #94A3B8;
-}
-
-/* 底部占位 */
-.bottom-placeholder {
-  height: 80rpx;
+  color: var(--color-text-secondary);
+  margin-top: 8rpx;
 }

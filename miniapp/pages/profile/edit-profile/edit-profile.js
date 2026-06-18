@@ -1,10 +1,12 @@
 var authService = require('../../../services/auth-service');
+var theme = require('../../../utils/theme');
 
 var GENDER_MAP = { male: '男', female: '女', other: '保密' };
 var GENDER_VALUES = { '男': 'male', '女': 'female', '保密': 'other' };
 
 Page({
   data: {
+    theme: 'light',
     avatarLetter: 'J',
     avatarUrl: '',
     uploading: false,
@@ -23,8 +25,17 @@ Page({
   },
 
   onLoad() {
+    this.setData({ theme: theme.getEffectiveTheme() });
     this.initNavBar();
     this.loadUserInfo();
+  },
+
+  onShow() {
+    this.setData({ theme: theme.getEffectiveTheme() });
+  },
+
+  onThemeChange(effective) {
+    this.setData({ theme: effective });
   },
 
   initNavBar() {

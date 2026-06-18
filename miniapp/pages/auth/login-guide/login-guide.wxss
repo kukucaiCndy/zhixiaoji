@@ -1,338 +1,224 @@
 .login-page {
-  width: 100vw;
-  min-height: 100vh;
-  background: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-}
-
-/* 顶部渐变区域 */
-.header-section {
-  width: 100%;
-  height: 488rpx;
-  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
   position: relative;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
 }
 
-.status-bar {
-  height: 88rpx;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40rpx;
-  position: relative;
-  z-index: 2;
-}
-
-.time {
-  font-size: 28rpx;
-  font-family: "Microsoft YaHei";
-  font-weight: 700;
-  color: #FFFFFF;
-  line-height: 1;
-}
-
-.signal-icons {
-  display: flex;
-  gap: 12rpx;
-  align-items: flex-start;
-}
-
-.signal-bar {
-  width: 32rpx;
-  height: 20rpx;
-  border-radius: 4rpx;
-  background: rgba(255, 255, 255, 0.8);
-}
-
-.header-content {
-  position: relative;
-  height: 400rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.decoration-circle {
-  width: 400rpx;
-  height: 400rpx;
-  border-radius: 200rpx;
-  background: rgba(255, 255, 255, 0.06);
+.bg-page {
   position: absolute;
-  right: -80rpx;
-  top: -120rpx;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-.decoration-grid {
-  width: 60rpx;
-  height: 60rpx;
+/* ===== Hero 卡片 ===== */
+.hero-card {
   position: absolute;
-  right: 60rpx;
-  top: 60rpx;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12rpx;
+  left: 48rpx;
+  top: 200rpx;
+  width: 654rpx;
+  height: 480rpx;
+  border-radius: 40rpx;
+  overflow: hidden;
 }
 
-.grid-dot {
-  width: 12rpx;
-  height: 12rpx;
-  border-radius: 6rpx;
-  background: rgba(255, 255, 255, 0.2);
+.bg-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.header-icon {
+.hero-content {
   position: relative;
-  z-index: 2;
-}
-
-.book-icon {
-  font-size: 128rpx;
-  line-height: 1;
-}
-
-.decoration-circle-small {
-  width: 320rpx;
-  height: 320rpx;
-  border-radius: 160rpx;
-  background: rgba(255, 255, 255, 0.04);
-  position: absolute;
-  left: -80rpx;
-  top: 160rpx;
-}
-
-/* 内容区域 */
-.content-section {
-  flex: 1;
-  padding: 0 64rpx;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -40rpx;
-  position: relative;
-  z-index: 3;
-  background: #FFFFFF;
-  border-radius: 48rpx 48rpx 0 0;
+  justify-content: center;
+  height: 100%;
 }
 
-/* Logo */
-.logo-wrap {
-  margin-top: -72rpx;
+.hero-logo {
+  width: 96rpx;
+  height: 96rpx;
   margin-bottom: 24rpx;
 }
 
-.logo-box {
-  width: 144rpx;
-  height: 144rpx;
-  border-radius: 40rpx;
-  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
-  box-shadow: 0 16rpx 48rpx rgba(79, 70, 229, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo-text {
-  font-size: 72rpx;
-  font-family: "Microsoft YaHei";
-  font-weight: 400;
-  color: #FFFFFF;
-  line-height: 1;
-}
-
-/* 标题 */
-.title-wrap {
-  margin-bottom: 16rpx;
-}
-
-.title {
-  font-size: 52rpx;
-  font-family: "Microsoft YaHei";
+.hero-title {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 56rpx;
   font-weight: 700;
-  color: #1E293B;
+  color: #FFFFFF;
   line-height: 1.3;
-  text-align: center;
 }
 
-/* 副标题 */
-.subtitle-wrap {
+.hero-subtitle {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 12rpx;
+}
+
+/* ===== 功能特性 ===== */
+.feature-list {
+  position: absolute;
+  left: 48rpx;
+  top: 760rpx;
+  width: 654rpx;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 64rpx;
+  gap: 24rpx;
 }
 
-.subtitle {
-  font-size: 30rpx;
-  font-family: "Microsoft YaHei";
-  font-weight: 400;
-  color: #64748B;
-  line-height: 1.6;
-  text-align: center;
-}
-
-/* 功能列表 */
-.features-list {
-  width: 100%;
-  margin-bottom: 64rpx;
-}
-
-.feature-item {
+.feature-card {
+  position: relative;
+  width: 654rpx;
+  height: 144rpx;
+  border-radius: 24rpx;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  background: #F8FAFC;
-  border-radius: 24rpx;
-  padding: 24rpx;
-  margin-bottom: 28rpx;
+  padding: 32rpx;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-sm);
 }
 
-.feature-item:last-child {
-  margin-bottom: 0;
+.feature-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .feature-icon {
-  width: 72rpx;
-  height: 72rpx;
+  position: relative;
+  z-index: 1;
+  width: 80rpx;
+  height: 80rpx;
   border-radius: 20rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 24rpx;
   flex-shrink: 0;
+  margin-right: 32rpx;
 }
 
-.feature-icon text {
-  font-size: 36rpx;
-  line-height: 1;
+.feature-icon image {
+  width: 48rpx;
+  height: 48rpx;
 }
 
-.feature-icon.blue {
-  background: #EEF2FF;
-}
-
-.feature-icon.green {
-  background: #ECFDF5;
-}
-
-.feature-icon.orange {
-  background: #FFFBEB;
-}
+.feature-icon-1 { background: var(--color-surface); }
+.feature-icon-2 { background: var(--color-accent-light); }
+.feature-icon-3 { background: var(--color-divider); }
 
 .feature-text {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
+  gap: 8rpx;
 }
 
-.feature-title {
-  font-size: 28rpx;
-  font-family: "Microsoft YaHei";
-  font-weight: 400;
-  color: #1E293B;
-  line-height: 1.4;
-  margin-bottom: 8rpx;
-}
-
-.feature-desc {
-  font-size: 24rpx;
-  font-family: "Microsoft YaHei";
-  font-weight: 400;
-  color: #94A3B8;
+.feature-text text:first-child {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: var(--color-text);
   line-height: 1.4;
 }
 
-/* 微信登录按钮 */
-button.wechat-btn {
-  width: 100%;
-  height: 116rpx;
-  line-height: 116rpx;
-  background: #07C160;
-  border-radius: 48rpx;
+.feature-text text:last-child {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 26rpx;
+  font-weight: normal;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+/* ===== 登录按钮 ===== */
+.login-btn {
+  position: absolute;
+  left: 48rpx;
+  top: 1360rpx;
+  width: 654rpx;
+  height: 96rpx;
+  background: var(--color-primary);
+  border-radius: 24rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24rpx;
+  border: none;
   padding: 0;
-  border: none;
-  outline: none;
-  box-shadow: none;
+  line-height: 96rpx;
 }
 
-button.wechat-btn::after {
+.login-btn::after {
   border: none;
 }
 
-button.wechat-btn[loading] {
+.login-btn:active {
+  opacity: 0.9;
+  transform: scale(0.98);
+}
+
+.login-btn--loading {
   opacity: 0.7;
 }
 
-.wx-icon {
-  font-size: 44rpx;
-  line-height: 1;
-  margin-right: 20rpx;
-}
-
-.wx-text {
-  font-size: 32rpx;
-  font-family: "Arial";
-  font-weight: 500;
+.login-btn text {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 30rpx;
+  font-weight: 600;
   color: #FFFFFF;
   line-height: 1;
 }
 
-/* 游客按钮 */
-.guest-btn-wrap {
-  width: 100%;
-  margin-bottom: 32rpx;
-  padding: 0 0 24rpx 0;
-}
-
+/* ===== 游客按钮 ===== */
 .guest-btn {
-  width: 100%;
-  height: 110rpx;
-  background: #F8FAFC;
-  border-radius: 48rpx;
-  border: 2rpx solid #E2E8F0;
+  position: absolute;
+  left: 48rpx;
+  top: 1476rpx;
+  width: 654rpx;
+  height: 80rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
 }
 
-.guest-text {
-  font-size: 32rpx;
-  font-family: "Arial";
-  font-weight: 500;
-  color: #64748B;
-  line-height: 1;
+.guest-btn text {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: var(--color-text-secondary);
 }
 
-/* 协议 */
-.agreement {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.agreement-text {
+/* ===== 协议文本 ===== */
+.terms-text {
+  position: absolute;
+  left: 96rpx;
+  top: 1570rpx;
+  width: 560rpx;
+  text-align: center;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 24rpx;
-  font-family: "Microsoft YaHei";
-  font-weight: 400;
-  color: #94A3B8;
-  line-height: 1.6;
+  font-weight: normal;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
 }
 
-.agreement-link {
-  font-size: 24rpx;
-  font-family: "Microsoft YaHei";
-  font-weight: 400;
-  color: #4F46E5;
-  line-height: 1.6;
-  margin: 0 8rpx;
+.terms-link {
+  color: var(--color-primary);
 }
 
-/* 授权弹窗 - 匹配APP渐变紫色设计风格 */
+/* ===== 授权弹窗 ===== */
 .auth-modal {
   position: fixed;
   top: 0;
@@ -351,30 +237,17 @@ button.wechat-btn[loading] {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(8rpx);
+  background: var(--color-mask);
 }
 
 .auth-content {
   position: relative;
   width: 560rpx;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  background: var(--color-card);
   border-radius: 24rpx;
   padding: 40rpx 40rpx 32rpx;
   z-index: 1001;
-  box-shadow: 0 24rpx 80rpx rgba(79, 70, 229, 0.2);
-  overflow: hidden;
-}
-
-/* 顶部装饰条 */
-.auth-content::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6rpx;
-  background: linear-gradient(90deg, #4F46E5 0%, #06B6D4 100%);
+  box-shadow: var(--shadow-modal);
 }
 
 .auth-header {
@@ -384,39 +257,36 @@ button.wechat-btn[loading] {
 
 .auth-title {
   display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 36rpx;
   font-weight: 700;
-  color: #1E293B;
+  color: var(--color-text);
   margin-bottom: 8rpx;
-  font-family: "Microsoft YaHei";
 }
 
 .auth-subtitle {
   display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 26rpx;
-  color: #64748B;
-  font-family: "Microsoft YaHei";
+  color: var(--color-text-secondary);
 }
 
-/* 头像选择 - 完美圆形 */
+/* 头像 */
 .avatar-wrap {
   width: 160rpx;
   height: 160rpx;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+  background: var(--color-surface);
   margin: 0 auto 32rpx;
-  padding: 4rpx;
-  box-sizing: border-box;
-  box-shadow: 0 8rpx 32rpx rgba(79, 70, 229, 0.3);
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .avatar-btn {
-  width: 152rpx;
-  height: 152rpx;
+  width: 160rpx;
+  height: 160rpx;
   border-radius: 50%;
   background: transparent;
   padding: 0;
@@ -425,7 +295,6 @@ button.wechat-btn[loading] {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .avatar-btn::after {
@@ -433,113 +302,98 @@ button.wechat-btn[loading] {
 }
 
 .avatar-img {
-  width: 152rpx;
-  height: 152rpx;
+  width: 160rpx;
+  height: 160rpx;
   border-radius: 50%;
-  border: 4rpx solid #fff;
-  box-sizing: border-box;
-  display: block;
-  object-fit: cover;
 }
 
 .avatar-placeholder {
-  width: 152rpx;
-  height: 152rpx;
-  border-radius: 50%;
-  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.avatar-icon {
-  font-size: 48rpx;
-  margin-bottom: 4rpx;
+.avatar-placeholder-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-bottom: 8rpx;
 }
 
-.avatar-text {
+.avatar-placeholder text {
   font-size: 20rpx;
-  color: #94A3B8;
+  color: var(--color-text-tertiary);
 }
 
-/* 昵称输入 */
+/* 昵称 */
 .nickname-wrap {
   margin-bottom: 32rpx;
 }
 
 .nickname-label {
   display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 26rpx;
-  color: #1E293B;
-  margin-bottom: 12rpx;
   font-weight: 500;
-  font-family: "Microsoft YaHei";
+  color: var(--color-text);
+  margin-bottom: 12rpx;
 }
 
 .nickname-input {
   width: 100%;
   height: 80rpx;
-  background: #F8FAFC;
-  border: 2rpx solid #E2E8F0;
+  background: var(--color-bg);
   border-radius: 12rpx;
   padding: 0 24rpx;
   font-size: 30rpx;
-  color: #1E293B;
+  color: var(--color-text);
   box-sizing: border-box;
 }
 
-/* 按钮 - 横向排列 */
+/* 弹窗按钮 */
 .auth-btns {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   gap: 20rpx;
 }
 
 .confirm-btn {
   flex: 1;
   height: 80rpx;
-  line-height: 80rpx;
-  background: #CBD5E1;
-  color: #fff;
-  font-size: 30rpx;
-  font-weight: 600;
+  background: var(--color-surface);
   border-radius: 40rpx;
-  border: none;
-  font-family: "Microsoft YaHei";
-  transition: all 0.2s;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.confirm-btn.active {
-  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
-  box-shadow: 0 4rpx 20rpx rgba(79, 70, 229, 0.4);
+.confirm-btn text {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--color-text-tertiary);
 }
 
-.confirm-btn::after {
-  border: none;
+.confirm-btn.active {
+  background: var(--color-primary);
+}
+
+.confirm-btn.active text {
+  color: #FFFFFF;
 }
 
 .skip-btn {
   flex: 1;
   height: 80rpx;
-  line-height: 80rpx;
-  background: #F1F5F9;
-  color: #64748B;
-  font-size: 30rpx;
-  border: none;
-  font-family: "Microsoft YaHei";
+  background: var(--color-bg);
   border-radius: 40rpx;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.skip-btn::after {
-  border: none;
+.skip-btn text {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 30rpx;
+  font-weight: normal;
+  color: var(--color-text-secondary);
 }

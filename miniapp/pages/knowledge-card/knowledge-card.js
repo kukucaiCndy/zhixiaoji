@@ -1,12 +1,14 @@
 var knowledgeApi = require('../../services/knowledge-api');
 var learningApi = require('../../services/learning-api');
 var progressStore = require('../../utils/progress-store');
+var theme = require('../../utils/theme');
 var HTML_BASE = 'http://192.168.16.129:12302';
 
 var STUDY_THRESHOLD_SECONDS = 90; // 学习完成阈值（秒）
 
 Page({
   data: {
+    theme: 'light',
     url: '',
     chapterId: '',
     currentLesson: 0,
@@ -25,6 +27,7 @@ Page({
   _studyStartTime: 0,
 
   onLoad(options) {
+    this.setData({ theme: theme.getEffectiveTheme() });
     var sysInfo = wx.getSystemInfoSync();
     var chapterId = options.chapterId || '';
     var currentLesson = parseInt(options.currentLesson) || 0;
@@ -38,6 +41,14 @@ Page({
     if (chapterId) {
       this.loadLessons(chapterId, currentLesson);
     }
+  },
+
+  onShow() {
+    this.setData({ theme: theme.getEffectiveTheme() });
+  },
+
+  onThemeChange(effective) {
+    this.setData({ theme: effective });
   },
 
   onUnload() {
@@ -223,19 +234,13 @@ Page({
     console.log('[KnowledgeCard] 标记困难:', this.data.chapterId, this.data.currentLesson);
   },
 
-  onNote() {
-    wx.navigateTo({ url: '/pages/note/note' });
-  },
-
   onMessage(e) {
     var data = e.detail.data;
     if (!data || !data.length) return;
     var msg = data[data.length - 1];
     var action = msg.action;
 
-    if (action === 'note') {
-      wx.navigateTo({ url: '/pages/note/note' });
-    } else if (action === 'markUnderstood') {
+    if (action === 'markUnderstood') {
       this.onUnderstood();
     } else if (action === 'markHard') {
       this.onHard();

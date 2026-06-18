@@ -1,41 +1,52 @@
-<view class="user-setup-page">
-  <!-- 顶部标题 -->
-  <view class="header">
-    <text class="title">完善个人信息</text>
-    <text class="subtitle">设置您的昵称和头像</text>
+<view class="welcome-page" data-theme="{{theme}}">
+  <!-- 页面背景 -->
+  <image class="bg-page" src="/assets/images/{{theme}}/bg/bg_page.png" mode="aspectFill" />
+
+  <!-- 装饰元素 -->
+  <image class="deco deco-wave" src="/assets/images/{{theme}}/deco/deco_wave.png" mode="aspectFit" />
+  <image class="deco deco-star" src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
+  <image class="deco deco-dot" src="/assets/images/{{theme}}/deco/deco_dot.png" mode="aspectFit" />
+
+  <!-- 跳过按钮 -->
+  <view class="skip-btn" bindtap="onSkip">
+    <text>跳过 ›</text>
   </view>
 
-  <!-- 头像选择 -->
-  <view class="avatar-section">
-    <view class="avatar-wrap" bindtap="onChooseAvatar">
-      <image wx:if="{{avatarUrl}}" class="avatar" src="{{avatarUrl}}" mode="aspectFill"/>
-      <view wx:else class="avatar-placeholder">
-        <text class="avatar-icon">📷</text>
-        <text class="avatar-text">点击选择头像</text>
-      </view>
+  <!-- 标题区 -->
+  <view class="title-area">
+    <text class="title">欢迎来到知小记</text>
+    <text class="subtitle">选择你感兴趣的方向，\n我们为你定制学习路径</text>
+  </view>
+
+  <!-- 标签云 -->
+  <view class="tag-cloud">
+    <view class="cloud-orbit"></view>
+    <view
+      wx:for="{{tags}}"
+      wx:key="name"
+      class="tag tag-{{item.color}} {{item.selected ? 'tag-active' : ''}}"
+      style="left:{{item.x}}rpx;top:{{item.y}}rpx;"
+      data-index="{{index}}"
+      bindtap="onTagTap"
+    >
+      <image class="tag-icon" src="/assets/images/{{theme}}/deco/deco_check.png" mode="aspectFit" />
+      <text>{{item.name}}</text>
     </view>
+    <view class="orbit-dot dot-1"></view>
+    <view class="orbit-dot dot-2"></view>
+    <view class="orbit-dot dot-3"></view>
   </view>
 
-  <!-- 昵称输入 -->
-  <view class="nickname-section">
-    <text class="label">昵称</text>
-    <input 
-      class="nickname-input" 
-      placeholder="请输入昵称" 
-      value="{{nickname}}"
-      bindinput="onNicknameInput"
-      maxlength="20"
-    />
+  <!-- 选中提示 -->
+  <view class="selected-hint" wx:if="{{selectedCount > 0}}">
+    <text>已选 {{selectedCount}} 个方向</text>
   </view>
 
-  <!-- 提示信息 -->
-  <view class="tips">
-    <text class="tip-text">* 跳过将使用默认昵称</text>
+  <!-- 开始按钮 -->
+  <view class="start-btn {{selectedCount > 0 ? 'start-btn--active' : ''}}" bindtap="onStart">
+    <text>开始探索</text>
   </view>
 
-  <!-- 按钮区域 -->
-  <view class="btn-section">
-    <button class="save-btn {{canSave ? 'active' : ''}}" bindtap="onSave">保存</button>
-    <button class="skip-btn" bindtap="onSkip">跳过</button>
-  </view>
+  <!-- 底部提示 -->
+  <text class="hint-text">随时可以修改偏好</text>
 </view>

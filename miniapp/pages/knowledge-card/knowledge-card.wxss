@@ -1,23 +1,124 @@
-web-view {
-  width: 100%;
-  height: 100%;
-}
-
-/* 空状态 / 加载中 */
-.empty-state {
+.card-page {
+  position: relative;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
 }
 
-.empty-icon {
-  font-size: 80rpx;
+.bg-page { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+.card-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+/* ===== Scroll ===== */
+.card-scroll { position: relative; z-index: 1; flex: 1; padding: 0 48rpx; }
+.bottom-placeholder { height: 180rpx; }
+
+/* ===== Progress ===== */
+.card-progress {
+  margin-top: 24rpx;
+}
+
+.cp-text {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 26rpx; font-weight: 500; color: var(--color-text-secondary);
+}
+
+.cp-bar {
+  width: 100%; height: 12rpx; border-radius: 6rpx;
+  background: var(--color-divider); margin-top: 12rpx; overflow: hidden;
+}
+
+.cp-bar-fill {
+  height: 100%; border-radius: 6rpx; background: var(--color-primary);
+  transition: width 0.3s;
+}
+
+/* ===== Main Card ===== */
+.card-main {
+  position: relative; margin-top: 24rpx;
+  border-radius: 32rpx; overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.card-inner {
+  position: relative; z-index: 1; padding: 48rpx;
+}
+
+.card-tag {
+  display: inline-flex; align-items: center;
+  height: 48rpx; padding: 0 24rpx;
+  border-radius: 24rpx; background: var(--color-surface);
   margin-bottom: 24rpx;
 }
 
-.empty-text {
-  font-size: 28rpx;
-  color: #94A3B8;
+.card-tag text {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 24rpx; font-weight: 500; color: var(--color-primary);
+}
+
+.card-title {
+  display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 44rpx; font-weight: 700; color: var(--color-text); line-height: 1.3;
+  margin-bottom: 24rpx;
+}
+
+.card-desc {
+  display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 28rpx; color: var(--color-text-secondary); line-height: 1.6;
+  margin-bottom: 24rpx;
+}
+
+.card-code {
+  background: var(--color-bg); border-radius: 16rpx; padding: 32rpx;
+  margin-bottom: 24rpx;
+}
+
+.card-code text {
+  font-family: "Courier New", monospace;
+  font-size: 24rpx; color: var(--color-text); line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.card-hint {
+  display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 24rpx; color: var(--color-accent);
+}
+
+/* ===== Bottom ===== */
+.card-bottom {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex; align-items: center; gap: 32rpx;
+  padding: 32rpx 48rpx;
+  padding-bottom: calc(32rpx + env(safe-area-inset-bottom));
+  background: rgba(244, 242, 239, 0.97);
+  backdrop-filter: blur(10rpx);
+}
+
+[data-theme="dark"] .card-bottom {
+  background: rgba(31, 27, 22, 0.97);
+}
+
+.cb-btn {
+  display: flex; align-items: center; justify-content: center;
+}
+
+.cb-btn--prev {
+  width: 96rpx; height: 96rpx; border-radius: 48rpx;
+  background: var(--color-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.cb-btn--prev image { width: 32rpx; height: 32rpx; }
+
+.cb-btn--next {
+  flex: 1; height: 96rpx; border-radius: 24rpx;
+  background: var(--color-primary);
+}
+
+.cb-btn--next text {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 28rpx; font-weight: 600; color: #FFFFFF;
 }

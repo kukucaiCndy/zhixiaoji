@@ -1,55 +1,48 @@
 var STORAGE_KEYS = require('../../utils/constants').STORAGE_KEYS;
+var theme = require('../../utils/theme');
 
 Page({
   data: {
-    countdown: 5,
-    timer: null
+    theme: 'light',
+    loadProgress: 0
   },
+
+  _timer: null,
 
   onLoad() {
-    this.startCountdown();
+    this.setData({ theme: theme.getEffectiveTheme() });
+    this.animateLoad();
   },
 
-  onUnload() {
-    this.clearTimer();
+  onThemeChange(effective) {
+    this.setData({ theme: effective });
   },
 
-  startCountdown() {
-    this.data.timer = setInterval(() => {
-      const count = this.data.countdown - 1;
-      if (count <= 0) {
-        this.clearTimer();
-        this.goToNextPage();
+  animateLoad() {
+    var self = this;
+    var progress = 0;
+    self._timer = setInterval(function () {
+      progress += Math.random() * 15 + 5;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(self._timer);
+        self.setData({ loadProgress: 100 });
+        setTimeout(function () {
+          self.navigateNext();
+        }, 300);
       } else {
-        this.setData({ countdown: count });
+        self.setData({ loadProgress: Math.min(progress, 100) });
       }
-    }, 1000);
+    }, 200);
   },
 
-  clearTimer() {
-    if (this.data.timer) {
-      clearInterval(this.data.timer);
-      this.setData({ timer: null });
-    }
-  },
-
-  onSkip() {
-    this.clearTimer();
-    this.goToNextPage();
-  },
-
-  onAdClick() {
-    this.clearTimer();
-    wx.showToast({ title: '跳转广告页面', icon: 'none' });
-  },
-
-  goToNextPage() {
-    const guideShown = wx.getStorageSync(STORAGE_KEYS.GUIDE_SHOWN);
-    
-    if (!guideShown) {
-      wx.reLaunch({ url: '/pages/auth/login-guide/login-guide' });
-    } else {
+  navigateNext() {
+    var guideShown = false;
+    try { guideShown = wx.getStorageSync(STORAGE_KEYS.GUIDE_SHOWN); } catch (e) {}
+    if (guideShown) {
       wx.reLaunch({ url: '/pages/home/home' });
+    } else {
+      wx.reLaunch({ url: '/pages/auth/login-guide/login-guide' });
     }
   }
 });

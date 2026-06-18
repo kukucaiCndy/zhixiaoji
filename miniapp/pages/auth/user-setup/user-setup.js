@@ -1,163 +1,140 @@
-const authService = require('../../../services/auth-service');
-const storage = require('../../../utils/storage');
+var STORAGE_KEYS = require('../../../utils/constants').STORAGE_KEYS;
+var theme = require('../../../utils/theme');
+
+var TAG_DATA = [
+  { name: 'Python', color: 'blue' },
+  { name: 'JavaScript', color: 'warm' },
+  { name: 'TypeScript', color: 'blue' },
+  { name: 'React', color: 'blue' },
+  { name: 'Vue', color: 'green' },
+  { name: '前端开发', color: 'blue' },
+  { name: 'CSS', color: 'purple' },
+  { name: 'HTML', color: 'warm' },
+  { name: '后端开发', color: 'gray' },
+  { name: '计算机基础', color: 'gray' },
+  { name: '算法', color: 'purple' },
+  { name: '数据结构', color: 'gray' },
+  { name: 'SQL', color: 'green' },
+  { name: 'Git', color: 'purple' },
+  { name: 'Node.js', color: 'green' },
+  { name: 'Go', color: 'blue' },
+  { name: 'Rust', color: 'warm' },
+  { name: 'Java', color: 'warm' },
+  { name: '机器学习', color: 'purple' },
+  { name: 'AI', color: 'purple' },
+  { name: '云计算', color: 'gray' },
+  { name: '测试', color: 'green' },
+  { name: 'Docker', color: 'blue' },
+  { name: 'Linux', color: 'gray' },
+  { name: '网络安全', color: 'warm' }
+];
+
+// 预计算标签位置（椭圆形分布）
+function buildTagPositions() {
+  var cx = 327;  // cloud center x (rpx)
+  var cy = 340;  // cloud center y (rpx)
+  var rx = 280;  // ellipse radius x
+  var ry = 260;  // ellipse radius y
+
+  var tags = [];
+  for (var i = 0; i < TAG_DATA.length; i++) {
+    var angle = (i / TAG_DATA.length) * Math.PI * 2 - Math.PI / 2;
+    // 添加一些随机偏移
+    var jitter = (Math.random() - 0.5) * 60;
+    var x = cx + Math.cos(angle) * rx + jitter;
+    var y = cy + Math.sin(angle) * ry + (Math.random() - 0.5) * 40;
+    // 将标签中心对齐
+    x = Math.round(x - 60);
+    y = Math.round(y - 30);
+
+    tags.push({
+      name: TAG_DATA[i].name,
+      color: TAG_DATA[i].color,
+      x: Math.max(0, Math.min(x, 550)),
+      y: Math.max(0, Math.min(y, 680)),
+      selected: false
+    });
+  }
+  return tags;
+}
 
 Page({
   data: {
-    avatarUrl: '',
-    nickname: '',
-    canSave: false,
-    openid: ''
+    theme: 'light',
+    tags: [],
+    selectedCount: 0
   },
 
-  onLoad(options) {
-    // 获取 openid 用于生成默认昵称
-    const userInfo = storage.getUserInfo();
-    const openid = userInfo && userInfo.openid ? userInfo.openid : '';
-    this.setData({ openid });
-  },
+  _selectedNames: {},
 
-  // 选择头像
-  onChooseAvatar() {
-    const that = this;
-    wx.chooseMedia({
-      count: 1,
-      mediaType: ['image'],
-      sourceType: ['album', 'camera'],
-      success(res) {
-        const tempFilePath = res.tempFiles[0].tempFilePath;
-        that.setData({
-          avatarUrl: tempFilePath
-        });
-        that.checkCanSave();
+  onLoad() {
+    this.setData({ theme: theme.getEffectiveTheme() });
+    var saved;
+    try { saved = wx.getStorageSync(STORAGE_KEYS.USER_PREFERENCES); } catch (e) {}
+    if (!saved || !saved.length) saved = ['Python'];
+    var sel = {};
+    saved.forEach(function (k) { sel[k] = true; });
+    this._selectedNames = sel;
+
+    var tags = buildTagPositions();
+    for (var i = 0; i < tags.length; i++) {
+      if (sel[tags[i].name]) {
+        tags[i].selected = true;
       }
-    });
-  },
-
-  // 输入昵称
-  onNicknameInput(e) {
-    this.setData({
-      nickname: e.detail.value
-    });
-    this.checkCanSave();
-  },
-
-  // 检查是否可以保存
-  checkCanSave() {
-    const { nickname, avatarUrl } = this.data;
-    this.setData({
-      canSave: nickname.trim().length > 0 || avatarUrl.length > 0
-    });
-  },
-
-  // 保存用户信息
-  onSave() {
-    const { nickname, avatarUrl } = this.data;
-    
-    if (!nickname.trim() && !avatarUrl) {
-      wx.showToast({ title: '请至少填写一项', icon: 'none' });
-      return;
     }
+    this.setData({ tags: tags });
+    this.updateCount();
+  },
 
-    wx.showLoading({ title: '保存中...' });
+  onShow() {
+    this.setData({ theme: theme.getEffectiveTheme() });
+  },
 
-    // 如果有头像，先上传头像
-    if (avatarUrl) {
-      this.uploadAvatarAndSave(avatarUrl, nickname.trim());
+  onThemeChange(effective) {
+    this.setData({ theme: effective });
+  },
+
+  onTagTap(e) {
+    var index = e.currentTarget.dataset.index;
+    var name = TAG_DATA[index].name;
+    if (this._selectedNames[name]) {
+      delete this._selectedNames[name];
     } else {
-      // 只更新昵称
-      this.updateProfile(nickname.trim(), null);
-    }
-  },
-
-  // 上传头像并保存
-  uploadAvatarAndSave(tempPath, nickname) {
-    const that = this;
-    wx.showLoading({ title: '上传头像中...' });
-    var userInfo = storage.getUserInfo();
-    var userId = userInfo && userInfo.id;
-    authService.uploadAvatar(tempPath, userId).then(function (uploadRes) {
-      if (uploadRes.success) {
-        that.updateProfile(nickname, uploadRes.data.url);
-      } else {
-        wx.hideLoading();
-        wx.showToast({ title: uploadRes.message || '头像上传失败', icon: 'none' });
-      }
-    }).catch(function () {
-      wx.hideLoading();
-      wx.showToast({ title: '头像上传失败', icon: 'none' });
-    });
-  },
-
-  // 更新用户资料到后端
-  updateProfile(nickname, avatarUrl) {
-    const that = this;
-    const userInfo = storage.getUserInfo();
-    const userId = userInfo && userInfo.id;
-
-    if (!userId) {
-      wx.hideLoading();
-      wx.showToast({ title: '用户ID不存在', icon: 'none' });
-      return;
+      this._selectedNames[name] = true;
     }
 
-    const updateData = {};
-    if (nickname) updateData.nickname = nickname;
+    var tags = this.data.tags;
+    tags[index].selected = !tags[index].selected;
+    this.setData({ tags: tags });
+    this.updateCount();
 
-    authService.updateUser(userId, updateData)
-      .then(function(result) {
-        wx.hideLoading();
-        if (result.success) {
-          getApp().setUserInfo(result.data);
-          
-          wx.showToast({ title: '保存成功', icon: 'success' });
-          getApp().loadUserInfo().then(function () {
-            that.goHome();
-          });
-        } else {
-          wx.showToast({ title: result.message || '保存失败', icon: 'none' });
-        }
-      })
-      .catch(function() {
-        wx.hideLoading();
-        wx.showToast({ title: '网络异常', icon: 'none' });
-      });
+    var sel = [];
+    for (var k in this._selectedNames) {
+      if (this._selectedNames[k]) sel.push(k);
+    }
+    wx.setStorageSync(STORAGE_KEYS.USER_PREFERENCES, sel);
   },
 
-  // 跳过设置
+  updateCount() {
+    var count = 0;
+    for (var k in this._selectedNames) {
+      if (this._selectedNames[k]) count++;
+    }
+    this.setData({ selectedCount: count });
+  },
+
   onSkip() {
-    const { openid } = this.data;
-    // 生成默认昵称：用户 + openid前6位
-    const defaultNickname = '用户' + (openid ? openid.substring(0, 6) : '000000');
-    
-    wx.showLoading({ title: '设置中...' });
-    
-    const userInfo = storage.getUserInfo();
-    const userId = userInfo && userInfo.id;
-    
-    if (userId) {
-      authService.updateUser(userId, { nickname: defaultNickname })
-        .then(function (result) {
-          if (result.success) {
-            getApp().setUserInfo(result.data);
-          } else {
-            var newUserInfo = Object.assign({}, userInfo, { nickname: defaultNickname, avatarUrl: null });
-            getApp().setUserInfo(newUserInfo);
-          }
-        })
-        .finally(() => {
-          wx.hideLoading();
-          this.goHome();
-        });
-    } else {
-      wx.hideLoading();
-      this.goHome();
-    }
+    wx.setStorageSync(STORAGE_KEYS.GUIDE_SHOWN, true);
+    wx.reLaunch({ url: '/pages/home/home' });
   },
 
-  // 跳转到首页
-  goHome() {
-    wx.switchTab({
-      url: '/pages/home/home'
-    });
+  onStart() {
+    var sel = [];
+    for (var k in this._selectedNames) {
+      if (this._selectedNames[k]) sel.push(k);
+    }
+    wx.setStorageSync(STORAGE_KEYS.USER_PREFERENCES, sel);
+    wx.setStorageSync(STORAGE_KEYS.GUIDE_SHOWN, true);
+    wx.reLaunch({ url: '/pages/home/home' });
   }
 });

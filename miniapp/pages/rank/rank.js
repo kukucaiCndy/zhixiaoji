@@ -1,5 +1,8 @@
+var theme = require('../../utils/theme');
+
 Page({
   data: {
+    theme: 'light',
     currentTab: 'score',
     myRank: {
       initial: 'J',
@@ -11,7 +14,16 @@ Page({
   },
 
   onLoad() {
+    this.setData({ theme: theme.getEffectiveTheme() });
     this.loadRankData('score');
+  },
+
+  onShow() {
+    this.setData({ theme: theme.getEffectiveTheme() });
+  },
+
+  onThemeChange(effective) {
+    this.setData({ theme: effective });
   },
 
   loadRankData(tab) {

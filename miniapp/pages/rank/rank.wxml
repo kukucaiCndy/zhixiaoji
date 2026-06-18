@@ -1,70 +1,60 @@
-<view class="rank-page">
-  <view class="status-bar">
-    <text class="time">9:41</text>
-    <view class="status-icons">
-      <view class="signal-bar"></view>
-      <view class="signal-bar"></view>
-      <view class="signal-bar"></view>
-    </view>
-  </view>
+<view class="rank-page" data-theme="{{theme}}">
+  <image class="bg-page" src="/assets/images/{{theme}}/bg/bg_page.png" mode="aspectFill" />
 
-  <view class="nav-bar">
-    <view class="back-btn" bindtap="onBack">
-      <text class="back-icon">←</text>
-    </view>
-    <text class="nav-title">排行榜</text>
-    <view class="nav-my-rank" bindtap="onMyRank">
-      <text>我的排名</text>
-    </view>
-  </view>
+  <!-- Nav -->
+  <nav-bar title="排行榜"></nav-bar>
 
-  <view class="tab-bar">
-    <view class="tab-item {{currentTab === 'score' ? 'active' : ''}}" bindtap="onTabChange" data-tab="score">
-      <text>积分榜</text>
-    </view>
-    <view class="tab-item {{currentTab === 'checkin' ? 'active' : ''}}" bindtap="onTabChange" data-tab="checkin">
-      <text>打卡榜</text>
-    </view>
-    <view class="tab-item {{currentTab === 'accuracy' ? 'active' : ''}}" bindtap="onTabChange" data-tab="accuracy">
-      <text>正确率</text>
-    </view>
-    <view class="tab-item {{currentTab === 'favorite' ? 'active' : ''}}" bindtap="onTabChange" data-tab="favorite">
-      <text>收藏榜</text>
-    </view>
-    <view class="tab-item {{currentTab === 'duration' ? 'active' : ''}}" bindtap="onTabChange" data-tab="duration">
-      <text>时长榜</text>
-    </view>
-  </view>
-
-  <view class="my-rank-card">
-    <view class="my-rank-pos">12</view>
-    <view class="my-rank-avatar">
-      <text class="my-rank-avatar-text">{{myRank.initial || 'J'}}</text>
-    </view>
-    <view class="my-rank-info">
-      <text class="my-rank-name">{{myRank.name || 'Jesse'}}（你）</text>
-      <text class="my-rank-change">较上周上升 3 名 ↑</text>
-    </view>
-    <text class="my-rank-score">{{myRank.score || '1,280'}}</text>
-  </view>
-
-  <view class="rank-list">
-    <view class="rank-item" wx:for="{{rankList}}" wx:key="id">
-      <view class="ri-pos {{item.pos <= 3 ? 'ri-pos-top' : 'ri-pos-normal'}}">
-        <text>{{item.pos}}</text>
+  <!-- Top 3 -->
+  <view class="top3">
+    <!-- 2nd Place -->
+    <view class="top-item top-2">
+      <image class="top-bg" src="/assets/images/{{theme}}/bg/bg_rec_card.png" mode="aspectFill" />
+      <view class="top-badge top-badge--silver">2</view>
+      <view class="top-avatar top-avatar--2">
+        <image src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
       </view>
-      <view class="ri-avatar" style="background: {{item.avatarBg}};">
-        <text>{{item.initial}}</text>
+      <text class="top-name">{{topList[1].name || '小明'}}</text>
+      <text class="top-score">{{topList[1].score || '1250'}}</text>
+    </view>
+
+    <!-- 1st Place -->
+    <view class="top-item top-1">
+      <view class="top-badge top-badge--gold">1</view>
+      <view class="top-avatar top-avatar--1">
+        <image src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
       </view>
-      <view class="ri-info">
-        <view class="ri-name">
-          <text>{{item.name}}</text>
-          <text class="ri-badge" wx:if="{{item.badge}}" style="background: {{item.badgeBg}}; color: {{item.badgeColor}};">{{item.badge}}</text>
+      <text class="top-name top-name--1">{{topList[0].name || '学霸'}}</text>
+      <text class="top-score top-score--1">{{topList[0].score || '1580'}}</text>
+    </view>
+
+    <!-- 3rd Place -->
+    <view class="top-item top-3">
+      <image class="top-bg" src="/assets/images/{{theme}}/bg/bg_rec_card.png" mode="aspectFill" />
+      <view class="top-badge top-badge--bronze">3</view>
+      <view class="top-avatar top-avatar--3">
+        <image src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
+      </view>
+      <text class="top-name">{{topList[2].name || '小红'}}</text>
+      <text class="top-score">{{topList[2].score || '980'}}</text>
+    </view>
+  </view>
+
+  <!-- List title -->
+  <text class="section-title">完整排名</text>
+
+  <!-- Rank List -->
+  <scroll-view class="rank-scroll" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="rank-item {{item.isMe ? 'rank-item--me' : ''}}" wx:for="{{rankList}}" wx:key="id">
+      <image wx:if="{{!item.isMe}}" class="rank-item-bg" src="/assets/images/{{theme}}/bg/bg_rec_card.png" mode="aspectFill" />
+      <view class="rank-item-inner">
+        <text class="rank-pos">{{item.pos}}</text>
+        <view class="rank-avatar">
+          <image src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
         </view>
-        <text class="ri-meta">{{item.meta}}</text>
+        <text class="rank-name">{{item.name}}</text>
+        <text class="rank-score">{{item.score}}</text>
       </view>
-      <text class="ri-score" style="color: {{item.pos === 1 ? '#4F46E5' : '#1C1C1E'}};">{{item.score}}</text>
-      <text class="ri-trend {{item.trend === 'up' ? 'trend-up' : item.trend === 'down' ? 'trend-down' : 'trend-flat'}}">{{item.trendIcon}}</text>
     </view>
-  </view>
+    <view class="bottom-placeholder"></view>
+  </scroll-view>
 </view>

@@ -1,118 +1,38 @@
-<view class="wrong-page">
-  <view class="status-bar">
-    <text class="time">9:41</text>
-    <view class="status-icons">
-      <view class="signal-bar"></view>
-      <view class="signal-bar"></view>
-      <view class="signal-bar"></view>
+<view class="wrong-page" data-theme="{{theme}}">
+  <image class="bg-page" src="/assets/images/{{theme}}/bg/bg_page.png" mode="aspectFill" />
+
+  <!-- Nav -->
+  <nav-bar title="错题本"></nav-bar>
+
+  <!-- Stats -->
+  <view class="stats-row">
+    <view class="stat-card stat-card--red">
+      <image class="stat-bg" src="/assets/images/{{theme}}/bg/bg_rec_card.png" mode="aspectFill" />
+      <text class="stat-num">{{totalWrong || 23}}</text>
+      <text class="stat-label">累计错题</text>
+    </view>
+    <view class="stat-card stat-card--amber">
+      <image class="stat-bg" src="/assets/images/{{theme}}/bg/bg_rec_card.png" mode="aspectFill" />
+      <text class="stat-num">{{pendingCount || 5}}</text>
+      <text class="stat-label">待复习</text>
     </view>
   </view>
 
-  <view class="nav-bar">
-    <view class="back-btn" bindtap="onBack">
-      <text class="back-icon">←</text>
-    </view>
-    <text class="nav-title">错题本</text>
-    <view class="nav-analysis" bindtap="onWeaknessAnalysis">
-      <text>📊 薄弱分析</text>
-    </view>
-  </view>
+  <!-- Section title -->
+  <text class="section-title">错题记录</text>
 
-  <view class="stats-card">
-    <view class="stats-row">
-      <view class="stats-left">
-        <text class="stats-big-num">{{totalWrong || 23}}</text>
-        <text class="stats-big-label">道错题</text>
-      </view>
-      <view class="stats-right">
-        <view class="stats-item">
-          <text class="stats-item-num">{{pendingCount}}</text>
-          <text class="stats-item-label">待重练</text>
-        </view>
-        <view class="stats-item">
-          <text class="stats-item-num">{{masteredCount || 8}}</text>
-          <text class="stats-item-label">已掌握</text>
-        </view>
-        <view class="stats-item">
-          <text class="stats-item-num">{{newWrongCount || 3}}</text>
-          <text class="stats-item-label">新错题</text>
-        </view>
-      </view>
-    </view>
-  </view>
-
-  <view class="filter-section">
-    <scroll-view class="filter-scroll" scroll-x enhanced show-scrollbar="{{false}}">
-      <view class="filter-item {{currentFilter === 'all' ? 'active' : ''}}" bindtap="onFilter" data-filter="all">
-        <text>全部</text>
-      </view>
-      <view class="filter-item {{currentFilter === 'html' ? 'active' : ''}}" bindtap="onFilter" data-filter="html">
-        <text>HTML</text>
-      </view>
-      <view class="filter-item {{currentFilter === 'css' ? 'active' : ''}}" bindtap="onFilter" data-filter="css">
-        <text>CSS</text>
-      </view>
-      <view class="filter-item {{currentFilter === 'js' ? 'active' : ''}}" bindtap="onFilter" data-filter="js">
-        <text>JavaScript</text>
-      </view>
-      <view class="filter-item {{currentFilter === 'framework' ? 'active' : ''}}" bindtap="onFilter" data-filter="framework">
-        <text>框架</text>
-      </view>
-      <view class="filter-item {{currentFilter === 'pending' ? 'active' : ''}}" bindtap="onFilter" data-filter="pending">
-        <text>待重练</text>
-      </view>
-      <view class="filter-item {{currentFilter === 'mastered' ? 'active' : ''}}" bindtap="onFilter" data-filter="mastered">
-        <text>已掌握</text>
-      </view>
-    </scroll-view>
-  </view>
-
-  <view class="wrong-list">
+  <!-- List -->
+  <scroll-view class="list-scroll" scroll-y enhanced show-scrollbar="{{false}}">
     <view class="wrong-card" wx:for="{{wrongQuestions}}" wx:key="id">
-      <view class="wc-header">
-        <view class="wc-tag">
-          <text>❌ 选错</text>
-        </view>
-        <text class="wc-date">{{item.date}}</text>
-      </view>
-      <view class="wc-question">
-        <text>{{item.question}}</text>
-      </view>
-      <view class="wc-answers">
-        <view class="wc-answer wrong-bg">
-          <text class="wa-label">你的答案</text>
-          <text class="wa-text red">{{item.wrongAnswer}}</text>
-        </view>
-        <view class="wc-answer correct-bg">
-          <text class="wa-label">正确答案</text>
-          <text class="wa-text green">{{item.correctAnswer}}</text>
-        </view>
-      </view>
-      <view class="wc-knowledge">
-        <text class="wk-label">📖 关联知识点：</text>
-        <view class="wk-tags">
-          <view class="wk-tag" wx:for="{{item.knowledgeTags}}" wx:key="*this" wx:for-item="tag">
-            <text>{{tag}}</text>
-          </view>
-        </view>
-      </view>
-      <view class="wc-footer" wx:if="{{item.practiced}}">
-        <text class="wf-status">✓ 已重练 {{item.retryCount}} 次，正确率 {{item.accuracy}}%</text>
-        <view class="wf-btn" bindtap="onRetryQuestion" data-id="{{item.id}}">
-          <text>再次练习</text>
+      <image class="card-bg" src="/assets/images/{{theme}}/bg/bg_progress_card.png" mode="aspectFill" />
+      <view class="card-inner">
+        <text class="card-question">{{item.question}}</text>
+        <view class="card-meta">
+          <text class="card-tag">{{item.tag || 'JavaScript'}}</text>
+          <text class="card-date">{{item.date}}</text>
         </view>
       </view>
     </view>
     <view class="bottom-placeholder"></view>
-  </view>
-
-  <view class="retry-bar">
-    <view class="rb-info">
-      <text class="rb-num">{{pendingCount}} 道错题待重练</text>
-      <text class="rb-label">点击开始练习，巩固薄弱知识点</text>
-    </view>
-    <view class="rb-btn" bindtap="onStartRetry">
-      <text>开始重练</text>
-    </view>
-  </view>
+  </scroll-view>
 </view>

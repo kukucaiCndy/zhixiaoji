@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "学习",
+  "navigationStyle": "custom",
   "usingComponents": {
     "tab-bar": "/components/tab-bar/tab-bar"
   }

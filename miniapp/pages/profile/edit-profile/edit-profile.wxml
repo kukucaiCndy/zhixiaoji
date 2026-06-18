@@ -1,95 +1,55 @@
-<view class="edit-page">
-  <view class="nav-header" style="padding-top: {{statusBarHeight}}px;">
-    <view class="nav-bar" style="height: {{navBarHeight}}px;">
-      <view class="back-btn" bindtap="onBack">
-        <text class="back-icon">‹</text>
-      </view>
-      <text class="nav-title">编辑资料</text>
-      <view class="nav-placeholder"></view>
-    </view>
-  </view>
+<view class="edit-page" data-theme="{{theme}}">
+  <!-- 页面背景 -->
+  <image class="bg-page" src="/assets/images/{{theme}}/bg/bg_page.png" mode="aspectFill" />
 
+  <!-- 装饰元素 -->
+  <image class="deco deco-star" src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
+  <image class="deco deco-dot" src="/assets/images/{{theme}}/deco/deco_dot.png" mode="aspectFit" />
+
+  <!-- 导航栏 -->
+  <nav-bar title="编辑资料"></nav-bar>
+
+  <!-- 头像区域 -->
   <view class="avatar-section" bindtap="onChooseAvatar">
-    <view class="avatar">
+    <view class="avatar-wrap">
       <image wx:if="{{avatarUrl}}" class="avatar-img" src="{{avatarUrl}}" mode="aspectFill" />
-      <view wx:if="{{uploading}}" class="avatar-mask">
-        <view class="avatar-spinner"></view>
+      <view wx:else class="avatar-placeholder">
+        <view class="user-icon">
+          <view class="user-icon-head"></view>
+          <view class="user-icon-body"></view>
+        </view>
       </view>
-      <text wx:elif="{{!avatarUrl}}" class="avatar-text">{{avatarLetter || 'J'}}</text>
+      <!-- 相机徽章 -->
+      <view class="camera-badge">
+        <view class="camera-body">
+          <view class="camera-lens"></view>
+        </view>
+      </view>
     </view>
     <text class="avatar-hint">点击更换头像</text>
   </view>
 
-  <view class="section-title">账号</view>
+  <!-- 分区标题 -->
+  <text class="section-title">个人信息</text>
 
-  <view class="setting-group">
-    <view class="setting-item" bindtap="onEditNickname">
-      <view class="setting-icon gray-bg"><text>👤</text></view>
-      <view class="setting-info">
-        <text class="setting-name">昵称</text>
-      </view>
-      <text class="setting-value">{{nickname || 'Jesse'}}</text>
-      <text class="arrow">›</text>
+  <!-- 表单 -->
+  <view class="form">
+    <view class="form-item" bindtap="onEditNickname" data-field="nickname">
+      <text class="form-label">昵称</text>
+      <text class="form-value">{{nickname || '学习者'}}</text>
     </view>
-    <view class="setting-item" bindtap="onEditBio">
-      <view class="setting-icon yellow-bg"><text>🏅</text></view>
-      <view class="setting-info">
-        <text class="setting-name">个性签名</text>
-      </view>
-      <text class="setting-value">{{bio || '努力学习前端中...'}}</text>
-      <text class="arrow">›</text>
+    <view class="form-item" bindtap="onEditBio" data-field="bio">
+      <text class="form-label">个人简介</text>
+      <text class="form-value">{{bio || '热爱学习，不断进步'}}</text>
+    </view>
+    <view class="form-item">
+      <text class="form-label">手机号</text>
+      <text class="form-value">138****8888</text>
     </view>
   </view>
 
-  <view class="section-title">个人信息</view>
-
-  <view class="setting-group">
-    <view class="setting-item" bindtap="onEditGender">
-      <view class="setting-icon purple-bg"><text>📅</text></view>
-      <view class="setting-info">
-        <text class="setting-name">性别</text>
-      </view>
-      <text class="setting-value">{{genderDisplay || '男'}}</text>
-      <text class="arrow">›</text>
-    </view>
-    <picker mode="date" value="{{birthday}}" start="1900-01-01" end="2099-12-31" bindchange="onBirthdayChange">
-      <view class="setting-item">
-        <view class="setting-icon cyan-bg"><text>📆</text></view>
-        <view class="setting-info">
-          <text class="setting-name">生日</text>
-        </view>
-        <text class="setting-value">{{birthday || '1998-06-15'}}</text>
-        <text class="arrow">›</text>
-      </view>
-    </picker>
-    <view class="setting-item" bindtap="onEditEmail">
-      <view class="setting-icon green-bg"><text>📬</text></view>
-      <view class="setting-info">
-        <text class="setting-name">邮箱</text>
-      </view>
-      <text class="setting-value">{{email || '未设置'}}</text>
-      <text class="arrow">›</text>
-    </view>
-    <picker mode="region" value="{{addressRegion}}" bindchange="onLocationChange">
-      <view class="setting-item">
-        <view class="setting-icon gray-bg"><text>🌍</text></view>
-        <view class="setting-info">
-          <text class="setting-name">所在地</text>
-        </view>
-        <text class="setting-value">{{address || '广东深圳'}}</text>
-        <text class="arrow">›</text>
-      </view>
-    </picker>
-  </view>
-
-  <view class="bottom-action">
-    <view class="bottom-save-btn" bindtap="onSave">
-      <text wx:if="{{!saving}}" class="bottom-save-text">保存</text>
-      <view wx:else class="bottom-save-loading">
-        <view class="bottom-save-loading-dot"></view>
-        <view class="bottom-save-loading-dot"></view>
-        <view class="bottom-save-loading-dot"></view>
-      </view>
-    </view>
+  <!-- 保存按钮 -->
+  <view class="save-btn" bindtap="onSave">
+    <text class="save-btn-text">保存</text>
   </view>
 </view>

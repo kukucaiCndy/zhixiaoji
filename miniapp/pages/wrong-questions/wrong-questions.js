@@ -1,7 +1,9 @@
 var knowledgeApi = require('../../services/knowledge-api');
+var theme = require('../../utils/theme');
 
 Page({
   data: {
+    theme: 'light',
     currentFilter: 'all',
     wrongQuestions: [],
     pendingCount: 0
@@ -10,7 +12,16 @@ Page({
   _allQuestions: [],
 
   onLoad() {
+    this.setData({ theme: theme.getEffectiveTheme() });
     this.loadWrongQuestions();
+  },
+
+  onShow() {
+    this.setData({ theme: theme.getEffectiveTheme() });
+  },
+
+  onThemeChange(effective) {
+    this.setData({ theme: effective });
   },
 
   loadWrongQuestions() {
