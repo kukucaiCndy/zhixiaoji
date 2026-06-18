@@ -1,10 +1,13 @@
-<view class="home-page">
+<view class="home-page" data-theme="{{theme}}">
+  <!-- 页面背景 -->
+  <image class="bg-page" src="/assets/images/{{theme}}/bg/bg_page.png" mode="aspectFill" />
+
   <!-- Header -->
   <view class="header">
-    <text class="title">知小记</text>
-    <text class="subtitle">准备好继续学习了吗？</text>
-    <view class="score-badge">
-      <text class="score-text">{{points || '1,280'}}</text>
+    <image class="header-bg" src="/assets/images/{{theme}}/bg/bg_navbar.png" mode="aspectFill" />
+    <view class="header-content">
+      <text class="title">知小记</text>
+      <text class="subtitle">准备好继续学习了吗？</text>
     </view>
   </view>
 
@@ -13,8 +16,8 @@
 
       <!-- Hero Card -->
       <view class="hero-card" bindtap="onContinueLearn">
-        <image class="bg-image" src="/assets/images/bg/bg_hero_card.png" mode="aspectFill" />
-        <view class="card-content">
+        <image class="card-bg" src="/assets/images/{{theme}}/bg/bg_hero_card.png" mode="aspectFill" />
+        <view class="hero-inner">
           <view class="hero-tag">
             <text>今日续学</text>
           </view>
@@ -24,45 +27,40 @@
             <text>继续学习</text>
           </view>
         </view>
+        <view class="hero-score">
+          <text class="hero-score-text">{{points || '1,280'}}</text>
+        </view>
       </view>
 
-      <!-- Quick Actions -->
+      <!-- Quick Actions — icons exported from Pencil design稿 -->
       <view class="quick-actions">
         <view class="action-item" bindtap="onChallenge">
-          <view class="action-icon-wrap">
-            <image class="action-icon" src="/assets/images/deco/deco_star.png" mode="aspectFit" />
-          </view>
+          <image class="action-icon" src="/assets/images/icons/qa_trophy.png" mode="aspectFit" />
           <text class="action-label">挑战</text>
         </view>
         <view class="action-item" bindtap="onStartReview">
-          <view class="action-icon-wrap">
-            <image class="action-icon" src="/assets/images/deco/deco_spiral.png" mode="aspectFit" />
-          </view>
+          <image class="action-icon" src="/assets/images/icons/qa_review.png" mode="aspectFit" />
           <text class="action-label">复习</text>
         </view>
         <view class="action-item" bindtap="onRankTap">
-          <view class="action-icon-wrap">
-            <image class="action-icon" src="/assets/images/deco/deco_circle.png" mode="aspectFit" />
-          </view>
+          <image class="action-icon" src="/assets/images/icons/qa_rank.png" mode="aspectFit" />
           <text class="action-label">排行</text>
         </view>
         <view class="action-item" bindtap="onAchievementTap">
-          <view class="action-icon-wrap">
-            <image class="action-icon" src="/assets/images/deco/deco_star.png" mode="aspectFit" />
-          </view>
+          <image class="action-icon" src="/assets/images/icons/qa_achievement.png" mode="aspectFit" />
           <text class="action-label">成就</text>
         </view>
       </view>
 
       <!-- Progress Section -->
       <view class="progress-section">
-        <image class="bg-image" src="/assets/images/bg/bg_progress_card.png" mode="aspectFill" />
-        <view class="section-content">
+        <image class="card-bg" src="/assets/images/{{theme}}/bg/bg_progress_card.png" mode="aspectFill" />
+        <view class="prog-inner">
           <view class="prog-header">
             <text class="prog-title">我的学习进度</text>
             <text class="prog-detail" bindtap="onViewDetail">详情 ›</text>
           </view>
-          <view class="prog-bar-track">
+          <view class="prog-bar">
             <view class="prog-bar-fill" style="width: {{overallPercent || 68}}%"></view>
           </view>
           <text class="prog-label">已完成 {{overallPercent || 68}}%</text>
@@ -91,11 +89,11 @@
         </view>
         <view class="rec-cards">
           <view wx:for="{{recommendations}}" wx:key="id" class="rec-card" bindtap="onRecommendTap" data-id="{{item.id}}">
-            <image class="bg-image" src="/assets/images/bg/bg_rec_card.png" mode="aspectFill" />
-            <view class="card-content">
+            <image class="card-bg" src="/assets/images/{{theme}}/bg/bg_rec_card.png" mode="aspectFill" />
+            <view class="rec-inner">
               <view class="rec-thumb">
                 <image wx:if="{{item.iconType === 'image'}}" class="rec-thumb-img" src="{{item.icon}}" mode="aspectFit" />
-                <text wx:else class="rec-thumb-icon">{{item.icon || '📘'}}</text>
+                <text wx:else class="rec-thumb-emoji">{{item.icon || '📘'}}</text>
               </view>
               <text class="rec-card-title">{{item.title}}</text>
               <text class="rec-card-desc">{{item.desc}}</text>
@@ -105,13 +103,13 @@
       </view>
 
       <!-- 装饰元素 -->
-      <image class="deco deco-wave-header" src="/assets/images/deco/deco_wave.png" mode="aspectFit" />
-      <image class="deco deco-circle-hero" src="/assets/images/deco/deco_circle.png" mode="aspectFit" />
-      <image class="deco deco-x-qa" src="/assets/images/deco/deco_sparkle.png" mode="aspectFit" />
-      <image class="deco deco-star-qa" src="/assets/images/deco/deco_star.png" mode="aspectFit" />
-      <image class="deco deco-dot-progress" src="/assets/images/deco/deco_dot.png" mode="aspectFit" />
-      <image class="deco deco-dot-qa" src="/assets/images/deco/deco_dot.png" mode="aspectFit" />
-      <image class="deco deco-wave-tab" src="/assets/images/deco/deco_wave.png" mode="aspectFit" />
+      <image class="deco deco-wave-header" src="/assets/images/{{theme}}/deco/deco_wave.png" mode="aspectFit" />
+      <image class="deco deco-circle-hero" src="/assets/images/{{theme}}/deco/deco_circle.png" mode="aspectFit" />
+      <image class="deco deco-x" src="/assets/images/{{theme}}/deco/deco_sparkle.png" mode="aspectFit" />
+      <image class="deco deco-star" src="/assets/images/{{theme}}/deco/deco_star.png" mode="aspectFit" />
+      <image class="deco deco-dot1" src="/assets/images/{{theme}}/deco/deco_dot.png" mode="aspectFit" />
+      <image class="deco deco-dot2" src="/assets/images/{{theme}}/deco/deco_dot.png" mode="aspectFit" />
+      <image class="deco deco-wave-bottom" src="/assets/images/{{theme}}/deco/deco_wave.png" mode="aspectFit" />
 
       <view class="bottom-placeholder"></view>
     </view>

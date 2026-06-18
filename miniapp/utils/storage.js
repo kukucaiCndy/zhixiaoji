@@ -153,6 +153,24 @@ function clearTokens() {
   removeSync(STORAGE_KEYS.REFRESH_TOKEN);
 }
 
+// ==================== 主题相关 ====================
+
+/**
+ * 获取用户设置的主题模式
+ * @returns {string} 'auto' | 'light' | 'dark'
+ */
+function getTheme() {
+  return getSync(STORAGE_KEYS.THEME);
+}
+
+/**
+ * 设置主题模式
+ * @param {string} mode 'auto' | 'light' | 'dark'
+ */
+function setTheme(mode) {
+  setSync(STORAGE_KEYS.THEME, mode);
+}
+
 // ==================== 用户信息相关 ====================
 
 /**
@@ -193,5 +211,7 @@ module.exports = {
   clearTokens,
   getUserInfo,
   setUserInfo,
-  clearUserInfo
+  clearUserInfo,
+  getTheme,
+  setTheme
 };

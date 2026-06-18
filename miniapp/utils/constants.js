@@ -30,6 +30,15 @@ module.exports = {
     REFRESH_TOKEN: 'refresh_token',
     USER_INFO: 'user_info',
     SYSTEM_INFO: 'system_info',
-    GUIDE_SHOWN: 'guide_shown'         // 是否展示过引导页
+    GUIDE_SHOWN: 'guide_shown',        // 是否展示过引导页
+    USER_PREFERENCES: 'user_preferences', // 用户兴趣偏好
+    THEME: 'theme'                     // 主题模式：light / dark / auto
+  },
+
+  // 主题模式
+  THEME_MODE: {
+    AUTO: 'auto',   // 跟随系统（默认）
+    LIGHT: 'light', // 强制浅色
+    DARK: 'dark'    // 强制深色
   }
 };

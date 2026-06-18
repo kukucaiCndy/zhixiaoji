@@ -1,0 +1,46 @@
+/* ============================================
+   知小记 · Dark 主题 CSS 变量
+   对应 design-system.md §2.6 / §12 [data-theme="dark"]
+   方案：暖调手绘 — 深褐暖底 + 提亮暖棕装饰
+   ============================================ */
+
+page[data-theme="dark"],
+[data-theme="dark"] {
+  /* 主色（保持品牌深蓝） */
+  --color-primary: #2D3E5F;
+  --color-primary-light: #4A6FA5;
+
+  /* 强调色（提亮暖棕） */
+  --color-accent: #D4C2A8;
+  --color-accent-light: #4A3D2A;
+
+  /* 中性色（深褐暖底） */
+  --color-bg: #1F1B16;
+  --color-card: #2A241D;
+  --color-surface: #332B22;
+  --color-text: #F4F2EF;
+  --color-text-secondary: #B5A99A;
+  --color-text-tertiary: #8A7E6E;
+  --color-divider: #3D3528;
+  --color-mask: rgba(0, 0, 0, 0.7);
+
+  /* 功能色（提亮以保证暗环境对比度） */
+  --color-success: #22C55E;
+  --color-warning: #FBBF24;
+  --color-danger: #F87171;
+  --color-score: #FBBF24;
+
+  /* 手绘装饰色 */
+  --color-doodle-sepia: #D4C2A8;
+  --color-doodle-gold: #FBBF24;
+
+  /* 渐变 */
+  --gradient-hero: linear-gradient(160deg, #2D3E5F 0%, #4A6FA5 100%);
+  --gradient-bg: linear-gradient(180deg, #1F1B16 0%, #2A241D 100%);
+
+  /* 阴影（加深） */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.40);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.50);
+  --shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.55);
+  --shadow-modal: 0 8px 24px rgba(0, 0, 0, 0.66);
+}

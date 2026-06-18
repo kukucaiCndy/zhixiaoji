@@ -1,5 +1,6 @@
 var authService = require('services/auth-service');
 var storage = require('utils/storage');
+var theme = require('utils/theme');
 
 /**
  * 解码 JWT 获取过期时间
@@ -34,13 +35,18 @@ function decodeJwt(token) {
 App({
   globalData: {
     userInfo: null,
-    systemInfo: null
+    systemInfo: null,
+    theme: 'auto',           // 用户设置的主题模式：auto/light/dark
+    effectiveTheme: 'light'  // 实际生效主题：light/dark
   },
 
   onLaunch() {
     var that = this;
     var systemInfo = wx.getSystemInfoSync();
     that.globalData.systemInfo = systemInfo;
+
+    // 初始化主题
+    theme.init(that);
 
     var token = storage.getToken();
     if (token) {

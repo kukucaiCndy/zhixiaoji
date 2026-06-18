@@ -1,0 +1,45 @@
+/* ============================================
+   知小记 · Light 主题 CSS 变量
+   对应 design-system.md §12 :root
+   ============================================ */
+
+page[data-theme="light"],
+[data-theme="light"] {
+  /* 主色 */
+  --color-primary: #2D3E5F;
+  --color-primary-light: #384F84;
+
+  /* 强调色 */
+  --color-accent: #C8B496;
+  --color-accent-light: #FEF3C7;
+
+  /* 中性色 */
+  --color-bg: #F4F2EF;
+  --color-card: #FFFFFF;
+  --color-surface: #E8EDF5;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #777777;
+  --color-text-tertiary: #BBBBBB;
+  --color-divider: #E7E5E4;
+  --color-mask: rgba(0, 0, 0, 0.5);
+
+  /* 功能色 */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #DC2626;
+  --color-score: #F59E0B;
+
+  /* 手绘装饰色 */
+  --color-doodle-sepia: #C8B496;
+  --color-doodle-gold: #F59E0B;
+
+  /* 渐变 */
+  --gradient-hero: linear-gradient(160deg, #2D3E5F 0%, #384F84 100%);
+  --gradient-bg: linear-gradient(180deg, #F4F2EF 0%, #FEF3C7 100%);
+
+  /* 阴影 */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 6px 20px rgba(45, 62, 95, 0.15);
+  --shadow-modal: 0 8px 24px rgba(0, 0, 0, 0.12);
+}

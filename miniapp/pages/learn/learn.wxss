@@ -1,298 +1,295 @@
 .learn-page {
+  position: relative;
+  width: 100vw;
   min-height: 100vh;
-  background: #F8FAFC;
   display: flex;
   flex-direction: column;
 }
 
-/* 导航栏 */
-.nav-bar {
-  display: flex;
-  align-items: center;
-  height: 88rpx;
-  padding: 0 32rpx;
-  background: #FFFFFF;
-  border-bottom: 2rpx solid #E2E8F0;
+.bg-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-.nav-title {
-  font-size: 36rpx;
-  font-weight: 600;
-  color: #1E293B;
+.card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* 搜索栏 */
-.search-section {
-  padding: 24rpx 32rpx;
-  background: #FFFFFF;
-}
-
-.search-bar {
-  display: flex;
-  align-items: center;
-  height: 72rpx;
-  padding: 0 32rpx;
-  border-radius: 36rpx;
-  background: #F1F5F9;
-}
-
-.search-icon {
-  font-size: 28rpx;
-  opacity: 0.4;
-  margin-right: 16rpx;
-}
-
-.search-placeholder {
-  font-size: 28rpx;
-  color: #94A3B8;
-}
-
-/* 滚动区域 */
 .scroll-content {
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .scroll-inner {
-  padding: 0 32rpx;
+  position: relative;
+  padding: 0 48rpx;
 }
 
-/* 用户信息卡片 */
-.profile-banner {
-  margin-top: 32rpx;
-  padding: 40rpx 40rpx 0 40rpx;
-  border-radius: 32rpx;
-  background: linear-gradient(135deg, #4F46E5, #06B6D4);
+.bottom-placeholder { height: 168rpx; }
+
+/* ===== Header ===== */
+.header {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 192rpx;
+  overflow: hidden;
 }
 
-.profile-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24rpx;
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-.profile-left {
-  display: flex;
-  align-items: center;
-}
-
-.profile-avatar {
-  width: 96rpx;
-  height: 96rpx;
-  border-radius: 48rpx;
-  background: rgba(255, 255, 255, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.profile-avatar text {
-  font-size: 48rpx;
-}
-
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  margin-left: 24rpx;
-}
-
-.profile-name {
-  font-size: 32rpx;
-  font-weight: 600;
-  color: #FFFFFF;
-}
-
-.profile-level {
-  font-size: 24rpx;
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 4rpx;
-}
-
-.profile-streak {
-  display: flex;
-  align-items: center;
-}
-
-.streak-icon {
-  font-size: 40rpx;
-  margin-right: 8rpx;
-}
-
-.streak-text {
-  font-size: 28rpx;
-  font-weight: 500;
-  color: #FFFFFF;
-}
-
-/* 统计数据行 */
-.profile-stats {
-  display: flex;
-  justify-content: space-between;
-  padding: 24rpx 0;
-  margin-top: 24rpx;
-  border-top: 2rpx solid rgba(255, 255, 255, 0.15);
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.stat-value {
-  font-size: 40rpx;
-  font-weight: 700;
-  color: #FFFFFF;
-}
-
-.stat-label {
-  font-size: 22rpx;
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 4rpx;
-}
-
-/* 分区标题 */
-.section-header {
-  display: flex;
-  align-items: center;
-  height: 66rpx;
-  margin-top: 24rpx;
-}
-
-.section-title {
-  font-size: 32rpx;
-  font-weight: 600;
-  color: #1E293B;
-}
-
-/* 分类网格 */
-.category-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.category-card {
-  width: 331rpx;
-  margin-bottom: 24rpx;
-  padding: 40rpx 32rpx;
-  border-radius: 32rpx;
-  background: #FFFFFF;
-  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.header-content {
+  position: relative;
+  z-index: 1;
+  padding: 54rpx 48rpx 0;
   box-sizing: border-box;
 }
 
-.category-icon-wrap {
-  width: 112rpx;
-  height: 112rpx;
+.title {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 48rpx;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.subtitle {
+  display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  margin-top: 12rpx;
+}
+
+/* ===== Weekly Card ===== */
+.weekly-card {
+  position: relative;
+  width: 100%;
+  height: 320rpx;
+  margin-top: 28rpx;
   border-radius: 32rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24rpx;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
-.category-icon {
-  font-size: 56rpx;
+.weekly-inner {
+  position: relative;
+  z-index: 1;
+  padding: 36rpx 40rpx;
+  height: 100%;
+  box-sizing: border-box;
 }
 
-.category-icon-img {
-  width: 56rpx;
-  height: 56rpx;
-}
-
-.category-name {
+.weekly-title {
+  display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 30rpx;
   font-weight: 600;
-  color: #1E293B;
-  margin-bottom: 8rpx;
+  color: var(--color-text);
+  margin-bottom: 40rpx;
 }
 
-.category-desc {
-  font-size: 24rpx;
-  color: #94A3B8;
-  text-align: center;
-  margin-bottom: 20rpx;
-  line-height: 1.4;
-  min-height: 34rpx;
+.week-days {
+  display: flex;
+  justify-content: space-between;
 }
 
-.category-progress-bar {
+.day-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+  width: 64rpx;
+}
+
+.day-dot {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  background: var(--color-divider);
+}
+
+.day-dot--active { background: var(--color-primary); }
+.day-dot--today { background: var(--color-accent); }
+
+.day-label {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 22rpx;
+  color: var(--color-text-secondary);
+}
+
+/* ===== Section Title ===== */
+.section-title {
+  display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+/* ===== Course Card ===== */
+.course-card {
+  position: relative;
   width: 100%;
-  height: 8rpx;
-  border-radius: 4rpx;
-  background: #F1F5F9;
+  height: 160rpx;
+  margin-bottom: 24rpx;
+  border-radius: 28rpx;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
-.category-progress-fill {
-  height: 100%;
-  border-radius: 4rpx;
-  background: linear-gradient(90deg, #4F46E5, #06B6D4);
-}
-
-/* 继续学习卡片 */
-.continue-card {
+.course-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
-  padding: 32rpx;
-  border-radius: 32rpx;
-  background: #FFFFFF;
-  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.06);
-  margin-bottom: 24rpx;
+  padding: 0 32rpx;
+  height: 100%;
+  box-sizing: border-box;
 }
 
-.continue-icon-wrap {
-  width: 88rpx;
-  height: 88rpx;
+.course-icon {
+  width: 96rpx;
+  height: 96rpx;
   border-radius: 24rpx;
-  background: #EEF2FF;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-right: 24rpx;
 }
 
-.continue-icon {
-  font-size: 44rpx;
+/* 课程图标背景色（原内联 style 改为类名，支持主题切换）*/
+.course-icon--0 { background: var(--color-surface); }
+.course-icon--1 { background: var(--color-accent-light); }
+.course-icon--2 { background: var(--color-divider); }
+.course-icon--3 { background: var(--color-success); opacity: 0.15; }
+.course-icon--4 { background: var(--color-warning); opacity: 0.15; }
+
+.course-icon-img {
+  width: 48rpx;
+  height: 48rpx;
 }
 
-.continue-info {
+.course-info {
   flex: 1;
-  min-width: 0;
+  margin-left: 24rpx;
 }
 
-.continue-title {
+.course-name {
+  display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 28rpx;
   font-weight: 600;
-  color: #1E293B;
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  color: var(--color-text);
 }
 
-.continue-desc {
+.course-progress {
+  display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 24rpx;
-  color: #94A3B8;
-  margin-top: 4rpx;
-  display: block;
+  color: var(--color-text-secondary);
+  margin-top: 8rpx;
 }
 
-.continue-arrow {
-  font-size: 32rpx;
-  color: #1E293B;
-  opacity: 0.3;
+.course-percent {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--color-primary-light);
   flex-shrink: 0;
   margin-left: 16rpx;
 }
 
-/* 底部占位 */
-.bottom-placeholder {
-  height: 160rpx;
+/* ===== Browse Card ===== */
+.browse-card {
+  position: relative;
+  width: 100%;
+  height: 144rpx;
+  margin-top: 56rpx;
+  border-radius: 28rpx;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
+
+.browse-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.browse-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.browse-icon image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.browse-info {
+  flex: 1;
+  margin-left: 24rpx;
+}
+
+.browse-title {
+  display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.browse-desc {
+  display: block;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  margin-top: 8rpx;
+}
+
+.browse-arrow {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 40rpx;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+/* ===== 装饰 ===== */
+.deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.deco-wave   { top: 120rpx; right: 30rpx; width: 40rpx; height: 12rpx; }
+.deco-circle { top: 400rpx; left: 80rpx; width: 16rpx; height: 16rpx; }
+.deco-star   { top: 440rpx; right: 70rpx; width: 20rpx; height: 20rpx; }
+.deco-dot    { top: 1188rpx; left: 120rpx; width: 10rpx; height: 10rpx; }

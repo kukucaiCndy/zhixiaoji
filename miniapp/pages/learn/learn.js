@@ -1,98 +1,75 @@
 var knowledgeApi = require('../../services/knowledge-api');
-var { decorateIcon } = require('../../utils/icon-helper');
-
-var CATEGORY_BG_COLORS = ['#EEF2FF', '#ECFEFF', '#FEF3C7', '#DCFCE7', '#F3E8FF', '#FCE7F3', '#FFF7ED', '#E0F2FE', '#F0FDF4', '#FEF2F2'];
+var theme = require('../../utils/theme');
 
 Page({
   data: {
-    userName: '小明同学',
-    userLevel: 'Lv.12 编程学徒',
-    streakDays: 15,
-    learnedCards: 128,
-    accuracy: 86,
-    points: 2560,
-    categories: [],
-    continueLearning: null
+    theme: 'light',
+    weekDays: [],
+    courses: []
   },
 
   onLoad: function () {
-    this.loadCategories();
+    this.setData({ theme: theme.getEffectiveTheme() });
+    this.initWeekDays();
+    this.loadData();
   },
 
   onShow: function () {
-    // 每次显示时刷新数据
-    this.loadCategories();
+    this.setData({ theme: theme.getEffectiveTheme() });
+    this.loadData();
   },
 
-  loadCategories: function () {
+  onThemeChange: function (effective) {
+    this.setData({ theme: effective });
+  },
+
+  initWeekDays: function () {
+    var labels = ['一', '二', '三', '四', '五', '六', '日'];
+    var today = new Date().getDay(); // 0=Sun, 1=Mon...
+    var todayIndex = today === 0 ? 6 : today - 1; // Make Mon=0
+    var days = [];
+    for (var i = 0; i < 7; i++) {
+      days.push({
+        label: labels[i],
+        active: i < todayIndex,
+        today: i === todayIndex
+      });
+    }
+    this.setData({ weekDays: days });
+  },
+
+  loadData: function () {
     var self = this;
     knowledgeApi.listCategories({ status: 'visible' }).then(function (categories) {
-      var processed = (categories || []).map(function (cat, i) {
-        var item = {
+      var courses = (categories || []).map(function (cat, i) {
+        return {
           id: cat.id,
           name: cat.name,
           icon: cat.icon || '📚',
-          description: cat.description || '',
-          bgColor: CATEGORY_BG_COLORS[i % CATEGORY_BG_COLORS.length],
-          chapterCount: 0,
-          sectionCount: 0,
-          doneCount: 0,
-          progressPercent: 0
+          iconBg: i % 5,
+          currentChapter: cat.doneCount ? cat.doneCount + 1 : 1,
+          totalChapters: cat.chapterCount || 8,
+          percent: cat.progressPercent || Math.floor(Math.random() * 60 + 20)
         };
-        decorateIcon(item, '📚');
-        return item;
-      });
-      self.setData({ categories: processed });
-      // 加载继续学习数据
-      self.loadContinueLearning();
+      }).slice(0, 3);
+      self.setData({ courses: courses });
     }).catch(function (err) {
-      console.error('[Learn] Failed to load categories:', err);
+      console.error('[Learn] loadData failed:', err);
     });
   },
 
-  loadContinueLearning: function () {
-    var self = this;
-    knowledgeApi.getRecommendations().then(function (list) {
-      if (list && list.length > 0) {
-        var item = list[0];
-        self.setData({
-          continueLearning: {
-            icon: item.icon || '🐍',
-            title: item.title || '继续学习',
-            percent: 60,
-            nextSection: 3,
-            chapterId: item.id || ''
-          }
-        });
-      }
-    }).catch(function (err) {
-      console.log('[Learn] Failed to load continue learning:', err);
-    });
+  onCourseTap: function (e) {
+    var id = e.currentTarget.dataset.id;
+    var name = e.currentTarget.dataset.name || '';
+    if (!id) return;
+    wx.navigateTo({ url: '/pages/learn/categories/categories?id=' + id + '&name=' + encodeURIComponent(name) });
   },
 
-  onSearch: function () {
-    wx.showToast({ title: '搜索功能开发中', icon: 'none' });
+  onBrowseAll: function () {
+    wx.navigateTo({ url: '/pages/learn/categories/categories' });
   },
 
-  onCategoryTap: function (e) {
-    var category = e.currentTarget.dataset.category;
-    if (!category || !category.id) return;
-    wx.navigateTo({
-      url: '/pages/learn/categories/categories?id=' + category.id + '&name=' + encodeURIComponent(category.name)
-    });
-  },
-
-  onContinueTap: function () {
-    var item = this.data.continueLearning;
-    if (!item) return;
-    if (item.chapterId) {
-      wx.navigateTo({
-        url: '/pages/learn/knowledge-chapters/knowledge-chapters?id=' + item.chapterId
-      });
-    }
-  },
-
-  onTabChange: function (e) {
+  onTabChange: function () {
     // tab-bar 组件自动处理切换
   }
 });
