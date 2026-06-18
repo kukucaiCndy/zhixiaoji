@@ -1,9 +1,9 @@
 <view class="nav-bar">
-  <image class="nav-bg" src="/assets/images/bg/bg_navbar.png" mode="aspectFill" />
+  <image class="nav-bg" src="/assets/images/{{theme}}/bg/bg_navbar.png" mode="aspectFill" />
   <image
     wx:if="{{showBack}}"
     class="nav-arrow"
-    src="/assets/images/deco/deco_back_arrow.png"
+    src="/assets/images/{{theme}}/deco/deco_back_arrow.png"
     mode="aspectFit"
     bindtap="onBackTap"
   />
